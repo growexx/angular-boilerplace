@@ -1,0 +1,33 @@
+<div class="fv-row mb-10 fv-plugins-icon-container">
+    <label for="{{ inputArray.id }}" class="{{ inputArray.labelClasses }}">
+      {{ inputArray.label }}:
+    </label>
+  <input
+    id="{{ inputArray.id }}"
+    type="{{ inputArray.type }}"
+    class="{{ inputArray.classes }}"
+    required
+  />
+  <!-- <div
+    *ngIf="
+      loginForm.get('email')?.invalid &&
+      loginForm.get('email')?.errors &&
+      (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+    "
+  >
+    <small
+      class="text-danger"
+      *ngIf="loginForm.get('email')?.hasError('required')"
+    >
+      This field is required.
+    </small>
+    <small
+      class="text-danger"
+      *ngIf="loginForm.get('email')?.hasError('minlength')"
+    >
+      The minimum length for this field is
+      {{loginForm.get('email')?.errors?.['minlength'].requiredLength}}
+      characters.
+    </small>
+  </div> -->
+</div>

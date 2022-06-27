@@ -1,0 +1,112 @@
+<div class="d-flex flex-column flex-lg-row-fluid py-10">
+  <div class="d-flex flex-center flex-column flex-column-fluid">
+    <div class="w-lg-500px p-10 p-lg-15 mx-auto">
+      <form [formGroup]="loginForm" class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" id="sign_in_form" action="#">
+        <div class="text-center mb-10">
+          <h1 class="text-dark mb-3 form-title">Sign In to Growexx</h1>
+          <div class="text-gray-400 fw-bold fs-4">New Here? 
+          <a href="/sign-up" class="link-primary fw-bolder">Create an Account</a></div>
+        </div>
+        <!-- <div *ngFor="let item of loginFormFields">
+          <app-input [inputArray]="item"></app-input>
+        </div> -->
+        <div class="fv-row mb-10 fv-plugins-icon-container">
+          <label for="email" class="form-label fs-6 fw-bolder text-dark">
+            Email:
+          </label>
+        <input
+          id="email"
+          type="email"
+          class="form-control form-control-lg form-control-solid"
+          formControlName="email"
+          required
+        />
+        <div
+          *ngIf="
+            loginForm.get('email')?.invalid &&
+            loginForm.get('email')?.errors &&
+            (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="loginForm.get('email')?.hasError('required')"
+          >
+            This field is required.
+          </small>
+          <small
+          class="text-danger"
+          *ngIf="loginForm.get('email')?.hasError('pattern')">
+            Please enter valid email address!
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="loginForm.get('email')?.hasError('minlength')">
+            The minimum length for this field is
+            {{loginForm.get('email')?.errors?.['minlength'].requiredLength}}
+            characters.
+          </small>
+        </div>
+      </div>
+      <div class="fv-row mb-10 fv-plugins-icon-container">
+        <div class="d-flex flex-stack mb-2">
+          <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
+          <a href="/password-reset" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+        </div>
+      <input
+        id="password"
+        type="password"
+        class="form-control form-control-lg form-control-solid"
+        formControlName="password"
+        required
+      />
+      <div
+        *ngIf="
+          loginForm.get('password')?.invalid &&
+          loginForm.get('password')?.errors
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="loginForm.get('password')?.hasError('required')"
+        >
+          This field is required.
+        </small>
+        <small
+          class="text-danger"
+          *ngIf="loginForm.get('password')?.hasError('pattern')">
+            Please enter valid password!
+          </small>
+        <small
+          class="text-danger"
+          *ngIf="loginForm.get('password')?.hasError('minlength')">
+          The minimum length for this field is
+          {{loginForm.get('password')?.errors?.['minlength'].requiredLength}}
+          characters.
+        </small>
+      </div>
+    </div>
+        <!-- <div class="fv-row mb-10 fv-plugins-icon-container">
+          <label class="form-label fs-6 fw-bolder text-dark">Email</label>
+          <input class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off">
+          <div class="fv-plugins-message-container invalid-feedback"></div>
+        </div>
+        <div class="fv-row mb-10 fv-plugins-icon-container">
+          <div class="d-flex flex-stack mb-2">
+            <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
+            <a href="/password-reset" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+          </div>
+          <input class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off">
+          <div class="fv-plugins-message-container invalid-feedback"></div>
+        </div> -->
+        <div class="text-center">
+          <app-button [buttonsArray]="submitButton" (submitFormEvent)="onLogin()"></app-button>
+          <div class="text-center text-muted text-uppercase fw-bolder mb-5">or</div>
+          <app-button [buttonsArray]="item" *ngFor="let item of buttons"></app-button>
+        </div>
+      <div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

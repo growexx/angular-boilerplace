@@ -1,0 +1,10 @@
+<button href="buttonsArray.URL" class="{{buttonsArray.btnClasses}}" (click)="submitForm()">
+  <img
+    alt="Logo"
+    src="{{buttonsArray.imgURL}}"
+    class="{{buttonsArray.imgClasses}}"
+    *ngIf="buttonsArray.imgURL"
+  />
+  <i class="fa-brands fa-google" *ngIf="buttonsArray.iconClasses"></i>
+  {{buttonsArray.text}}
+</button>
