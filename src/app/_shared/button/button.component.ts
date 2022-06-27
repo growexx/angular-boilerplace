@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ButtonComponent implements OnInit {
   
   @Input() buttonsArray:any;
+  @Input() isDisabled:any;
   @Output() submitFormEvent = new EventEmitter<string>();
   constructor() {}
 

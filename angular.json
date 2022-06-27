@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PO": {
+    "angular-boilerplace": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/po",
+            "outputPath": "dist/angular-boilerplace",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "PO:build:production"
+              "browserTarget": "angular-boilerplace:build:production"
             },
             "development": {
-              "browserTarget": "PO:build:development"
+              "browserTarget": "angular-boilerplace:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,12 +83,13 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "PO:build"
+            "browserTarget": "angular-boilerplace:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "codeCoverage": true,
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
@@ -107,5 +108,5 @@
       }
     }
   },
-  "defaultProject": "PO"
+  "defaultProject": "Angular Boiler Plate"
 }

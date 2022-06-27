@@ -1,0 +1,16 @@
+<button
+  [disabled]="isDisabled"
+  class="{{ buttonsArray?.btnClasses }}"
+  (click)="submitForm()"
+  id="{{ buttonsArray?.id }}"
+>
+  <img
+    alt="{{ buttonsArray.text }}"
+    src="{{ buttonsArray.imgURL }}"
+    class="{{ buttonsArray.imgClasses }}"
+    *ngIf="buttonsArray?.imgURL"
+  />
+  <em class="{{buttonsArray?.iconClasses}}" *ngIf="buttonsArray?.iconClasses && buttonsArray?.iconPlace === 'before'"></em>
+  {{ buttonsArray?.text }}
+  <em class="{{buttonsArray?.iconClasses}}" *ngIf="buttonsArray?.iconClasses && buttonsArray?.iconPlace === 'after'"></em>
+</button>

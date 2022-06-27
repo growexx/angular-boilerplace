@@ -22,4 +22,8 @@ describe('ButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('raises the submitFormEvent event when clicked', () => {
+    component.submitFormEvent.subscribe((res) => expect(res).toBeTruthy);
+    component.submitForm();
+  });
 });
