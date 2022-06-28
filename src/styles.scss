@@ -2,7 +2,7 @@
 
 // /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
-@import "./assets/scss/colors.scss";
+@import "./assets/styles/variables/colors";
 @import "./node_modules/8-point-grid/scss/8-point-grid.scss";
 
 //? Theme style
@@ -48406,4 +48406,4 @@ body {
 }
 
 
-@import '../src/assets/scss/style'
+@import '../src/assets/styles/style'
