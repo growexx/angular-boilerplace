@@ -3,8 +3,18 @@
 .ml-275 {
     margin-left: 275px;
 }
-.right-wrapper{
-    height: 100%;
-    background-color: $bs-white;
-    margin-left: 275px;
+
+.right-wrapper {
+    margin-left: 200px;
+    @media (max-width: 1199px) {
+        margin-left: 200px;
+    }
+    @media (max-width:991px) {
+        margin-left: 80px;
+    }
+    .right-wrapper {
+        height: 100%;
+        background-color: $bs-white;
+        margin-left: 275px;
+    }
 }

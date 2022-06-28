@@ -16,4 +16,26 @@
     position: fixed;
     top: 0;
     bottom: 0;
+    @media(max-width:1199px){
+        width: 200px;
+    }
+    @media(max-width:991px){
+        width: 80px;
+        .accordion{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .menu-title, .item,.fw-bolder   {
+            display: none !important;
+        }
+        .fas{
+            display: block !important;
+        }
+        .bullet{
+            &.bullet-dot{
+                display: none !important;
+            }
+        }
+    }
 }
