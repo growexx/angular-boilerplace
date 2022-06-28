@@ -1,6 +1,20 @@
 .auth-content {
     margin-left: 600px;
-    @media(max-width: 1199px){
+    @media(max-width: breakpoint(screen-lg-max)){
         margin-left: 0px;
+    }
+}
+
+.right-wrapper {
+    margin-left: 200px;
+    height: 100%;
+    background-color: $bs-white;
+
+    @media (max-width: breakpoint(screen-lg-max)) {
+        margin-left: 200px;
+    }
+
+    @media (max-width: breakpoint(screen-md-max)) {
+        margin-left: 80px;
     }
 }

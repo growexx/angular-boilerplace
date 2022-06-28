@@ -1,23 +1,35 @@
 /**=== Index==========
-===  1. Global
-===
-===
-===
-===
-====*/
+//  1. Global
+//  2.Variables
+//  3.Components
+//  4.Shared
+//
+======================*/
 
 
-/*====== 1. Global =======*/
+/* =============
+// 1. Global 
+================*/
 
 @import './global/common';
+@import './functions';
 
 
 
-/*====== 2. Colors =======*/
+/* =============
+// 2. Variables
+================*/
 @import './variables/colors';
+// @import './variables/breakpoints';
 
 
-/*====== 3. Auth =======*/
-@import './components/auth/auth'
+/* =============
+// 3. Components
+================*/
+@import './components/auth/auth';
 
 
+/* =============
+// 4.Shared
+================*/
+@import './shared/sidebar/sidebar'
