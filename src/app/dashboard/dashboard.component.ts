@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  isOpen:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleSidebar(){
+    this.isOpen = !this.isOpen;
   }
 
 }

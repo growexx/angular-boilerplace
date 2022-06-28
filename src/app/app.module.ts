@@ -6,25 +6,28 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthsidebarComponent } from './includes/authsidebar/authsidebar.component';
-import { ButtonComponent } from './_shared/button/button.component';
+// import { ButtonComponent } from './shared/button/button.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './auth/register/register.component';
-import { PasswordStrengthBarComponent } from './_shared/password-strength-bar/password-strength-bar.component';
+// import { PasswordStrengthBarComponent } from './shared/password-strength-bar/password-strength-bar.component';
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 import { SweetAlert2LoaderService, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SharedModule } from './shared/shared.module';
+import { RootComponent } from './root/root.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AuthsidebarComponent,
-    ButtonComponent,
+    // ButtonComponent,
     RegisterComponent,
-    PasswordStrengthBarComponent,
+    // PasswordStrengthBarComponent,
     ResetpasswordComponent,
     DashboardComponent,
+    RootComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedModule,
     SweetAlert2Module.forRoot()
   ],
   providers: [],

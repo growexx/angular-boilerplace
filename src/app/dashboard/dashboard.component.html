@@ -1,75 +1,94 @@
 <div class="d-flex flex-column flex-lg-row flex-column-fluid root-container">
-  <div
-    class="d-flex flex-column flex-lg-row-auto w-xl-275px positon-xl-relative"
-    style="background-color: #1e1e2d">
-    
-    <div class="d-flex flex-row text-light p-5 mb-5" style="background-color: #1e1e27;">
-        <img src="assets/growexx-logo-without-text.png" alt="" class="w-25"> 
-        <span class="fs-xl-2 ps-5 pt-5 fw-bolder">Growexx</span>
-    </div>
+    <div class="d-flex flex-column flex-lg-row-auto w-xl-275px positon-xl-relative sidebar" style="background-color: #1e1e2d"
+        ngClass="{{!isOpen ? 'w-xl-275': 'w-80'}}">
 
-    <div class="d-flex flex-row text-light">
-        <ngb-accordion [closeOthers]="true" activeIds="static-1" class="w-100" style="background-color: #1e1e27;">
-            <ngb-panel id="static-1">
-                <ng-template ngbPanelTitle>
-                    <em class="fas fa-th-large me-3"></em>
-                    <span class="">Dashboards</span>
-                </ng-template>
-                <ng-template ngbPanelContent>
-                    <div class="menu-item">
-                        <a class="menu-link active" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Multipurpose</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">eCommerce</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Projects</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Online Courses</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Marketing</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="#resetPasswordSwal">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Bidding</span>
-                        </a>
-                    </div>
-                </ng-template>
-            </ngb-panel>
-        </ngb-accordion>
-    </div>
+        <div class="d-flex flex-row text-light p-5 mb-5 justify-content-between align-items-center"
+            style="background-color: #1a1a27;">
+            <div class="center" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">
+                <img src="assets/growexx-logo-without-text.png" alt="" class="w-25">
+                <span class="fs-xl-2 ps-5 pt-5 fw-bolder">Growexx</span>
+            </div>
+            <div>
+                <a (click)="toggleSidebar()">
+                    <img src="assets/images/arrow.png" alt="arrow" width="24" height="24"
+                        ngClass="{{!isOpen ? 'rotate-0' : 'rotate-180'}}">
+                </a>
+            </div>
+        </div>
 
-  </div>
-  <div class="d-flex flex-column flex-lg-row-fluid justify-content-center align-items-center py-10">
-  </div>
+        <div class="d-flex flex-row text-light">
+            <ngb-accordion [closeOthers]="true" activeIds="static-1" class="w-100 panel-accordion"
+                style="background-color: #1a1a27;" ngClass="{{!isOpen ? 'none' : 'center'}}">
+                <ngb-panel id="static-1">
+                    <ng-template ngbPanelTitle>
+                        <div ngClass="{{!isOpen ? 'd-flex' : 'center'}}">
+                            <em class="fas fa-th-large me-3"></em>
+                            <span ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Dashboards</span>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <div class="menu-item">
+                            <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link active" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
+                                    <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
+                                </span>
+                                <span class="menu-title"
+                                    ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Multipurpose</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
+                                    <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
+                                </span>
+                                <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">eCommerce</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
+                                    <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
+                                </span>
+                                <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Projects</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
+                                    <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
+                                </span>
+                                <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Online
+                                    Courses</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
+                                    <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
+                                </span>
+                                <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Marketing</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#resetPasswordSwal">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
+                                    <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
+                                </span>
+                                <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Bidding</span>
+                            </a>
+                        </div>
+                    </ng-template>
+                </ngb-panel>
+            </ngb-accordion>
+        </div>
+
+    </div>
+    <div class="d-flex flex-column flex-lg-row-fluid justify-content-center align-items-center py-10">
+    </div>
 </div>
