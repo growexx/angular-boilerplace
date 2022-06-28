@@ -1,13 +1,8 @@
 <div class="d-flex flex-column flex-lg-row flex-column-fluid root-container">
-  <div
-    class="d-flex flex-column flex-lg-row-auto w-xl-600px positon-xl-relative"
-    style="background-color: #f2c98a"
-  >
+  <div class="d-flex flex-column flex-lg-row-auto w-xl-600px positon-xl-relative">
     <app-authsidebar></app-authsidebar>
   </div>
-  <div
-    class="d-flex flex-column flex-lg-row-fluid justify-content-center align-items-center py-10"
-  >
+  <div class="d-flex flex-column flex-lg-row-fluid justify-content-center align-items-center py-10 auth-content">
     <div class="d-flex flex-column flex-lg-row-fluid py-10">
       <div class="d-flex flex-center flex-column flex-column-fluid">
         <div class="w-lg-500px p-10 p-lg-15 mx-auto">
@@ -18,50 +13,25 @@
               <a routerLink="/" class="link-primary fw-bolder">Sign in here</a>
             </div>
           </div>
-          <form
-            [formGroup]="registerForm"
-            class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework"
-            id="sign_in_form"
-            action="#"
-          >
+          <form [formGroup]="registerForm" class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework"
+            id="sign_in_form" action="#">
             <div class="row fv-row mb-7 fv-plugins-icon-container">
               <!--begin::Col-->
               <div class="col-xl-6">
-                <label
-                  for="firstName"
-                  class="form-label fs-6 fw-bolder text-dark"
-                  >First Name</label
-                >
-                <input
-                  id="firstName"
-                  type="text"
-                  class="form-control form-control-lg form-control-solid"
-                  formControlName="firstName"
-                  autocomplete="off"
-                  required
-                />
-                <div
-                  *ngIf="
+                <label for="firstName" class="form-label fs-6 fw-bolder text-dark">First Name</label>
+                <input id="firstName" type="text" class="form-control form-control-lg form-control-solid"
+                  formControlName="firstName" autocomplete="off" required />
+                <div *ngIf="
                     registerForm.get('firstName')?.invalid &&
                     registerForm.get('firstName')?.errors
-                  "
-                >
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('firstName')?.hasError('required')"
-                  >
+                  ">
+                  <small class="text-danger" *ngIf="registerForm.get('firstName')?.hasError('required')">
                     This field is required.
                   </small>
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('firstName')?.hasError('pattern')"
-                  >
+                  <small class="text-danger" *ngIf="registerForm.get('firstName')?.hasError('pattern')">
                     Please enter valid First Name!
                   </small>
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('firstName')?.hasError('minlength')"
-                  >
+                  <small class="text-danger" *ngIf="registerForm.get('firstName')?.hasError('minlength')">
                     The minimum length for this field is
                     {{registerForm.get('firstName')?.errors?.['minlength'].requiredLength}}
                     characters.
@@ -71,41 +41,20 @@
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-xl-6">
-                <label
-                  for="lastName"
-                  class="form-label fs-6 fw-bolder text-dark"
-                  >Last Name</label
-                >
-                <input
-                  id="lastName"
-                  type="text"
-                  class="form-control form-control-lg form-control-solid"
-                  formControlName="lastName"
-                  autocomplete="off"
-                  required
-                />
-                <div
-                  *ngIf="
+                <label for="lastName" class="form-label fs-6 fw-bolder text-dark">Last Name</label>
+                <input id="lastName" type="text" class="form-control form-control-lg form-control-solid"
+                  formControlName="lastName" autocomplete="off" required />
+                <div *ngIf="
                     registerForm.get('lastName')?.invalid &&
                     registerForm.get('lastName')?.errors
-                  "
-                >
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('lastName')?.hasError('required')"
-                  >
+                  ">
+                  <small class="text-danger" *ngIf="registerForm.get('lastName')?.hasError('required')">
                     This field is required.
                   </small>
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('lastName')?.hasError('pattern')"
-                  >
+                  <small class="text-danger" *ngIf="registerForm.get('lastName')?.hasError('pattern')">
                     Please enter valid Last Name!
                   </small>
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('lastName')?.hasError('minlength')"
-                  >
+                  <small class="text-danger" *ngIf="registerForm.get('lastName')?.hasError('minlength')">
                     The minimum length for this field is
                     {{registerForm.get('lastName')?.errors?.['minlength'].requiredLength}}
                     characters.
@@ -118,35 +67,19 @@
               <label for="email" class="form-label fs-6 fw-bolder text-dark">
                 Email:
               </label>
-              <input
-                id="email"
-                type="email"
-                class="form-control form-control-lg form-control-solid"
-                formControlName="email"
-                required
-              />
-              <div
-                *ngIf="
+              <input id="email" type="email" class="form-control form-control-lg form-control-solid"
+                formControlName="email" required />
+              <div *ngIf="
                   registerForm.get('email')?.invalid &&
                   registerForm.get('email')?.errors
-                "
-              >
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm.get('email')?.hasError('required')"
-                >
+                ">
+                <small class="text-danger" *ngIf="registerForm.get('email')?.hasError('required')">
                   This field is required.
                 </small>
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm.get('email')?.hasError('pattern')"
-                >
+                <small class="text-danger" *ngIf="registerForm.get('email')?.hasError('pattern')">
                   Please enter valid email address!
                 </small>
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm.get('email')?.hasError('minlength')"
-                >
+                <small class="text-danger" *ngIf="registerForm.get('email')?.hasError('minlength')">
                   The minimum length for this field is
                   {{registerForm.get('email')?.errors?.['minlength'].requiredLength}}
                   characters.
@@ -155,131 +88,75 @@
             </div>
             <div class="fv-row mb-10 fv-plugins-icon-container">
               <div class="d-flex flex-stack mb-2">
-                <label class="form-label fw-bolder text-dark fs-6 mb-0"
-                  >Password</label
-                >
+                <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
               </div>
-              <input
-                id="password"
-                type="password"
-                class="form-control form-control-lg form-control-solid"
-                formControlName="password"
-                required
-              />
-              <app-password-strength-bar
-                id="password-strength-bar"
-                [passwordToCheck]="registerForm.value.password"
-              ></app-password-strength-bar>
+              <input id="password" type="password" class="form-control form-control-lg form-control-solid"
+                formControlName="password" required />
+              <app-password-strength-bar id="password-strength-bar" [passwordToCheck]="registerForm.value.password">
+              </app-password-strength-bar>
               <div class="text-muted">
                 Use 8 or more characters with a mix of letters, numbers &
                 symbols.
               </div>
-              <div
-                *ngIf="
+              <div *ngIf="
                   registerForm.get('password')?.invalid &&
                   registerForm.get('password')?.errors
-                "
-              >
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm.get('password')?.hasError('required')"
-                >
+                ">
+                <small class="text-danger" *ngIf="registerForm.get('password')?.hasError('required')">
                   This field is required.
                 </small>
               </div>
             </div>
             <div class="fv-row mb-10 fv-plugins-icon-container">
               <div class="d-flex flex-stack mb-2">
-                <label class="form-label fw-bolder text-dark fs-6 mb-0"
-                  >Confirm Password</label
-                >
+                <label class="form-label fw-bolder text-dark fs-6 mb-0">Confirm Password</label>
               </div>
-              <input
-                id="confirmpassword"
-                type="password"
-                class="form-control form-control-lg form-control-solid"
-                formControlName="confirmpassword"
-                required
-              />
-              <div
-                *ngIf="
+              <input id="confirmpassword" type="password" class="form-control form-control-lg form-control-solid"
+                formControlName="confirmpassword" required />
+              <div *ngIf="
                   registerForm.get('confirmpassword')?.invalid &&
                   registerForm.get('confirmpassword')?.errors
-                "
-              >
-                <small
-                  class="text-danger"
-                  *ngIf="
+                ">
+                <small class="text-danger" *ngIf="
                     registerForm.get('confirmpassword')?.hasError('required')
-                  "
-                >
+                  ">
                   This field is required.
                 </small>
-                <small
-                  class="text-danger"
-                  *ngIf="
+                <small class="text-danger" *ngIf="
                     registerForm.get('confirmpassword')?.hasError('pattern')
-                  "
-                >
+                  ">
                   Please enter valid Confirm Password!
                 </small>
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm?.errors?.['misMatch']"
-                >
+                <small class="text-danger" *ngIf="registerForm?.errors?.['misMatch']">
                   Confirm password should be same
                 </small>
               </div>
             </div>
-            <div
-              class="fv-row mb-10 fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid"
-            >
-              <label
-                class="form-check form-check-custom form-check-solid form-check-inline"
-              >
-                <input
-                  id="termsAndConditions"
-                  type="checkbox"
-                  class="form-check-input"
-                  formControlName="termsAndConditions"
-                  required
-                />
-                <span class="form-check-label fw-bold text-gray-700 fs-6"
-                  >I Agree
-                  <a href="#" class="ms-1 link-primary">Terms and conditions</a
-                  >.
+            <div class="fv-row mb-10 fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid">
+              <label class="form-check form-check-custom form-check-solid form-check-inline">
+                <input id="termsAndConditions" type="checkbox" class="form-check-input"
+                  formControlName="termsAndConditions" required />
+                <span class="form-check-label fw-bold text-gray-700 fs-6">I Agree
+                  <a href="#" class="ms-1 link-primary">Terms and conditions</a>.
                 </span>
               </label>
-              <div
-                *ngIf="
+              <div *ngIf="
                   registerForm.get('termsAndConditions')?.invalid &&
                   registerForm.get('termsAndConditions')?.errors
-                "
-              >
-                <small
-                  class="text-danger"
-                  *ngIf="
+                ">
+                <small class="text-danger" *ngIf="
                     registerForm.get('termsAndConditions')?.hasError('required')
-                  "
-                >
+                  ">
                   Please Accept Terms And Conditions!
                 </small>
               </div>
               <div class="fv-plugins-message-container invalid-feedback"></div>
             </div>
             <div class="text-center">
-              <swal
-                #registerSwal
-                title=""
-                text="You have successfully registered!"
-                icon="success"
-              >
+              <swal #registerSwal title="" text="You have successfully registered!" icon="success">
               </swal>
-              <app-button
-                [buttonsArray]="submitButton"
-                [isDisabled]="!registerForm.valid"
-                (submitFormEvent)="onRegister()"
-              ></app-button>
+              <app-button [buttonsArray]="submitButton" [isDisabled]="!registerForm.valid"
+                (submitFormEvent)="onRegister()"></app-button>
             </div>
           </form>
         </div>

@@ -4,6 +4,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./assets/styles/variables/colors";
 @import "./node_modules/8-point-grid/scss/8-point-grid.scss";
+@import '../src/assets/styles/style';
+
 
 //? Theme style
 
@@ -369,14 +371,6 @@ legend + * {
   -webkit-appearance: textfield;
 }
 
-/* rtl:raw:
-[type="tel"],
-[type="url"],
-[type="email"],
-[type="number"] {
-  direction: ltr;
-}
-*/
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -418,6 +412,53 @@ progress {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
+}
+.flex-lg-fill {
+  flex: 1 1 auto !important;
+}
+
+.flex-lg-row {
+  flex-direction: row !important;
+}
+
+.flex-lg-column {
+  flex-direction: column !important;
+}
+
+.flex-lg-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.flex-lg-column-reverse {
+  flex-direction: column-reverse !important;
+}
+
+.flex-lg-grow-0 {
+  flex-grow: 0 !important;
+}
+
+.flex-lg-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.flex-lg-shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+.flex-lg-shrink-1 {
+  flex-shrink: 1 !important;
+}
+
+.flex-lg-wrap {
+  flex-wrap: wrap !important;
+}
+
+.flex-lg-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.flex-lg-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
 }
 
 .display-1 {
@@ -19979,53 +20020,7 @@ textarea.form-control-lg {
     max-height: 1000px !important;
   }
 
-  .flex-lg-fill {
-    flex: 1 1 auto !important;
-  }
 
-  .flex-lg-row {
-    flex-direction: row !important;
-  }
-
-  .flex-lg-column {
-    flex-direction: column !important;
-  }
-
-  .flex-lg-row-reverse {
-    flex-direction: row-reverse !important;
-  }
-
-  .flex-lg-column-reverse {
-    flex-direction: column-reverse !important;
-  }
-
-  .flex-lg-grow-0 {
-    flex-grow: 0 !important;
-  }
-
-  .flex-lg-grow-1 {
-    flex-grow: 1 !important;
-  }
-
-  .flex-lg-shrink-0 {
-    flex-shrink: 0 !important;
-  }
-
-  .flex-lg-shrink-1 {
-    flex-shrink: 1 !important;
-  }
-
-  .flex-lg-wrap {
-    flex-wrap: wrap !important;
-  }
-
-  .flex-lg-nowrap {
-    flex-wrap: nowrap !important;
-  }
-
-  .flex-lg-wrap-reverse {
-    flex-wrap: wrap-reverse !important;
-  }
 
   .gap-lg-0 {
     gap: 0 !important;
@@ -48405,5 +48400,3 @@ body {
  min-height: 100vh !important; 
 }
 
-
-@import '../src/assets/styles/style'
