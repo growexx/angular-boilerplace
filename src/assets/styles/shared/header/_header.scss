@@ -29,7 +29,8 @@
                 li {
                     list-style: none;
                     color: $bs-gray-700;
-                    font-size: $font-14;
+                    font-size: $font-12;
+                    line-height: 16px;
                     padding: 10px 16px 10px 0px;
                     font-weight: $font-weight-bold;
                     cursor: pointer;
@@ -46,13 +47,14 @@
                         .bullets {
                             padding-left: 16px;
                             position: $position-relative;
+
                             &:hover {
                                 &::before {
                                     content: '';
                                     background-color: $bs-primary;
                                 }
                             }
-                            
+
                             &:before {
                                 content: '';
                                 position: $position-absolute;
@@ -83,8 +85,7 @@
             .icon-panel {
                 width: 40px;
                 height: 40px;
-                display: $d-flex;
-                align-items: $align-items-center;
+                position: $position-relative;
 
                 .avtaar {
                     border-radius: 3px;
@@ -99,6 +100,47 @@
                     height: 24px;
                 }
             }
+
+
+            .profile-submenu-panel {
+                display: $d-block;
+                position: $position-absolute;
+                background-color: $bs-white;
+                box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+                right: -12px;
+                z-index: 1;
+                width: 275px;
+                top: 65px;
+                padding: 10px 16px;
+
+                @media(max-width: breakpoint(screen-xs-max)){
+                    right: 0;
+                }
+                .mr-20 {
+                    margin-right: 20px;
+                }
+                .mb-0{
+                    margin-bottom: 0px;
+                }
+
+                .pills {
+                    padding: 5px;
+
+                    &.pills-success {
+                        color: #50CD89;
+                        background-color: #E8FFF3;
+                        font-size: $font-12;
+                        line-height: 16px;
+                    }
+                }
+
+                .profile-submenu {
+                    border-top: 1px solid #EFF2F5;
+                    display: $d-block;
+                    margin-top: 10px;
+                }
+            }
+
         }
     }
 

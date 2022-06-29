@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  isOpen:boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openProfilePanel(){
+    this.isOpen = !this.isOpen;
   }
 
 }

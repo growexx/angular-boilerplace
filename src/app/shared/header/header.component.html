@@ -22,16 +22,51 @@
                 </ul>
             </div>
 
-            <div class="d-flex">
+            <div class="d-flex align-items-center">
                 <div class="icon-panel"><a><img src="assets/images/svg-icons/search.svg" alt="search"></a></div>
                 <div class="icon-panel"><a><img src="assets/images/svg-icons/barchart.svg" alt="chart"></a></div>
                 <div class="icon-panel"><a><img src="assets/images/svg-icons/notification.svg" alt="notifications"></a>
                 </div>
                 <div class="icon-panel"><a><img src="assets/images/svg-icons/message.svg" alt="message"></a></div>
-                <div class="icon-panel"><a><img src="assets/images/avtaar.jpg" alt="avtaar" width="50" height="50"
-                            class="avtaar"></a></div>
+                <div class="icon-panel">
+                    <a (click)="openProfilePanel()"><img src="assets/images/avtaar.jpg" alt="avtaar" width="50"
+                            height="50" class="avtaar"></a>
+
+                    <div class="profile-submenu-panel" *ngIf="isOpen">
+                        <div>
+                            <div class="d-flex align-items-center">
+                                <div class="mr-20">
+                                    <img src="assets/images/avtaar.jpg" alt="avtaar" width="50" height="50"
+                                        class="avtaar">
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap">
+                                    <div class="mr-20">
+                                        <div>
+                                            <h5 class="mb-0">Max Smith</h5>
+                                        </div>
+                                        <div><span>max@kt.com</span></div>
+                                    </div>
+                                    <div>
+                                        <div class="pills pills-success">PRO</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <ul class="profile-submenu sub-menu">
+                                    <li class="bullets">Multipurpose</li>
+                                    <li class="bullets">eCommerce</li>
+                                    <li class="bullets">Projects</li>
+                                    <li class="bullets">Online</li>
+                                    <li class="bullets">Marketing</li>
+                                    <li class="bullets">Bidding</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </div>       
+        </div>
     </div>
     <div class="header-toolbar">
         <div class="d-flex title-items">
