@@ -27,7 +27,8 @@ import { AuthsidebarComponent } from './authsidebar/authsidebar.component';
     ButtonComponent,
     PasswordStrengthBarComponent,
     SidebarComponent,
-    AuthsidebarComponent
+    AuthsidebarComponent,
+    HeaderComponent
   ]
 })
 export class SharedModule { }

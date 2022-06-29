@@ -13,7 +13,7 @@
 }
 
 // .sidebar-panel:hover + .right-wrapper{
-//     margin-left: 200px;
+//     margin-left: 250px;
 //     @media (max-width: breakpoint(screen-md-max)) {
 //         margin-left: 80px!important;
 //     }
@@ -23,7 +23,7 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 200px;
+    width: 250px;
     // &:hover {
     //     width: 80px !important;
     //     transition: all 0.3s ease;
@@ -53,7 +53,7 @@
     // }
 
     @media(max-width: breakpoint(screen-lg-max)) {
-        width: 200px !important;
+        width: 250px !important;
     }
 
     @media(max-width: breakpoint(screen-md-max)) {

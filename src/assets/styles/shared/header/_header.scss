@@ -1,0 +1,153 @@
+.header-wrapper {
+    margin-left: 250px;
+    padding: 0 30px;
+
+    @media (max-width: breakpoint(screen-md-max)) {
+        margin-left: 80px;
+    }
+
+    .header-panel {
+        .header-row {
+            display: $d-flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: $flex-wrap;
+
+            @media (max-width: breakpoint(screen-md-max)) {
+                justify-content: $justify-content-start;
+                padding: 10px 16px 10px 0px;
+            }
+
+            ul {
+                display: $d-flex;
+                padding: 10px 16px 10px 0px;
+
+                @media(max-width: breakpoint(screen-md-max)) {
+                    display: $d-none;
+                }
+
+                li {
+                    list-style: none;
+                    color: $bs-gray-700;
+                    font-size: $font-14;
+                    padding: 10px 16px 10px 0px;
+                    font-weight: $font-weight-bold;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $bs-primary;
+                    }
+
+                    .sub-menu {
+                        display: $d-none;
+                        position: $position-relative;
+
+
+                        .bullets {
+                            padding-left: 16px;
+                            position: $position-relative;
+                            &:hover {
+                                &::before {
+                                    content: '';
+                                    background-color: $bs-primary;
+                                }
+                            }
+                            
+                            &:before {
+                                content: '';
+                                position: $position-absolute;
+                                left: 0;
+                                top: 20px;
+                                width: 4px;
+                                height: 4px;
+                                border-radius: 100%;
+                                background-color: $bs-gray-500;
+                            }
+                        }
+
+
+                    }
+
+                    &:hover .sub-menu {
+                        display: $d-block;
+                        background-color: $bs-white;
+                        border-radius: 8px;
+                        box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+                        padding: 16px;
+                        width: 225px;
+                        position: $position-absolute;
+                    }
+                }
+            }
+
+            .icon-panel {
+                width: 40px;
+                height: 40px;
+                display: $d-flex;
+                align-items: $align-items-center;
+
+                .avtaar {
+                    border-radius: 3px;
+                }
+            }
+
+            .btn-filter {
+                &:hover {
+                    content: '';
+                    background-image: 'assets/images/svg-icons/filter-black.svg';
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+
+    .header-toolbar {
+        display: $d-flex;
+        justify-content: $justify-content-space-between;
+        align-items: $align-items-center;
+        flex-wrap: $flex-wrap;
+        box-shadow: 0px 10px 30px 0px rgb(82 63 105 / 5%);
+        border-top: 1px solid #EFF2F5;
+        padding: 10px 0px;
+
+        .title-items h4 {
+            padding-right: 16px;
+        }
+
+        .btn-panel button {
+            color: $bs-white;
+            margin-right: 5px;
+            position: $position-relative;
+
+            &.btn-filter {
+                color: $bs-gray-700;
+                background-color: $bs-white;
+
+                &:hover {
+                    background-color: $bs-primary;
+                    color: $bs-white;
+                }
+
+                &:hover {
+                    &:before {
+                        background: url('../../../../assets/images/svg-icons/filter-white.svg') no-repeat;
+
+                    }
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background: url('../../../../assets/images/svg-icons/filter-black.svg') no-repeat;
+                    width: 24px;
+                    height: 24px;
+                    left: 4px;
+                    top: 6px;
+                    background-size: 21px;
+                }
+            }
+        }
+
+    }
+}
