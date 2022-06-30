@@ -14,17 +14,232 @@
 
                         </ul>
                     </li>
-                    <li>Crafted</li>
+                    <li>Crafted
+                        <ul class="sub-menu">
+                            <li class="arrow-right sub-menu-title">Pages
+                                <ul class="secondary-submenu">
+                                    <li class="bullets arrow-right">Profile</li>
+                                    <li class="bullets arrow-right">Pricing</li>
+                                    <li class="bullets">Projects</li>
+                                    <li class="bullets">Careers</li>
+                                    <li class="bullets">FAQ</li>
+                                    <li class="bullets">About Us</li>
+
+                                </ul>
+                            </li>
+                            <li class="arrow-right">Accounts</li>
+                            <li class="arrow-right">Authentication</li>
+                            <li class="arrow-right">Utilies</li>
+                            <li class="arrow-right">Widgets</li>
+                        </ul>
+                    </li>
                     <li>Apps</li>
                     <li>Layout</li>
                     <li>Resources</li>
-                    <li>Mega Menu</li>
+                    <li>Mega Menu
+                        <div class="sub-menu megamenu">
+                            <div class="row mega-row">
+                                <div class="col-lg-4">
+                                    <div class="mega-item"> <span> Example 1 </span></div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mega-item"> <span> Example 1 </span></div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mega-item"> <span> Example 1 </span></div>
+                                </div>
+                            </div>
+                            <div class="row mega-row">
+                                <div class="col-lg-4">
+                                    <div class="mega-item"> <span> Example 1 </span></div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mega-item"> <span> Example 1 </span></div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mega-item"> <span> Example 1 </span></div>
+                                </div>
+                            </div>
+                            <div class="row mega-row">
+                                <div class="col-lg-4">
+                                    <div class="mega-item"> <span> Example 1 </span></div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mega-item"> <span> Example 1 </span></div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mega-item"> <span> Example 1 </span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
             <div class="d-flex align-items-center">
-                <div class="icon-panel"><a><img src="assets/images/svg-icons/search.svg" alt="search"></a></div>
-                <div class="icon-panel"><a><img src="assets/images/svg-icons/barchart.svg" alt="chart"></a></div>
+                <div class="icon-panel position-relative">
+                    <a (click)="openSearchPanel()"><img src="assets/images/svg-icons/search.svg" alt="search"></a>
+                    <div class="sub-panels" *ngIf="isShow">
+                        <div class="d-flex">
+                            <img src="assets/images/svg-icons/search.svg" alt="search" class="mr-10">
+                            <input type="text" placeholder="Search">
+                        </div>
+                        <div class="content-panel">
+                            <div class="content-title">Recent Searched:</div>
+                            <div class="content-items-panel">
+                                <div class="d-flex align-items-center content-items">
+                                    <div class="icon">
+                                        <img src="assets/images/svg-icons/computer.svg" alt="computer" width="24"
+                                            height="24">
+                                    </div>
+                                    <div>
+                                        <div><a><span class="content-item">BoomApp by Keenthemes</span></a></div>
+                                        <div><a><span class="content-subitem">#45789</span></a></div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center content-items">
+                                    <div class="icon">
+                                        <img src="assets/images/svg-icons/computer.svg" alt="computer" width="24"
+                                            height="24">
+                                    </div>
+                                    <div>
+                                        <div><a><span class="content-item">BoomApp by Keenthemes</span></a></div>
+                                        <div><a><span class="content-subitem">#45789</span></a></div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center content-items">
+                                    <div class="icon">
+                                        <img src="assets/images/svg-icons/computer.svg" alt="computer" width="24"
+                                            height="24">
+                                    </div>
+                                    <div>
+                                        <div><a><span class="content-item">BoomApp by Keenthemes</span></a></div>
+                                        <div><a><span class="content-subitem">#45789</span></a></div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center content-items">
+                                    <div class="icon">
+                                        <img src="assets/images/svg-icons/computer.svg" alt="computer" width="24"
+                                            height="24">
+                                    </div>
+                                    <div>
+                                        <div><a><span class="content-item">BoomApp by Keenthemes</span></a></div>
+                                        <div><a><span class="content-subitem">#45789</span></a></div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center content-items">
+                                    <div class="icon">
+                                        <img src="assets/images/svg-icons/computer.svg" alt="computer" width="24"
+                                            height="24">
+                                    </div>
+                                    <div>
+                                        <div><a><span class="content-item">BoomApp by Keenthemes</span></a></div>
+                                        <div><a><span class="content-subitem">#45789</span></a></div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center content-items">
+                                    <div class="icon">
+                                        <img src="assets/images/svg-icons/computer.svg" alt="computer" width="24"
+                                            height="24">
+                                    </div>
+                                    <div>
+                                        <div><a><span class="content-item">BoomApp by Keenthemes</span></a></div>
+                                        <div><a><span class="content-subitem">#45789</span></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-panel"><a (click)="openSlider()"><img src="assets/images/svg-icons/barchart.svg"
+                            alt="chart"></a>
+                    <div class="slider" *ngIf="isSlider" ngClass="{{isSlider ? 'transform-none': ''}}">
+                        <div class="slider-wrapper">
+                            <div class="slider-header">
+                                <div>
+                                    <span class="slider-item">Activity Log</span>
+                                </div>
+                                <div><a (click)="closeSlider()"><img src="assets/images/svg-icons/cancel.svg"
+                                            alt="cancel"></a></div>
+                            </div>
+                            <div class="slider-content">
+                                <div class="content-panel">
+                                    <div class="content-items-panel">
+                                        <div class="d-flex align-items-center content-items">
+                                            <div class="icon">
+                                                <img src="assets/images/svg-icons/computer.svg" alt="computer"
+                                                    width="24" height="24">
+                                            </div>
+                                            <div>
+                                                <div><a><span class="content-item">BoomApp by Keenthemes</span></a>
+                                                </div>
+                                                <div><a><span class="content-subitem">#45789</span></a></div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center content-items">
+                                            <div class="icon">
+                                                <img src="assets/images/svg-icons/computer.svg" alt="computer"
+                                                    width="24" height="24">
+                                            </div>
+                                            <div>
+                                                <div><a><span class="content-item">BoomApp by Keenthemes</span></a>
+                                                </div>
+                                                <div><a><span class="content-subitem">#45789</span></a></div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center content-items">
+                                            <div class="icon">
+                                                <img src="assets/images/svg-icons/computer.svg" alt="computer"
+                                                    width="24" height="24">
+                                            </div>
+                                            <div>
+                                                <div><a><span class="content-item">BoomApp by Keenthemes</span></a>
+                                                </div>
+                                                <div><a><span class="content-subitem">#45789</span></a></div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center content-items">
+                                            <div class="icon">
+                                                <img src="assets/images/svg-icons/computer.svg" alt="computer"
+                                                    width="24" height="24">
+                                            </div>
+                                            <div>
+                                                <div><a><span class="content-item">BoomApp by Keenthemes</span></a>
+                                                </div>
+                                                <div><a><span class="content-subitem">#45789</span></a></div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center content-items">
+                                            <div class="icon">
+                                                <img src="assets/images/svg-icons/computer.svg" alt="computer"
+                                                    width="24" height="24">
+                                            </div>
+                                            <div>
+                                                <div><a><span class="content-item">BoomApp by Keenthemes</span></a>
+                                                </div>
+                                                <div><a><span class="content-subitem">#45789</span></a></div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center content-items">
+                                            <div class="icon">
+                                                <img src="assets/images/svg-icons/computer.svg" alt="computer"
+                                                    width="24" height="24">
+                                            </div>
+                                            <div>
+                                                <div><a><span class="content-item">BoomApp by Keenthemes</span></a>
+                                                </div>
+                                                <div><a><span class="content-subitem">#45789</span></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-footer">
+                                <div><span>View all activities >></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="icon-panel"><a><img src="assets/images/svg-icons/notification.svg" alt="notifications"></a>
                 </div>
                 <div class="icon-panel"><a><img src="assets/images/svg-icons/message.svg" alt="message"></a></div>
