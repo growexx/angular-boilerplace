@@ -10,6 +10,7 @@ import { SweetAlert2LoaderService, SweetAlert2Module } from '@sweetalert2/ngx-sw
 import { SharedModule } from './shared/shared.module';
 import { RootComponent } from './components/root/root.component';
 import { HomeComponent } from './components/home/home.component';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
+    DashboardModule,
     SweetAlert2Module.forRoot()
   ],
   providers: [],

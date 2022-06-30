@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthsidebarComponent } from './authsidebar/authsidebar.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 
@@ -17,18 +18,20 @@ import { AuthsidebarComponent } from './authsidebar/authsidebar.component';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    AuthsidebarComponent
+    AuthsidebarComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
   ],
   exports:[
     ButtonComponent,
     PasswordStrengthBarComponent,
     SidebarComponent,
     AuthsidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    ModalComponent
   ]
 })
 export class SharedModule { }

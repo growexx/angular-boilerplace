@@ -1,0 +1,38 @@
+<div class="modal" *ngIf="openModal" ngClass="{{openModal ? 'transform-none': ''}}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-item">Users List</span>
+                </div>
+                <div><a (click)="closeModal()"><img src="assets/images/svg-icons/cancel.svg" alt="cancel"></a></div>
+            </div>
+            <div class="modal-body">
+                <div class="content-panel">
+                    <div class="content-items-panel">
+                        <div class="d-flex align-items-center content-items justify-content-between">
+                            <div class="d-flex align-items-center content-items">
+                                <div class="icon">
+                                    <img src="assets/images/avtaar.jpg" alt="avtaar">
+                                </div>
+                                <div>
+                                    <div><a><span class="content-item">BoomApp by Keenthemes</span></a>
+                                    </div>
+                                    <div><a><span class="content-subitem">#45789</span></a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div><span class="content-item">$23,000</span></div>
+                                <div><span class="content-subitem">Sales</span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div><span>View all activities >></span></div>
+            </div>
+        </div>
+    </div>
+</div>
