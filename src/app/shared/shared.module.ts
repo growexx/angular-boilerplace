@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthsidebarComponent } from './authsidebar/authsidebar.component';
 import { ModalComponent } from './modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -24,6 +25,7 @@ import { ModalComponent } from './modal/modal.component';
   imports: [
     CommonModule,
     NgbModule,
+    MatDialogModule
   ],
   exports:[
     ButtonComponent,
@@ -31,7 +33,8 @@ import { ModalComponent } from './modal/modal.component';
     SidebarComponent,
     AuthsidebarComponent,
     HeaderComponent,
-    ModalComponent
+    ModalComponent,
+    
   ]
 })
 export class SharedModule { }

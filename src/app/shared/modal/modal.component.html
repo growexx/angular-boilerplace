@@ -1,38 +1,39 @@
-<div class="modal" *ngIf="openModal" ngClass="{{openModal ? 'transform-none': ''}}">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div>
-                    <span class="modal-item">Users List</span>
-                </div>
-                <div><a (click)="closeModal()"><img src="assets/images/svg-icons/cancel.svg" alt="cancel"></a></div>
+<mat-dialog-content>
+    <div class="modal-panel">
+        <div class="modal-header">
+            <div *ngIf="['userList'].includes(data['type'])">
+                <span class="modal-item">{{data['modalTitle']}}</span>
             </div>
-            <div class="modal-body">
-                <div class="content-panel">
-                    <div class="content-items-panel">
-                        <div class="d-flex align-items-center content-items justify-content-between">
-                            <div class="d-flex align-items-center content-items">
-                                <div class="icon">
-                                    <img src="assets/images/avtaar.jpg" alt="avtaar">
-                                </div>
-                                <div>
-                                    <div><a><span class="content-item">BoomApp by Keenthemes</span></a>
-                                    </div>
-                                    <div><a><span class="content-subitem">#45789</span></a></div>
-                                </div>
+            <!-- <div *ngIf="['userList'].includes(data['type'])"><a (click)="closeModal()"><img
+                        src="assets/images/svg-icons/cancel.svg" alt="cancel"></a></div> -->
+        </div>
+        <div class="modal-body">
+            <div class="content-panel">
+                <div class="content-items-panel">
+                    <div class="d-flex align-items-center content-items justify-content-between">
+                        <div class="d-flex align-items-center content-items">
+                            <div class="icon">
+                                <img [src]="data['modalImg']" alt="avtaar">
                             </div>
                             <div>
-                                <div><span class="content-item">$23,000</span></div>
-                                <div><span class="content-subitem">Sales</span></div>
+                                <div><a><span class="content-item">{{data['modalText1']}}</span></a>
+                                </div>
+                                <div><a><span class="content-subitem">{{data['modalText2']}}</span></a></div>
                             </div>
                         </div>
-
+                        <div>
+                            <div><span class="content-item">{{data['modalText3']}}</span></div>
+                            <div><span class="content-subitem">{{data['modalText4']}}</span></div>
+                        </div>
                     </div>
+
                 </div>
             </div>
-            <div class="modal-footer">
-                <div><span>View all activities >></span></div>
+        </div>
+        <div class="modal-footer">
+            <div *ngIf="['userList'].includes(data['type'])">
+                <div *ngFor="let actions of data['modalActions']"><span>{{actions['label']}}</span></div>
             </div>
         </div>
     </div>
-</div>
+</mat-dialog-content>

@@ -1,4 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { modalType } from '../interface/modal';
+
+
+interface DialogData{
+  type: modalType,
+  modalImg: any,
+  modalTitle: string,
+  modalText1: string,
+  modalText2?: string,
+  modalText3?: string,
+  modalText4?: string,
+  modalActions: EventEmitter<any> | any;
+}
 
 @Component({
   selector: 'modal',
@@ -7,16 +21,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
   
-  isModal: boolean = false;
-  @Input() openModal!:boolean;
-  constructor() { }
+
+  constructor(
+    public dialogRef: MatDialogRef<ModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) { 
+    dialogRef.backdropClick().subscribe(e =>{
+      e.preventDefault();
+      dialogRef.close('BACKDROPCLICKED')
+    })
+  }
 
   ngOnInit(): void {
-    console.log(this.openModal, 'open modal')
   }
 
-  closeModal(){
-    this.openModal = !this.openModal;
-  }
+  // closeModal(){
+  // }
 
 }
