@@ -6,12 +6,12 @@
 }
 
 .right-wrapper {
-    margin-left: 200px;
+    margin-left: 250px;
     height: 100%;
-    background-color: $bs-white;
+    background-color: #edf4fc;
 
     @media (max-width: breakpoint(screen-lg-max)) {
-        margin-left: 200px;
+        margin-left: 250px;
     }
 
     @media (max-width: breakpoint(screen-md-max)) {
