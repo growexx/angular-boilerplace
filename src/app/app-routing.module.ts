@@ -4,6 +4,7 @@ import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.compo
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartsComponent } from './_shared/charts/charts.component';
 
 const routes: Routes = [{
   path: '',
@@ -18,9 +19,13 @@ const routes: Routes = [{
   path: 'dashboard',
   component: DashboardComponent
 }, {
+  path: 'charts',
+  component: ChartsComponent
+},{
   path: '**',
   redirectTo: ''
-}];
+}, 
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

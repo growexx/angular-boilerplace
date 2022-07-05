@@ -1,0 +1,26 @@
+<div class="divChart">
+    <div class="card card-stretch card-flush shadow-sm col-lg-6">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">{{title}}</h3>
+                <h5 class="card-subtitle">{{subTitle}}</h5>
+            </div>
+            <div class="card-toolbar">
+
+                <div>
+                    <button type="button" (click)="task1()" class="btn btn-sm btn-white btn-card ">
+            {{btnData.buttonName1}}
+        </button>
+                    <button type="button" (click)="task2()" class="btn btn-sm btn-white btn-card">
+                        {{btnData.buttonName2}}
+        </button>
+                    <button type="button" (click)="task3()" class="btn btn-sm btn-white btn-card">
+                        {{btnData.buttonName3}}
+        </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body py-5">
+            <canvas id="myChart" width=300 height=250></canvas>
+        </div>
+    </div>

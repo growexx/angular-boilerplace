@@ -1,0 +1,36 @@
+.main {
+    background-color: #EFF2F5;
+    // display: flex;
+    // justify-content: space-evenly;
+    // height: 2000px;
+}
+
+.active {
+    background-color: 7239EA;
+}
+
+.btn-card:active {
+    background-color: #7239EA;
+}
+
+.card-subtitle {
+    color: #B5B5C3;
+    padding-top: none;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    max-height: fit-content;
+}
+
+// a{
+//     margin
+// }
+// .card- {
+//     width: 50%;
+// }

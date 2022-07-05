@@ -14,6 +14,11 @@ import { PasswordStrengthBarComponent } from './_shared/password-strength-bar/pa
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 import { SweetAlert2LoaderService, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartsComponent } from './_shared/charts/charts.component';
+import {ChartModule} from 'primeng/chart';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CompChartsComponent } from './_shared/comp-charts/comp-charts.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +30,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PasswordStrengthBarComponent,
     ResetpasswordComponent,
     DashboardComponent,
+    ChartsComponent,
+    CompChartsComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -32,6 +40,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ChartModule,
+    BrowserAnimationsModule,
     SweetAlert2Module.forRoot()
   ],
   providers: [],

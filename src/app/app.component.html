@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<div>
+    <div id="divChart">
+        <app-comp-charts [btnData]="btnData" [title]="cardTitle" [subTitle]="subTitle" [myChart]="chartId" (changeData)="updateData($event)"></app-comp-charts>
+    </div>
+
+</div>
