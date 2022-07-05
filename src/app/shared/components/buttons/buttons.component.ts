@@ -17,7 +17,7 @@ export class ButtonsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openPopupData(event:any){
+  openPopupData(event?:any){
     this.btnClicked.emit(event);
   }
 

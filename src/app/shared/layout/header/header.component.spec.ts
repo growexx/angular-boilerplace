@@ -8,9 +8,9 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [HeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -22,4 +22,24 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call openProfilePanel function', () => {
+    component.openProfilePanel();
+    expect(component).toBeTruthy();
+  })
+
+  it('should call openSearchPanel function', () => {
+    component.openSearchPanel();
+    expect(component).toBeTruthy();
+  })
+
+  it('should call openSlider function', () => {
+    component.openSlider();
+    expect(component).toBeTruthy();
+  })
+
+  it('should call closeSlider function', () => {
+    component.closeSlider();
+    expect(component).toBeTruthy();
+  })
 });

@@ -22,4 +22,9 @@ describe('SidebarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call toggle sidebar function', ()=>{
+    component.toggleSidebar();
+    expect(component).toBeTruthy();
+  })
 });

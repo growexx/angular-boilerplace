@@ -24,18 +24,9 @@ export class ModalComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) { 
-    // dialogRef.backdropClick().subscribe(e =>{
-    //   e.preventDefault();
-    //   dialogRef.close('BACKDROPCLICKED')
-    // })
-  }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   ngOnInit(): void {
   }
-
-  // closeModal(){
-  // }
 
 }

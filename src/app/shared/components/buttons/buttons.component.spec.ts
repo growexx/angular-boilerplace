@@ -25,4 +25,9 @@ describe('ButtonsComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should call function openPopupData', ()=>{
+    component.openPopupData()
+    expect(component).toBeTruthy();
+  })
+
 });
