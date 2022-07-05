@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import { HomeComponent } from './components/home/home.component';
-import { RootComponent } from './components/root/root.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './main-pages/home/home.component';
+import { RootComponent } from './main-pages/root/root.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
     component: HomeComponent,
     children:[{
       path: '',
-      loadChildren: () => import('./modules/auth/auth.module').then(m=>m.AuthModule)
+      loadChildren: () => import('./auth/auth.module').then(m=>m.AuthModule)
     }]
   },
 
@@ -25,7 +25,7 @@ const routes: Routes = [
     children:[
       {
         path:'',
-        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m=>m.DashboardModule)
+        loadChildren: () => import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
       }
     ]
   },

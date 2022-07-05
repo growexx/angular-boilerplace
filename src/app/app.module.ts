@@ -8,9 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SweetAlert2LoaderService, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SharedModule } from './shared/shared.module';
-import { RootComponent } from './components/root/root.component';
-import { HomeComponent } from './components/home/home.component';
-import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { RootComponent } from './main-pages/root/root.component';
+import { HomeComponent } from './main-pages/home/home.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({

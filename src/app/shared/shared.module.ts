@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from './button/button.component';
-import { PasswordStrengthBarComponent } from './password-strength-bar/password-strength-bar.component';
-import { HeaderComponent } from './header/header.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { FooterComponent } from './footer/footer.component';
+import { ButtonComponent } from './components/button/button.component';
+import { PasswordStrengthBarComponent } from './components/password-strength-bar/password-strength-bar.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { FooterComponent } from './layout/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AuthsidebarComponent } from './authsidebar/authsidebar.component';
-import { ModalComponent } from './modal/modal.component';
+import { AuthsidebarComponent } from './layout/authsidebar/authsidebar.component';
+import { ModalComponent } from './components/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 

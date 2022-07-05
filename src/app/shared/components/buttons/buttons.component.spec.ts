@@ -8,18 +8,21 @@ describe('ButtonsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonsComponent ]
+      declarations: [ ButtonsComponent ],
+      imports:[
+      ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ButtonsComponent);
-    component = fixture.componentInstance;
+    component = fixture.componentInstance;    
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
