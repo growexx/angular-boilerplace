@@ -20,11 +20,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-
-  handleBtnClicked(){
-    this.btnClicked.emit(); 
-  }
-
   openModal(data?:any) {
 
     let actions = [];
