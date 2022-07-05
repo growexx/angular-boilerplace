@@ -1,0 +1,57 @@
+<div class="border-0 pg-p-2 table-filter-header">
+    <div class="search-box">
+        <div class="d-flex align-items-center position-relative my-1">
+            <em class="fa fa-magnifying-glass text-gray-500 pg-fs-2 position-absolute ms-6"></em>
+            <input type="text" id="searchFilter" class="form-control bg-gray-200 border-0 w-250px ps-14" [(ngModel)]="commonService.searchFilter" name="searchFilter" placeholder="Search By Name">
+        </div>
+    </div>
+    <div class="card-toolbar">
+        <div class="card-toolbar-filter">
+            <a type="button" class="btn btn-light-primary me-3" (click)="commonService.toggleFilterDropdown()">
+                <em class="fa-solid fa-filter"></em>
+                Filter
+            </a>
+
+            <div class="filter_menu pg-py-1" [class.show]="commonService.showFilterDropdown">
+                <div class="filter_header">
+                    <div class="fs-5 text-dark fw-bolder">Filter Options</div>
+                </div>
+                <div class="separator border-gray-200"></div>
+                <div class="filter_body">
+                    <div class="role_menu pg-py-1 pg-mb-2">
+                        <label class="role_menu_label form-label pg-fs-6">Role:</label>
+                        <select name="role_menu_dropdown" id="role_menu_dropdown" class="role_menu_dropdown form-control select2-selection select2-selection--single form-select form-select-solid fw-bolder">
+                            <option>Select option</option>
+                            <option value="Administrator">Administrator</option>
+                            <option value="Analyst">Analyst</option>
+                            <option value="Developer">Developer</option>
+                            <option value="Support">Support</option>
+                            <option value="Trial">Trial</option>
+                        </select>
+                    </div>
+                    <div class="two_step_verification_menu pg-py-1 pg-mb-2">
+                        <label class="two_step_verification_menu_label form-label pg-fs-6">Two Step Verification:</label>
+                        <select name="two_step_verification_menu_dropdown" id="two_step_verification_menu_dropdown" class="two_step_verification_menu_dropdown form-control select2-selection select2-selection--single form-select form-select-solid fw-bolder">
+                            <option>Select option</option>
+                            <option value="Enabled">Enabled</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        <button type="reset" class="btn btn-light btn-active-light-primary fw-bold pg-mr-2 pg-px-6">Reset</button>
+                        <button type="submit" class="btn btn-primary fw-bold pg-px-6">Apply</button>
+                    </div>
+                </div>
+            </div>
+            <a type="button" class="btn btn-light-primary me-3">
+                <em class="fa-solid fa-arrow-up-from-dotted-line"></em>
+                Export
+            </a>
+            <a type="button" class="btn btn-primary">
+                <em class="fa-solid fa-plus"></em>
+                Add User
+            </a>
+        </div>
+    </div>
+</div>
+<app-table [tableConfig]="tableConfig" [tableData]="tableData" ></app-table>

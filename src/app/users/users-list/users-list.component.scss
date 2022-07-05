@@ -1,0 +1,63 @@
+// User List Scss Style
+.table-filter-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .card-toolbar-filter{
+        display: flex;
+        justify-content: flex-end;
+    }
+  .filter_menu {
+    display: none;
+  }
+  .filter_menu.show {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    z-index: 105;
+    position: fixed;
+    width: 325px;
+    font-weight: 500;
+    font-size: 12px;
+    box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
+    border-radius: 0.475rem;
+    margin: 3% 10% 0 0;
+    .filter_header {
+      padding: 1rem 1.5rem;
+    }
+    .filter_body {
+      padding: 1rem 1.5rem;
+      .role_menu,
+      .two_step_verification_menu {
+        .role_menu_dropdown,
+        .two_step_verification_menu_dropdown {
+          width: 100%;
+          box-sizing: border-box;
+          margin: 0;
+          position: relative;
+          vertical-align: middle;
+          border-color: #f5f8fa;
+          color: #5e6278;
+          transition: color 0.2s ease, background-color 0.2s ease;
+          background-color: #eef3f7;
+          display: flex;
+          align-items: center;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1180px) {
+  .table-filter-header {
+    display: flex;
+    flex-direction: column;
+    .card-toolbar-filter{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .search-box{
+        margin-bottom: 10px;
+    }
+  }
+}

@@ -10,26 +10,26 @@
   --bs-green: #198754;
   --bs-teal: #20c997;
   --bs-cyan: #0dcaf0;
-  --bs-gray: #7E8299;
-  --bs-gray-dark: #3F4254;
-  --bs-gray-100: #F5F8FA;
-  --bs-gray-200: #EFF2F5;
-  --bs-gray-300: #E4E6EF;
-  --bs-gray-400: #B5B5C3;
-  --bs-gray-500: #A1A5B7;
-  --bs-gray-600: #7E8299;
-  --bs-gray-700: #5E6278;
-  --bs-gray-800: #3F4254;
-  --bs-gray-900: #181C32;
+  --bs-gray: #7e8299;
+  --bs-gray-dark: #3f4254;
+  --bs-gray-100: #f5f8fa;
+  --bs-gray-200: #eff2f5;
+  --bs-gray-300: #e4e6ef;
+  --bs-gray-400: #b5b5c3;
+  --bs-gray-500: #a1a5b7;
+  --bs-gray-600: #7e8299;
+  --bs-gray-700: #5e6278;
+  --bs-gray-800: #3f4254;
+  --bs-gray-900: #181c32;
   --bs-white: #ffffff;
-  --bs-light: #F5F8FA;
-  --bs-primary: #009EF7;
-  --bs-secondary: #E4E6EF;
-  --bs-success: #50CD89;
-  --bs-info: #7239EA;
-  --bs-warning: #FFC700;
-  --bs-danger: #F1416C;
-  --bs-dark: #181C32;
+  --bs-light: #f5f8fa;
+  --bs-primary: #009ef7;
+  --bs-secondary: #e4e6ef;
+  --bs-success: #50cd89;
+  --bs-info: #7239ea;
+  --bs-warning: #ffc700;
+  --bs-danger: #f1416c;
+  --bs-dark: #181c32;
   --bs-white-rgb: 255, 255, 255;
   --bs-light-rgb: 245, 248, 250;
   --bs-primary-rgb: 0, 158, 247;
@@ -44,13 +44,18 @@
   --bs-body-color-rgb: 24, 28, 50;
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-font-sans-serif: Poppins, Helvetica, "sans-serif";
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #181C32;
+  --bs-body-color: #181c32;
   --bs-body-bg: #ffffff;
 }
 
@@ -72,7 +77,3 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-// .app-container {
-//   height: 100vh;
-// }

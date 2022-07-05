@@ -7,7 +7,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
 import { AuthsidebarComponent } from 'src/app/includes/authsidebar/authsidebar.component';
 import { SwalComponent, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { ButtonComponent } from 'src/app/_shared/button/button.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { RegisterComponent } from '../register/register.component';

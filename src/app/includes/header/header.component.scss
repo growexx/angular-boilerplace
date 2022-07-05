@@ -1,0 +1,35 @@
+.header{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .menu{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        .menu-list{
+            list-style-type: none;
+            align-items: center;
+            margin-bottom: 0;
+            .list-item{
+                .list-item-anchor{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .icon{
+        .icon-list{
+            list-style-type: none;
+            margin-bottom: 0;
+            .list-item{
+                display: flex;
+                align-items: center;
+                .list-item-anchor{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

@@ -16,7 +16,8 @@ const routes: Routes = [{
   component: ResetpasswordComponent
 }, {
   path: 'dashboard',
-  component: DashboardComponent
+  component: DashboardComponent,
+  loadChildren: () => import('./users/users.module').then(users => users.UsersModule),
 }, {
   path: '**',
   redirectTo: ''

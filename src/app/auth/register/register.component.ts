@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
-import { ConfirmPasswordValidator } from 'src/app/validators/confirm-password/ConfirmPasswordValidator';
-import { PasswordValidator } from 'src/app/validators/password/PasswordValidator';
+import { ConfirmPasswordValidator } from 'src/app/core/validators/confirm-password/ConfirmPasswordValidator';
+import { PasswordValidator } from 'src/app/core/validators/password/PasswordValidator';
 import { AuthService } from '../auth.service';
 
 @Component({

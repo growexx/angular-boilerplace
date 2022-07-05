@@ -1,1 +1,30 @@
 // Dashboard component's scss
+.body-container{
+    background-color: #f5f8fa;
+    max-height: 100vh;
+    .sidebar{
+        width: 100%;
+    }
+    .sidebar-container{
+        min-width: 15%;
+        height: 100vh;
+        position: sticky;
+    }
+    .right-content{
+        display: flex;
+        flex: 1;
+    }
+    .content-container{
+        overflow-y:scroll;
+    }
+}
+
+@media (min-width:320px) and (max-width:998px) {
+    .body-container{
+        .sidebar-container{
+            min-width: 65%;
+            z-index: 4;
+            position: absolute;
+        }
+    }   
+}
