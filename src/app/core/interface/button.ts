@@ -1,5 +1,3 @@
-import { EventEmitter } from "@angular/core";
-
 export interface button {
     type: string
     btnClass: string,

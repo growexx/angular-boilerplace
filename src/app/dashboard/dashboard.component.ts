@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 import * as _ from 'lodash';
 import { MatDialog } from '@angular/material/dialog';
+import { btn } from '../core/interface/button';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,7 @@ export class DashboardComponent implements OnInit {
   isOpen: boolean = false;
   btnHandelClick:any = [];
   btnClicked:EventEmitter<any> = new EventEmitter<any>();
-  btn: any = {type:'small',btnClass:'btn-small btn-primary', btnText:'Open Modal', eventName: this.btnClicked,returnObj:['id']};
+  btnData: btn = {type:'small',btnClass:'btn-small btn-primary', btnText:'Open Modal', eventName: this.btnClicked,returnObj:['id']};
 
   constructor(private dialog: MatDialog) {}
 

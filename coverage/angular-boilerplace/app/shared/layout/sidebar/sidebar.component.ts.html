@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for app/shared/components/buttons/buttons.component.ts</title>
+    <title>Code coverage report for app/shared/layout/sidebar/sidebar.component.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">app/shared/components/buttons</a> buttons.component.ts</h1>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">app/shared/layout/sidebar</a> sidebar.component.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">66.66% </span>
-                <span class="quiet">Lines</span>
+                <span class="quiet">Functions</span>
                 <span class='fraction'>2/3</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
@@ -94,13 +94,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -108,30 +105,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { button } from '../../../core/interface/button';
-import * as _ from 'lodash';
-&nbsp;
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit } from '@angular/core';
 &nbsp;
 @Component({
-  selector: 'app-buttons',
-  templateUrl: './buttons.component.html',
-  styleUrls: ['./buttons.component.scss']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss']
 })
-export class ButtonsComponent implements OnInit {
+export class SidebarComponent implements OnInit {
 &nbsp;
-  @Input() btnVal: any;
-  @Output() btnClicked:EventEmitter&lt;any&gt; = new EventEmitter&lt;any&gt;();
+  isOpen: boolean = false;
 &nbsp;
+  constructor() { }
 &nbsp;
   ngOnInit(): void {
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  openPopupData(</span>event:any){
-<span class="cstat-no" title="statement not covered" >    this.btnClicked.emit(event);</span>
+<span class="fstat-no" title="function not covered" >  toggleSidebar(</span>) {
+<span class="cstat-no" title="statement not covered" >    this.isOpen = !this.isOpen;</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.isOpen) {</span>
+&nbsp;
+    }
   }
 &nbsp;
 }

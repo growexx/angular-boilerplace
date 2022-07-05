@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 import { NgbAccordion, NgbPanel, NgbPanelToggle } from '@ng-bootstrap/ng-bootstrap';
 
 import { DashboardComponent } from './dashboard.component';
@@ -10,7 +11,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, FormsModule],
+      imports: [ReactiveFormsModule, FormsModule, MatDialogModule],
       declarations: [ DashboardComponent, NgbAccordion,NgbPanel, NgbPanelToggle ]
     })
     .compileComponents();
