@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import * as _ from 'lodash';
 import { MatDialog } from '@angular/material/dialog';
+import { ButtonComponent } from 'src/app/shared/button/button.component';
+import { button } from 'src/app/shared/interface/button';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,13 +12,21 @@ import { MatDialog } from '@angular/material/dialog';
 export class DashboardComponent implements OnInit {
 
   isOpen: boolean = false;
+  btnHandelClick:any = [];
+  btnClicked:EventEmitter<any> = new EventEmitter<any>();
+  btn: any = {type:'small',btnClass:'btn-small btn-primary', btnText:'Open Modal', eventName: this.btnClicked,returnObj:['id']};
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+
+  handleBtnClicked(){
+    this.btnClicked.emit(); 
   }
 
-  openModal() {
+  openModal(data?:any) {
+
     let actions = [];
     const successModelActions = [
       {

@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthsidebarComponent } from './authsidebar/authsidebar.component';
 import { ModalComponent } from './modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ButtonsComponent } from './components/buttons/buttons.component';
 
 
 
@@ -20,7 +21,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     SidebarComponent,
     FooterComponent,
     AuthsidebarComponent,
-    ModalComponent
+    ModalComponent,
+    ButtonsComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AuthsidebarComponent,
     HeaderComponent,
     ModalComponent,
-    
+    ButtonsComponent
   ]
 })
 export class SharedModule { }
