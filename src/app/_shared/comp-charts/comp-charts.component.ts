@@ -8,6 +8,7 @@ import { ButtonComponent } from '../button/button.component';
   styleUrls: ['./comp-charts.component.scss']
 })
 export class CompChartsComponent {
+  
   @Output() changeData: EventEmitter<any> = new EventEmitter<number>();
 
   @Input() myChart: any;
@@ -24,17 +25,17 @@ export class CompChartsComponent {
  
   task1() {
     this.id = 1;
-    this.changeData.emit(this.id)
+    this.changeData.emit(1)
   }
 
   task2() {
     this.id = 2;
-    this.changeData.emit(this.id)
+    this.changeData.emit(2)
   }
 
   task3() {
     this.id = 3;
-    this.changeData.emit(this.id)
+    this.changeData.emit(3)
   }
 
  
