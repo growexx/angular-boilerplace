@@ -28,3 +28,10 @@
         }
     }   
 }
+@media (max-width:767px){
+    .body-container{
+        .content-container{
+            width: 100vw;
+        }
+    }
+}

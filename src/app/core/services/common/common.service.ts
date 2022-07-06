@@ -11,6 +11,7 @@ export class CommonService {
   public index: number = 0;
   public checkAllCheckboxes: boolean = false;
   public searchFilter: string = '';
+  public checkboxes: string[] = [];
 
   constructor() { }
 
@@ -29,9 +30,5 @@ export class CommonService {
 
   toggleFilterDropdown() {
     this.showFilterDropdown = !this.showFilterDropdown;
-  }
-
-  selectAllCheckboxes(){
-    this.checkAllCheckboxes = !this.checkAllCheckboxes;
   }
 }

@@ -2,6 +2,7 @@
   "users": [
     {
       "id": 1,
+      "isSelected": false,
       "name": "Emma Smith",
       "imageUrl": "/assets/300-6.jpg",
       "email": "smith@kpmg.com",
@@ -22,12 +23,13 @@
     },
     {
       "id": 2,
+      "isSelected": false,
       "name": "Pruthvi Dhamecha",
       "imageUrl": "/assets/300-6.jpg",
       "email": "pruthvidhamecha@gmail.com",
       "role": "Engineer",
       "last_login": "Today",
-      "two_step": "",
+      "two_step": "Enabled",
       "joined_date": "01 July 2022, 6:43 pm",
       "action": [
         {
@@ -42,10 +44,11 @@
     },
     {
       "id": 3,
+      "isSelected": false,
       "name": "Meet patel",
       "imageUrl": "/assets/300-6.jpg",
       "email": "meetpatel@gmail.com",
-      "role": "Engineer",
+      "role": "Analyst",
       "last_login": "Today",
       "two_step": "Disabled",
       "joined_date": "01 July 2022, 6:43 pm",
@@ -62,10 +65,11 @@
     },
     {
       "id": 4,
+      "isSelected": false,
       "name": "Sohel Khan",
       "imageUrl": "/assets/300-6.jpg",
       "email": "sohelkhan@gmail.com",
-      "role": "Engineer",
+      "role": "Support",
       "last_login": "Today",
       "two_step": "Enabled",
       "joined_date": "01 July 2022, 6:43 pm",
@@ -82,10 +86,11 @@
     },
     {
       "id": 5,
+      "isSelected": false,
       "name": "Tanmay Patel",
       "imageUrl": "/assets/300-6.jpg",
       "email": "tanmaypatel@gmail.com",
-      "role": "Engineer",
+      "role": "Trial",
       "last_login": "Today",
       "two_step": "Disabled",
       "joined_date": "01 July 2022, 6:43 pm",
@@ -102,49 +107,10 @@
     },
     {
       "id": 6,
+      "isSelected": false,
       "name": "Utkarsh Singh",
       "imageUrl": "/assets/300-6.jpg",
       "email": "utkarshsingh@gmail.com",
-      "role": "Engineer",
-      "last_login": "Today",
-      "two_step": "",
-      "joined_date": "01 July 2022, 6:43 pm",
-      "action": [
-        {
-          "label": "Edit",
-          "url": "/"
-        },
-        {
-          "label": "Delete",
-          "url": "/"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "name": "Kalp Patel",
-      "imageUrl": "/assets/300-6.jpg",
-      "email": "kalppatel@gmail.com",
-      "role": "Engineer",
-      "last_login": "Today",
-      "two_step": "Enabled",
-      "joined_date": "01 July 2022, 6:43 pm",
-      "action": [
-        {
-          "label": "Edit",
-          "url": "/"
-        },
-        {
-          "label": "Delete",
-          "url": "/"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "name": "Rushabh Devrup",
-      "imageUrl": "/assets/300-6.jpg",
-      "email": "rkdevrup@gmail.com",
       "role": "Engineer",
       "last_login": "Today",
       "two_step": "Disabled",
@@ -161,11 +127,54 @@
       ]
     },
     {
+      "id": 7,
+      "isSelected": false,
+      "name": "Kalp Patel",
+      "imageUrl": "/assets/300-6.jpg",
+      "email": "kalppatel@gmail.com",
+      "role": "Support",
+      "last_login": "Today",
+      "two_step": "Enabled",
+      "joined_date": "01 July 2022, 6:43 pm",
+      "action": [
+        {
+          "label": "Edit",
+          "url": "/"
+        },
+        {
+          "label": "Delete",
+          "url": "/"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "isSelected": false,
+      "name": "Rushabh Devrup",
+      "imageUrl": "/assets/300-6.jpg",
+      "email": "rkdevrup@gmail.com",
+      "role": "Developer",
+      "last_login": "Today",
+      "two_step": "Disabled",
+      "joined_date": "01 July 2022, 6:43 pm",
+      "action": [
+        {
+          "label": "Edit",
+          "url": "/"
+        },
+        {
+          "label": "Delete",
+          "url": "/"
+        }
+      ]
+    },
+    {
       "id": 9,
+      "isSelected": false,
       "name": "Varun Devani",
       "imageUrl": "/assets/300-6.jpg",
       "email": "varundevani@gmail.com",
-      "role": "Engineer",
+      "role": "Analyst",
       "last_login": "Today",
       "two_step": "Enabled",
       "joined_date": "01 July 2022, 6:43 pm",
@@ -182,12 +191,13 @@
     },
     {
       "id": 10,
+      "isSelected": false,
       "name": "Virendra Solanki",
       "imageUrl": "/assets/300-6.jpg",
       "email": "virendrasolanki@gmail.com",
-      "role": "Engineer",
+      "role": "Developer",
       "last_login": "Today",
-      "two_step": "",
+      "two_step": "Enabled",
       "joined_date": "01 July 2022, 6:43 pm",
       "action": [
         {
@@ -202,12 +212,13 @@
     },
     {
       "id": 11,
+      "isSelected": false,
       "name": "Rahul Parmar",
       "imageUrl": "/assets/300-6.jpg",
       "email": "rahulparmar@gmail.com",
-      "role": "Engineer",
+      "role": "Analyst",
       "last_login": "Today",
-      "two_step": "",
+      "two_step": "Disabled",
       "joined_date": "01 July 2022, 6:43 pm",
       "action": [
         {

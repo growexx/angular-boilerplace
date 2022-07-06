@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   onLogin() {
-
     this.submitButton = {
       text: "Please Wait...",
       type: "submit",

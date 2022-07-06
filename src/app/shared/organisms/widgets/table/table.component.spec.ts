@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
 
 import { TableComponent } from './table.component';
@@ -9,7 +10,8 @@ describe('TableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableComponent, FilterPipe ]
+      declarations: [ TableComponent, FilterPipe ],
+      imports: [ NgxPaginationModule ]
     })
     .compileComponents();
   });

@@ -24,9 +24,4 @@ describe('CommonService', () => {
     expect(service.showActionDropdown).toBeTruthy();
     expect(service.index).toBe(1);
   });
-
-  it('should be selectAllCheckboxes() function works as expected', () => {
-    service.selectAllCheckboxes()
-    expect(service.checkAllCheckboxes).toBeTruthy();
-  });
 });

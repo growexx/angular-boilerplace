@@ -1,6 +1,7 @@
-.header{
+.header-container{
     background-color: #ffffff;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     .menu{
@@ -9,11 +10,13 @@
         align-items: center;
         justify-content: center;
         .menu-list{
+            display: flex;
+            flex-direction: row;
             list-style-type: none;
             align-items: center;
             margin-bottom: 0;
-            .list-item{
-                .list-item-anchor{
+            .menu-list-item{
+                .menu-list-item-anchor{
                     text-decoration: none;
                 }
             }
@@ -23,12 +26,23 @@
         .icon-list{
             list-style-type: none;
             margin-bottom: 0;
-            .list-item{
+            .icon-list-item{
                 display: flex;
                 align-items: center;
-                .list-item-anchor{
+                .icon-list-item-anchor{
                     text-decoration: none;
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .header-container{
+        width: 100%;
+        .menu{
+            .menu-list{
+                display: none;
             }
         }
     }

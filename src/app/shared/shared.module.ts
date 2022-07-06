@@ -5,6 +5,7 @@ import { TableComponent } from './organisms/widgets/table/table.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     RouterModule,
     NgxPaginationModule,
+    FormsModule,
   ],
   exports: [
     FilterPipe,

@@ -18,29 +18,26 @@
                 </div>
                 <div class="separator border-gray-200"></div>
                 <div class="filter_body">
-                    <div class="role_menu pg-py-1 pg-mb-2">
-                        <label class="role_menu_label form-label pg-fs-6">Role:</label>
-                        <select name="role_menu_dropdown" id="role_menu_dropdown" class="role_menu_dropdown form-control select2-selection select2-selection--single form-select form-select-solid fw-bolder">
-                            <option>Select option</option>
-                            <option value="Administrator">Administrator</option>
-                            <option value="Analyst">Analyst</option>
-                            <option value="Developer">Developer</option>
-                            <option value="Support">Support</option>
-                            <option value="Trial">Trial</option>
-                        </select>
-                    </div>
-                    <div class="two_step_verification_menu pg-py-1 pg-mb-2">
-                        <label class="two_step_verification_menu_label form-label pg-fs-6">Two Step Verification:</label>
-                        <select name="two_step_verification_menu_dropdown" id="two_step_verification_menu_dropdown" class="two_step_verification_menu_dropdown form-control select2-selection select2-selection--single form-select form-select-solid fw-bolder">
-                            <option>Select option</option>
-                            <option value="Enabled">Enabled</option>
-                        </select>
-                    </div>
-
-                    <div class="d-flex justify-content-end">
-                        <button type="reset" class="btn btn-light btn-active-light-primary fw-bold pg-mr-2 pg-px-6">Reset</button>
-                        <button type="submit" class="btn btn-primary fw-bold pg-px-6">Apply</button>
-                    </div>
+                    <form [formGroup]="filterForm" (ngSubmit)="onSubmitFilter()">
+                        <div class="role_menu pg-py-1 pg-mb-2">
+                            <label class="role_menu_label form-label pg-fs-6">Role:</label>
+                            <select formControlName="role" name="role_menu_dropdown" id="role_menu_dropdown" class="role_menu_dropdown form-select fw-bolder">
+                                <option>Select option</option>
+                                <option *ngFor="let role of roles" value="{{role}}">{{role}}</option>
+                            </select>
+                        </div>
+                        <div class="two_step_verification_menu pg-py-1 pg-mb-2">
+                            <label class="two_step_verification_menu_label form-label pg-fs-6">Two Step Verification:</label>
+                            <select formControlName="two_step" name="two_step_verification_menu_dropdown" id="two_step_verification_menu_dropdown" class="two_step_verification_menu_dropdown form-select fw-bolder">
+                                <option>Select option</option>
+                                <option *ngFor="let items of two_step" value="{{items}}">{{items}}</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="reset" (click)="onResetFilter()" class="btn btn-light btn-active-light-primary fw-bold pg-mr-2 pg-px-6">Reset</button>
+                            <button type="submit" class="btn btn-primary fw-bold pg-px-6">Apply</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <a type="button" class="btn btn-light-primary me-3">
@@ -51,6 +48,34 @@
                 <em class="fa-solid fa-plus"></em>
                 Add User
             </a>
+            <!-- <div class="add-user-modal show-modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="fw-bolder pg-mb-0">Add User</h2>
+                            <div class="modal-close" (click)="closeModal()">
+                                <em class="fa-solid fa-xmark"></em>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="addUserForm" id="addUserForm" (ngSubmit)="addUser()" class="addUserForm">
+                                <div class="avatar-container">
+                                    <label class="avatar-label fw-semibold fs-5 pg-mb-1">Avatar</label>
+                                    <img src="/assets/300-6.jpg" alt="user" class="avatar img-thumbnail">
+                                    <em class="fa-solid fa-pen edit-icon icon"></em>
+                                    <em class="fa-solid fa-xmark remove-icon icon"></em>
+                                    <div class="avatar-hint">Allowed file types: png, jpg, jpeg.</div>
+                                </div>
+                                <div class="fv-row mb-7 fv-plugins-icon-container">
+                                    <label class="required fw-semibold fs-6 mb-2">Full Name</label>
+                                    <input type="text" name="user_name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Full name" value="Emma Smith">
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </div>
 </div>
