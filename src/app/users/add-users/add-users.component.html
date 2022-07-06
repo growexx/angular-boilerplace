@@ -1,0 +1,71 @@
+<div class="add-user-wrapper">
+    <div class="container">
+        <div class="add-user-panel">
+            <mat-stepper #stepper>
+                <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required." *ngIf="firstFormGroup">
+                    <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>Profile</ng-template>
+                        <div class="row">
+                            <div class="col-sm-3 mb-20">Image</div>
+                            <div class="col-sm-9">
+                                <div class="position-relative avtaar">
+                                    <img src="assets/images/avtaar.jpg" alt="" width="120" height="120">
+                                    <!-- <div class="position-absolute edit-icon">
+                                        <i class="fa fa-pen icon-sm text-muted"></i>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3 mb-20"><label>Name</label></div>
+                            <div class="col-sm-9"><input type="text" class="w-50" formControlName="userName"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 mb-20"><label>Company Name</label></div>
+                            <div class="col-sm-9"><input type="text" class="w-50" formControlName="companyName"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 mb-20"><label>Contact Phone</label></div>
+                            <div class="col-sm-9"><input type="text" class="w-50" formControlName="userPhone"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 mb-20"><label>Company Address</label></div>
+                            <div class="col-sm-9"><input type="text" class="w-50" formControlName="userCompanyAddress">
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <button mat-button matStepperNext class="btn-primary btn-medium">Next</button>
+                        </div>
+
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required." *ngIf="secondFormGroup">
+                    <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel>Address</ng-template>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Address</mat-label>
+                            <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
+                                required>
+                        </mat-form-field>
+                        <div>
+                            <p>Go to a different step to see the error state</p>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Submission</ng-template>
+                    <p>You are now done.</p>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()">Reset</button>
+                    </div>
+                </mat-step>
+            </mat-stepper>
+
+        </div>
+    </div>
+</div>

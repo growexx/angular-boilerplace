@@ -6,26 +6,32 @@ import { RootComponent } from './main-pages/root/root.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     redirectTo: 'auth',
-    pathMatch:'full'
+    pathMatch: 'full'
   },
   {
     path: 'auth',
     component: HomeComponent,
-    children:[{
-      path: '',
-      loadChildren: () => import('./auth/auth.module').then(m=>m.AuthModule)
-    }]
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+      },      
+    ]
   },
 
   {
     path: 'admin',
     component: RootComponent,
-    children:[
+    children: [
       {
-        path:'',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
+        path: '',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
       }
     ]
   },

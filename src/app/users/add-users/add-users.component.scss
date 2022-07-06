@@ -1,0 +1,18 @@
+@import '../../../assets/styles/variables/colors';
+
+.add-user-panel{
+    max-width: 1200px;
+    background-color: $bs-white;
+    margin:auto;
+
+    input{
+        border: none;
+        background-color: #F3F6F9;
+        padding: 10px 18px;
+    }
+    .avtaar{
+        .edit-icon{
+            top: 0;
+        }
+    }
+}
