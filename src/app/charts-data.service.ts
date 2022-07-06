@@ -39,11 +39,7 @@ export class ChartsDataService {
           display: true,
           position: 'left',
           ticks: {
-            // min: 0,
-            // max: 100,
             color: '#A1A5B7',
-            // width: 30,
-            // beginAtZero: true
           },
           grid: {
             color: '#F5F8FA',

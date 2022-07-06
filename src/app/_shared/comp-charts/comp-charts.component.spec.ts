@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { event } from 'jquery';
+
 
 import { CompChartsComponent } from './comp-charts.component';
 

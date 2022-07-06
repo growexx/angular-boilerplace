@@ -4,8 +4,7 @@ import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.compo
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ChartsComponent } from './_shared/charts/charts.component';
-
+import { CompChartsComponent } from './_shared/comp-charts/comp-charts.component';
 const routes: Routes = [{
   path: '',
   component: LoginComponent
@@ -20,7 +19,7 @@ const routes: Routes = [{
   component: DashboardComponent
 }, {
   path: 'charts',
-  component: ChartsComponent
+  component: CompChartsComponent
 },{
   path: '**',
   redirectTo: ''

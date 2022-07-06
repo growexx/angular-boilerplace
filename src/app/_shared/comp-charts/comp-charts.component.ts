@@ -19,9 +19,7 @@ export class CompChartsComponent {
   @Input() showButtons!: boolean;
   @Input() 
   id: any;
-  // btnName1='Year';
-  // btnName2='Month';
-  // btnName3='Week';
+  
  
   task1() {
     this.id = 1;
