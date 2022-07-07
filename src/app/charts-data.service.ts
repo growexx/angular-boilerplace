@@ -157,6 +157,7 @@ export class ChartsDataService {
   }
 
   getChart() {
+    
     if(this.myChart!=null){
       this.destroyChart();
     }

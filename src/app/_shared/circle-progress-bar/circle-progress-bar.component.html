@@ -1,0 +1,7 @@
+<div *ngIf="isLoader" class="{{loaderClass}}">
+    <div>
+        <circle-progress [lazy]="progressBar.lazy" [showInnerStroke]="progressBar.showInnerStroke" [showUnits]="progressBar.showUnits" [showSubtitle]="progressBar.showSubtitle" [showTitle]="progressBar.showTitle" [percent]="progressBar.percent" [radius]="progressBar.radius"
+            [outerStrokeWidth]="progressBar.outerStrokeWidth" [outerStrokeColor]="progressBar.outerStrokeColor" [animation]="progressBar.animation" [outerStrokeLinecap]="progressBar.outerStrokeLinecap" [animationDuration]="progressBar.animationDuration">
+        </circle-progress>
+    </div>
+</div>

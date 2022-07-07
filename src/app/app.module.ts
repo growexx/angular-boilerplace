@@ -17,7 +17,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {ChartModule} from 'primeng/chart';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CompChartsComponent } from './_shared/comp-charts/comp-charts.component';
-
+import { CircleProgressBarComponent } from './_shared/circle-progress-bar/circle-progress-bar.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+ 
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { CompChartsComponent } from './_shared/comp-charts/comp-charts.component
     ResetpasswordComponent,
     DashboardComponent,
     CompChartsComponent,
+    CircleProgressBarComponent,
    
   ],
   imports: [
@@ -40,7 +43,16 @@ import { CompChartsComponent } from './_shared/comp-charts/comp-charts.component
     HttpClientModule,
     ChartModule,
     BrowserAnimationsModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
