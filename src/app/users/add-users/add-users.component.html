@@ -5,64 +5,165 @@
                 <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required." *ngIf="firstFormGroup">
                     <form [formGroup]="firstFormGroup">
                         <ng-template matStepLabel>Profile</ng-template>
-                        <div class="row">
-                            <div class="col-sm-3 mb-20">Image</div>
-                            <div class="col-sm-9">
-                                <div class="position-relative avtaar">
-                                    <img src="assets/images/avtaar.jpg" alt="" width="120" height="120">
-                                    <!-- <div class="position-absolute edit-icon">
+
+                        <div class="row justify-content-center">
+                            <div class="col-xl-9">
+                                <div class="mb-20">
+                                    <h3 class="font-500">Users Profile</h3>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-3 mb-20">Image</div>
+                                    <div class="col-sm-9">
+                                        <div class="position-relative avtaar">
+                                            <img src="assets/images/avtaar.jpg" alt="" width="120" height="120">
+                                            <!-- <div class="position-absolute edit-icon">
                                         <i class="fa fa-pen icon-sm text-muted"></i>
                                     </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-3 mb-20"><label>Name</label></div>
+                                    <div class="col-sm-9"><input type="text" formControlName="userName">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3 mb-20"><label>Company Name</label></div>
+                                    <div class="col-sm-9"><input type="text" formControlName="companyName">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3 mb-20"><label>Contact Phone</label></div>
+                                    <div class="col-sm-9"><input type="text" formControlName="userPhone">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3 mb-20"><label>Company Address</label></div>
+                                    <div class="col-sm-9"><input type="text" formControlName="userCompanyAddress">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end border-top">
+                                    <button mat-button matStepperNext class="btn-primary btn-medium mt-10">Next</button>
                                 </div>
                             </div>
+
+
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-3 mb-20"><label>Name</label></div>
-                            <div class="col-sm-9"><input type="text" class="w-50" formControlName="userName"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3 mb-20"><label>Company Name</label></div>
-                            <div class="col-sm-9"><input type="text" class="w-50" formControlName="companyName"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3 mb-20"><label>Contact Phone</label></div>
-                            <div class="col-sm-9"><input type="text" class="w-50" formControlName="userPhone"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3 mb-20"><label>Company Address</label></div>
-                            <div class="col-sm-9"><input type="text" class="w-50" formControlName="userCompanyAddress">
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-end">
-                            <button mat-button matStepperNext class="btn-primary btn-medium">Next</button>
-                        </div>
 
                     </form>
                 </mat-step>
                 <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required." *ngIf="secondFormGroup">
                     <form [formGroup]="secondFormGroup">
                         <ng-template matStepLabel>Address</ng-template>
-                        <mat-form-field appearance="fill">
-                            <mat-label>Address</mat-label>
-                            <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
-                                required>
-                        </mat-form-field>
-                        <div>
-                            <p>Go to a different step to see the error state</p>
-                            <button mat-button matStepperPrevious>Back</button>
-                            <button mat-button matStepperNext>Next</button>
+                        <div class="row justify-content-center">
+                            <div class="col-xl-9">
+                                <div class="mb-20">
+                                    <h3>Setup Your Address</h3>
+                                </div>
+                                <div class="row mb-10">
+                                    <div class="col-xl-12"><label>Address Line 1</label></div>
+                                    <div class="col-xl-12"><input type="text"></div>
+                                </div>
+                                <div class="row mb-10">
+                                    <div class="col-xl-12"><label>Address Line 2</label></div>
+                                    <div class="col-xl-12"><input type="text"></div>
+                                </div>
+                                <div class="row mb-10">
+                                    <div class="col-xl-12">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div><label>Postcode</label></div>
+                                                <div><input type="text"></div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div><label>City</label></div>
+                                                <div><input type="text"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row mb-10">
+                                    <div class="col-xl-12">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div><label>State</label></div>
+                                                <div><input type="text"></div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div><label>Country</label></div>
+                                                <div><select name="country" id="country" class="w-100">
+                                                        <option value="Select">Select</option>
+                                                        <option value="Select">India</option>
+                                                        <option value="Select">USA</option>
+                                                        <option value="Select">Canada</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row border-top">
+                                    <div class="col-xl-12">
+                                        <div class="d-flex justify-content-between flex-wrap mt-10">
+                                            <button class="btn-medium btn-secondary" mat-button
+                                                matStepperPrevious>Back</button>
+                                            <button class="btn-medium btn-primary" mat-button
+                                                matStepperNext>Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+
                     </form>
                 </mat-step>
                 <mat-step>
                     <ng-template matStepLabel>Submission</ng-template>
-                    <p>You are now done.</p>
-                    <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button (click)="stepper.reset()">Reset</button>
+
+                    <div class="row justify-content-center mb-10">
+                        <div class="col-xl-9">
+                            <div class="mb-20">
+                                <h3>Review your Details and Submit</h3>
+                            </div>
+                            <div>
+                                <h4 class="font-500">Your Account Details:</h4>
+                                <div>
+                                    <div><span>John Wick</span></div>
+                                    <div><span>Phone:</span><span>+61412345678</span></div>
+                                    <div><span>Email:</span><span>johnwick@reeves.com</span></div>
+                                </div>
+                            </div>                            
+                        </div>
                     </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-xl-9">                            
+                            <div class="mb-10">
+                                <h4 class="font-500">Your Address Details:</h4>
+                                <div>
+                                    <div><span>Address Line 1</span></div>
+                                    <div><span>Address Lne 2</span></div>
+                                    <div><span>Melbourne 3000, VIC, Australia</span></div>
+                                </div>
+                            </div>
+                            <div class="border-top">
+                                <div class="d-flex justify-content-between flex-wrap mt-10">
+                                    <button class="btn-medium btn-secondary" mat-button matStepperPrevious>Back</button>
+                                    <button class="btn-medium btn-primary" mat-button
+                                        (click)="stepper.reset()">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </mat-step>
             </mat-stepper>
 
