@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './main-pages/home/home.component';
-import { RootComponent } from './main-pages/root/root.component';
+import { AuthComponent } from './auth/auth/auth.component';
+import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {
@@ -12,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    component: HomeComponent,
+    component: AuthComponent,
     children: [
       {
         path: '',
@@ -23,7 +22,7 @@ const routes: Routes = [
 
   {
     path: 'admin',
-    component: RootComponent,
+    component: MainComponent,
     children: [
       {
         path: '',
