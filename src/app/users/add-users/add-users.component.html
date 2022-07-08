@@ -3,7 +3,7 @@
         <div class="add-user-panel">
             <mat-stepper #stepper>
                 <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required." *ngIf="firstFormGroup">
-                    <form [formGroup]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup" (ngSubmit)="goToStep2()">
                         <ng-template matStepLabel>Profile</ng-template>
 
                         <div class="row justify-content-center">
@@ -23,27 +23,33 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-3 mb-20"><label>Name</label></div>
-                                    <div class="col-sm-9"><input type="text" formControlName="userName">
+                                    <div class="col-sm-3 mb-20"><label>First Name</label></div>
+                                    <div class="col-sm-9"><input type="text" formControlName="firstName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3 mb-20"><label>Second Name</label></div>
+                                    <div class="col-sm-9"><input type="text" formControlName="lastName" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3 mb-20"><label>Company Name</label></div>
-                                    <div class="col-sm-9"><input type="text" formControlName="companyName">
+                                    <div class="col-sm-9"><input type="text" formControlName="name" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3 mb-20"><label>Contact Phone</label></div>
-                                    <div class="col-sm-9"><input type="text" formControlName="userPhone">
+                                    <div class="col-sm-9"><input type="text" formControlName="phone" mask="000-000-0000" required>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" formGroupName="company">
                                     <div class="col-sm-3 mb-20"><label>Company Address</label></div>
-                                    <div class="col-sm-9"><input type="text" formControlName="userCompanyAddress">
+                                    <div class="col-sm-9"><input type="text" formControlName="address" required>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-end border-top">
-                                    <button mat-button matStepperNext class="btn-primary btn-medium mt-10">Next</button>
+                                    <button mat-button matStepperNext class="btn-primary btn-medium mt-10"
+                                        [disabled]="firstFormGroup.invalid">Next</button>
                                 </div>
                             </div>
 
@@ -54,7 +60,7 @@
                     </form>
                 </mat-step>
                 <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required." *ngIf="secondFormGroup">
-                    <form [formGroup]="secondFormGroup">
+                    <form [formGroup]="secondFormGroup" (ngSubmit)="goToStep3()">
                         <ng-template matStepLabel>Address</ng-template>
                         <div class="row justify-content-center">
                             <div class="col-xl-9">
@@ -63,22 +69,22 @@
                                 </div>
                                 <div class="row mb-10">
                                     <div class="col-xl-12"><label>Address Line 1</label></div>
-                                    <div class="col-xl-12"><input type="text"></div>
+                                    <div class="col-xl-12"><input type="text" formControlName="addressLine1"></div>
                                 </div>
                                 <div class="row mb-10">
                                     <div class="col-xl-12"><label>Address Line 2</label></div>
-                                    <div class="col-xl-12"><input type="text"></div>
+                                    <div class="col-xl-12"><input type="text" formControlName="addressLine2"></div>
                                 </div>
                                 <div class="row mb-10">
                                     <div class="col-xl-12">
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div><label>Postcode</label></div>
-                                                <div><input type="text"></div>
+                                                <div><input type="text" formControlName="postalCode"></div>
                                             </div>
                                             <div class="col-xl-6">
                                                 <div><label>City</label></div>
-                                                <div><input type="text"></div>
+                                                <div><input type="text" formControlName="city"></div>
                                             </div>
                                         </div>
 
@@ -90,11 +96,12 @@
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div><label>State</label></div>
-                                                <div><input type="text"></div>
+                                                <div><input type="text" formControlName="state"></div>
                                             </div>
                                             <div class="col-xl-6">
                                                 <div><label>Country</label></div>
-                                                <div><select name="country" id="country" class="w-100">
+                                                <div><select name="country" id="country" class="w-100"
+                                                        formControlName="country">
                                                         <option value="Select">Select</option>
                                                         <option value="Select">India</option>
                                                         <option value="Select">USA</option>
@@ -133,9 +140,9 @@
                             <div>
                                 <h4 class="font-500">Your Account Details:</h4>
                                 <div>
-                                    <div><span>John Wick</span></div>
-                                    <div><span>Phone:</span><span>+61412345678</span></div>
-                                    <div><span>Email:</span><span>johnwick@reeves.com</span></div>
+                                    <div><span>{{firstFormVal?.firstName}} {{firstFormVal?.lastName}}</span></div>
+                                    <div><span>Phone:</span><span>+{{firstFormVal?.phone}}</span></div>
+                                    <div><span>Email:</span><span>{{firstFormVal?.company?.address}}</span></div>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +162,7 @@
                                 <div class="d-flex justify-content-between flex-wrap mt-10">
                                     <button class="btn-medium btn-secondary" mat-button matStepperPrevious>Back</button>
                                     <button class="btn-medium btn-primary" mat-button
-                                        (click)="stepper.reset()">Submit</button>
+                                        (click)="addUser()">Submit</button>
                                 </div>
                             </div>
                         </div>

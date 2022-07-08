@@ -6,7 +6,10 @@ import { AddUsersComponent } from './add-users/add-users.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 @NgModule({
   declarations: [
     AddUsersComponent
@@ -17,7 +20,9 @@ import {MatInputModule} from '@angular/material/input';
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    NgxMaskModule.forRoot(maskConfig)
   ]
+  
 })
 export class UsersModule { }
