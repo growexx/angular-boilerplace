@@ -1,0 +1,17 @@
+<form formGroup="googleApiForm">
+    <div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="country">Country</label>
+                <select formControlName="countryCode" (selectionChange)="changeCountryType()">
+                    <option *ngFor="let countries of asyncService.country$ | async" [value]="countries">
+                        {{countryEnum[countries]}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" formControlName="searchField" (keyup)="findAddress()" id="searchbox">
+            </div>
+        </div>
+    </div>
+</form>
