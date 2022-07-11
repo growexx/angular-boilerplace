@@ -1,5 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/core/services/common/common.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-table',
@@ -19,23 +20,18 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @HostListener('window:keydown.escape', ['$event'])
-  handleKeyEscape(event: KeyboardEvent) {
-    this.commonService.showActionDropdown = false;
-    this.commonService.index = 0; 
-  }
-
   checkUncheckAll() {
     for (var i = 0; i < this.tableData.length; i++) {
       this.tableData[i].isSelected = !this.commonService.checkAllCheckboxes;
     }
     this.getCheckedItemList();
+    this.commonService.checkAllCheckboxes = !this.commonService.checkAllCheckboxes;
   }
-
+  
   isAllSelected() {
     this.commonService.checkAllCheckboxes = this.tableData.every(function(item:any) {
-        return item.isSelected == true;
-      })
+      return item.isSelected == true;
+    })
     this.getCheckedItemList();
   }
 
@@ -46,5 +42,30 @@ export class TableComponent implements OnInit {
       this.checkedList.push(this.tableData[i]);
     }
     this.checkedList = JSON.stringify(this.checkedList);
+  }
+
+  OnDelete(id: number){
+    var user = this.tableData.filter((ele: any) => ele.id == id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Are you sure you want to delete " + user[0].name + "?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      focusConfirm:false,
+      focusCancel:false,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.commonService.toggleActionDropdown(user[0].id);
+        user.forEach(f => this.tableData.splice(this.tableData.findIndex(e => e.id === id),1));
+        Swal.fire(
+          'Deleted!',
+          'You have deleted ' + user[0].name + '!.',
+          'success'
+        )
+      }
+    });
   }
 }

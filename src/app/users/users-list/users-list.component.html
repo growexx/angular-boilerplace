@@ -7,12 +7,12 @@
     </div>
     <div class="card-toolbar">
         <div class="card-toolbar-filter">
-            <a type="button" class="btn btn-light-primary me-3" (click)="commonService.toggleFilterDropdown()">
+            <a type="button" class="btn btn-light-primary me-3" id="filterDropdown" (click)="commonService.toggleFilterDropdown()">
                 <em class="fa-solid fa-filter"></em>
                 Filter
             </a>
 
-            <div class="filter_menu pg-py-1" [class.show]="commonService.showFilterDropdown">
+            <div class="filter_menu pg-py-1" id="filter_menu" [class.show]="commonService.showFilterDropdown">
                 <div class="filter_header">
                     <div class="fs-5 text-dark fw-bolder">Filter Options</div>
                 </div>
@@ -48,34 +48,6 @@
                 <em class="fa-solid fa-plus"></em>
                 Add User
             </a>
-            <!-- <div class="add-user-modal show-modal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="fw-bolder pg-mb-0">Add User</h2>
-                            <div class="modal-close" (click)="closeModal()">
-                                <em class="fa-solid fa-xmark"></em>
-                            </div>
-                        </div>
-                        <div class="modal-body">
-                            <form [formGroup]="addUserForm" id="addUserForm" (ngSubmit)="addUser()" class="addUserForm">
-                                <div class="avatar-container">
-                                    <label class="avatar-label fw-semibold fs-5 pg-mb-1">Avatar</label>
-                                    <img src="/assets/300-6.jpg" alt="user" class="avatar img-thumbnail">
-                                    <em class="fa-solid fa-pen edit-icon icon"></em>
-                                    <em class="fa-solid fa-xmark remove-icon icon"></em>
-                                    <div class="avatar-hint">Allowed file types: png, jpg, jpeg.</div>
-                                </div>
-                                <div class="fv-row mb-7 fv-plugins-icon-container">
-                                    <label class="required fw-semibold fs-6 mb-2">Full Name</label>
-                                    <input type="text" name="user_name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Full name" value="Emma Smith">
-                                    <div class="fv-plugins-message-container invalid-feedback"></div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 </div>

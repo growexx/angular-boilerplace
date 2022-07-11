@@ -15,7 +15,8 @@ describe('ResetpasswordComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule,ReactiveFormsModule, FormsModule, SweetAlert2Module.forRoot()],
-      declarations: [ ResetpasswordComponent, AuthsidebarComponent, ButtonComponent]
+      declarations: [ ResetpasswordComponent, AuthsidebarComponent, ButtonComponent],
+      providers:[Swal]
     })
     .compileComponents();
   });

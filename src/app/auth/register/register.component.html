@@ -27,9 +27,7 @@
             <div class="row fv-row pg-mb-4 fv-plugins-icon-container">
               <!--begin::Col-->
               <div class="col-xl-6">
-                <label
-                  for="firstName"
-                  class="form-label fw-bolder text-dark"
+                <label for="firstName" class="form-label fw-bolder text-dark"
                   >First Name</label
                 >
                 <input
@@ -71,9 +69,7 @@
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-xl-6">
-                <label
-                  for="lastName"
-                  class="form-label fw-bolder text-dark"
+                <label for="lastName" class="form-label fw-bolder text-dark"
                   >Last Name</label
                 >
                 <input
@@ -223,13 +219,13 @@
                 >
                   Please enter valid Confirm Password!
                 </small>
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm?.errors?.['misMatch']"
-                >
-                  Confirm password should be same
-                </small>
               </div>
+              <small
+                class="text-danger"
+                *ngIf="registerForm?.errors?.['misMatch']"
+              >
+                Confirm password should be same
+              </small>
             </div>
             <div
               class="fv-row pg-mb-4 fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid"
@@ -246,7 +242,8 @@
                 />
                 <span class="form-check-label fw-bold text-gray-700"
                   >I Agree
-                  <a href="#" class="pg-ms-1 link-primary">Terms and conditions</a
+                  <a href="#" class="pg-ms-1 link-primary"
+                    >Terms and conditions</a
                   >.
                 </span>
               </label>

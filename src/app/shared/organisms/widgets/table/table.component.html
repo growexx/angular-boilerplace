@@ -36,14 +36,13 @@
                     <td><div class="badge badge-light-success" [class.badge-light-success]="data.two_step == 'Enabled'" [class.badge-light-danger]="data.two_step == 'Disabled'">{{data.two_step}}</div></td>
                     <td>{{data.joined_date | date}}</td>
                     <td>
-                        <a (click)="commonService.toggleActionDropdown(data.id)" class="btn btn-light btn-active-light-primary btn-sm">Action <em class="fa-solid fa-angle-down"></em></a>
-                        <!-- <app-dropdown [dropdownConfig]="data.action" [id]="data.id"></app-dropdown> -->
+                        <a id="actionDropdown" (click)="commonService.toggleActionDropdown(data.id)" class="btn btn-light btn-active-light-primary btn-sm">Action <em class="fa-solid fa-angle-down"></em></a>
                         <div class="action_menu pg-py-1" [class.show]="commonService.showActionDropdown && commonService.index == data.id">
                             <div class="action-menu-item pg-px-1">
                                 <a routerLink="/" class="action-menu-link text-gray-600 text-hover-primary pg-px-1">Edit</a>
                             </div>
                             <div class="action-menu-item pg-px-1">
-                                <a routerLink="/" class="action-menu-link text-gray-600 text-hover-primary pg-px-1">Delete</a>
+                                <a (click)="OnDelete(data.id)" class="action-menu-link text-gray-600 text-hover-primary pg-px-1">Delete</a>
                             </div>
                         </div>
                     </td>

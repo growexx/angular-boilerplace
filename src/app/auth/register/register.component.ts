@@ -62,9 +62,6 @@ export class RegisterComponent implements OnInit {
           };
           this.registerSwal.fire();
         },
-        error: error => {
-          console.error('There was an error!', error.message);
-        }
       });
   }
 }

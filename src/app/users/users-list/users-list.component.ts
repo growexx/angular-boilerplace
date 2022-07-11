@@ -45,18 +45,13 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this.usersService.getAllUsers().subscribe(res => {
       this.tableData = res;
-      res.filter((ele: any) => {
+      this.tableData.filter((ele: any) => {
         (this.roles.indexOf(ele.role) === -1) ? this.roles.push(ele.role) : '';
       });
-      res.filter((ele: any) => {
+      this.tableData.filter((ele: any) => {
         (this.two_step.indexOf(ele.two_step) === -1) ? this.two_step.push(ele.two_step) : '';
       });
     });
-  }
-
-  @HostListener('window:keydown.escape', ['$event'])
-  handleKeyEscape(event: KeyboardEvent) {
-    this.commonService.showFilterDropdown = false;
   }
 
   onSubmitFilter() {
@@ -70,12 +65,13 @@ export class UsersListComponent implements OnInit {
           (this.two_step.indexOf(ele.two_step) === -1) ? this.two_step.push(ele.two_step) : '';
         });
       });
+    } else {
+      this.tableData = this.tableData.filter((ele: any) => (ele.role === this.filterForm.value.role && ele.two_step === this.filterForm.value.two_step));
     }
-    this.tableData = this.tableData.filter((ele: any) => (ele.role === this.filterForm.value.role && ele.two_step === this.filterForm.value.two_step));
     this.commonService.toggleFilterDropdown();
   }
 
-  onResetFilter(){
+  onResetFilter() {
     this.filterForm.reset();
     this.usersService.getAllUsers().subscribe(res => {
       this.tableData = res;
@@ -87,14 +83,5 @@ export class UsersListComponent implements OnInit {
       });
     });
     this.commonService.toggleFilterDropdown();
-  }
-
-  addUser(){
-    console.log(this.addUserForm.value);
-  }
-
-
-  closeModal(){
-    console.log("Modal closed");
   }
 }

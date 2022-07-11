@@ -17,7 +17,6 @@ describe('RegisterComponent', () => {
   let authService: AuthService;
   let submitButton: any;
   let passwordStrengthBar: PasswordStrengthBarComponent;
-  let regSwal: SwalComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -42,7 +41,7 @@ describe('RegisterComponent', () => {
     fixture.detectChanges();
     passwordStrengthBar = TestBed.inject(PasswordStrengthBarComponent);
     httpTestingController = TestBed.inject(HttpTestingController);
-    // regSwal = TestBed.get(SwalComponent)
+
   });
 
   it('should create', () => {
@@ -56,7 +55,7 @@ describe('RegisterComponent', () => {
     };
     component.onRegister();
     fixture.detectChanges();
-    
+
     expect(component.submitButton).withContext("button content should be changed").toEqual(submitButton);
     submitButton = {
       "text": "Sign Up",
@@ -72,13 +71,20 @@ describe('RegisterComponent', () => {
   }));
 
   it('should match password and confirmpassword', (() => {
-    component.registerForm.controls['password'].setValue('asdf@123');
-    component.registerForm.controls['confirmpassword'].setValue('asdf@123');
-    expect(component.registerForm.valid).toBeFalsy();
 
-    component.registerForm.controls['password'].setValue('Asdf@123');
-    component.registerForm.controls['confirmpassword'].setValue('Asdf@123');
+    component.registerForm.controls['password'].setValue('123456');
+    component.registerForm.controls['confirmpassword'].setValue('123456');
+    fixture.detectChanges();
+    expect(component.registerForm.valid).toBeFalsy();
+    
+    component.registerForm.controls['password'].setValue('Asdf@12345678');
+    component.registerForm.controls['confirmpassword'].setValue('Asdf@12345678');
+    fixture.detectChanges();
     expect(component.registerForm.valid).toBeTruthy();
+
+    component.registerForm.controls['password'].setValue(null);
+    component.registerForm.controls['confirmpassword'].setValue(null);
+    expect(component.registerForm.valid).toBeFalsy();
   }));
 
   it('should validate form fields with validations', (() => {
@@ -100,7 +106,7 @@ describe('RegisterComponent', () => {
     component.registerForm.controls['password'].setValue('pruthvi.d@123');
     component.registerForm.controls['confirmpassword'].setValue('pruthvi.d@123');
     expect(component.registerForm.valid).withContext('password should contain at least 1 uppercase,1 lowercase,1 special character and 1 digit').toBeFalsy();
-    
+
     component.registerForm.controls['password'].setValue('Pruthvi@123');
     component.registerForm.controls['confirmpassword'].setValue('Pruthvi@123');
     expect(component.registerForm.valid).withContext('password should contain at least 1 uppercase,1 lowercase,1 special character and 1 digit').toBeTruthy();
@@ -109,7 +115,7 @@ describe('RegisterComponent', () => {
     expect(component.registerForm.valid).withContext('should have accept terms and confitions').toBeFalsy();
     component.registerForm.controls['termsAndConditions'].setValue(true);
     expect(component.registerForm.valid).withContext('should have accept terms and confitions').toBeTruthy();
-    
+
     component.registerForm.controls['password'].setValue('Pruthvi@123');
     component.registerForm.controls['confirmpassword'].setValue('Pruthvi@1234');
     expect(component.registerForm.errors?.['misMatch']).withContext('password and confirm password should be same').toBeTruthy();
@@ -121,7 +127,7 @@ describe('RegisterComponent', () => {
     component.registerForm.controls['password'].setValue('Asdf@123');
     let passwordToCheck = component.registerForm.controls['password'].value;
     passComponent.ngOnChanges({
-      passwordToCheck: new SimpleChange(passwordToCheck,passwordToCheck,false)
+      passwordToCheck: new SimpleChange(passwordToCheck, passwordToCheck, false)
     })
     passFixture.detectChanges();
     let strengthBar = Object.values(passComponent).filter(key => key.includes("#DDD"));

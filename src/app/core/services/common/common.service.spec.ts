@@ -19,9 +19,16 @@ describe('CommonService', () => {
     expect(service.isSideBar).toBeFalsy();
   });
 
-  it('should be showDropdown() function works as expected', () => {
+  it('should be toggleActionDropdown() function works as expected', () => {
     service.toggleActionDropdown(1)
     expect(service.showActionDropdown).toBeTruthy();
+    expect(service.index).toBe(1);
+  });
+
+  it('should be toggleActionDropdown() function works as expected', () => {
+    service.index = 2;
+    service.toggleActionDropdown(1)
+    expect(service.showActionDropdown).toBeFalsy();
     expect(service.index).toBe(1);
   });
 });

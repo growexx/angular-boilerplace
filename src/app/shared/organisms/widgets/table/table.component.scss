@@ -110,6 +110,15 @@
   }
 }
 
+.swal2-styled.swal2-cancel.cancelButton {
+  color: black !important;
+  font-weight: 500 !important;
+  background-color: #fff !important;
+  &:hover{
+    color: #009ef7 !important;
+    background-color: lightslategray !important;
+  }
+}
 @media (max-width: 768px) {
   .table-container{
     width: 100%;

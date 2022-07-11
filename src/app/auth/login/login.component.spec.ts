@@ -103,4 +103,26 @@ describe('LoginComponent', () => {
     req.flush(expectedResponse);
     expect(component.submitButton).withContext("button content should be changed").toEqual(submitButton);
   }));
+
+  it('should called onLogin() and return failed', fakeAsync(() => {
+    const user = {
+      email: 'peter@klaven',
+    };
+    component.loginForm.controls['email'].setValue(user.email);
+    component.loginForm.controls['password'].setValue(null);
+    component.onLogin();
+    fixture.detectChanges();
+
+    submitButton = {
+      "text": "Sign In",
+      "id": "signin",
+      "type": "submit",
+      "btnClasses": "btn btn-lg btn-primary w-100 mb-5"
+    }
+    const expectedResponse = { "error": "Missing password" };
+    const req = httpTestingController.expectOne('https://reqres.in/api/login');
+    expect(req.request.method).toEqual('POST');
+    req.flush(expectedResponse);
+    expect(component.submitButton).withContext("button content should be changed").toEqual(submitButton);
+  }));
 });

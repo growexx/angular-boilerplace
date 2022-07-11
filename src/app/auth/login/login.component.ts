@@ -49,18 +49,13 @@ export class LoginComponent implements OnInit {
             "type": "submit",
             "btnClasses": "btn btn-lg btn-primary w-100 mb-5"
           };
-          this.successSwal.fire();
-          localStorage.setItem('token', data.token);
-          this.router.navigate(['/dashboard']);
-        },
-        error: error => {
-          this.submitButton = {
-            "text": "Sign In",
-            "id": "signin",
-            "type": "submit",
-            "btnClasses": "btn btn-lg btn-primary w-100 mb-5"
+          if(data.error){
+            this.failedSwal.fire();
+          } else {
+            this.successSwal.fire();
+            localStorage.setItem('token', data.token);
+            this.router.navigate(['/dashboard']);
           }
-          this.failedSwal.fire();
         }
       });
   }
