@@ -5,17 +5,12 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './circle-progress-bar.component.html',
   styleUrls: ['./circle-progress-bar.component.scss']
 })
-export class CircleProgressBarComponent implements OnInit {
+export class CircleProgressBarComponent {
 @Input() progressBar:any;
 @Input() isLoader:any;
 @Input() loaderClass:any;
   
     
-  constructor() { }
-
-  ngOnInit(): void {
-    
-    console.log(this.loaderClass)
-  }
+ 
 
 }

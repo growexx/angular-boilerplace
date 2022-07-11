@@ -2,5 +2,5 @@ projectKey=angular-boilerplate
 serverUrl=https://quality.growexx.com
 serverVersion=8.9.6.50800
 dashboardUrl=https://quality.growexx.com/dashboard?id=angular-boilerplate
-ceTaskId=AYHSlWGnqsoXjOebMCxP
-ceTaskUrl=https://quality.growexx.com/api/ce/task?id=AYHSlWGnqsoXjOebMCxP
+ceTaskId=AYHsUyiyqsoXjOebMDCG
+ceTaskUrl=https://quality.growexx.com/api/ce/task?id=AYHsUyiyqsoXjOebMDCG

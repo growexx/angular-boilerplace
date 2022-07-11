@@ -16,9 +16,12 @@ import { SweetAlert2LoaderService, SweetAlert2Module } from '@sweetalert2/ngx-sw
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {ChartModule} from 'primeng/chart';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
 import { CompChartsComponent } from './_shared/comp-charts/comp-charts.component';
 import { CircleProgressBarComponent } from './_shared/circle-progress-bar/circle-progress-bar.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { TabsComponent } from './_shared/tabs/tabs.component';
+import {MatIconModule} from '@angular/material/icon';
  
 
 @NgModule({
@@ -33,6 +36,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     DashboardComponent,
     CompChartsComponent,
     CircleProgressBarComponent,
+    TabsComponent,
    
   ],
   imports: [
@@ -42,17 +46,31 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     ReactiveFormsModule,
     HttpClientModule,
     ChartModule,
+    MatTabsModule,
     BrowserAnimationsModule,
     SweetAlert2Module.forRoot(),
     NgCircleProgressModule.forRoot({
-      // set defaults here
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300,
-    })
+      "radius": 60,
+"space": -10,
+// "percent":85,
+"outerStrokeGradient": true,
+"outerStrokeWidth": 12,
+"outerStrokeColor": "#4882c2",
+"outerStrokeGradientStopColor": "#53a9ff",
+"innerStrokeColor": "#e7e8ea",
+"innerStrokeWidth": 10,
+"showTitle" : false,
+"showSubtitle": false,
+"showUnits" : false,
+
+"animationDuration": 4000,
+
+"showBackground": false,
+"startFromZero": false,
+"lazy": true
+
+    }),
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

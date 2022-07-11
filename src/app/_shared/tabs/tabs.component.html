@@ -1,0 +1,11 @@
+<mat-tab-group preserveContent [animationDuration]="animationDuration" [backgroundColor]="background" [color]="color" mat-align-tabs="start">
+    <div *ngFor="let item of tabs">
+        <mat-tab disabled="{{item.disabled}}" label="{{item.label}}">
+            <ng-template mat-tab-label>
+                <mat-icon *ngIf="item?.icon">{{item.icon}}</mat-icon>
+                {{item.label}}
+            </ng-template>
+            {{item.content}}
+        </mat-tab>
+    </div>
+</mat-tab-group>

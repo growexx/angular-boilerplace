@@ -1,20 +1,17 @@
 <div>
-    <!-- <button (click)="delayChart()">click me</button> -->
+    <app-tabs [animationDuration]="animationDuration" [background]="background" [color]="color" [tabs]="tabs"></app-tabs>
     <div>
+        <div id="divChart">
+            <app-comp-charts [btnData]="btnData" [title]="cardTitle" [subTitle]="subTitle" [myChart]="chartId" (changeData)="updateData($event)"></app-comp-charts>
+        </div>
+    </div>
+    <div class="progressBar">
         <app-circle-progress-bar [isLoader]="isLoader" [loaderClass]="loaderClass" [progressBar]="progressBar">
 
         </app-circle-progress-bar>
     </div>
-    <!-- <div *ngIf="!isLoader" id="divChart">
-        <app-comp-charts [btnData]="btnData" [title]="cardTitle" [subTitle]="subTitle" [myChart]="chartId" (changeData)="updateData($event)"></app-comp-charts>
-    </div> -->
-    <!-- <button *ngIf="!isLoader">Click me</button> -->
 
-    <!-- <div *ngIf="!isLoader"> -->
     <ul *ngFor="let person of myData">
         <li>{{person.name1}}</li>
     </ul>
-    <!-- </div> -->
-
-
 </div>
