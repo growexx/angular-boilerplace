@@ -38,7 +38,8 @@ import { GoogleAddressComponent } from './components/google-address/google-addre
     AuthsidebarComponent,
     HeaderComponent,
     ModalComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    GoogleAddressComponent
   ]
 })
 export class SharedModule { }

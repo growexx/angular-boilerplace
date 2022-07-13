@@ -25,13 +25,12 @@
                             <div><span class="content-subitem">{{data['modalText4']}}</span></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
         <div class="modal-footer">
             <div *ngIf="['userList'].includes(data['type'])">
-                <div *ngFor="let actions of data['modalActions']"><span>{{actions['label']}}</span></div>
+                <div *ngFor="let actions of data['modalActions']"><span>{{actions['label']}}</span></div>                
             </div>
         </div>
     </div>

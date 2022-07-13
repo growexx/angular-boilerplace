@@ -7,6 +7,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { SharedModule } from '../shared/shared.module';
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -21,6 +22,7 @@ const maskConfig: Partial<IConfig> = {
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    SharedModule,
     NgxMaskModule.forRoot(maskConfig)
   ]
   

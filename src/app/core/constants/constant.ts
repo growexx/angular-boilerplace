@@ -1,4 +1,5 @@
-export const countryEnum: any = [
-{ name : 'Canada', label: 'Canada'},
-{ name: 'USA', label: 'USA'}
-]
+export const countryEnum: any = {
+'USA' : 'USA',
+'Canada' : 'Canada',
+'CA' : 'Canada'
+}

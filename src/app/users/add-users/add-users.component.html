@@ -39,7 +39,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3 mb-20"><label>Contact Phone</label></div>
-                                    <div class="col-sm-9"><input type="text" formControlName="phone" mask="000-000-0000" required>
+                                    <div class="col-sm-9"><input type="text" formControlName="phone" mask="000-000-0000"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="row" formGroupName="company">
@@ -62,10 +63,24 @@
                 <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required." *ngIf="secondFormGroup">
                     <form [formGroup]="secondFormGroup" (ngSubmit)="goToStep3()">
                         <ng-template matStepLabel>Address</ng-template>
-                        <div class="row justify-content-center">
+
+                        <div class="row justify-content-center mb-10">
                             <div class="col-xl-9">
                                 <div class="mb-20">
                                     <h3>Setup Your Address</h3>
+                                </div>
+                                <div formArrayName="customerAddressDTO">
+                                    <div class="row"
+                                        *ngFor="let address of secondFormGroup?.get('customerAddressDTO')['controls']; let addIndex = index;"
+                                        [formGroupName]="addIndex">
+                                        <div class="col-xl-12">
+                                            <app-google-address [addressTypeDisabled]="isaddressTypeDisabled"
+                                                (selectedAddress)="setSelectedAddress($event,addIndex)"
+                                                [cCode]="address.controls['country']['value']"
+                                                (countrySelectionChanged)="countrySelectionChange($event,addIndex)">
+                                            </app-google-address>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row mb-10">
                                     <div class="col-xl-12"><label>Address Line 1</label></div>
@@ -100,19 +115,24 @@
                                             </div>
                                             <div class="col-xl-6">
                                                 <div><label>Country</label></div>
-                                                <div><select name="country" id="country" class="w-100"
+                                                <div><input type="text" formControlName="country"></div>
+
+                                                <!-- <div>
+                                                    <select name="country" id="country" class="w-100"
                                                         formControlName="country">
-                                                        <option value="Select">Select</option>
-                                                        <option value="Select">India</option>
-                                                        <option value="Select">USA</option>
-                                                        <option value="Select">Canada</option>
-                                                    </select></div>
+                                                        <option *ngFor="let country of asyncService.country$ | async"
+                                                            [value]="countryEnum['country']">{{countryEnum[country]}}
+                                                        </option>
+
+                                                    </select>
+                                                </div> -->
                                             </div>
                                         </div>
 
                                     </div>
 
                                 </div>
+
                                 <div class="row border-top">
                                     <div class="col-xl-12">
                                         <div class="d-flex justify-content-between flex-wrap mt-10">
