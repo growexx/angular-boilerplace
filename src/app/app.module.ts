@@ -22,8 +22,11 @@ import { CircleProgressBarComponent } from './_shared/circle-progress-bar/circle
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { TabsComponent } from './_shared/tabs/tabs.component';
 import {MatIconModule} from '@angular/material/icon';
- 
-
+import {TableModule} from 'primeng/table';
+import { CompFilterComponent } from './_shared/comp-filter/comp-filter.component';
+import { CompFilterPipe } from './_shared/pipes/comp-filter.pipe';
+import {InputTextModule} from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +40,9 @@ import {MatIconModule} from '@angular/material/icon';
     CompChartsComponent,
     CircleProgressBarComponent,
     TabsComponent,
+    CompFilterComponent,
+    CompFilterPipe,
+    
    
   ],
   imports: [
@@ -46,7 +52,10 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     HttpClientModule,
     ChartModule,
+    InputTextModule,
     MatTabsModule,
+    FormsModule,
+    TableModule,
     BrowserAnimationsModule,
     SweetAlert2Module.forRoot(),
     NgCircleProgressModule.forRoot({
@@ -70,9 +79,10 @@ import {MatIconModule} from '@angular/material/icon';
 "lazy": true
 
     }),
-    MatIconModule
+    MatIconModule,
+    
   ],
-  providers: [],
+  providers: [CompFilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

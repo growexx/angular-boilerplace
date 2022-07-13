@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-
+import { CompFilterPipe } from './_shared/pipes/comp-filter.pipe';
 
 import { ChartsDataService } from './charts-data.service';
 
@@ -10,10 +10,14 @@ import { ChartsDataService } from './charts-data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  title='Angular Boiler Plate';
+  showDiv=false;
+  searchText:any;
+  userList: any = {};
   background:ThemePalette = 'primary';
   color:ThemePalette='primary'
   animationDuration = 0;
-  title = 'Angular Boiler Plate'
+  list:any;
   chartId:any;
   cardTitle = 'Recent Statistics';
   subTitle = 'More than 400 new members';
@@ -48,7 +52,7 @@ export class AppComponent implements OnInit {
   
   tabs = [
     { "label":"First",
-    // "icon":"book",
+    
     "disabled":"false",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
     {"label":"Second",
@@ -56,15 +60,17 @@ export class AppComponent implements OnInit {
     "disabled":"false",
       "content" :"Anjali ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
     {"label":"Third",
-    // "icon":"book",
+    
     "disabled":"false",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
   
    ]
-constructor(public chartDataService:ChartsDataService){
+constructor(public chartDataService:ChartsDataService,
+  private compFilterPipe:CompFilterPipe){
 }
  
   ngOnInit() {
+    console.log(this.searchText);
     this.chartId = this.chartDataService.getChart();
    setTimeout(() => {
    
@@ -73,6 +79,10 @@ constructor(public chartDataService:ChartsDataService){
     this.data();
    
    }, 4000); 
+  fetch('https://dummyjson.com/users')
+  .then((res) =>res.json())
+  .then(data => this.userList = data)
+  .then(() => console.log(this.userList))
     
 }
 
@@ -114,13 +124,21 @@ data(){
     "phone":"35467",
     "class":"sixth"
   }]
-  console.log(this.myData);
+  
   return this.myData;
   
 }
 
+search($event:any){
 
-
-
-
+this.searchText = $event;
+console.log(this.userList.users.length)
+this.list =this.compFilterPipe.transform(this.userList.users,this.searchText);
+console.log(this.list.length)
+if(this.list.length===0){
+  this.showDiv = true; 
+}else{
+  this.showDiv = false;
+}
+}
 }

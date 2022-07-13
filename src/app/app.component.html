@@ -5,6 +5,7 @@
             <app-comp-charts [btnData]="btnData" [title]="cardTitle" [subTitle]="subTitle" [myChart]="chartId" (changeData)="updateData($event)"></app-comp-charts>
         </div>
     </div>
+
     <div class="progressBar">
         <app-circle-progress-bar [isLoader]="isLoader" [loaderClass]="loaderClass" [progressBar]="progressBar">
 
@@ -14,4 +15,26 @@
     <ul *ngFor="let person of myData">
         <li>{{person.name1}}</li>
     </ul>
+    <app-comp-filter (stringPassed)="search($event)"></app-comp-filter>
+    <div *ngIf="showDiv===true">
+        No Result Found
+    </div>
+    <table aria-label="dataList">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone No.</th>
+        </tr>
+        <tr *ngFor="let user of userList.users | compFilter: searchText; let i= index">
+
+            <td>{{user.id}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.company.department}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+
+        </tr>
+    </table>
 </div>

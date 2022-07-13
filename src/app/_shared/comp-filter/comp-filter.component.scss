@@ -1,0 +1,37 @@
+.sizes {
+    .p-inputtext {
+        display: block;
+        margin-bottom: .5rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.p-field * {
+    display: block;
+}
+
+.list {
+    box-shadow: 1px 1px 6px #B5B5C3;
+    margin-top: 5px;
+}
+
+.list-group {
+    border: #ffff;
+    display: flex;
+}
+
+.search-box {
+    margin-bottom: 10px;
+}
+
+.mainDiv {
+    display: flex;
+}
+
+button {
+    height: 40px;
+    margin-top: 4px;
+    border-radius: 4;
+}
