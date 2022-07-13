@@ -11,7 +11,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { GoogleAddressComponent } from './components/google-address/google-address.component';
-
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -29,7 +29,8 @@ import { GoogleAddressComponent } from './components/google-address/google-addre
   imports: [
     CommonModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   exports:[
     ButtonComponent,
@@ -39,7 +40,8 @@ import { GoogleAddressComponent } from './components/google-address/google-addre
     HeaderComponent,
     ModalComponent,
     ButtonsComponent,
-    GoogleAddressComponent
+    GoogleAddressComponent,
+    
   ]
 })
 export class SharedModule { }

@@ -14,6 +14,7 @@ export class AddUsersComponent implements OnInit {
 
   public firstFormGroup: FormGroup | any;
   public secondFormGroup: FormGroup | any;
+  private userFormGroup: FormArray | any;
   public userModal: createUser | any;
   isLinear: boolean = false;
   userVal!: createUser;
@@ -22,10 +23,12 @@ export class AddUsersComponent implements OnInit {
   public isaddressTypeDisabled: boolean = false;
   countryEnum = countryEnum;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService,public asyncService:AsyncService) { }
+
+  constructor(private formBuilder: FormBuilder, private userService: UserService, public asyncService: AsyncService) { }
 
   ngOnInit(): void {
     this.getDetails()
+    this.addUserData()
   }
 
   getDetails() {
@@ -34,9 +37,9 @@ export class AddUsersComponent implements OnInit {
       lastName: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
-      company: new FormGroup({
-        address: new FormControl('', Validators.required)
-      })
+      // company: new FormGroup({
+      //   address: new FormControl('', Validators.required)
+      // })
 
     });
     this.secondFormGroup = this.formBuilder.group({
@@ -76,9 +79,13 @@ export class AddUsersComponent implements OnInit {
     })
   }
 
+   addUserData() {
+      firstName: this.firstFormVal?.firstFormVal
+  }
+
   addUser() {
     this.userVal = this.firstFormGroup.value;
-    this.userService.createUser(this.userVal).subscribe({
+    this.userService.createUser(this.addUserData).subscribe({
       next: (res) => {
         console.log(res)
         const data = _.cloneDeep(res);
@@ -97,7 +104,7 @@ export class AddUsersComponent implements OnInit {
 
   setSelectedAddress(address: any, index: number) {
     console.log(this.secondFormGroup)
-    this.secondFormGroup.controls['addressLine1']?.setValue((address['street_number']+','+address['route']) ? address['street_number']+','+address['route'] : '')
+    this.secondFormGroup.controls['addressLine1']?.setValue((address['street_number'] + ',' + address['route']) ? address['street_number'] + ',' + address['route'] : '')
     this.secondFormGroup.controls['addressLine2']?.setValue((address['administrative_area_level_2']) ? address['administrative_area_level_2'] : '')
     this.secondFormGroup.controls['city']?.setValue((address['locality']) ? address['locality'] : '')
     this.secondFormGroup.controls['state']?.setValue((address['administrative_area_level_1']) ? address['administrative_area_level_1'] : '')

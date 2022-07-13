@@ -13,42 +13,54 @@ import { AsyncService } from 'src/app/core/services/async.service';
 })
 export class GoogleAddressComponent implements OnInit, OnChanges {
 
-  googleApiForm = new FormGroup({
-    'countryCode': new FormControl('CA', Validators.required),
-    'searchField': new FormControl(null, Validators.required)
-  })
 
+  googleApiForm!: FormGroup;
   @Output() countrySelectionChanged: EventEmitter<any> = new EventEmitter<any>();
   @Output() selectedAddress: EventEmitter<any> = new EventEmitter<any>();
   private reqObject = { url: '', query: '', placeid: '' };
   public countryEnum = countryEnum;
   @Input() addressTypeDisabled: boolean = false;
-  @Input() cCode: string = 'CA';
-  constructor(private googleService: GoogleapiService, public asyncService: AsyncService) { }
+  @Input() cCode: string = 'ca';
+
+  constructor(private googleService: GoogleapiService, public asyncService: AsyncService) {
+   this.googleApiForm = new FormGroup({
+      'countryCode': new FormControl(['ca','us'], Validators.required),
+      'searchField': new FormControl(null, Validators.required)
+    })
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes)
-    if(changes['cCode'] && changes['cCode']['currentValue']){
+    if (changes['cCode'] && changes['cCode']['currentValue']) {
       this.cCode = changes['cCode']['currentValue'];
-      this.googleApiForm.get('countryCode')?.setValue(this.cCode)
+      this.googleApiForm.controls['countryCode']?.setValue(this.cCode)
     }
   }
 
   ngOnInit(): void {
+    this.getResetValue()
+    console.log(this.googleApiForm)
+  }
+  getResetValue(){
+    this.googleService.resetValue.subscribe((res)=>{
+      if(res===true){
+        this.googleApiForm.controls['searchField']?.reset();
+      }
+    })
   }
 
   changeCountryType() {
     console.log('called')
-    this.googleApiForm.get('countryCode')?.setValue(this.googleApiForm.controls['countryCode'].value);
-    this.googleApiForm.get('searchField')?.setValue(null);
+    this.googleApiForm.controls['countryCode']?.setValue(this.googleApiForm.controls['countryCode'].value);
+    this.googleApiForm.controls['searchField']?.setValue(null);
     this.countrySelectionChanged.emit(this.googleApiForm.controls['countryCode'].value)
   }
 
   findAddress() {
-    this.reqObject.query = this.googleApiForm.get('searchField')?.value;
+    this.reqObject.query = this.googleApiForm.controls['searchField']?.value;
     const autoComplete = new google.maps.places.Autocomplete(<HTMLInputElement>document.getElementById('searchbox'));
     autoComplete.setOptions({ types: ['geocode'] });
-    autoComplete.setComponentRestrictions({ 'country': [this.googleApiForm.value['countrycode']] });
+    autoComplete.setComponentRestrictions({ 'country': ['ca', 'us'] });
     const ac = autoComplete;
     const ref = this;
     autoComplete.addListener('place_changed', function () {

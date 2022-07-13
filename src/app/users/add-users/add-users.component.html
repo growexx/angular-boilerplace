@@ -43,11 +43,7 @@
                                             required>
                                     </div>
                                 </div>
-                                <div class="row" formGroupName="company">
-                                    <div class="col-sm-3 mb-20"><label>Company Address</label></div>
-                                    <div class="col-sm-9"><input type="text" formControlName="address" required>
-                                    </div>
-                                </div>
+                                
                                 <div class="d-flex justify-content-end border-top">
                                     <button mat-button matStepperNext class="btn-primary btn-medium mt-10"
                                         [disabled]="firstFormGroup.invalid">Next</button>
@@ -173,9 +169,9 @@
                             <div class="mb-10">
                                 <h4 class="font-500">Your Address Details:</h4>
                                 <div>
-                                    <div><span>Address Line 1</span></div>
-                                    <div><span>Address Lne 2</span></div>
-                                    <div><span>Melbourne 3000, VIC, Australia</span></div>
+                                    <div><span>Address Lne 1: {{secondFormVal?.addressLine1}}</span></div>
+                                    <div><span>Address Lne 2: {{secondFormVal?.addressLine2}}</span></div>
+                                    <div><span>{{secondFormVal?.city}}&nbsp;{{secondFormVal?.state}}&nbsp;{{secondFormVal?.postalCode}}&nbsp;{{secondFormVal?.country}}</span></div>
                                 </div>
                             </div>
                             <div class="border-top">
