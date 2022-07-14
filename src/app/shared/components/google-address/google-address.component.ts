@@ -30,7 +30,6 @@ export class GoogleAddressComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
     if (changes['cCode'] && changes['cCode']['currentValue']) {
       this.cCode = changes['cCode']['currentValue'];
       this.googleApiForm.controls['countryCode']?.setValue(this.cCode)
@@ -39,7 +38,6 @@ export class GoogleAddressComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.getResetValue()
-    console.log(this.googleApiForm)
   }
   getResetValue(){
     this.googleService.resetValue.subscribe((res)=>{
@@ -50,7 +48,6 @@ export class GoogleAddressComponent implements OnInit, OnChanges {
   }
 
   changeCountryType() {
-    console.log('called')
     this.googleApiForm.controls['countryCode']?.setValue(this.googleApiForm.controls['countryCode'].value);
     this.googleApiForm.controls['searchField']?.setValue(null);
     this.countrySelectionChanged.emit(this.googleApiForm.controls['countryCode'].value)
@@ -66,7 +63,6 @@ export class GoogleAddressComponent implements OnInit, OnChanges {
     autoComplete.addListener('place_changed', function () {
       const place = ac.getPlace();
       const response = ref.googleService.makeCustomAddressObject(place['address_components'])
-      console.log(response)
       ref.selectedAddress.emit(response)
     })
   }

@@ -55,7 +55,6 @@ export class AddUsersComponent implements OnInit {
 
   goToStep2() {
     const firstFormVal = this.firstFormGroup.value;
-    console.log(firstFormVal)
     const control = this.secondFormGroup.get("customerAddressDTO") as FormArray;
     control.push(this.getAddressForm)
   }
@@ -63,8 +62,6 @@ export class AddUsersComponent implements OnInit {
   goToStep3() {
     this.secondFormVal = this.secondFormGroup.value;
     this.firstFormVal = this.firstFormGroup.value;
-    console.log(this.firstFormVal?.firstName)
-    console.log(this.secondFormVal)
   }
 
   get getAddressForm() {
@@ -87,7 +84,6 @@ export class AddUsersComponent implements OnInit {
     this.userVal = this.firstFormGroup.value;
     this.userService.createUser(this.addUserData).subscribe({
       next: (res) => {
-        console.log(res)
         const data = _.cloneDeep(res);
 
       }
@@ -95,7 +91,6 @@ export class AddUsersComponent implements OnInit {
   }
 
   countrySelectionChange(event: any, index: number) {
-    console.log('hello')
     const addressControl = (<FormArray>this.secondFormGroup.controls['customerAddressDTO']) as FormArray;
     addressControl.at(index).get('country')?.setValue(event);
     const resetArray = ["addressLine2", "addressLine2", "city", "state", "postalCode"]
@@ -103,7 +98,6 @@ export class AddUsersComponent implements OnInit {
   }
 
   setSelectedAddress(address: any, index: number) {
-    console.log(this.secondFormGroup)
     this.secondFormGroup.controls['addressLine1']?.setValue((address['street_number'] + ',' + address['route']) ? address['street_number'] + ',' + address['route'] : '')
     this.secondFormGroup.controls['addressLine2']?.setValue((address['administrative_area_level_2']) ? address['administrative_area_level_2'] : '')
     this.secondFormGroup.controls['city']?.setValue((address['locality']) ? address['locality'] : '')

@@ -27,4 +27,16 @@ describe('AddUsersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call to function goToStep2',()=>{
+    component.goToStep2();
+    component.goToStep3();
+    component.addUser();
+    const address:any = [];
+    const index:number = 0;
+    component.countrySelectionChange(address,index);
+    component.setSelectedAddress(address,index)
+    component.secondFormGroup.controls['addressLine1']?.setValue((address['street_number']))
+    expect(component.firstFormGroup.valid).toBeTruthy()
+  })
 });
