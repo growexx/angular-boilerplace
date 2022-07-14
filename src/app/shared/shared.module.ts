@@ -12,6 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { GoogleAddressComponent } from './components/google-address/google-address.component';
 import {MatSelectModule} from '@angular/material/select';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatSelectModule} from '@angular/material/select';
     AuthsidebarComponent,
     ModalComponent,
     ButtonsComponent,
-    GoogleAddressComponent
+    GoogleAddressComponent,
+    ImageUploadComponent
   ],
   imports: [
     CommonModule,
