@@ -1,6 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { AddUsersComponent } from './add-users.component';
+
 describe('AddUsersComponent', () => {
   let component: AddUsersComponent;
   let fixture: ComponentFixture<AddUsersComponent>;
@@ -9,8 +11,9 @@ describe('AddUsersComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ AddUsersComponent ],
       providers: [
-        { FormBuilder },
+        { provide: FormBuilder },
       ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });
