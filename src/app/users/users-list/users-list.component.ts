@@ -20,10 +20,10 @@ export class UsersListComponent implements OnInit {
     this.usersService.getAllUsers().subscribe(res => {
       this.usersService.usersData = res.users;
       this.usersService.usersData.filter((ele: any) => {
-        (this.roles.indexOf(ele.company.department) === -1) ? this.roles.push(ele.company.department) : '';
+        (this.usersService.roles.indexOf(ele.company.department) === -1) ? this.usersService.roles.push(ele.company.department) : '';
       });
       this.usersService.usersData.filter((ele: any) => {
-        (this.gender.indexOf(ele.gender) === -1) ? this.gender.push(ele.gender) : '';
+        (this.usersService.gender.indexOf(ele.gender) === -1) ? this.usersService.gender.push(ele.gender) : '';
       });
     });
   }
@@ -31,7 +31,7 @@ export class UsersListComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '325px',
-      data: { roles: this.roles, gender: this.gender },
+      data: { roles: this.usersService.roles, gender: this.usersService.gender },
     });
   }
 }

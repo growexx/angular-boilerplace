@@ -1,19 +1,25 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
+import { UsersService } from 'src/app/users/users.service';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { TableComponent } from './table.component';
 
 describe('TableComponent', () => {
   let component: TableComponent;
   let fixture: ComponentFixture<TableComponent>;
+  let httpTestingController: HttpTestingController;
   let swal2: any;
+  let userService: UsersService;
+  let expectedResponse: any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TableComponent, FilterPipe],
-      imports: [NgxPaginationModule, FormsModule, ReactiveFormsModule],
+      imports: [NgxPaginationModule, FormsModule, ReactiveFormsModule, HttpClientTestingModule],
       providers: [{ provide: Swal }],
     })
       .compileComponents();
@@ -1855,6 +1861,69 @@ describe('TableComponent', () => {
     ];
     swal2 = fixture.debugElement.injector.get(Swal);
     fixture.detectChanges();
+    expectedResponse = {
+      "id": 1,
+      "firstName": "Terry",
+      "lastName": "Medhurst",
+      "maidenName": "Smitham",
+      "age": 50,
+      "gender": "male",
+      "email": "atuny0@sohu.com",
+      "phone": "+63 791 675 8914",
+      "username": "atuny0",
+      "password": "9uQFF1Lh",
+      "birthDate": "2000-12-25",
+      "image": "https://robohash.org/hicveldicta.png",
+      "bloodGroup": "A−",
+      "height": 189,
+      "weight": 75.4,
+      "eyeColor": "Green",
+      "hair": {
+          "color": "Black",
+          "type": "Strands"
+      },
+      "domain": "slashdot.org",
+      "ip": "117.29.86.254",
+      "address": {
+          "address": "1745 T Street Southeast",
+          "city": "Washington",
+          "coordinates": {
+              "lat": 38.867033,
+              "lng": -76.979235
+          },
+          "postalCode": "20020",
+          "state": "DC"
+      },
+      "macAddress": "13:69:BA:56:A3:74",
+      "university": "Capitol University",
+      "bank": {
+          "cardExpire": "06/22",
+          "cardNumber": "50380955204220685",
+          "cardType": "maestro",
+          "currency": "Peso",
+          "iban": "NO17 0695 2754 967"
+      },
+      "company": {
+          "address": {
+              "address": "629 Debbie Drive",
+              "city": "Nashville",
+              "coordinates": {
+                  "lat": 36.208114,
+                  "lng": -86.58621199999999
+              },
+              "postalCode": "37076",
+              "state": "TN"
+          },
+          "department": "Marketing",
+          "name": "Blanda-O'Keefe",
+          "title": "Help Desk Operator"
+      },
+      "ein": "20-9487066",
+      "ssn": "661-64-2976",
+      "userAgent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/12.0.702.0 Safari/534.24"
+  };
+    userService = TestBed.inject(UsersService);
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
 
   it('should create', () => {
@@ -1872,10 +1941,16 @@ describe('TableComponent', () => {
   }));
 
   it('should have called onDelete() and remove user from tableData', fakeAsync(() => {
-    component.OnDelete(1);
+    let userId = 1;
+    component.OnDelete(userId);
     tick(4000);
     Swal.clickConfirm();
     tick(4000);
-    expect(component.tableData[0].id).withContext('userId is not the same').toBe(2);
+    expect(component.tableData[0].id).withContext('userId is not the same').toBe(1);
+
+    const req = httpTestingController.expectOne(`${environment.apiUrl}users/${userId}`);
+    expect(req.request.method).toEqual('DELETE');
+    req.flush(expectedResponse);
+    flush();
   }));
 });

@@ -1950,4 +1950,15 @@ describe('UsersService', () => {
     expect(req.request.method).toEqual('GET');
     req.flush(expectedResponse);
   });
+
+  it('should be called deleteUser() with error response', () => {
+    const userId = 1;
+    userService.deleteUser(userId).subscribe(
+      response => expect(response).toEqual(expectedResponse, 'should return expected response'),
+      fail
+    );
+    const req = httpTestingController.expectOne(`${environment.apiUrl}users/${userId}`);
+    expect(req.request.method).toEqual('DELETE');
+    req.flush(expectedResponse);
+  });
 });

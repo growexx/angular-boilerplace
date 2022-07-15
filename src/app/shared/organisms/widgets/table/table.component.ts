@@ -1,5 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/core/services/common/common.service';
+import { UsersService } from 'src/app/users/users.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +15,7 @@ export class TableComponent implements OnInit {
   page: number = 1;
   itemsPerPage: number = 5;
   checkedList:any;
-  constructor(public commonService: CommonService) {
+  constructor(public commonService: CommonService, public usersService: UsersService) {
   }
   
   ngOnInit(): void {
@@ -64,12 +65,15 @@ export class TableComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.commonService.toggleActionDropdown(user[0].id);
-        user.forEach(f => this.tableData.splice(this.tableData.findIndex(e => e.id === id),1));
-        Swal.fire(
-          'Deleted!',
-          'You have deleted ' + user[0].name + '!.',
-          'success'
-        )
+        console.log(user);
+        this.usersService.deleteUser(user[0].id).subscribe(res => {
+          user.forEach(f => this.tableData.splice(this.tableData.findIndex(e => e.id === id),1));
+          Swal.fire(
+            'Deleted!',
+            'You have deleted ' + user[0].name + '!.',
+            'success'
+          )
+        });
       }
     });
   }

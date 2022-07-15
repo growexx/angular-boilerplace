@@ -32,4 +32,7 @@ export class UsersService {
   getUser(userId:any): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}users/${userId}`);
   }
+  deleteUser(userId:any): Observable<any> {
+    return this.http.delete<any>(`${environment.apiUrl}users/${userId}`);
+  }
 }
