@@ -1887,17 +1887,17 @@ describe('DialogComponent', () => {
   });
 
   it('should called onSubmitFilter() and filter array of users while role and gender are set to null', fakeAsync(async () => {
-    component.filterForm.controls['role'].setValue(null);
-    component.filterForm.controls['gender'].setValue(null);
-    expect(component.filterForm.invalid).toBeTruthy();
+    component.filterForm.controls['role'].setValue("Select option");
+    component.filterForm.controls['gender'].setValue("Select option");
+    usersService.roles[0] = 'Marketing';
 
     const req1 = httpTestingController.expectOne(`${environment.apiUrl}users`);
     expect(req1.request.method).toEqual('GET');
     req1.flush(expectedResponse);
 
     component.onSubmitFilter();
-    fixture.detectChanges();
-
+    // fixture.detectChanges(); 
+    // debugger;
     const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
     expect(req2.request.method).toEqual('GET');
     req2.flush(expectedResponse);

@@ -20,10 +20,10 @@ export class UsersListComponent implements OnInit {
     this.usersService.getAllUsers().subscribe(res => {
       this.usersService.usersData = res.users;
       this.usersService.usersData.filter((ele: any) => {
-        (this.usersService.roles.indexOf(ele.company.department) === -1) ? this.usersService.roles.push(ele.company.department) : '';
+        (this.usersService.roles.indexOf(ele.company.department)) ? this.usersService.roles.push(ele.company.department) : '';
       });
       this.usersService.usersData.filter((ele: any) => {
-        (this.usersService.gender.indexOf(ele.gender) === -1) ? this.usersService.gender.push(ele.gender) : '';
+        (this.usersService.gender.indexOf(ele.gender)) ? this.usersService.gender.push(ele.gender) : '';
       });
     });
   }

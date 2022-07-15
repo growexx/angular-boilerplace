@@ -31,14 +31,14 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void { }
 
   onSubmitFilter() {
-    if (this.filterForm.value.role === null && this.filterForm.value.gender === null) {
+    if (this.filterForm.value.role === "Select option" && this.filterForm.value.gender === "Select option") {
       this.usersService.getAllUsers().subscribe(res => {
         this.usersService.usersData = res.users;
         this.usersService.usersData.filter((ele: any) => {
-          (this.usersService.roles.indexOf(ele.company.department) === -1) ? this.usersService.roles.push(ele.company.department) : '';
+          (this.usersService.roles.indexOf(ele.company.department)) ? this.usersService.roles.push(ele.company.department) : '';
         });
         this.usersService.usersData.filter((ele: any) => {
-          (this.usersService.gender.indexOf(ele.gender) === -1) ? this.usersService.gender.push(ele.gender) : '';
+          (this.usersService.gender.indexOf(ele.gender)) ? this.usersService.gender.push(ele.gender) : '';
         });
       });
     } else {
@@ -52,10 +52,10 @@ export class DialogComponent implements OnInit {
     this.usersService.getAllUsers().subscribe(res => {
       this.usersService.usersData = res.users;
       this.usersService.usersData.filter((ele: any) => {
-        (this.usersService.roles.indexOf(ele.company.department) === -1) ? this.usersService.roles.push(ele.company.department) : '';
+        (this.usersService.roles.indexOf(ele.company.department)) ? this.usersService.roles.push(ele.company.department) : '';
       });
       this.usersService.usersData.filter((ele: any) => {
-        (this.usersService.gender.indexOf(ele.gender) === -1) ? this.usersService.gender.push(ele.gender) : '';
+        (this.usersService.gender.indexOf(ele.gender)) ? this.usersService.gender.push(ele.gender) : '';
       });
     });
     this.dialogRef.close();
