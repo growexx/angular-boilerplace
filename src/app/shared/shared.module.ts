@@ -43,6 +43,7 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     ModalComponent,
     ButtonsComponent,
     GoogleAddressComponent,
+    ImageUploadComponent
     
   ]
 })
