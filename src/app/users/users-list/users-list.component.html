@@ -7,39 +7,10 @@
     </div>
     <div class="card-toolbar">
         <div class="card-toolbar-filter">
-            <a type="button" class="btn btn-light-primary me-3" id="filterDropdown" (click)="commonService.toggleFilterDropdown()">
+            <a type="button" class="btn btn-light-primary me-3" id="filterDropdown" mat-raised-button (click)="openDialog()">
                 <em class="fa-solid fa-filter"></em>
                 Filter
             </a>
-
-            <div class="filter_menu pg-py-1" id="filter_menu" [class.show]="commonService.showFilterDropdown">
-                <div class="filter_header">
-                    <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                </div>
-                <div class="separator border-gray-200"></div>
-                <div class="filter_body">
-                    <form [formGroup]="filterForm" (ngSubmit)="onSubmitFilter()">
-                        <div class="role_menu pg-py-1 pg-mb-2">
-                            <label class="role_menu_label form-label pg-fs-6">Role:</label>
-                            <select formControlName="role" name="role_menu_dropdown" id="role_menu_dropdown" class="role_menu_dropdown form-select fw-bolder">
-                                <option>Select option</option>
-                                <option *ngFor="let role of roles" value="{{role}}">{{role}}</option>
-                            </select>
-                        </div>
-                        <div class="two_step_verification_menu pg-py-1 pg-mb-2">
-                            <label class="two_step_verification_menu_label form-label pg-fs-6">Two Step Verification:</label>
-                            <select formControlName="two_step" name="two_step_verification_menu_dropdown" id="two_step_verification_menu_dropdown" class="two_step_verification_menu_dropdown form-select fw-bolder">
-                                <option>Select option</option>
-                                <option *ngFor="let items of two_step" value="{{items}}">{{items}}</option>
-                            </select>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="reset" (click)="onResetFilter()" class="btn btn-light btn-active-light-primary fw-bold pg-mr-2 pg-px-6">Reset</button>
-                            <button type="submit" class="btn btn-primary fw-bold pg-px-6">Apply</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
             <a type="button" class="btn btn-light-primary me-3">
                 <em class="fa-solid fa-arrow-up-from-dotted-line"></em>
                 Export
@@ -51,4 +22,4 @@
         </div>
     </div>
 </div>
-<app-table [tableConfig]="tableConfig" [tableData]="tableData" ></app-table>
+<app-table [tableConfig]="usersService.usersConfig" [tableData]="usersService?.usersData"></app-table>

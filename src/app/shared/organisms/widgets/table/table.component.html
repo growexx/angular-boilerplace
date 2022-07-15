@@ -22,19 +22,19 @@
                         <div class="user-name">
                             <div class="">
                                 <a routerLink="/">
-                                    <img src="{{data.imageUrl}}" alt="{{data.name}}" class="pg-w-7 rounded-circle">
+                                    <img src="{{data.image}}" alt="{{data.firstName + ' ' + data.lastName}}" class="pg-w-7 rounded-circle">
                                 </a>
                             </div>
                             <div class="d-flex flex-column pg-m justify-content-center pg-ml-2">
-                                <a class="text-gray-800 text-hover-primary mb-1" routerLink="/">{{data.name}}</a>
+                                <a class="text-gray-800 text-hover-primary mb-1" routerLink="/">{{data.firstName + ' ' + data.lastName}}</a>
                                 <span>{{data.email}}</span>
                             </div>
                         </div>
                     </td>
-                    <td class=""> {{data.role}} </td>
-                    <td><div class="badge badge-light">{{data.last_login}}</div></td>
-                    <td><div class="badge badge-light-success" [class.badge-light-success]="data.two_step == 'Enabled'" [class.badge-light-danger]="data.two_step == 'Disabled'">{{data.two_step}}</div></td>
-                    <td>{{data.joined_date | date}}</td>
+                    <td class="">{{data.company.title}}</td>
+                    <td>{{data.phone}}</td>
+                    <td>{{data.company.department}}</td>
+                    <td>{{data.birthDate | date}}</td>
                     <td>
                         <a id="actionDropdown" (click)="commonService.toggleActionDropdown(data.id)" class="btn btn-light btn-active-light-primary btn-sm">Action <em class="fa-solid fa-angle-down"></em></a>
                         <div class="action_menu pg-py-1" [class.show]="commonService.showActionDropdown && commonService.index == data.id">

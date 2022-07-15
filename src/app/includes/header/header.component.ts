@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonService } from 'src/app/core/services/common/common.service';
 
 @Component({
@@ -9,9 +10,13 @@ import { CommonService } from 'src/app/core/services/common/common.service';
 export class HeaderComponent implements OnInit {
 
 
-  constructor(public commonService:CommonService) { }
+  constructor(public commonService:CommonService, private readonly router: Router) { }
 
   ngOnInit(): void {
   }
 
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+  }
 }

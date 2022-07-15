@@ -18,6 +18,11 @@ export class TableComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    (async() => {
+      for (var i = 0; i < this.tableData?.length; i++) {
+        this.tableData[i].isSelected = this.commonService.checkAllCheckboxes;
+      }
+    })();
   }
 
   checkUncheckAll() {

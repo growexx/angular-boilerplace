@@ -1,42 +1,49 @@
+import { ComponentFixture, fakeAsync, flush, TestBed } from '@angular/core/testing';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
-import { Location } from '@angular/common';
-import { TableComponent } from 'src/app/shared/organisms/widgets/table/table.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { UsersService } from '../users.service';
 
-import { UsersListComponent } from './users-list.component';
+import { DialogComponent } from './dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersService } from 'src/app/users/users.service';
+import { UsersListComponent } from 'src/app/users/users-list/users-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
-describe('UsersListComponent', () => {
-  let component: UsersListComponent;
-  let fixture: ComponentFixture<UsersListComponent>;
+describe('DialogComponent', () => {
+  let component: DialogComponent;
+  let fixture: ComponentFixture<DialogComponent>;
+  let userListComponent: UsersListComponent;
+  let userListfixture: ComponentFixture<UsersListComponent>;
   let httpTestingController: HttpTestingController;
-  let usersService: UsersService;
-  let location: Location;
-  let router: Router;
   let expectedResponse: any;
+  let usersService: UsersService;
+  const dialogMock = {
+    close: () => { }
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UsersListComponent, TableComponent],
-      imports: [HttpClientTestingModule, SharedModule, FormsModule, ReactiveFormsModule, RouterTestingModule, BrowserAnimationsModule]
+      declarations: [DialogComponent],
+      imports: [HttpClientTestingModule, MatDialogModule, MatSelectModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: dialogMock }
+      ]
     })
       .compileComponents();
   });
 
-  beforeEach(fakeAsync(async () => {
-    location = TestBed.get(Location);
-    router = TestBed.get(Router);
-    fixture = TestBed.createComponent(UsersListComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DialogComponent);
     component = fixture.componentInstance;
-    usersService = fixture.debugElement.injector.get(UsersService);
+
+    userListfixture = TestBed.createComponent(UsersListComponent);
+    userListComponent = userListfixture.componentInstance;
     httpTestingController = TestBed.inject(HttpTestingController);
+    usersService = fixture.debugElement.injector.get(UsersService);
     fixture.detectChanges();
+    userListfixture.detectChanges();
     expectedResponse = {
       "users": [
         {
@@ -1873,73 +1880,70 @@ describe('UsersListComponent', () => {
       "skip": 0,
       "limit": 30
     };
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should called ngOnInit() and filter array of users', (async () => {
+  it('should called onSubmitFilter() and filter array of users while role and gender are set to null', fakeAsync(async () => {
+    component.filterForm.controls['role'].setValue(null);
+    component.filterForm.controls['gender'].setValue(null);
+    expect(component.filterForm.invalid).toBeTruthy();
+
+    const req1 = httpTestingController.expectOne(`${environment.apiUrl}users`);
+    expect(req1.request.method).toEqual('GET');
+    req1.flush(expectedResponse);
+
+    component.onSubmitFilter();
+    fixture.detectChanges();
+
+    const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
+    expect(req2.request.method).toEqual('GET');
+    req2.flush(expectedResponse);
+    flush();
+  }));
+
+  it('should called onSubmitFilter() and filter array of users are return user', fakeAsync(async () => {
+    userListfixture.detectChanges();
+    fixture.detectChanges();
+
     const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
     expect(req.request.method).toEqual('GET');
     req.flush(expectedResponse);
+    userListfixture.detectChanges();
     fixture.detectChanges();
+
+    component.filterForm.controls['role'].setValue('Marketing');
+    component.filterForm.controls['gender'].setValue('male');
+    expect(component.filterForm.valid).toBeTruthy();
+
+    component.onSubmitFilter();
+    fixture.detectChanges();
+
+    expect(usersService.usersData[0]).toEqual(expectedResponse.users[0])
   }));
 
-  it('should called openDialog() and filter array of users', (async () => {
-    let spyOn = fixture.componentInstance.openDialog();
-    expect(spyOn).toBeTruthy;
+  it('should called onResetFilter() and reset filter array of users', fakeAsync(async () => {
+    component.filterForm.controls['role'].setValue(null);
+    component.filterForm.controls['gender'].setValue(null);
+    expect(component.filterForm.invalid).toBeTruthy();
+
+    const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
+    expect(req.request.method).toEqual('GET');
+    req.flush(expectedResponse);
+    userListfixture.detectChanges();
+
+    let spy = spyOn(component.dialogRef, 'close').and.callThrough();
+
+    component.onResetFilter();
     fixture.detectChanges();
+
+    expect(spy).toHaveBeenCalled();
+
+    const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
+    expect(req2.request.method).toEqual('GET');
+    req2.flush(expectedResponse);
+    flush();
   }));
-
-  // it('should called onSubmitFilter() and filter array of users while role and two_step are set to null', fakeAsync(async () => {
-  //   component.filterForm.controls['role'].setValue(null);
-  //   component.filterForm.controls['two_step'].setValue(null);
-  //   expect(component.filterForm.invalid).toBeTruthy();
-
-  //   const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req.request.method).toEqual('GET');
-  //   req.flush(expectedResponse);
-
-  //   component.onSubmitFilter();
-  //   fixture.detectChanges();
-
-  //   const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req2.request.method).toEqual('GET');
-  //   req2.flush(expectedResponse);
-  //   flush();
-  // }));
-
-  // xit('should called onSubmitFilter() and filter array of users are return user', fakeAsync(async () => {
-
-  //   const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req.request.method).toEqual('GET');
-  //   req.flush(expectedResponse);
-
-  //   component.filterForm.controls['role'].setValue('Engineer');
-  //   component.filterForm.controls['two_step'].setValue('Enabled');
-  //   expect(component.filterForm.valid).toBeTruthy();
-  //   component.onSubmitFilter();
-  //   fixture.detectChanges();
-
-  //   expect(component.tableData[0]).toEqual(expectedResponse[1])
-  // }));
-
-  // xit('should called onResetFilter() and reset filter array of users', fakeAsync(async () => {
-  //   component.filterForm.controls['role'].setValue(null);
-  //   component.filterForm.controls['two_step'].setValue(null);
-  //   expect(component.filterForm.invalid).toBeTruthy();
-
-  //   const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req.request.method).toEqual('GET');
-  //   req.flush(expectedResponse);
-
-  //   component.onResetFilter();
-  //   fixture.detectChanges();
-
-  //   const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req2.request.method).toEqual('GET');
-  //   req2.flush(expectedResponse);
-  //   flush();
-  // }));
 });

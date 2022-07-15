@@ -150,6 +150,14 @@
               </div>
             </div>
             <div class="fv-row pg-mb-4 fv-plugins-icon-container">
+              <div class="d-flex flex-stack">
+                <label class="form-label fw-bolder text-dark pg-mb-0"
+                  >Date of birth</label
+                >
+              </div>
+              <app-datepicker [datepickerConfig]="datepickerConfig" [form]="registerForm"></app-datepicker>
+            </div>
+            <div class="fv-row pg-mb-4 fv-plugins-icon-container">
               <div class="d-flex flex-stack pg-mb-0">
                 <label class="form-label fw-bolder text-dark pg-mb-0"
                   >Password</label

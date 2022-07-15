@@ -4,19 +4,25 @@ import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.compo
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './core/guard/auth/auth.guard';
+import { GuestGuard } from './core/guard/guest/guest.guard';
 
 const routes: Routes = [{
   path: '',
-  component: LoginComponent
+  component: LoginComponent,
+  canActivate: [GuestGuard],
 }, {
   path: 'sign-up',
-  component: RegisterComponent
+  component: RegisterComponent,
+  canActivate: [GuestGuard],
 }, {
   path: 'password-reset',
-  component: ResetpasswordComponent
+  component: ResetpasswordComponent,
+  canActivate: [GuestGuard],
 }, {
   path: 'dashboard',
   component: DashboardComponent,
+  canActivate: [AuthGuard],
   loadChildren: () => import('./users/users.module').then(users => users.UsersModule),
 }, {
   path: '**',

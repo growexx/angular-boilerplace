@@ -9,9 +9,8 @@ import { AuthsidebarComponent } from 'src/app/includes/authsidebar/authsidebar.c
 import { SwalComponent, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
-import { RegisterComponent } from '../register/register.component';
-import { ResetpasswordComponent } from '../resetpassword/resetpassword.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -21,26 +20,16 @@ describe('LoginComponent', () => {
   let location: Location;
   let router: Router;
   let submitButton: any;
+  let expectedResponse: any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule, ReactiveFormsModule, FormsModule, SweetAlert2Module.forRoot(),
-        RouterTestingModule.withRoutes([
-          {
-            path: '',
-            component: LoginComponent
-          }, {
-            path: 'sign-up',
-            component: RegisterComponent
-          }, {
-            path: 'password-reset',
-            component: ResetpasswordComponent
-          }, {
-            path: 'dashboard',
-            component: DashboardComponent
-          }
-        ])
-      ],
+      imports: [RouterTestingModule.withRoutes([
+        {
+          path: 'dashboard',
+          component: DashboardComponent,
+        }
+      ]), HttpClientTestingModule, ReactiveFormsModule, FormsModule, SweetAlert2Module.forRoot()],
       declarations: [LoginComponent, AuthsidebarComponent, ButtonComponent],
       providers: [{ provide: AuthService }],
     })
@@ -64,6 +53,16 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
     httpTestingController = TestBed.inject(HttpTestingController);
     router.initialNavigation();
+    expectedResponse = {
+      "id": 15,
+      "username": "kminchelle",
+      "email": "kminchelle@qq.com",
+      "firstName": "Jeanne",
+      "lastName": "Halvorson",
+      "gender": "female",
+      "image": "https://robohash.org/autquiaut.png?size=50x50&set=set1",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJuYW1lIjoia21pbmNoZWxsZSIsImVtYWlsIjoia21pbmNoZWxsZUBxcS5jb20iLCJmaXJzdE5hbWUiOiJKZWFubmUiLCJsYXN0TmFtZSI6IkhhbHZvcnNvbiIsImdlbmRlciI6ImZlbWFsZSIsImltYWdlIjoiaHR0cHM6Ly9yb2JvaGFzaC5vcmcvYXV0cXVpYXV0LnBuZz9zaXplPTUweDUwJnNldD1zZXQxIiwiaWF0IjoxNjM1NzczOTYyLCJleHAiOjE2MzU3Nzc1NjJ9.n9PQX8w8ocKo0dMCw3g8bKhjB8Wo7f7IONFBDqfxKhs"
+    };
   });
 
   it('should create', () => {
@@ -82,8 +81,8 @@ describe('LoginComponent', () => {
 
   it('should called onLogin() and return success', (() => {
     const user = {
-      email: 'eve.holt@reqres.in',
-      password: 'cityslicka'
+      email: 'kminchelle',
+      password: '0lelplR'
     };
     component.loginForm.controls['email'].setValue(user.email);
     component.loginForm.controls['password'].setValue(user.password);
@@ -97,8 +96,7 @@ describe('LoginComponent', () => {
       "type": "submit",
       "btnClasses": "btn btn-lg btn-primary w-100 mb-5"
     }
-    const expectedResponse = { token: 'QpwL5tke4Pnpja7X4' };
-    const req = httpTestingController.expectOne('https://reqres.in/api/login');
+    const req = httpTestingController.expectOne(`${environment.apiUrl}auth/login`);
     expect(req.request.method).toEqual('POST');
     req.flush(expectedResponse);
     expect(component.submitButton).withContext("button content should be changed").toEqual(submitButton);
@@ -120,7 +118,7 @@ describe('LoginComponent', () => {
       "btnClasses": "btn btn-lg btn-primary w-100 mb-5"
     }
     const expectedResponse = { "error": "Missing password" };
-    const req = httpTestingController.expectOne('https://reqres.in/api/login');
+    const req = httpTestingController.expectOne(`${environment.apiUrl}auth/login`);
     expect(req.request.method).toEqual('POST');
     req.flush(expectedResponse);
     expect(component.submitButton).withContext("button content should be changed").toEqual(submitButton);

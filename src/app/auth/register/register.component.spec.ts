@@ -2,11 +2,15 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { SimpleChange } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SwalComponent, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AuthsidebarComponent } from 'src/app/includes/authsidebar/authsidebar.component';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { DatepickerComponent } from 'src/app/shared/components/datepicker/datepicker.component';
 import { PasswordStrengthBarComponent } from 'src/app/shared/components/password-strength-bar/password-strength-bar.component';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 import { RegisterComponent } from './register.component';
 
@@ -17,11 +21,18 @@ describe('RegisterComponent', () => {
   let authService: AuthService;
   let submitButton: any;
   let passwordStrengthBar: PasswordStrengthBarComponent;
+  let expectedResponse: any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule, ReactiveFormsModule, FormsModule, SweetAlert2Module.forRoot()],
-      declarations: [RegisterComponent, AuthsidebarComponent, ButtonComponent, PasswordStrengthBarComponent],
+      imports: [RouterTestingModule,
+        HttpClientTestingModule, 
+        ReactiveFormsModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule, 
+        SweetAlert2Module.forRoot()],
+      declarations: [RegisterComponent, AuthsidebarComponent, ButtonComponent, PasswordStrengthBarComponent, DatepickerComponent],
       providers: [{ provide: PasswordStrengthBarComponent }],
     })
       .compileComponents();
@@ -41,7 +52,67 @@ describe('RegisterComponent', () => {
     fixture.detectChanges();
     passwordStrengthBar = TestBed.inject(PasswordStrengthBarComponent);
     httpTestingController = TestBed.inject(HttpTestingController);
-
+    expectedResponse = {
+      "id": 101,
+      "firstName": "Pruthvi",
+      "lastName": "Dhamecha",
+      "maidenName": "Smitham",
+      "age": 50,
+      "gender": "male",
+      "email": "pruthvi.dhamecha@gmail.com",
+      "phone": "+63 791 675 8914",
+      "username": "pruthvidhamecha",
+      "password": "Asdf@1234",
+      "birthDate": "1999-03-31",
+      "image": "https://robohash.org/hicveldicta.png?size=50x50&set=set1",
+      "bloodGroup": "A−",
+      "height": 189,
+      "weight": 75.4,
+      "eyeColor": "Green",
+      "hair": {
+        "color": "Black",
+        "type": "Strands"
+      },
+      "domain": "slashdot.org",
+      "ip": "117.29.86.254",
+      "address": {
+        "address": "1745 T Street Southeast",
+        "city": "Washington",
+        "coordinates": {
+          "lat": 38.867033,
+          "lng": -76.979235
+        },
+        "postalCode": "20020",
+        "state": "DC"
+      },
+      "macAddress": "13:69:BA:56:A3:74",
+      "university": "Capitol University",
+      "bank": {
+        "cardExpire": "06/22",
+        "cardNumber": "50380955204220685",
+        "cardType": "maestro",
+        "currency": "Peso",
+        "iban": "NO17 0695 2754 967"
+      },
+      "company": {
+        "address": {
+          "address": "629 Debbie Drive",
+          "city": "Nashville",
+          "coordinates": {
+            "lat": 36.208114,
+            "lng": -86.58621199999999
+          },
+          "postalCode": "37076",
+          "state": "TN"
+        },
+        "department": "Marketing",
+        "name": "Blanda-O'Keefe",
+        "title": "Help Desk Operator"
+      },
+      "ein": "20-9487066",
+      "ssn": "661-64-2976",
+      "userAgent": "Mozilla/5.0 ..."
+    };
   });
 
   it('should create', () => {
@@ -63,8 +134,7 @@ describe('RegisterComponent', () => {
       "type": "submit",
       "btnClasses": "btn btn-lg btn-primary"
     }
-    const expectedResponse = { "id": 4, "token": "QpwL5tke4Pnpja7X4" };
-    const req = httpTestingController.expectOne('https://reqres.in/api/register');
+    const req = httpTestingController.expectOne(`${environment.apiUrl}users/add`);
     expect(req.request.method).toEqual('POST');
     req.flush(expectedResponse);
     expect(component.submitButton).withContext("button content should be changed").toEqual(submitButton);
@@ -76,7 +146,7 @@ describe('RegisterComponent', () => {
     component.registerForm.controls['confirmpassword'].setValue('123456');
     fixture.detectChanges();
     expect(component.registerForm.valid).toBeFalsy();
-    
+
     component.registerForm.controls['password'].setValue('Asdf@12345678');
     component.registerForm.controls['confirmpassword'].setValue('Asdf@12345678');
     fixture.detectChanges();

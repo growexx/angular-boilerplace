@@ -14,15 +14,9 @@ export class AuthService {
   token:any = '';
   
   login(user:any): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}login`, user);
+    return this.http.post<any>(`${environment.apiUrl}auth/login`, user);
   }
   register(user:any): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}register`, user);
-  }
-  getAllUsers(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}users`);
-  }
-  getUser(userId:any): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}user/${userId}`);
+    return this.http.post<any>(`${environment.apiUrl}users/add`, user);
   }
 }

@@ -28,7 +28,7 @@ export class CommonService {
     }
   }
 
-  toggleFilterDropdown() {
-    this.showFilterDropdown = !this.showFilterDropdown;
-  }
+  // toggleFilterDropdown() {
+  //   this.showFilterDropdown = !this.showFilterDropdown;
+  // }
 }
