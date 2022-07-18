@@ -48210,12 +48210,6 @@ circle {
     margin: auto;
 }
 
-// *,
-// *::before,
-// *::after {
-//     margin: auto;
-//     /* text-align: center; */
-// }
 html,
 body {
     height: 100%;
@@ -48228,4 +48222,28 @@ body {
 
 .list-group-flush>.list-group-item {
     border-width: 0 0 0;
+}
+
+.mat-checkbox-inner-container {
+    background-color: #E4E6EF;
+    border-radius: 4px !important;
+}
+
+.mat-checkbox-frame {
+    border-radius: 4px !important;
+    border-width: 1px !important;
+    border-color: #E4E6EF !important;
+}
+
+.mat-radio-container {
+    background-color: #E4E6EF;
+    border-radius: 100%;
+}
+
+.mat-radio-outer-circle {
+    border-color: #E4E6EF !important;
+}
+
+.mat-checkbox-layout {
+    margin-top: 8px !important;
 }

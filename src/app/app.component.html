@@ -37,4 +37,15 @@
 
         </tr>
     </table>
+
+
+    <div>
+        <app-checkbox [checkboxes]="checkboxes" [color]="checkboxColor" [isChecked]="isChecked" [label]="label" [disable]="disable" (checked)="onChecked($event)"></app-checkbox>
+    </div>
+    <div>
+
+        <app-radio-button [radioButtons]="radioButtons" [color]="color" (selected)="onSelectRadio($event)"></app-radio-button>
+    </div>
+
+
 </div>

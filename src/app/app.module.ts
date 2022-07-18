@@ -27,6 +27,10 @@ import { CompFilterComponent } from './_shared/comp-filter/comp-filter.component
 import { CompFilterPipe } from './_shared/pipes/comp-filter.pipe';
 import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { CheckboxComponent } from './_shared/checkbox/checkbox.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { RadioButtonComponent } from './_shared/radio-button/radio-button.component';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +46,9 @@ import { FormsModule } from '@angular/forms';
     TabsComponent,
     CompFilterComponent,
     CompFilterPipe,
+    CheckboxComponent,
+    RadioButtonComponent,
+    
     
    
   ],
@@ -56,6 +63,8 @@ import { FormsModule } from '@angular/forms';
     MatTabsModule,
     FormsModule,
     TableModule,
+    MatRadioModule,
+    MatCheckboxModule,
     BrowserAnimationsModule,
     SweetAlert2Module.forRoot(),
     NgCircleProgressModule.forRoot({

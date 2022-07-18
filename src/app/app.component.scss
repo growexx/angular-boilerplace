@@ -73,9 +73,6 @@ body {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-// .app-container {
-//   height: 100vh;
-// }
 .card-subtitle {
     color: #B5B5C3;
     padding-top: none;
@@ -87,4 +84,11 @@ body {
 
 .loader {
     align-items: center;
+}
+
+.radioButton {
+    display: flex;
+    flex-direction: column;
+    margin: 24px;
+    align-items: flex-start;
 }

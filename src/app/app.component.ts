@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { CompFilterPipe } from './_shared/pipes/comp-filter.pipe';
-
 import { ChartsDataService } from './charts-data.service';
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,34 @@ import { ChartsDataService } from './charts-data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  radioClass='radioButton';
+  radioButtons = [
+    {name:'Option 1', key: 1 , disabled: false , checked:false , labelPosition:'after',required: true},
+    {name:'Option 2', key: 2, disabled: false, checked:false, labelPosition:'after',required: true},
+    {name:'Option 3', key: 3, disabled: false, checked:true, labelPosition:'after',required: true},
+    
+  ]
+  onSelectRadio($event:any){
+    console.log($event)
+
+  }
+
+  checkboxes = [
+    {name:'Option 1', value: 'Option 1' , disabled: false , checked:false , labelPosition:'after',required: true},
+    {name:'Option 2', value: 'Option 2', disabled: false, checked:false, labelPosition:'after',required: true},
+    {name:'Option 3', value: 'Option 3', disabled: false, checked:false, labelPosition:'after',required: true}, 
+  ]
+  checkboxClass='checkbox';
+  isChecked?:boolean = false;
+  label = 'Terms & Conditions';
+  disable= false;
+  checkboxColor:ThemePalette='primary';
+ 
+  onChecked($event:any){
+console.log($event)
+  }
+ 
+  
   title='Angular Boiler Plate';
   showDiv=false;
   searchText:any;
@@ -66,11 +94,14 @@ export class AppComponent implements OnInit {
   
    ]
 constructor(public chartDataService:ChartsDataService,
-  private compFilterPipe:CompFilterPipe){
+  private compFilterPipe:CompFilterPipe,
+  ){
+    
 }
  
   ngOnInit() {
-    console.log(this.searchText);
+
+    
     this.chartId = this.chartDataService.getChart();
    setTimeout(() => {
    

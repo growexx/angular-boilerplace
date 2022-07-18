@@ -1,0 +1,6 @@
+<div class="mainDiv">
+    <mat-radio-group (change)="onSelect($event)" [color]="color">
+        <mat-radio-button class="radioClass" *ngFor="let radioButton of radioButtons" labelPosition="after" [checked]="radioButton.checked" [disabled]="radioButton.disabled" value="{{radioButton.key}}">{{radioButton.name}}</mat-radio-button>
+
+    </mat-radio-group>
+</div>
