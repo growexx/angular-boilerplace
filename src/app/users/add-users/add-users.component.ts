@@ -17,18 +17,28 @@ export class AddUsersComponent implements OnInit {
   private userFormGroup: FormArray | any;
   public userModal: createUser | any;
   isLinear: boolean = false;
-  userVal!: createUser;
+  userVal: createUser = {firstName: 'Nirvi',
+    lastName: 'Shah',
+    phone: '87694657834',
+    name: 'growexx',
+    address:{
+      address: 'ddf',
+      city: 'toronto',
+      state: 'DC',
+      postalCode:'wb3245',
+      country: 'canada'
+    }
+   };
   firstFormVal: any;
   secondFormVal: any;
   public isaddressTypeDisabled: boolean = false;
   countryEnum = countryEnum;
 
-
   constructor(private formBuilder: FormBuilder, private userService: UserService, public asyncService: AsyncService) { }
 
   ngOnInit(): void {
     this.getDetails()
-    this.addUserData()
+
   }
 
   getDetails() {
@@ -57,11 +67,14 @@ export class AddUsersComponent implements OnInit {
     const firstFormVal = this.firstFormGroup.value;
     const control = this.secondFormGroup.get("customerAddressDTO") as FormArray;
     control.push(this.getAddressForm)
+    console.log(this.firstFormGroup)
+    this.getAllControls();
+
   }
 
   goToStep3() {
     this.secondFormVal = this.secondFormGroup.value;
-    this.firstFormVal = this.firstFormGroup.value;
+    this.firstFormVal = this.firstFormGroup.value;    
   }
 
   get getAddressForm() {
@@ -76,16 +89,26 @@ export class AddUsersComponent implements OnInit {
     })
   }
 
-   addUserData() {
-      firstName: this.firstFormVal?.firstFormVal
+  getAllControls(){
+    const firstName = this.firstFormGroup.value['firstName']
+    console.log(firstName)
   }
 
+
+
   addUser() {
-    this.userVal = this.firstFormGroup.value;
-    this.userService.createUser(this.addUserData).subscribe({
+    this.userVal.firstName   = this.firstFormGroup.value['firstName'];
+    this.userVal.lastName = this.firstFormGroup.value['lastName'];
+    this.userVal.name = this.firstFormGroup.value['name'];
+    this.userVal.phone = this.firstFormGroup.value['phone'];
+    this.userVal.address.address = this.secondFormGroup.value['addressLine1'];
+    this.userVal.address.city = this.secondFormGroup.value['city'];
+    this.userVal.address.state = this.secondFormGroup.value['state'];
+    this.userVal.address.country = this.secondFormGroup.value['country'];
+
+    this.userService.createUser(this.userVal).subscribe({
       next: (res) => {
         const data = _.cloneDeep(res);
-
       }
     })
   }

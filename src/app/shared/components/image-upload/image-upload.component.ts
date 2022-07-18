@@ -18,6 +18,7 @@ export class ImageUploadComponent implements OnInit {
   }
 
   fileChangeEvent(fileInput: any):any {
+    console.log(fileInput)
     this.imageError = '';
     if (fileInput.target.files && fileInput.target.files[0]) {
         // Size Filter Bytes
@@ -45,9 +46,6 @@ export class ImageUploadComponent implements OnInit {
                 const img_height= (rs.currentTarget as HTMLElement)?.offsetHeight;
                 const img_width = (rs.currentTarget as HTMLElement)?.offsetWidth;
 
-                console.log(img_height, img_width);
-
-
                 if (img_height > max_height && img_width > max_width) {
                     this.imageError =
                         'Maximum dimentions allowed ' +
@@ -65,7 +63,7 @@ export class ImageUploadComponent implements OnInit {
                 }
             };
         };
-
+        console.log(reader)
         reader.readAsDataURL(fileInput.target.files[0]);
     }
 }
