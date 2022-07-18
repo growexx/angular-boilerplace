@@ -1,4 +1,5 @@
 export interface createUser {
+    image:string,
     firstName: string,
     lastName: string,
     phone: string,

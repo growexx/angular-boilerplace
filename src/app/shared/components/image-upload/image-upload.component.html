@@ -5,7 +5,7 @@
             <label>Upload Logo</label>
             {{imageError}}
             <div class="custom-file fileInputProfileWrap position-relative">
-                <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+                <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile" #fileInput>
                 <div class="img-space">
 
                     <ng-container *ngIf="isImageSaved; else elseTemplate">

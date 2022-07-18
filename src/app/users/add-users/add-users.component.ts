@@ -17,28 +17,26 @@ export class AddUsersComponent implements OnInit {
   private userFormGroup: FormArray | any;
   public userModal: createUser | any;
   isLinear: boolean = false;
-  userVal: createUser = {firstName: 'Nirvi',
-    lastName: 'Shah',
-    phone: '87694657834',
-    name: 'growexx',
-    address:{
+  imagePath:string ='hello';
+  userVal: createUser = {
+    image:'data:/image/jpeg;base64 jdkajska',
+    firstName: 'Nirvi', lastName: 'Shah', phone: '87694657834', name: 'growexx',
+    address: {
       address: 'ddf',
       city: 'toronto',
       state: 'DC',
-      postalCode:'wb3245',
+      postalCode: 'wb3245',
       country: 'canada'
     }
-   };
+  };
   firstFormVal: any;
   secondFormVal: any;
   public isaddressTypeDisabled: boolean = false;
   countryEnum = countryEnum;
-
   constructor(private formBuilder: FormBuilder, private userService: UserService, public asyncService: AsyncService) { }
 
   ngOnInit(): void {
     this.getDetails()
-
   }
 
   getDetails() {
@@ -69,12 +67,13 @@ export class AddUsersComponent implements OnInit {
     control.push(this.getAddressForm)
     console.log(this.firstFormGroup)
     this.getAllControls();
+    console.log(this.imagePath)
 
   }
 
   goToStep3() {
     this.secondFormVal = this.secondFormGroup.value;
-    this.firstFormVal = this.firstFormGroup.value;    
+    this.firstFormVal = this.firstFormGroup.value;
   }
 
   get getAddressForm() {
@@ -89,15 +88,16 @@ export class AddUsersComponent implements OnInit {
     })
   }
 
-  getAllControls(){
+  getAllControls() {
     const firstName = this.firstFormGroup.value['firstName']
-    console.log(firstName)
-  }
+      }
 
 
 
   addUser() {
-    this.userVal.firstName   = this.firstFormGroup.value['firstName'];
+    console.log(this.imagePath)
+    this.userVal.image = this.imagePath;
+    this.userVal.firstName = this.firstFormGroup.value['firstName'];
     this.userVal.lastName = this.firstFormGroup.value['lastName'];
     this.userVal.name = this.firstFormGroup.value['name'];
     this.userVal.phone = this.firstFormGroup.value['phone'];
@@ -128,4 +128,5 @@ export class AddUsersComponent implements OnInit {
     this.secondFormGroup.controls['postalCode']?.setValue((address['postal_code']) ? address['postal_code'] : '')
     this.secondFormGroup.controls['country'].setValue((address['country']) ? address['country'] : '')
   }
+
 }

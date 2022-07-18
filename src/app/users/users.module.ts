@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { SharedModule } from '../shared/shared.module';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
 @NgModule({
   declarations: [
-    AddUsersComponent
+    AddUsersComponent,
+    ViewProfileComponent
   ],
   imports: [
     CommonModule,
