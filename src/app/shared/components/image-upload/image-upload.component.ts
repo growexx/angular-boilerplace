@@ -7,7 +7,7 @@ import * as _ from 'lodash';
     templateUrl: './image-upload.component.html',
     styleUrls: ['./image-upload.component.scss']
 })
-export class ImageUploadComponent implements OnInit, OnChanges {
+export class ImageUploadComponent implements OnInit {
 
     imageError!: string;
     isImageSaved!: boolean;
@@ -17,10 +17,6 @@ export class ImageUploadComponent implements OnInit, OnChanges {
     @Output() imageChange: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
-
-    ngOnChanges(changes: SimpleChanges) {
-        console.log(changes)
-    }
 
     ngOnInit(): void {
     }
@@ -49,35 +45,33 @@ export class ImageUploadComponent implements OnInit, OnChanges {
             }
             const reader = new FileReader();
             reader.onload = (e: any) => {
-                const image = new Image();
+                const image = new Image();  
                 image.src = e.target.result;
                 image.onload = (rs: any): any => {
-                    const img_height = (rs.currentTarget as HTMLElement)?.offsetHeight;
-                    const img_width = (rs.currentTarget as HTMLElement)?.offsetWidth;
+                    // const img_height = (rs.currentTarget as HTMLElement)?.offsetHeight;
+                    // const img_width = (rs.currentTarget as HTMLElement)?.offsetWidth;
 
-                    if (img_height > max_height && img_width > max_width) {
-                        this.imageError =
-                            'Maximum dimentions allowed ' +
-                            max_height +
-                            '*' +
-                            max_width +
-                            'px';
-                        return false;
-                    } else {
+                    // if (img_height > max_height && img_width > max_width) {
+                    //     this.imageError =
+                    //         'Maximum dimentions allowed ' +
+                    //         max_height +
+                    //         '*' +
+                    //         max_width +
+                    //         'px';
+                    //     return false;
+                    // } else {
                         const imgBase64Path = e.target.result;
-                        console.log(imgBase64Path)
                         this.cardImageBase64 = imgBase64Path;
                         fileInput = this.cardImageBase64;
                         this.imgFile = fileInput;
                         this.isImageSaved = true;
                         // this.previewImagePath = imgBase64Path;
                         this.imageChange.emit({
-                            data:this.imgFile
+                            data: this.imgFile
                         });
-                    }
+                    // }
                 };
             };
-            console.log(reader)
             reader.readAsDataURL(fileInput.target.files[0]);
         }
     }

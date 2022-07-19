@@ -24,15 +24,27 @@ describe('ImageUploadComponent', () => {
 
   it('should call function fileChangeEvent', () => {
     const file = new File([''], 'boiler.jpg', { type: 'text/html' });
-    const event = { target: { files: [file] } };
+    const event = {
+      target: {
+        files: [{
+          size: '28841',
+          type: "image/jpeg",
+        }]
+      }
+    };
+
+    var image =  new Image();
+    image.src = "base/test/img/canvas.png"
 
     spyOn(<any>window, 'FileReader').and.returnValue({
       readAsDataURL: function () { },
-      onload: function () { }
+      onload: function () { 
+      }
     });
 
+
     component.fileChangeEvent(event);
-    expect(component).toBeTruthy();
+    expect(component.fileChangeEvent).toBeTruthy();
   })
 
   it('should call function removeImage', () => {
