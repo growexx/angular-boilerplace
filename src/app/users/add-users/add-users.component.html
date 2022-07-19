@@ -15,7 +15,7 @@
                                 <div class="row">
                                     <div class="col-sm-3 mb-20">Image</div>
                                     <div class="col-sm-9">
-                                        <app-image-upload [fileInput]="imagePath"></app-image-upload>
+                                        <app-image-upload [imgFile]="userVal.image" (imageChange)="changeImage($event)"></app-image-upload>
                                     </div>
                                 </div>
 
@@ -31,12 +31,18 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3 mb-20"><label>Company Name</label></div>
-                                    <div class="col-sm-9"><input type="text" formControlName="name" required>
+                                    <div class="col-sm-9"><input type="text" formControlName="companyName" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3 mb-20"><label>Contact Phone</label></div>
                                     <div class="col-sm-9"><input type="text" formControlName="phone" mask="000-000-0000"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3 mb-20"><label>Email</label></div>
+                                    <div class="col-sm-9"><input type="text" formControlName="email"
                                             required>
                                     </div>
                                 </div>

@@ -3,7 +3,7 @@ export interface createUser {
     firstName: string,
     lastName: string,
     phone: string,
-    name: string,
+    companyName: string,
     address:{
         address: string,
         city: string,

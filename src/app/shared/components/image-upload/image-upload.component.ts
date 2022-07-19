@@ -12,8 +12,9 @@ export class ImageUploadComponent implements OnInit, OnChanges {
     imageError!: string;
     isImageSaved!: boolean;
     cardImageBase64!: string;
-    @Input() fileInput: any;
-    // @ViewChild('fileInput') fileInput: ElementRef | any;
+    @Input() imgFile: any;
+    @ViewChild('fileInput') fileInput: ElementRef | any;
+    @Output() imageChange: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
 
@@ -27,7 +28,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
     fileChangeEvent(fileInput: any): any {
         console.log(fileInput)
         this.imageError = '';
-        this.fileInput = fileInput;
+        fileInput = fileInput;
         if (fileInput.target.files && fileInput.target.files[0]) {
             // Size Filter Bytes
             const max_size = 20971520;
@@ -66,9 +67,13 @@ export class ImageUploadComponent implements OnInit, OnChanges {
                         const imgBase64Path = e.target.result;
                         console.log(imgBase64Path)
                         this.cardImageBase64 = imgBase64Path;
-                        this.fileInput = this.cardImageBase64;
+                        fileInput = this.cardImageBase64;
+                        this.imgFile = fileInput;
                         this.isImageSaved = true;
                         // this.previewImagePath = imgBase64Path;
+                        this.imageChange.emit({
+                            data:this.imgFile
+                        });
                     }
                 };
             };

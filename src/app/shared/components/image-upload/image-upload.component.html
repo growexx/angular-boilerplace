@@ -1,25 +1,23 @@
 <form>
     <div class="form-group">
         <fieldset class="form-group">
-
             <label>Upload Logo</label>
             {{imageError}}
             <div class="custom-file fileInputProfileWrap position-relative">
                 <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile" #fileInput>
-                <div class="img-space">
-
+                <div class="img-space position-relative">
                     <ng-container *ngIf="isImageSaved; else elseTemplate">
                         <img [src]="cardImageBase64" />
                     </ng-container>
                     <ng-template #elseTemplate>
-
                         <img src="../../../../assets/images/placeholder.png" class="img-responsive">
                     </ng-template>
-
+                    <a class="cancel-icon" (click)="removeImage()" *ngIf="isImageSaved">
+                        <img src="assets/images/svg-icons/cancel.svg" alt="cancel" width="20px" height="20px">
+                    </a>
                 </div>
-
             </div>
         </fieldset>
     </div>
-    <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</a>
+    <!-- <a class="btn btn-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</a> -->
 </form>
