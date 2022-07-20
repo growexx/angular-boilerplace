@@ -4,7 +4,7 @@ export interface createUser {
     lastName: string,
     phone: string,
     companyName: string,
-    email:string,
+    email: string,
     address: {
         address: string,
         city: string,
@@ -21,7 +21,7 @@ export interface userDetailsModal {
     lastName: string,
     phone: string,
     companyName: string,
-    email:string,
+    email: string,
     address: {
         address: string,
         city: string,
@@ -32,3 +32,20 @@ export interface userDetailsModal {
 }
 
 export type userDetailsType = userDetailsModal;
+
+export interface userTaskModal {
+    posts: [{
+        id: number,
+        title: string
+        body: string,
+        userId: number,
+        tags: [],
+        reactions: number,
+    }]
+
+    total: number,
+    skip: number,
+    limit: number
+}
+
+export type userTaskType = userTaskModal

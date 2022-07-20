@@ -24,7 +24,9 @@
                                 <div>
                                     <div><span class="font-500">Address</span></div>
                                     <div><span>{{userDetails?.address?.address}},</span></div>
-                                    <div><span>{{userDetails?.address?.city}} &nbsp;{{userDetails?.address?.state}}&nbsp;{{userDetails?.address?.postalCode}}</span></div>
+                                    <div><span>{{userDetails?.address?.city}}
+                                            &nbsp;{{userDetails?.address?.state}}&nbsp;{{userDetails?.address?.postalCode}}</span>
+                                    </div>
                                     <!-- <div><span>Australia</span></div> -->
                                 </div>
                             </div>
@@ -38,28 +40,10 @@
                         <h2>User's Task</h2>
                     </div>
                     <div class="task-panel-content">
-                        <div class="task-panel">
+                        <div class="task-panel" *ngFor="let post of userTask?.posts; let i =index">
                             <div class="mbl-20">
-                                <h4 class="mb-0">Create FureStibe branding logo</h4>
-                                <div><span>Due in 1 day Karina Clark</span></div>
-                            </div>
-                        </div>
-                        <div class="task-panel">
-                            <div class="mbl-20">
-                                <h4 class="mb-0">Create FureStibe branding logo</h4>
-                                <div><span>Due in 1 day Karina Clark</span></div>
-                            </div>
-                        </div>
-                        <div class="task-panel">
-                            <div class="mbl-20">
-                                <h4 class="mb-0">Create FureStibe branding logo</h4>
-                                <div><span>Due in 1 day Karina Clark</span></div>
-                            </div>
-                        </div>
-                        <div class="task-panel">
-                            <div class="mbl-20">
-                                <h4 class="mb-0">Create FureStibe branding logo</h4>
-                                <div><span>Due in 1 day Karina Clark</span></div>
+                                <h4 class="mb-0">{{post?.title}}</h4>
+                                <div><span>{{post?.body}}</span></div>
                             </div>
                         </div>
                     </div>
