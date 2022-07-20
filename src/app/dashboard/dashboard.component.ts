@@ -22,7 +22,6 @@ export class DashboardComponent implements OnInit {
   // }
 
   // isButton(el: HTMLElement, level = 3) {
-  //   // console.log("btn Clicked");
   //   for (let btn: HTMLElement | undefined | null = el; level > 0; level--) {
   //     if (btn?.id === 'filterDropdown' ||
   //       btn?.id === 'actionDropdown' ||

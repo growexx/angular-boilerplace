@@ -1887,59 +1887,8 @@ describe('UsersListComponent', () => {
   }));
 
   it('should called openDialog() and filter array of users', (async () => {
-    let spyOn = fixture.componentInstance.openDialog();
-    expect(spyOn).toBeTruthy;
+    fixture.componentInstance.openDialog();
+    expect(component).toBeTruthy();
     fixture.detectChanges();
   }));
-
-  // it('should called onSubmitFilter() and filter array of users while role and two_step are set to null', fakeAsync(async () => {
-  //   component.filterForm.controls['role'].setValue(null);
-  //   component.filterForm.controls['two_step'].setValue(null);
-  //   expect(component.filterForm.invalid).toBeTruthy();
-
-  //   const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req.request.method).toEqual('GET');
-  //   req.flush(expectedResponse);
-
-  //   component.onSubmitFilter();
-  //   fixture.detectChanges();
-
-  //   const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req2.request.method).toEqual('GET');
-  //   req2.flush(expectedResponse);
-  //   flush();
-  // }));
-
-  // xit('should called onSubmitFilter() and filter array of users are return user', fakeAsync(async () => {
-
-  //   const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req.request.method).toEqual('GET');
-  //   req.flush(expectedResponse);
-
-  //   component.filterForm.controls['role'].setValue('Engineer');
-  //   component.filterForm.controls['two_step'].setValue('Enabled');
-  //   expect(component.filterForm.valid).toBeTruthy();
-  //   component.onSubmitFilter();
-  //   fixture.detectChanges();
-
-  //   expect(component.tableData[0]).toEqual(expectedResponse[1])
-  // }));
-
-  // xit('should called onResetFilter() and reset filter array of users', fakeAsync(async () => {
-  //   component.filterForm.controls['role'].setValue(null);
-  //   component.filterForm.controls['two_step'].setValue(null);
-  //   expect(component.filterForm.invalid).toBeTruthy();
-
-  //   const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req.request.method).toEqual('GET');
-  //   req.flush(expectedResponse);
-
-  //   component.onResetFilter();
-  //   fixture.detectChanges();
-
-  //   const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
-  //   expect(req2.request.method).toEqual('GET');
-  //   req2.flush(expectedResponse);
-  //   flush();
-  // }));
 });

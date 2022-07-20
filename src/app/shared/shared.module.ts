@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MultiselectDropdownComponent } from './components/multiselect-dropdown/multiselect-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     DropdownComponent,
     DialogComponent,
     DatepickerComponent,
+    MultiselectDropdownComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     DropdownComponent,
     DialogComponent,
     DatepickerComponent,
+    MultiselectDropdownComponent,
   ],
 })
 export class SharedModule { }

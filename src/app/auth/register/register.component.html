@@ -157,6 +157,15 @@
               </div>
               <app-datepicker [datepickerConfig]="datepickerConfig" [form]="registerForm"></app-datepicker>
             </div>
+
+            <div class="fv-row pg-mb-4 fv-plugins-icon-container">
+              <div class="d-flex flex-stack">
+                <label class="form-label fw-bolder text-dark pg-mb-0">Department</label
+                >
+              </div>
+              <app-multiselect-dropdown [dropdownSettings]="dropdownSettings" [dropdownData]="departments" [dropdownForm]="registerForm"></app-multiselect-dropdown>
+            </div>
+
             <div class="fv-row pg-mb-4 fv-plugins-icon-container">
               <div class="d-flex flex-stack pg-mb-0">
                 <label class="form-label fw-bolder text-dark pg-mb-0"
@@ -281,8 +290,8 @@
               >
               </swal>
               <app-button
-                [buttonsArray]="submitButton"
-                [isDisabled]="!registerForm.valid"
+              [buttonsArray]="submitButton"
+              [isDisabled]="!registerForm.valid"
                 (submitFormEvent)="onRegister()"
               ></app-button>
             </div>

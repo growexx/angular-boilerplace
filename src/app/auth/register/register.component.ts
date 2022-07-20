@@ -4,6 +4,7 @@ import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import * as moment from 'moment';
 import { ConfirmPasswordValidator } from 'src/app/core/validators/confirm-password/ConfirmPasswordValidator';
 import { PasswordValidator } from 'src/app/core/validators/password/PasswordValidator';
+import { UsersService } from 'src/app/users/users.service';
 import { AuthService } from '../auth.service';
 
 
@@ -16,6 +17,8 @@ export class RegisterComponent implements OnInit {
   @ViewChild('registerSwal')
   public readonly registerSwal!: SwalComponent;
   user: any = {};
+  departments:any = [];
+
   datepickerConfig: any = {
     minDate: '2022-01-01',
     maxDate: '2022-11-30',
@@ -25,12 +28,22 @@ export class RegisterComponent implements OnInit {
     panelClasses: 'panelClasses',
     startView:'month',
   }
+  dropdownSettings:any= {
+    placeholder: "Select Departments",
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    enableSearchFilter: true,
+    classes: "form-control form-control-lg form-control-solid",
+    maxHeight:'300px',
+    // maxBadgeLimit: 4,
+  };
 
   registerForm = new FormGroup({
     firstName: new FormControl('Pruthvi', [Validators.required, Validators.minLength(3)]),
     lastName: new FormControl('Dhamecha', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('pruthvi.dhamecha@gmail.com', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
     dob: new FormControl(moment(), [Validators.required]),
+    department: new FormControl('', [Validators.required]),
     password: new FormControl('Asdf@1234', [Validators.required, PasswordValidator(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]),
     confirmpassword: new FormControl('Asdf@1234', [Validators.required, PasswordValidator(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]),
     termsAndConditions: new FormControl(true, [Validators.requiredTrue]),
@@ -43,12 +56,25 @@ export class RegisterComponent implements OnInit {
     "btnClasses": "btn btn-lg btn-primary"
   }
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, public usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.usersService.getAllUsers().subscribe(res => {
+      this.usersService.usersData = res.users;
+      this.usersService.usersData.filter((item: any) => {
+        if (!this.departments.find((ele: any) => ele.itemName === item.company.department)) {
+          this.departments.push({
+            id: item.id,
+            image: item.image,
+            itemName: item.company.department,
+            isSelected: false
+          });
+        }
+      });
+    });
   }
   onRegister() {
-
+    console.log(this.registerForm.value);
     this.submitButton = {
       text: "Please Wait...",
       type: "submit",
@@ -111,7 +137,7 @@ export class RegisterComponent implements OnInit {
           "postalCode": "37076",
           "state": "TN"
         },
-        "department": "Marketing",
+        "department": this.registerForm.value.department,
         "name": "Blanda-O'Keefe",
         "title": "Help Desk Operator"
       },

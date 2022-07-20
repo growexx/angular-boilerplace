@@ -65,7 +65,6 @@ export class TableComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.commonService.toggleActionDropdown(user[0].id);
-        console.log(user);
         this.usersService.deleteUser(user[0].id).subscribe(res => {
           user.forEach(f => this.tableData.splice(this.tableData.findIndex(e => e.id === id),1));
           Swal.fire(
