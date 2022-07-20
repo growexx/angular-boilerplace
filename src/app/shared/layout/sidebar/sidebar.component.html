@@ -16,7 +16,7 @@
     </div>
 
     <div class="d-flex flex-row text-light">
-        <ngb-accordion [closeOthers]="true" activeIds="static-1" class="w-100 panel-accordion"
+        <ngb-accordion [closeOthers]="true"  class="w-100 panel-accordion"
             style="background-color: #1a1a27;" ngClass="{{!isOpen ? 'none' : 'center'}}">
             <ngb-panel id="static-1">
                 <ng-template ngbPanelTitle>
@@ -81,6 +81,34 @@
                             <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Bidding</span>
                         </a>
                     </div>
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="static-2">
+                <ng-template ngbPanelTitle>
+                    <div ngClass="{{!isUser ? 'd-flex' : 'center'}}">
+                        <em class="fas fa-th-large me-3"></em>
+                        <span class="item" ngClass="{{!isUser ? 'd-block' : 'd-none'}}">User</span>
+                    </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="menu-item">
+                        <a ngClass="{{!isUser ? '': 'center'}}" class="menu-link active" href="#">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot" ngClass="{{!isUser ? 'd-block' : 'd-none'}}"></span>
+                                <em class="fas fa-th-large me-3" ngClass="{{!isUser ? 'd-none': 'd-block'}}"></em>
+                            </span>
+                            <span class="menu-title" ngClass="{{!isUser ? 'd-block' : 'd-none'}}">Add User</span>
+                        </a>
+                    </div> 
+                    <div class="menu-item">
+                        <a ngClass="{{!isUser ? '': 'center'}}" class="menu-link active" href="#">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot" ngClass="{{!isUser ? 'd-block' : 'd-none'}}"></span>
+                                <em class="fas fa-th-large me-3" ngClass="{{!isUser ? 'd-none': 'd-block'}}"></em>
+                            </span>
+                            <span class="menu-title" ngClass="{{!isUser ? 'd-block' : 'd-none'}}">View User</span>
+                        </a>
+                    </div>                    
                 </ng-template>
             </ngb-panel>
         </ngb-accordion>

@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path:'view',
     component:ViewProfileComponent
+  },
+  {
+    path:'view/:id',
+    component:ViewProfileComponent
   }
 ];
 

@@ -20,7 +20,7 @@ export class AddUsersComponent implements OnInit {
   imagePath:string ='hello';
   userVal: createUser = {
     image:'data:/image/jpeg;base64 jdkajska',
-    firstName: 'Nirvi', lastName: 'Shah', phone: '87694657834', companyName: 'growexx',
+    firstName: 'Nirvi', lastName: 'Shah', phone: '87694657834', companyName: 'growexx',email:'abc@growexx.com,',
     address: {
       address: 'ddf',
       city: 'toronto',

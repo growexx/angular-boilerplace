@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Params } from '@angular/router';
+import * as _ from 'lodash';
+import { UserService } from '../user.service';
+import { userDetailsType } from '../usermodal';
 
 @Component({
   selector: 'app-view-profile',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewProfileComponent implements OnInit {
 
-  constructor() { }
+  id!: number;
+  userDetails!: userDetailsType;
+  constructor(private userService: UserService, private route: ActivatedRoute) {
 
-  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      console.log(params)
+      if (params['id']) {
+        this.id = params['id']
+        console.log(this.id)
+      }
+    })
   }
 
+  ngOnInit(): void {
+    this.getUserDetailsById(this.id)
+  }
+
+  getUserDetailsById(id: number) {
+    this.userService.viewUser(id).subscribe((res: any) => {
+      console.log(res)
+      this.userDetails = _.cloneDeep(res);
+    })
+  }
 }
