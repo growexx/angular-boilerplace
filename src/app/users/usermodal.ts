@@ -3,7 +3,7 @@ export interface createUser {
     firstName: string,
     lastName: string,
     phone: string,
-    companyName: string,
+    // name: string,
     email: string,
     address: {
         address: string,
@@ -20,7 +20,7 @@ export interface userDetailsModal {
     firstName: string,
     lastName: string,
     phone: string,
-    companyName: string,
+    // name: string,
     email: string,
     address: {
         address: string,

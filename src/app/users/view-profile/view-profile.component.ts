@@ -15,13 +15,11 @@ export class ViewProfileComponent implements OnInit {
   userDetails!: userDetailsType;
   userTask!: userTaskType;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {
+  constructor(public userService: UserService, private route: ActivatedRoute) {
 
     this.route.params.subscribe((params: Params) => {
-      console.log(params)
       if (params['id']) {
         this.id = params['id']
-        console.log(this.id)
       }
     })
   }
@@ -33,14 +31,12 @@ export class ViewProfileComponent implements OnInit {
 
   getUserDetailsById(id: number) {
     this.userService.viewUser(id).subscribe((res: any) => {
-      console.log(res)
-      this.userDetails = _.cloneDeep(res);
+      this.userDetails = res;
     })
   }
 
   getUserTaskById(id:number){
     this.userService.getUserTask(id).subscribe((res:any)=>{
-      console.log(res);
       this.userTask = _.cloneDeep(res)
     })
   }

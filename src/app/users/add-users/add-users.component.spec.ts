@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, flush, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { AddUsersComponent } from './add-users.component';
 
@@ -30,6 +30,7 @@ describe('AddUsersComponent', () => {
 
   it('should call to function goToStep2',()=>{
     component.goToStep2();
+    component.getAllControls();
     component.goToStep3();
     component.addUser();
     const address:any = [];

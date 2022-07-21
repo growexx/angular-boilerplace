@@ -33,12 +33,11 @@ describe('ImageUploadComponent', () => {
     };
     
 
-    // spyOn(<any>window, 'FileReader').and.returnValue({
-    //   readAsDataURL: function () { },
-    //   onload: function (e:any) {
-    //     spyOn(window,Image)
-    //   }
-    // });
+    spyOn(<any>window, 'FileReader').and.returnValue({
+      readAsDataURL: function () { },
+      onload: function (e:any) {
+      }
+    });
 
 
     component.fileChangeEvent(event).toBeTruthy();

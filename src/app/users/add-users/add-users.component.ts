@@ -20,7 +20,7 @@ export class AddUsersComponent implements OnInit {
   imagePath:string ='hello';
   userVal: createUser = {
     image:'data:/image/jpeg;base64 jdkajska',
-    firstName: 'Nirvi', lastName: 'Shah', phone: '87694657834', companyName: 'growexx',email:'abc@growexx.com,',
+    firstName: 'Nirvi', lastName: 'Shah', phone: '87694657834',email:'abc@growexx.com,',
     address: {
       address: 'ddf',
       city: 'toronto',
@@ -43,7 +43,7 @@ export class AddUsersComponent implements OnInit {
     this.firstFormGroup = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
-      companyName: new FormControl('', [Validators.required]),
+      // name: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.email, Validators.required])
     });
@@ -94,7 +94,7 @@ export class AddUsersComponent implements OnInit {
     this.userVal.image = this.userVal.image;
     this.userVal.firstName = this.firstFormGroup.value['firstName'];
     this.userVal.lastName = this.firstFormGroup.value['lastName'];
-    this.userVal.companyName = this.firstFormGroup.value['name'];
+    // this.userVal.name = this.firstFormGroup.value['name'];
     this.userVal.phone = this.firstFormGroup.value['phone'];
     this.userVal.address.address = this.secondFormGroup.value['addressLine1'];
     this.userVal.address.city = this.secondFormGroup.value['city'];

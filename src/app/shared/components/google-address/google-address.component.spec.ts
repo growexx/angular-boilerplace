@@ -8,7 +8,7 @@ import { GoogleAddressComponent } from './google-address.component';
 describe('GoogleAddressComponent', () => {
   let component: GoogleAddressComponent;
   let fixture: ComponentFixture<GoogleAddressComponent>;
-
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [GoogleAddressComponent],
@@ -46,7 +46,9 @@ describe('GoogleAddressComponent', () => {
     component.changeCountryType()
   })
   it('should call function findAddress', () => {
-    component.findAddress()
+  var google: any;
+
+    component.findAddress()    
   })
 });
 
