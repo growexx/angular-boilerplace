@@ -20,7 +20,7 @@ export class UserService {
   }
 
   //View Single User Details
-  viewUser(id: number) {
+  viewUser(id: number):Observable<any> {
     const url = this.apiUrl + this.url + id;
     return this.http.get(url)
   }
