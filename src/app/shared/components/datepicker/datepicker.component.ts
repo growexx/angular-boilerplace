@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import * as moment from 'moment';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 
 export const MY_FORMATS = {
@@ -32,12 +32,18 @@ export class DatepickerComponent implements OnInit {
 
   @Input() form: any;
   @Input() datepickerConfig: any;
+  @Output() outputData = new EventEmitter<string>();
   
+  output:any = moment();
   today: any = new Date();
   month: any = this.today.getMonth();
   year: any = this.today.getFullYear();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  outputResponse(){
+    this.outputData.emit(this.output);
   }
 }

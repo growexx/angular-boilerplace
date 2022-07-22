@@ -155,7 +155,7 @@
                   >Date of birth</label
                 >
               </div>
-              <app-datepicker [datepickerConfig]="datepickerConfig" [form]="registerForm"></app-datepicker>
+              <app-datepicker [datepickerConfig]="datepickerConfig" (outputData)="getDateOfBirth($event)"></app-datepicker>
             </div>
 
             <div class="fv-row pg-mb-4 fv-plugins-icon-container">
@@ -163,7 +163,7 @@
                 <label class="form-label fw-bolder text-dark pg-mb-0">Department</label
                 >
               </div>
-              <app-multiselect-dropdown [dropdownSettings]="dropdownSettings" [dropdownData]="departments" [dropdownForm]="registerForm"></app-multiselect-dropdown>
+              <app-multiselect-dropdown [dropdownSettings]="dropdownSettings" [dropdownData]="departments" (outputData)="getDepartments($event)"></app-multiselect-dropdown>
             </div>
 
             <div class="fv-row pg-mb-4 fv-plugins-icon-container">
@@ -282,16 +282,8 @@
               <div class="fv-plugins-message-container invalid-feedback"></div>
             </div>
             <div class="text-center">
-              <swal
-                #registerSwal
-                title=""
-                text="You have successfully registered!"
-                icon="success"
-              >
-              </swal>
               <app-button
               [buttonsArray]="submitButton"
-              [isDisabled]="!registerForm.valid"
                 (submitFormEvent)="onRegister()"
               ></app-button>
             </div>

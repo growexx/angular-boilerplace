@@ -124,15 +124,6 @@
               </div>
             </div>
             <div class="text-center">
-              <swal
-                #successSwal
-                title=""
-                text="You have successfully logged in!"
-                icon="success"
-              >
-              </swal>
-              <swal #failedSwal title="" text="Wrong Credentials!" icon="error">
-              </swal>
               <app-button
                 [buttonsArray]="submitButton"
                 (submitFormEvent)="onLogin()"

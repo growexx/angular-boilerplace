@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { ConfirmPasswordValidator } from 'src/app/core/validators/confirm-password/ConfirmPasswordValidator';
 import { PasswordValidator } from 'src/app/core/validators/password/PasswordValidator';
 import { UsersService } from 'src/app/users/users.service';
+import Swal from 'sweetalert2';
 import { AuthService } from '../auth.service';
 
 
@@ -14,10 +15,10 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  @ViewChild('registerSwal')
-  public readonly registerSwal!: SwalComponent;
   user: any = {};
-  departments:any = [];
+  departments: any = [];
+  error_message:any = '';
+  toast:any;
 
   datepickerConfig: any = {
     minDate: '2022-01-01',
@@ -26,15 +27,15 @@ export class RegisterComponent implements OnInit {
     opened: false,
     touchUi: false,
     panelClasses: 'panelClasses',
-    startView:'month',
+    startView: 'month',
   }
-  dropdownSettings:any= {
+  dropdownSettings: any = {
     placeholder: "Select Departments",
     selectAllText: 'Select All',
     unSelectAllText: 'UnSelect All',
     enableSearchFilter: true,
     classes: "form-control form-control-lg form-control-solid",
-    maxHeight:'300px',
+    maxHeight: '300px',
     // maxBadgeLimit: 4,
   };
 
@@ -56,25 +57,38 @@ export class RegisterComponent implements OnInit {
     "btnClasses": "btn btn-lg btn-primary"
   }
 
-  constructor(private authService: AuthService, public usersService: UsersService) { }
+  constructor(private authService: AuthService, public usersService: UsersService, private router: Router) { }
+
+  getDepartments(data: any) {
+    this.registerForm.value.department = data;
+  }
+
+  getDateOfBirth(data: any) {
+    let birthDate = moment(data).format('YYYY-MM-DD');
+    this.registerForm.value.dob = birthDate;
+  }
 
   ngOnInit(): void {
-    this.usersService.getAllUsers().subscribe(res => {
-      this.usersService.usersData = res.users;
-      this.usersService.usersData.filter((item: any) => {
-        if (!this.departments.find((ele: any) => ele.itemName === item.company.department)) {
-          this.departments.push({
-            id: item.id,
-            image: item.image,
-            itemName: item.company.department,
-            isSelected: false
-          });
-        }
-      });
+    this.usersService.getAllUsers().subscribe({
+      next: (data: any) => {
+        this.usersService.usersData = data.users;
+        this.usersService.usersData.filter((item: any) => {
+          if (!this.departments.find((ele: any) => ele.itemName === item.company.department)) {
+            this.departments.push({
+              id: item.id,
+              image: item.image,
+              itemName: item.company.department,
+              isSelected: false
+            });
+          }
+        });
+      },
+      error: (error: any) => {
+        this.errorToast(error);
+      }
     });
   }
   onRegister() {
-    console.log(this.registerForm.value);
     this.submitButton = {
       text: "Please Wait...",
       type: "submit",
@@ -83,7 +97,7 @@ export class RegisterComponent implements OnInit {
       iconPlace: 'after'
     };
 
-    let birthDate = moment(this.registerForm.value.dob).format('YYYY-MM-DD');
+
     this.user = {
       "id": 1,
       "firstName": this.registerForm.value.firstName,
@@ -95,7 +109,7 @@ export class RegisterComponent implements OnInit {
       "phone": "+63 791 675 8914",
       "username": this.registerForm.value.firstName.toLowerCase() + this.registerForm.value.lastName.toLowerCase(),
       "password": this.registerForm.value.password,
-      "birthDate": birthDate,
+      "birthDate": this.registerForm.value.dob,
       "image": "https://robohash.org/hicveldicta.png?size=50x50&set=set1",
       "bloodGroup": "A−",
       "height": 189,
@@ -146,8 +160,7 @@ export class RegisterComponent implements OnInit {
       "userAgent": "Mozilla/5.0 ..."
     };
 
-    this.authService.register(this.user)
-      .subscribe({
+    this.authService.register(this.user).subscribe({
         next: data => {
           this.submitButton = {
             "text": "Sign Up",
@@ -155,8 +168,57 @@ export class RegisterComponent implements OnInit {
             "type": "submit",
             "btnClasses": "btn btn-lg btn-primary"
           };
-          this.registerSwal.fire();
+          this.toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true
+          });
+          
+          this.toast.fire({
+            icon: 'success',
+            title: "You have successfully registered!",
+          });
+          this.router.navigate(['/']);
         },
+        error: (error: any) => {
+          this.errorToast(error);
+          this.submitButton = {
+            "text": "Sign Up",
+            "id": "signup",
+            "type": "submit",
+            "btnClasses": "btn btn-lg btn-primary"
+          };
+        }
       });
+  }
+  errorToast(error: any){
+    if (!error.error.message) {
+      if (error.status === 400) {
+        this.error_message = 'Bad Request';
+      } else if (error.status === 401) {
+        this.error_message = 'Unauthorized';
+      } else if (error.status === 403) {
+        this.error_message = 'Forbidden';
+      } else if (error.status === 404) {
+        this.error_message = 'Not Found';
+      } else if (error.status === 502) {
+        this.error_message = 'Bad Gateway';
+      }
+    } else {
+      this.error_message = error.error.message;
+    }
+    this.toast = Swal.mixin({
+      toast: true,
+      position: 'bottom-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true
+    })
+    this.toast.fire({
+      icon: 'error',
+      title: error.status + '! ' + this.error_message,
+    });
   }
 }

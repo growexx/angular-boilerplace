@@ -1,16 +1,19 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AuthService } from '../auth.service';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AuthsidebarComponent } from 'src/app/includes/authsidebar/authsidebar.component';
-import { SwalComponent, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
+import Swal from 'sweetalert2';
+import { throwError } from 'rxjs';
+import { UsersService } from 'src/app/users/users.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -21,6 +24,8 @@ describe('LoginComponent', () => {
   let router: Router;
   let submitButton: any;
   let expectedResponse: any;
+  let expectedErrorResponse:any;
+  let loginSpyOn:any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -63,6 +68,12 @@ describe('LoginComponent', () => {
       "image": "https://robohash.org/autquiaut.png?size=50x50&set=set1",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJuYW1lIjoia21pbmNoZWxsZSIsImVtYWlsIjoia21pbmNoZWxsZUBxcS5jb20iLCJmaXJzdE5hbWUiOiJKZWFubmUiLCJsYXN0TmFtZSI6IkhhbHZvcnNvbiIsImdlbmRlciI6ImZlbWFsZSIsImltYWdlIjoiaHR0cHM6Ly9yb2JvaGFzaC5vcmcvYXV0cXVpYXV0LnBuZz9zaXplPTUweDUwJnNldD1zZXQxIiwiaWF0IjoxNjM1NzczOTYyLCJleHAiOjE2MzU3Nzc1NjJ9.n9PQX8w8ocKo0dMCw3g8bKhjB8Wo7f7IONFBDqfxKhs"
     };
+    expectedErrorResponse = {
+      "status": 400,
+      "error": {
+        "message": ""
+      }
+    };
   });
 
   it('should create', () => {
@@ -99,28 +110,48 @@ describe('LoginComponent', () => {
     const req = httpTestingController.expectOne(`${environment.apiUrl}auth/login`);
     expect(req.request.method).toEqual('POST');
     req.flush(expectedResponse);
+    expect(Swal.isVisible()).toBeTruthy();
     expect(component.submitButton).withContext("button content should be changed").toEqual(submitButton);
   }));
 
   it('should called onLogin() and return failed', fakeAsync(() => {
-    const user = {
-      email: 'peter@klaven',
-    };
-    component.loginForm.controls['email'].setValue(user.email);
-    component.loginForm.controls['password'].setValue(null);
+    loginSpyOn = spyOn(authService,'login')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
     component.onLogin();
-    fixture.detectChanges();
+    expect(Swal.isVisible()).toBeTruthy();
+    
+    expectedErrorResponse.status = 401;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onLogin();
+    expect(Swal.isVisible()).toBeTruthy();
 
+    expectedErrorResponse.status = 403;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onLogin();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 404;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onLogin();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 502;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onLogin();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.error.message = "Invalid credentials";    
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onLogin();
+    expect(Swal.isVisible()).toBeTruthy();
+    fixture.detectChanges();
     submitButton = {
       "text": "Sign In",
       "id": "signin",
       "type": "submit",
       "btnClasses": "btn btn-lg btn-primary w-100 mb-5"
     }
-    const expectedResponse = { "error": "Missing password" };
-    const req = httpTestingController.expectOne(`${environment.apiUrl}auth/login`);
-    expect(req.request.method).toEqual('POST');
-    req.flush(expectedResponse);
     expect(component.submitButton).withContext("button content should be changed").toEqual(submitButton);
+    flush(100);
   }));
 });

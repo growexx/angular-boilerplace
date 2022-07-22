@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let data of tableData | filter : commonService.searchFilter:'users.firstName' | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; let i=index;">
+                <tr *ngFor="let data of tableData | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; let i=index;">
                     <td>
                         <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                             <input type="checkbox" (change)="isAllSelected()" name="checkbox-body-{{i}}" id="checkbox-body-{{i}}" class="form-check-input" [(ngModel)]="data.isSelected">

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UsersService } from 'src/app/users/users.service';
 
 @Component({
@@ -10,15 +10,18 @@ import { UsersService } from 'src/app/users/users.service';
   },
 })
 export class MultiselectDropdownComponent implements OnInit {
-  @Input() dropdownForm: any;
   @Input() dropdownSettings: any;
   @Input() dropdownData: any;
+  @Output() outputData = new EventEmitter<string>();
+
   selectedItems: any = [];
   showDropdown: boolean = false;
   isSelectAll: boolean = false;
   searchFilter:any;
+  outputDataString:any = '';
 
   constructor(public usersService: UsersService, private _eref: ElementRef) { }
+
   ngOnInit() {
     this.dropdownSettings.maxBadgeLimit = (!this.dropdownSettings.maxBadgeLimit) ? 3 : this.dropdownSettings.maxBadgeLimit;
   }
@@ -27,16 +30,15 @@ export class MultiselectDropdownComponent implements OnInit {
       if (item.id === id) {
         if (!this.selectedItems.find((ele: any) => ele.id === item.id)) {
           this.selectedItems.push(item);
-          if(this.dropdownForm.value.department === ''){
-            this.dropdownForm.get('department').setValue(this.dropdownForm.value.department + item.itemName);
+          if(this.outputDataString === ''){
+            this.outputDataString = this.outputDataString + item.itemName;
           } else {
-            this.dropdownForm.get('department').setValue(this.dropdownForm.value.department + ", " + item.itemName);
+            this.outputDataString = this.outputDataString + ", " + item.itemName;
           }
         } else {
           let index = this.selectedItems.findIndex((d: any) => d.id === id);
           this.selectedItems.splice(index, 1);
-          let department = this.dropdownForm.value.department.replace(', ' + item.itemName,'').replace(item.itemName + ', ','');
-          this.dropdownForm.get('department').setValue(department);
+          this.outputDataString = this.outputDataString.replace(', ' + item.itemName,'').replace(item.itemName + ', ','').replace(item.itemName,'');
         }
         item.isSelected = !item.isSelected;
       };
@@ -47,6 +49,7 @@ export class MultiselectDropdownComponent implements OnInit {
         this.isSelectAll = false;
       }
     })
+    this.outputData.emit(this.outputDataString);
   }
 
   OnItemDeSelect(id: any) {
@@ -54,12 +57,12 @@ export class MultiselectDropdownComponent implements OnInit {
     this.selectedItems.splice(index, 1);
     this.dropdownData.filter((item: any) => {
       if (item.id === id) {
-        let department = this.dropdownForm.value.department.replace(', ' + item.itemName,'').replace(item.itemName + ', ','');
-        this.dropdownForm.get('department').setValue(department);
+          this.outputDataString = this.outputDataString.replace(', ' + item.itemName,'').replace(item.itemName + ', ','').replace(item.itemName,'');
         item.isSelected = false;
       };
     });
     this.isSelectAll = false;
+    this.outputData.emit(this.outputDataString);
   }
   clickOutside(event: any) {
     if (!this._eref.nativeElement.contains(event.target)) {
@@ -72,12 +75,13 @@ export class MultiselectDropdownComponent implements OnInit {
     this.dropdownData.filter((ele:any) => {
       ele.isSelected = true;
       this.selectedItems.push(ele);
-      if(this.dropdownForm.value.department === ''){
-        this.dropdownForm.get('department').setValue(this.dropdownForm.value.department + ele.itemName);
-      } else {
-        this.dropdownForm.get('department').setValue(this.dropdownForm.value.department + ", " + ele.itemName);
-      }
+      if(this.outputDataString === ''){
+            this.outputDataString = this.outputDataString + ele.itemName;
+          } else {
+            this.outputDataString = this.outputDataString + ", " + ele.itemName;
+          }
     });
+    this.outputData.emit(this.outputDataString);
   }
   onDeSelectAll(){
     this.isSelectAll = false;
@@ -85,6 +89,7 @@ export class MultiselectDropdownComponent implements OnInit {
       ele.isSelected = false;
     });
     this.selectedItems = [];
+    this.outputData.emit(this.outputDataString);
   }
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;

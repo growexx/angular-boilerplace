@@ -2,6 +2,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { throwError } from 'rxjs';
 import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
 import { UsersService } from 'src/app/users/users.service';
 import { environment } from 'src/environments/environment';
@@ -13,8 +14,10 @@ describe('TableComponent', () => {
   let fixture: ComponentFixture<TableComponent>;
   let httpTestingController: HttpTestingController;
   let swal2: any;
-  let userService: UsersService;
+  let usersService: UsersService;
   let expectedResponse: any;
+  let expectedErrorResponse:any;
+  let loginSpyOn:any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -1922,8 +1925,14 @@ describe('TableComponent', () => {
       "ssn": "661-64-2976",
       "userAgent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/12.0.702.0 Safari/534.24"
   };
-    userService = TestBed.inject(UsersService);
     httpTestingController = TestBed.inject(HttpTestingController);
+    usersService = fixture.debugElement.injector.get(UsersService);
+    expectedErrorResponse = {
+      "status": 400,
+      "error": {
+        "message": ""
+      }
+    };
   });
 
   it('should create', () => {
@@ -1952,5 +1961,58 @@ describe('TableComponent', () => {
     expect(req.request.method).toEqual('DELETE');
     req.flush(expectedResponse);
     flush();
+  }));
+
+  it('should called onDelete() and return failed', fakeAsync(() => {
+    let userId = 1;
+    component.OnDelete(userId);
+    loginSpyOn = spyOn(usersService,'deleteUser')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    tick(4000);
+    Swal.clickConfirm();
+    tick(4000);
+    expect(Swal.isVisible()).toBeTruthy();
+    
+    expectedErrorResponse.status = 401;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.OnDelete(userId);
+    tick(4000);
+    Swal.clickConfirm();
+    tick(4000);
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 403;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.OnDelete(userId);
+    tick(4000);
+    Swal.clickConfirm();
+    tick(4000);
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 404;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.OnDelete(userId);
+    tick(4000);
+    Swal.clickConfirm();
+    tick(4000);
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 502;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.OnDelete(userId);
+    tick(4000);
+    Swal.clickConfirm();
+    tick(4000);
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.error.message = "Invalid credentials";    
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.OnDelete(userId);
+    tick(4000);
+    Swal.clickConfirm();
+    tick(4000);
+    expect(Swal.isVisible()).toBeTruthy();
+    fixture.detectChanges();
+    flush(100);
   }));
 });

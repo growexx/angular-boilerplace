@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class ResetpasswordComponent implements OnInit {
   
+  toast:any;
   resetPasswordForm = new FormGroup({
     email: new FormControl('pruthvi.dhamecha@gmail.com', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
   });
@@ -42,20 +43,24 @@ export class ResetpasswordComponent implements OnInit {
       iconPlace: 'after' 
     };
 
-    Swal.fire({
-        title: '',
-        text: "We have send a password reset link to your email.",
-        icon: 'success',
-        showCancelButton: false,
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Ok, Got it!'
-      });
 
+    this.toast = Swal.mixin({
+      toast: true,
+      position: 'bottom-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true
+    })
+    this.toast.fire({
+      icon: 'success',
+      title: "Password reset link is send to your email.",
+    });
     this.submitButton = {
       "text": "Submit",
       "id": "resetpassword",
       "type": "submit",
       "btnClasses": "btn btn-lg btn-primary me-4"
     };
+    this.router.navigate(['/']);
   }
 }

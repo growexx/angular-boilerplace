@@ -1,32 +1,31 @@
-<div [formGroup]="form">
+<div>
   <input
     matInput
     [matDatepicker]="dob"
     class="form-control form-control-lg form-control-solid"
-    formControlName="dob"
+    [(ngModel)]="output"
     [min]="datepickerConfig.minDate"
     [max]="datepickerConfig.maxDate"
     (click)="dob.open()"
     [disabled]="datepickerConfig.disabled"
-  />
-  <mat-datepicker
+    />
+    <mat-datepicker
     #dob
     [opened]="datepickerConfig.opened"
     [panelClass]="datepickerConfig.panelClasses"
     [startAt]="today"
     [startView]="datepickerConfig.startView"
     [touchUi]="datepickerConfig.touchUi"
-    
-  >
+    >
     <mat-datepicker-actions>
       <button
-        mat-button
-        class="btn btn-light btn-active-light-primary"
-        matDatepickerCancel
+      mat-button
+      class="btn btn-light btn-active-light-primary"
+      matDatepickerCancel
       >
         Cancel
       </button>
-      <button mat-raised-button class="btn btn-primary" matDatepickerApply>
+      <button mat-raised-button class="btn btn-primary" (click)="outputResponse()" matDatepickerApply>
         Apply
       </button>
     </mat-datepicker-actions>

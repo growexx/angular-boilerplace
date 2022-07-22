@@ -1,4 +1,4 @@
-import { ComponentFixture, fakeAsync, flush, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -9,6 +9,8 @@ import { UsersService } from 'src/app/users/users.service';
 import { UsersListComponent } from 'src/app/users/users-list/users-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { throwError } from 'rxjs';
+import Swal from 'sweetalert2';
 
 describe('DialogComponent', () => {
   let component: DialogComponent;
@@ -21,6 +23,8 @@ describe('DialogComponent', () => {
   const dialogMock = {
     close: () => { }
   };
+  let expectedErrorResponse:any;
+  let loginSpyOn:any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -1880,6 +1884,12 @@ describe('DialogComponent', () => {
       "skip": 0,
       "limit": 30
     };
+    expectedErrorResponse = {
+      "status": 400,
+      "error": {
+        "message": ""
+      }
+    };
   });
 
   it('should create', () => {
@@ -1889,15 +1899,14 @@ describe('DialogComponent', () => {
   it('should called onSubmitFilter() and filter array of users while role and gender are set to null', fakeAsync(async () => {
     component.filterForm.controls['role'].setValue("Select option");
     component.filterForm.controls['gender'].setValue("Select option");
-    usersService.roles[0] = 'Marketing';
-
+    
     const req1 = httpTestingController.expectOne(`${environment.apiUrl}users`);
     expect(req1.request.method).toEqual('GET');
     req1.flush(expectedResponse);
-
+    
+    
+    usersService.roles = [];
     component.onSubmitFilter();
-    // fixture.detectChanges(); 
-    // debugger;
     const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
     expect(req2.request.method).toEqual('GET');
     req2.flush(expectedResponse);
@@ -1919,9 +1928,17 @@ describe('DialogComponent', () => {
     expect(component.filterForm.valid).toBeTruthy();
 
     component.onSubmitFilter();
-    fixture.detectChanges();
-
     expect(usersService.usersData[0]).toEqual(expectedResponse.users[0])
+
+    const req1 = httpTestingController.expectOne(`${environment.apiUrl}users/filter?key=company.department&value=Marketing`);
+    expect(req1.request.method).toEqual('GET');
+    req1.flush(expectedResponse);
+
+    loginSpyOn = spyOn(usersService,'filterUser')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onSubmitFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+    flush();
   }));
 
   it('should called onResetFilter() and reset filter array of users', fakeAsync(async () => {
@@ -1936,6 +1953,7 @@ describe('DialogComponent', () => {
 
     let spy = spyOn(component.dialogRef, 'close').and.callThrough();
 
+    usersService.roles = [];
     component.onResetFilter();
     fixture.detectChanges();
 
@@ -1945,5 +1963,73 @@ describe('DialogComponent', () => {
     expect(req2.request.method).toEqual('GET');
     req2.flush(expectedResponse);
     flush();
+  }));
+
+  it('should called onSubmitFilter() and return failed', fakeAsync(() => {
+    loginSpyOn = spyOn(usersService,'getAllUsers')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onSubmitFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+    
+    expectedErrorResponse.status = 401;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onSubmitFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 403;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onSubmitFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 404;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onSubmitFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 502;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onSubmitFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.error.message = "Invalid credentials";    
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onSubmitFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+    fixture.detectChanges();
+    flush(100);
+  }));
+
+  it('should called onResetFilter() and return failed', fakeAsync(() => {
+    loginSpyOn = spyOn(usersService,'getAllUsers')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onResetFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+    
+    expectedErrorResponse.status = 401;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onResetFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 403;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onResetFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 404;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onResetFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 502;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onResetFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.error.message = "Invalid credentials";    
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onResetFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+    fixture.detectChanges();
+    flush(100);
   }));
 });

@@ -2,7 +2,7 @@
     <div class="search-box">
         <div class="d-flex align-items-center position-relative my-1">
             <em class="fa fa-magnifying-glass text-gray-500 pg-fs-2 position-absolute ms-6"></em>
-            <input type="text" id="searchFilter" class="form-control bg-gray-200 border-0 w-250px ps-14" [(ngModel)]="commonService.searchFilter" name="searchFilter" placeholder="Search By Name">
+            <input type="text" id="searchFilter" class="form-control bg-gray-200 border-0 w-250px ps-14" [(ngModel)]="commonService.searchFilter" (keyup)="onSearchFilter()" name="searchFilter" placeholder="Search By Name">
         </div>
     </div>
     <div class="card-toolbar">

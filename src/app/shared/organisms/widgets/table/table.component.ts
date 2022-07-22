@@ -14,12 +14,14 @@ export class TableComponent implements OnInit {
   @Input() tableData: Array<any> = [];
   page: number = 1;
   itemsPerPage: number = 5;
-  checkedList:any;
+  checkedList: any;
+  error_message:any = ''
+  toast:any;
   constructor(public commonService: CommonService, public usersService: UsersService) {
   }
-  
+
   ngOnInit(): void {
-    (async() => {
+    (async () => {
       for (var i = 0; i < this.tableData?.length; i++) {
         this.tableData[i].isSelected = this.commonService.checkAllCheckboxes;
       }
@@ -33,24 +35,24 @@ export class TableComponent implements OnInit {
     this.getCheckedItemList();
     this.commonService.checkAllCheckboxes = !this.commonService.checkAllCheckboxes;
   }
-  
+
   isAllSelected() {
-    this.commonService.checkAllCheckboxes = this.tableData.every(function(item:any) {
+    this.commonService.checkAllCheckboxes = this.tableData.every(function (item: any) {
       return item.isSelected == true;
     })
     this.getCheckedItemList();
   }
 
-  getCheckedItemList(){
+  getCheckedItemList() {
     this.checkedList = [];
     for (var i = 0; i < this.tableData.length; i++) {
-      if(this.tableData[i].isSelected)
-      this.checkedList.push(this.tableData[i]);
+      if (this.tableData[i].isSelected)
+        this.checkedList.push(this.tableData[i]);
     }
     this.checkedList = JSON.stringify(this.checkedList);
   }
 
-  OnDelete(id: number){
+  OnDelete(id: number) {
     var user = this.tableData.filter((ele: any) => ele.id == id);
     Swal.fire({
       title: 'Are you sure?',
@@ -58,22 +60,63 @@ export class TableComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#d33',
-      focusConfirm:false,
-      focusCancel:false,
+      focusConfirm: false,
+      focusCancel: false,
       confirmButtonText: 'Yes, delete it!',
       cancelButtonText: 'No, Cancel',
     }).then((result) => {
       if (result.isConfirmed) {
         this.commonService.toggleActionDropdown(user[0].id);
-        this.usersService.deleteUser(user[0].id).subscribe(res => {
-          user.forEach(f => this.tableData.splice(this.tableData.findIndex(e => e.id === id),1));
-          Swal.fire(
-            'Deleted!',
-            'You have deleted ' + user[0].name + '!.',
-            'success'
-          )
+        this.usersService.deleteUser(user[0].id).subscribe({
+          next: (data: any) => {
+            user.forEach(f => this.tableData.splice(this.tableData.findIndex(e => e.id === id), 1));
+            this.toast = Swal.mixin({
+              toast: true,
+              position: 'bottom-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true
+            })
+            this.toast.fire({
+              icon: 'success',
+              title: 'You have deleted ' + user[0].firstName + ' ' + user[0].lastName + ' !.',
+            });
+          },
+          error: (error: any) => {
+            this.errorToast(error);
+          }
         });
       }
+    });
+  }
+
+  errorToast(error: any){
+    if (!error.error.message) {
+      if (error.status === 400) {
+        this.error_message = 'Bad Request';
+      } else if (error.status === 401) {
+        this.error_message = 'Unauthorized';
+      } else if (error.status === 403) {
+        this.error_message = 'Forbidden';
+      } else if (error.status === 404) {
+        this.error_message = 'Not Found';
+      } else if (error.status === 502) {
+        this.error_message = 'Bad Gateway';
+      }
+    } else {
+      this.error_message = error.error.message;
+    }
+    
+    this.toast = Swal.mixin({
+      toast: true,
+      position: 'bottom-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true
+    })
+    this.toast.fire({
+      icon: 'error',
+      title: error.status + '! ' + this.error_message,
     });
   }
 }

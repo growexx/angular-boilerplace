@@ -11,15 +11,21 @@ import { UsersService } from '../users.service';
 import { UsersListComponent } from './users-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
+import { throwError } from 'rxjs';
+import Swal from 'sweetalert2';
+import { CommonService } from 'src/app/core/services/common/common.service';
 
 describe('UsersListComponent', () => {
   let component: UsersListComponent;
   let fixture: ComponentFixture<UsersListComponent>;
   let httpTestingController: HttpTestingController;
   let usersService: UsersService;
+  let commonService: CommonService;
   let location: Location;
   let router: Router;
   let expectedResponse: any;
+  let expectedErrorResponse:any;
+  let loginSpyOn:any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -35,6 +41,7 @@ describe('UsersListComponent', () => {
     fixture = TestBed.createComponent(UsersListComponent);
     component = fixture.componentInstance;
     usersService = fixture.debugElement.injector.get(UsersService);
+    commonService = fixture.debugElement.injector.get(CommonService);
     httpTestingController = TestBed.inject(HttpTestingController);
     fixture.detectChanges();
     expectedResponse = {
@@ -1873,6 +1880,12 @@ describe('UsersListComponent', () => {
       "skip": 0,
       "limit": 30
     };
+    expectedErrorResponse = {
+      "status": 400,
+      "error": {
+        "message": ""
+      }
+    };
   }));
 
   it('should create', () => {
@@ -1890,5 +1903,58 @@ describe('UsersListComponent', () => {
     fixture.componentInstance.openDialog();
     expect(component).toBeTruthy();
     fixture.detectChanges();
+  }));
+
+  it('should called ngOnInit() and return failed', fakeAsync(() => {
+    loginSpyOn = spyOn(usersService,'getAllUsers')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+    
+    expectedErrorResponse.status = 401;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 403;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 404;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 502;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.error.message = "Invalid credentials";    
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+    fixture.detectChanges();
+    flush(100);
+  }));
+
+  it('should called onSearchFilter() and filter array of users', (async () => {
+    let searchString = 'terry';
+    commonService.searchFilter = searchString;
+    fixture.componentInstance.onSearchFilter();
+    const req = httpTestingController.expectOne(`${environment.apiUrl}users/search?q=${searchString}`);
+    expect(req.request.method).toEqual('GET');
+    req.flush(expectedResponse);
+    fixture.detectChanges();
+  }));
+
+  it('should called onSearchFilter() and return failed error', (async () => {
+    let searchString = 'terries';
+    commonService.searchFilter = searchString;
+    loginSpyOn = spyOn(usersService,'searchUser')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    fixture.componentInstance.onSearchFilter();
+    expect(Swal.isVisible()).toBeTruthy();
   }));
 });

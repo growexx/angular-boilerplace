@@ -9,7 +9,7 @@ import { DatepickerComponent } from './datepicker.component';
 describe('DatepickerComponent', () => {
   let component: DatepickerComponent;
   let fixture: ComponentFixture<DatepickerComponent>;
-  let datepickerConfig:any;
+  let datepickerConfig: any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -27,7 +27,6 @@ describe('DatepickerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DatepickerComponent);
     component = fixture.componentInstance;
-    component.form = new FormGroup({});
     component.datepickerConfig = {
       minDate: '2022-01-01',
       maxDate: '2022-11-30',
@@ -35,15 +34,20 @@ describe('DatepickerComponent', () => {
       opened: false,
       touchUi: false,
       panelClasses: 'panelClasses',
-      startView:'month',
+      startView: 'month',
     };
-    component.form = new FormGroup({
-      dob: new FormControl(moment())
-    })
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit event and pass date to component', () => {
+    spyOn(component.outputData, 'emit');
+    component.output = moment();
+    component.outputResponse();
+    fixture.detectChanges();
+    expect(component.outputData.emit).toHaveBeenCalledWith(component.output);
   });
 });

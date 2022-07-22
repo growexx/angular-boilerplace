@@ -1,17 +1,21 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SimpleChange } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import * as moment from 'moment';
+import { throwError } from 'rxjs';
 import { AuthsidebarComponent } from 'src/app/includes/authsidebar/authsidebar.component';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { DatepickerComponent } from 'src/app/shared/components/datepicker/datepicker.component';
 import { MultiselectDropdownComponent } from 'src/app/shared/components/multiselect-dropdown/multiselect-dropdown.component';
 import { PasswordStrengthBarComponent } from 'src/app/shared/components/password-strength-bar/password-strength-bar.component';
+import { UsersService } from 'src/app/users/users.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 import { AuthService } from '../auth.service';
 import { RegisterComponent } from './register.component';
 
@@ -19,10 +23,13 @@ describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
   let httpTestingController: HttpTestingController;
+  let usersService: UsersService;
   let authService: AuthService;
   let submitButton: any;
   let expectedResponse: any;
   let usersData: any;
+  let expectedErrorResponse:any;
+  let loginSpyOn:any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -34,7 +41,7 @@ describe('RegisterComponent', () => {
         MatNativeDateModule, 
         SweetAlert2Module.forRoot()],
       declarations: [RegisterComponent, AuthsidebarComponent, ButtonComponent, PasswordStrengthBarComponent, DatepickerComponent, MultiselectDropdownComponent],
-      providers: [{ provide: PasswordStrengthBarComponent }],
+      providers: [{ provide: PasswordStrengthBarComponent },{ provide: UsersService }],
     })
       .compileComponents();
   });
@@ -50,6 +57,7 @@ describe('RegisterComponent', () => {
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     authService = fixture.debugElement.injector.get(AuthService);
+    usersService = fixture.debugElement.injector.get(UsersService);
     fixture.detectChanges();
     httpTestingController = TestBed.inject(HttpTestingController);
     expectedResponse = {
@@ -1949,6 +1957,12 @@ describe('RegisterComponent', () => {
       "skip": 0,
       "limit": 30
     };
+    expectedErrorResponse = {
+      "status": 400,
+      "error": {
+        "message": ""
+      }
+    };
   });
 
   it('should create', () => {
@@ -2050,5 +2064,95 @@ describe('RegisterComponent', () => {
     passFixture.detectChanges();
     let strengthBar = Object.values(passComponent).filter(key => key.includes("#DDD"));
     expect(strengthBar.length).withContext('password\'s strength should be strong').toBeLessThanOrEqual(2);
+  }));
+
+  it('should called getDepartments by child component and set value of department', (() => {
+    let departments = 'Marketing, Services';
+    component.getDepartments(departments);
+    fixture.detectChanges();
+    expect(component.registerForm.value.department).withContext('department value should be same').toBe(departments);
+  }));
+  
+  it('should called getDateOfBirth by child component and set value of department', (() => {
+    let dob = moment();
+    component.getDateOfBirth(dob);
+    let expectedResponse = moment(dob).format('YYYY-MM-DD')
+    fixture.detectChanges();
+    expect(component.registerForm.value.dob).withContext('date of birth value should be same').toEqual(expectedResponse);
+  }));
+
+  it('should called onRegister() and return failed', fakeAsync(() => {
+    loginSpyOn = spyOn(authService,'register')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onRegister();
+    expect(Swal.isVisible()).toBeTruthy();
+    
+    expectedErrorResponse.status = 401;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onRegister();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 403;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onRegister();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 404;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onRegister();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 502;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onRegister();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.error.message = "Invalid credentials";    
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.onRegister();
+    expect(Swal.isVisible()).toBeTruthy();
+    fixture.detectChanges();
+    submitButton = {
+      "text": "Sign Up",
+      "id": "signup",
+      "type": "submit",
+      "btnClasses": "btn btn-lg btn-primary"
+    };
+    expect(component.submitButton).withContext("button content should be changed").toEqual(submitButton);
+    flush(100);
+  }));
+
+  it('should called ngOnInit() and return failed', fakeAsync(() => {
+    loginSpyOn = spyOn(usersService,'getAllUsers')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+    
+    expectedErrorResponse.status = 401;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 403;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 404;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.status = 502;
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+
+    expectedErrorResponse.error.message = "Invalid credentials";    
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    component.ngOnInit();
+    expect(Swal.isVisible()).toBeTruthy();
+    fixture.detectChanges();
+    flush(100);
   }));
 });

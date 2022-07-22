@@ -35,4 +35,10 @@ export class UsersService {
   deleteUser(userId:any): Observable<any> {
     return this.http.delete<any>(`${environment.apiUrl}users/${userId}`);
   }
+  filterUser(key:any, value:any): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}users/filter?key=${key}&value=${value}`);
+  }
+  searchUser(value:any): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}users/search?q=${value}`);
+  }
 }
