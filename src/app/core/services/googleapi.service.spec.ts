@@ -1,5 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Component } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs/internal/observable/of';
 
@@ -7,6 +8,46 @@ import { GoogleapiService } from './googleapi.service';
 
 describe('GoogleapiService', () => {
   let service: GoogleapiService;
+  let googleService: any;
+  const addressArray = [
+    {
+      long_name: "2348",
+      short_name: "2348",
+      types: ['street_number']
+    }
+  ]
+
+  const countryArray = [
+    {
+      long_name: "Canada",
+      short_name: "CA",
+      types: ['country', 'political']
+    }
+  ]
+
+  const countryArrayForUSA = [
+    {
+      long_name: "United States",
+      short_name: "US",
+      types: ['country', 'political']
+    }
+  ]
+
+  const result = {
+    aadministrative_area_level_1: "QC",
+    administrative_area_level_2: "Montréal",
+    administrative_area_level_3: "Montréal",
+    country: "Canada",
+    locality: "Montréal",
+    postal_code: "H2Y 0A8",
+    route: "R. Saint-François-Xavier",
+    street_number: "888",
+    sublocality_level_1: "Ville-Marie"
+  };
+
+  googleService = jasmine.createSpyObj('service', ['makeCustomAddressObject']);
+  googleService.makeCustomAddressObject.and.returnValue(of(result))
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -26,60 +67,122 @@ describe('GoogleapiService', () => {
 
   it('should call function getActualAddress', () => {
     service.getActualAddress();
+    expect(service).toBeTruthy()
   })
 
-  it('should call function makeCustomAddressObject and check result for country to be equal to canada', fakeAsync(() => {
-    service.result=[{ "types": "route"}]
-    const array:any = [];
+//Function call for makeCustomAddressObject
 
-    spyOn(service,'makeCustomAddressObject')
-    expect(service.makeCustomAddressObject).toHaveBeenCalled()
-    expect(service.result.length).toBeGreaterThanOrEqual(1)
-    // expect(service.result).toEqual('New York')
-  }));
+  it('should call function makeCustomAddressObject', () => {
+    service.makeCustomAddressObject(countryArray);
+    expect(result.country).toEqual('CA')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddressObject', () => {
+    service.makeCustomAddressObject(countryArray);
+    expect(result.country).toEqual('Canada')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddressObject', () => {
+    service.makeCustomAddressObject(countryArray);
+    expect(result.country).toEqual('canada')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddressObject', () => {
+    service.makeCustomAddressObject(countryArray);
+    expect(result.country).toEqual('CANADA')
+    expect(service).toBeTruthy()
+  })
 
-  it('should call function makeCustomAddressObject and check result for country to be equal to canada', fakeAsync(() => {
-    service.result={ "country": "Canada"}
-    service.result={ "country": "CANADA"}
-    const array:any = [];
-    spyOn(service,'makeCustomAddressObject').and.returnValue(of(service.result));
-  }));
-
-  // it('should call function makeCustomAddressObject and check result for country to be equal to US', fakeAsync(() => {
-  //   service.result={ "country": "usa"}
-  //   service.result={ "country": "USA"}
-  //   const array:any = [];
-  //   spyOn(service,'makeCustomAddressObject').and.returnValue(of(service.result));
-
-  // }));
-
-  // it('should call function makeCustomAddressObject and check result for country to be equal to US', fakeAsync(() => {
-  //   service.result={}
-  //   const array:any = [];
-  //   spyOn(service,'makeCustomAddressObject').and.returnValue(of(service.result));
-
-  // }));
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(addressArray);
+    expect(service).toBeTruthy()
+  })
 
 
-  // it('should call function makeCustomAddress and check result for country to be equal to canada', fakeAsync(() => {
-  //   service.result={ "country": "Canada"}
-  //   service.result={ "country": "CANADA"}
-  //   const array:any = [];
-  //   spyOn(service,'makeCustomAddress').and.returnValue(of(service.result));
-  // }));
+  //Call for USA
+  it('should call function makeCustomAddressObject', () => {
+    service.makeCustomAddressObject(countryArrayForUSA);
+    expect(result.country).toEqual('US')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddressObject', () => {
+    service.makeCustomAddressObject(countryArrayForUSA);
+    expect(result.country).toEqual('us')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddressObject', () => {
+    service.makeCustomAddressObject(countryArrayForUSA);
+    expect(result.country).toEqual('usa')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddressObject', () => {
+    service.makeCustomAddressObject(countryArrayForUSA);
+    expect(result.country).toEqual('USA')
+    expect(service).toBeTruthy()
+  })
 
-  // it('should call function makeCustomAddress and check result for country to be equal to US', fakeAsync(() => {
-  //   service.result={ "country": "usa"}
-  //   service.result={ "country": "USA"}
-  //   const array:any = [];
-  //   spyOn(service,'makeCustomAddress').and.returnValue(of(service.result));
 
-  // }));
-  // it('should call function makeCustomAddressObject and check result for country to be equal to US', fakeAsync(() => {
-  //   service.result={}
-  //   const array:any = [];
-  //   spyOn(service,'makeCustomAddressObject').and.returnValue(of(service.result));
+  it('should call function makeCustomAddressObject', () => {
+    service.makeCustomAddressObject(addressArray);
+    expect(service).toBeTruthy()
+  })
+  
 
-  // }));
+  //Function call for makeCustomAddress
+
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(countryArray);
+    expect(result.country).toEqual('CA')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(countryArray);
+    expect(result.country).toEqual('Canada')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(countryArray);
+    expect(result.country).toEqual('canada')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(countryArray);
+    expect(result.country).toEqual('CANADA')
+    expect(service).toBeTruthy()
+  })
+
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(addressArray);
+    expect(service).toBeTruthy()
+  })
+
+
+  //Call for USA
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(countryArrayForUSA);
+    expect(result.country).toEqual('US')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(countryArrayForUSA);
+    expect(result.country).toEqual('us')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(countryArrayForUSA);
+    expect(result.country).toEqual('usa')
+    expect(service).toBeTruthy()
+  })
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(countryArrayForUSA);
+    expect(result.country).toEqual('USA')
+    expect(service).toBeTruthy()
+  })
+
+  it('should call function makeCustomAddress', () => {
+    service.makeCustomAddress(addressArray);
+    expect(service).toBeTruthy()
+  })
+  
 });
 

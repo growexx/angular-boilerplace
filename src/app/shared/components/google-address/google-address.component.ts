@@ -22,7 +22,7 @@ export class GoogleAddressComponent implements OnInit, OnChanges {
   @Input() addressTypeDisabled: boolean = false;
   @Input() cCode: string = 'ca';
 
-  constructor(private googleService: GoogleapiService, public asyncService: AsyncService) {
+  constructor(public googleService: GoogleapiService, public asyncService: AsyncService) {
    this.googleApiForm = new FormGroup({
       'countryCode': new FormControl(['ca','us'], Validators.required),
       'searchField': new FormControl(null, Validators.required)
