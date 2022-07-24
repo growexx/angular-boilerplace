@@ -10,6 +10,47 @@ import { ChartsDataService } from './charts-data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  textArea = 
+  {label:'Description', placeholder: "Enter description" };
+
+
+
+  switches=[
+    {id:1,
+      name:'Option 1',
+      label:'Option 1',
+      required:true,labelPosition:"before",
+    disabled:false,
+    checked:true,
+    color:'primary'},
+    {id:2,
+      name:'Option 2',
+      label:'Option 2',
+      required:true,labelPosition:"before",
+    disabled:false,
+    checked:true,
+    color:'primary'},
+    {id:3,
+      name:'Option 3',
+      label:'Option 3',
+      required:true,labelPosition:"before",
+    disabled:false,
+    checked:true,
+    color:'primary'} ,
+    {id:4,
+      name:'Option 4',
+      label:'Option 4',
+      required:true,labelPosition:"before",
+    disabled:false,
+    checked:true,
+    color:'primary'} 
+      ]
+
+      onSelectSwitch($event:any){
+console.log($event)
+      }
+
   radioClass='radioButton';
   radioButtons = [
     {name:'Option 1', key: 1 , disabled: false , checked:false , labelPosition:'after',required: true},
@@ -23,15 +64,11 @@ export class AppComponent implements OnInit {
   }
 
   checkboxes = [
-    {name:'Option 1', value: 'Option 1' , disabled: false , checked:false , labelPosition:'after',required: true},
-    {name:'Option 2', value: 'Option 2', disabled: false, checked:false, labelPosition:'after',required: true},
-    {name:'Option 3', value: 'Option 3', disabled: false, checked:false, labelPosition:'after',required: true}, 
+    {id:1,name:'Option 1', label: 'Option 1' , disabled: false , checked:true , labelPosition:'after',required: true, color:'primary'},
+    {id:2,name:'Option 2', label: 'Option 2', disabled: false, checked:false, labelPosition:'after',required: true, color:'primary'},
+    {id:3,name:'Option 3', label: 'Option 3', disabled: false, checked:true, labelPosition:'after',required: true, color:'primary'}, 
   ]
-  checkboxClass='checkbox';
-  isChecked?:boolean = false;
-  label = 'Terms & Conditions';
-  disable= false;
-  checkboxColor:ThemePalette='primary';
+ 
  
   onChecked($event:any){
 console.log($event)
@@ -94,7 +131,7 @@ console.log($event)
   
    ]
 constructor(public chartDataService:ChartsDataService,
-  private compFilterPipe:CompFilterPipe,
+  public compFilterPipe:CompFilterPipe,
   ){
     
 }
@@ -110,11 +147,16 @@ constructor(public chartDataService:ChartsDataService,
     this.data();
    
    }, 4000); 
+  
+  this.getDummyData();
+    
+}
+getDummyData(){
   fetch('https://dummyjson.com/users')
   .then((res) =>res.json())
   .then(data => this.userList = data)
   .then(() => console.log(this.userList))
-    
+  return this.userList
 }
 
 
@@ -171,5 +213,9 @@ if(this.list.length===0){
 }else{
   this.showDiv = false;
 }
+}
+
+textAreaValue($event:any){
+  console.log($event)
 }
 }

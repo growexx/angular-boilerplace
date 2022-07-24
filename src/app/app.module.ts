@@ -25,12 +25,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {TableModule} from 'primeng/table';
 import { CompFilterComponent } from './_shared/comp-filter/comp-filter.component';
 import { CompFilterPipe } from './_shared/pipes/comp-filter.pipe';
-import {InputTextModule} from 'primeng/inputtext';
+import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { CheckboxComponent } from './_shared/checkbox/checkbox.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RadioButtonComponent } from './_shared/radio-button/radio-button.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { TextAreaComponent } from './_shared/text-area/text-area.component';
+import { SwitchComponent } from './_shared/switch/switch.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ChartsDataService } from './charts-data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,9 +52,8 @@ import {MatRadioModule} from '@angular/material/radio';
     CompFilterPipe,
     CheckboxComponent,
     RadioButtonComponent,
-    
-    
-   
+    TextAreaComponent,
+    SwitchComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,12 +62,13 @@ import {MatRadioModule} from '@angular/material/radio';
     ReactiveFormsModule,
     HttpClientModule,
     ChartModule,
-    InputTextModule,
+    MatInputModule,
     MatTabsModule,
     FormsModule,
     TableModule,
     MatRadioModule,
     MatCheckboxModule,
+    MatSlideToggleModule,
     BrowserAnimationsModule,
     SweetAlert2Module.forRoot(),
     NgCircleProgressModule.forRoot({

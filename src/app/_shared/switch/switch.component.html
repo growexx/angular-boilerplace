@@ -1,0 +1,5 @@
+<div class="mainDiv">
+    <div *ngFor="let switch of switches">
+        <mat-slide-toggle [id]="switch.id" (change)="onSelect($event)" [required]='switch.required' labelPosition="before" [disabled]="switch.disabled" [name]="switch.name" [checked]="switch.checked" [color]="switch.color">{{switch.label}}</mat-slide-toggle>
+    </div>
+</div>

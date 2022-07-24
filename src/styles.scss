@@ -48247,3 +48247,37 @@ body {
 .mat-checkbox-layout {
     margin-top: 8px !important;
 }
+
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-bar {
+    height: 27px;
+    width: 40px;
+    border-radius: 92px;
+}
+
+.mat-slide-toggle-label-before .mat-slide-toggle-bar {
+    height: 27px;
+    width: 40px;
+    border-radius: 92px;
+    background-color: #E4E6EF;
+}
+
+.mat-slide-toggle-thumb {
+    height: 24px !important;
+    width: 24px !important;
+    border-radius: 50%;
+    margin-top: 4px;
+    margin-right: 33px;
+}
+
+.mat-slide-toggle-thumb:after {
+    margin-top: 100px
+}
+
+.mat-slide-toggle-label {
+    margin: 20px
+}
+
+.mat-slide-toggle-thumb-container {
+    width: 24px !important;
+    height: 32px !important;
+}

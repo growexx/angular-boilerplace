@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 
 @Component({
@@ -6,27 +6,37 @@ import { ThemePalette } from '@angular/material/core';
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss']
 })
-export class CheckboxComponent  {
- 
-  @Output() checked: EventEmitter<any> = new EventEmitter<boolean>();
-  @Input() isChecked?:boolean;
-  @Input() label?:string;
-  @Input() disable?:boolean;
-  @Input() color:ThemePalette;
-  @Input() checkboxes:any;
+export class CheckboxComponent implements OnInit  {
   
  
-  value? :string;
-checkboxArray:any= [];
+  @Output() onChecked: EventEmitter<any> = new EventEmitter<boolean>();
+  @Input() checkboxes:any;
+  eliminatedValue:any;
+  removedElement?:number;
+  name? :string;
+checkboxArray:any;
 
+ngOnInit(){
+  this.checkboxArray=[];
+  
+  for(let i=0; i<this.checkboxes.length;i++){
+  if( this.checkboxes[i].checked===true){
+    this.checkboxArray.push(this.checkboxes[i].name);
+    }
+  }
+  this.onChecked.emit(this.checkboxArray)
+}
   changeValue($event:any){
-    console.log($event)
-      this.value = $event.source.value
       if($event.checked===true){
-this.checkboxArray.push(this.value)
+ this.checkboxArray.push($event.source.name)
       }else{
-        this.checkboxArray.pop(this.value)
+        for(let i =0; i<this.checkboxArray.length;i++){
+          if(this.checkboxArray[i]===$event.source.name){
+            this.eliminatedValue=this.checkboxArray.splice(i,1);
+            $event.source.name = this.eliminatedValue[0];
+          }
+        }
       }
-       this.checked.emit(this.checkboxArray)
+       this.onChecked.emit(this.checkboxArray)
   }
 }

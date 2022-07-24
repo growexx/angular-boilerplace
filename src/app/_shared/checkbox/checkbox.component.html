@@ -1,7 +1,7 @@
 <div class="mainDiv">
     <div *ngFor="let checkbox of checkboxes">
-        <mat-checkbox class="checkboxClass" [color]="color" [disabled]="checkbox.disabled" (change)="changeValue($event)" [checked]="checkbox.checked" [value]="checkbox.value">
-            {{checkbox.name}}
+        <mat-checkbox class="checkboxClass" [id]="checkbox.id" [color]="checkbox.color" [disabled]="checkbox.disabled" (change)="changeValue($event)" [checked]="checkbox.checked" [name]="checkbox.name">
+            {{checkbox.label}}
         </mat-checkbox>
     </div>
 

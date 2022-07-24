@@ -40,12 +40,15 @@
 
 
     <div>
-        <app-checkbox [checkboxes]="checkboxes" [color]="checkboxColor" [isChecked]="isChecked" [label]="label" [disable]="disable" (checked)="onChecked($event)"></app-checkbox>
+        <app-checkbox [checkboxes]="checkboxes" (onChecked)="onChecked($event)"></app-checkbox>
     </div>
     <div>
 
         <app-radio-button [radioButtons]="radioButtons" [color]="color" (selected)="onSelectRadio($event)"></app-radio-button>
     </div>
 
-
+    <app-text-area [textArea]="textArea" (input)="textAreaValue($event)"></app-text-area>
+    <div>
+        <app-switch [switches]="switches" (slide)="onSelectSwitch($event)"></app-switch>
+    </div>
 </div>

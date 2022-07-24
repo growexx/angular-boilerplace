@@ -17,38 +17,56 @@ describe('CheckboxComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CheckboxComponent);
     component = fixture.componentInstance;
+    component.checkboxes = [
+      {id:1,name:'Option 1', label: 'Option 1' , disabled: false , checked:true , labelPosition:'after',required: true, color:'primary'}, 
+    ]
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 
-  it('should emit on checked', () => {
-    let checkboxArray:any = []
-    let $event = {checked:true,
+it('should add in array if checked is true at initial', () => {
+  let checkboxArray:any=[];
+  for(let i=0; i<component.checkboxes.length;i++){
+  if( component.checkboxes[i].checked===true){
+    checkboxArray.push(component.checkboxes[i].name);
+    }
+  }
+  component.onChecked.subscribe((res) => expect(res).toEqual(checkboxArray));
+  component.ngOnInit();
+  component.checkboxes= [
+    {id:1,name:'Option 1', label: 'Option 1' , disabled: false , checked:false , labelPosition:'after',required: true, color:'primary'}, 
+  ]
+if(component.checkboxes[0].checked===false){
+checkboxArray=[];
+}
+component.onChecked.subscribe((res) => expect(res).toEqual(checkboxArray));
+component.ngOnInit();
+});
+
+it('should add and remove from array on checked', () => {
+  let eliminatedValue:any;
+  let $event = {checked:true,
+    source:{
+      name:'Option 1'
+    },
+    };
+if($event.checked===true){
+component.checkboxArray.push($event.source.name)
+     }
+     component.onChecked.subscribe((res) => expect(res).toEqual(component.checkboxArray));
+     component.changeValue($event);
+     $event = {checked:false,
       source:{
-        value:'Option 1'
+        name:'Option 1'
       },
       }
-      let value = $event.source.value;
-if($event.checked===true){
-checkboxArray.push(value)
-}
-    checkboxArray = ['Option 1'];
-    component.checked.subscribe((res) => expect(res).toEqual(checkboxArray));
-   component.changeValue($event);
-   $event = {checked:false,
-    source:{
-      value:'Option 1'
-    },
-    }
-    value =$event.source.value;
-    if($event.checked===false){
-      checkboxArray.pop(value)
-    }
-    checkboxArray = [];
-    component.checked.subscribe((res) => expect(res).toEqual(checkboxArray));
-   component.changeValue($event);
-  });
+      for(let i =0; i<component.checkboxArray.length;i++){
+     if($event.checked===false && component.checkboxArray[i]===$event.source.name ){
+           eliminatedValue=component.checkboxArray.splice(i,1);
+           $event.source.name = eliminatedValue[0];
+       }
+      }
+  component.onChecked.subscribe((res) => expect(res).toEqual(component.checkboxArray));
+ component.changeValue($event);
+});
 });

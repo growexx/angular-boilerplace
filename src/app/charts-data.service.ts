@@ -10,10 +10,8 @@ export class ChartsDataService {
   weeklyData: any;
   monthlyData: any;
   yearlyData: any;
+  
   constructor() {
-   
-
-
     this.chartOptions = {
       plugins: {
         legend: {
@@ -157,10 +155,9 @@ export class ChartsDataService {
   }
 
   getChart() {
-    
     if(this.myChart!=null){
-      this.destroyChart();
-    }
+      this.myChart.destroy();
+    } 
     this.myChart = new Chart('myChart', {
       type: 'bar',
       data: this.initData,
@@ -169,12 +166,10 @@ export class ChartsDataService {
     return this.myChart;
   }
 
-  destroyChart() {
-    this.myChart.destroy();
-  }
-
   getWeeklyData() {
-    this.destroyChart();
+    if(this.myChart!=null){
+    this.myChart.destroy();
+    }
     this.myChart = new Chart('myChart', {
       type: 'bar',
       data: this.weeklyData,
@@ -184,7 +179,9 @@ export class ChartsDataService {
   }
 
   getYearlyData() {
-    this.destroyChart();
+    if(this.myChart!=null){
+    this.myChart.destroy();
+    }
     this.myChart = new Chart('myChart', {
       type: 'bar',
       data: this.yearlyData,
@@ -194,7 +191,9 @@ export class ChartsDataService {
   }
 
   getMonthlyData() {
-    this.destroyChart();
+    if(this.myChart!=null){
+    this.myChart.destroy();
+    }
     this.myChart = new Chart('myChart', {
       type: 'bar',
       data: this.monthlyData,
