@@ -9,34 +9,17 @@
                         </div>
                     </div>
                     <div class="table-content">
-                        <div class="table-content-panel">
+                        <div class="table-content-panel" *ngFor="let task of taskDetails?.todos;let i = index">
                             <div class="checkbox">
                                 <input type="checkbox">
                             </div>
                             <div class="todo">
-                                <div><span>Your iBuy.com grocery shopping confirmation</span></div>
+                                <div><span>{{task['todo']}}</span></div>
                             </div>
-                            <div class="status"><span class="status status-pills status-completed">Completed</span>
+                            <div class="status"><span
+                                    class="status status-pills status-{{(task?.completed === true )? 'completed' : 'pending'}}">{{(task?.completed
+                                    === true )? 'Completed' : 'Pending'}}</span>
                             </div>
-                        </div>
-                        <div class="table-content-panel">
-                            <div class="checkbox">
-                                <input type="checkbox">
-                            </div>
-                            <div class="todo">
-                                <div><span>Your iBuy.com grocery shopping confirmation</span></div>
-                            </div>
-                            <div class="status"><span class="status status-pills status-completed">Completed</span>
-                            </div>
-                        </div>
-                        <div class="table-content-panel">
-                            <div class="checkbox">
-                                <input type="checkbox">
-                            </div>
-                            <div class="todo">
-                                <div><span>Your iBuy.com grocery shopping confirmation</span></div>
-                            </div>
-                            <div class="status"><span class="status status-pills status-pending">Pending</span></div>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ import { AsyncService } from 'src/app/core/services/async.service';
   templateUrl: './google-address.component.html',
   styleUrls: ['./google-address.component.scss']
 })
-export class GoogleAddressComponent implements OnInit, OnChanges {
+export class GoogleAddressComponent implements OnInit {
 
 
   googleApiForm!: FormGroup;
@@ -20,28 +20,30 @@ export class GoogleAddressComponent implements OnInit, OnChanges {
   private reqObject = { url: '', query: '', placeid: '' };
   public countryEnum = countryEnum;
   @Input() addressTypeDisabled: boolean = false;
-  @Input() cCode: string = 'ca';
+  @Input() cCode!: string ;
 
   constructor(public googleService: GoogleapiService, public asyncService: AsyncService) {
-   this.googleApiForm = new FormGroup({
-      'countryCode': new FormControl(['ca','us'], Validators.required),
+    this.googleApiForm = new FormGroup({
+      'countryCode': new FormControl(['ca', 'us'], Validators.required),
       'searchField': new FormControl(null, Validators.required)
     })
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['cCode'] && changes['cCode']['currentValue']) {
-      this.cCode = changes['cCode']['currentValue'];
-      this.googleApiForm.controls['countryCode']?.setValue(this.cCode)
-    }
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   if (changes['cCode'] && changes['cCode']['currentValue']) {
+  //     this.cCode = changes['cCode']['currentValue'];
+  //     console.log(changes)
+
+  //     this.googleApiForm.controls['countryCode']?.setValue(this.cCode)
+  //   }
+  // }
 
   ngOnInit(): void {
     this.getResetValue()
   }
-  getResetValue(){
-    this.googleService.resetValue.subscribe((res)=>{
-      if(res===true){
+  getResetValue() {
+    this.googleService.resetValue.subscribe((res) => {
+      if (res === true) {
         this.googleApiForm.controls['searchField']?.reset();
       }
     })

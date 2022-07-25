@@ -79,7 +79,7 @@ export class AddUsersComponent implements OnInit {
       city: new FormControl(['', Validators.required]),
       state: new FormControl(['', Validators.required]),
       postalCode: new FormControl(['', Validators.required]),
-      country: new FormControl(['', Validators.required]),
+      country: new FormControl(['ca', Validators.required]),
     })
   }
 

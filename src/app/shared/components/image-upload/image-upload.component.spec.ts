@@ -36,9 +36,8 @@ compSpy.fileChangeEvent.and.returnValue(of(event))
 
   it('should call function fileChangeEvent', () => {
     const mockFile = new File([''], 'parkstreet.jpg', { type: 'text/html' });
-    const mockEvt = { target: { files: [mockFile] } };
+    const mockEvt = { target: { files: [mockFile], result:"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAA" } };
     component.fileChangeEvent(mockEvt);
-
     expect(component).toBeTruthy();
   })
 

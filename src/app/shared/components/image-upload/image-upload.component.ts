@@ -22,7 +22,6 @@ export class ImageUploadComponent implements OnInit {
     }
 
     fileChangeEvent(fileInput: any): any {
-        console.log(fileInput)
         this.imageError = '';
         fileInput = fileInput;
         if (fileInput.target.files && fileInput.target.files[0]) {

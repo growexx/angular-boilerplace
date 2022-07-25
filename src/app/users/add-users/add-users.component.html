@@ -75,7 +75,7 @@
                                         <div class="col-xl-12">
                                             <app-google-address [addressTypeDisabled]="isaddressTypeDisabled"
                                                 (selectedAddress)="setSelectedAddress($event,addIndex)"
-                                                [cCode]="address.controls['country']['value']"
+                                                [cCode]="address.controls['country']?.value"
                                                 (countrySelectionChanged)="countrySelectionChange($event,addIndex)">
                                             </app-google-address>
                                         </div>
