@@ -1,18 +1,45 @@
-.center{
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
-a{
+
+a {
     cursor: pointer;
 }
-.mbl-20{
+
+.mbl-10 {
+    margin-bottom: 10px;
+}
+
+.mbl-20 {
     margin-bottom: 20px !important;
 }
-.mb-0{
-    margin-bottom: 0px!important;
+
+.mb-0 {
+    margin-bottom: 0px !important;
+}
+
+.status {
+    width: 40%;
+
+    .status-completed {
+        background-color: #C9F7F5;
+        color: #1BC5BD;
+    }
+
+    .status-pending {
+        color: #FFA800;
+        background-color: #FFF4DE;
+    }
+
+    .status-pills {
+        border-radius: 5px;
+        font-weight: 500;
+        padding: 10px;
+    }
 }

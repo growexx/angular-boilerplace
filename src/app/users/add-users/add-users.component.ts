@@ -108,12 +108,13 @@ export class AddUsersComponent implements OnInit {
     })
   }
 
-  countrySelectionChange(event: any, index: number) {
-    const addressControl = (<FormArray>this.secondFormGroup.controls['customerAddressDTO']) as FormArray;
-    addressControl.at(index).get('country')?.setValue(event);
-    // const resetArray = ["addressLine2", "addressLine2", "city", "state", "postalCode"]
-    // resetArray.forEach((data) => { addressControl.at(index).get(data)?.reset })
-  }
+  // countrySelectionChange(event: any, index: number) {
+  //   console.log(event)
+  //   const addressControl = (<FormArray>this.secondFormGroup.controls['customerAddressDTO']) as FormArray;
+  //   addressControl.at(index).get('country')?.setValue(event);
+  //   // const resetArray = ["addressLine2", "addressLine2", "city", "state", "postalCode"]
+  //   // resetArray.forEach((data) => { addressControl.at(index).get(data)?.reset })
+  // }
 
   setSelectedAddress(address: any, index: number) {
     this.secondFormGroup.controls['addressLine1']?.setValue((address['street_number'] + ',' + address['route']) ? address['street_number'] + ',' + address['route'] : '')

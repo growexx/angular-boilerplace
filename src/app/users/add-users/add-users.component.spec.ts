@@ -81,10 +81,10 @@ describe('AddUsersComponent', () => {
     expect(component).toBeTruthy();
   })
 
-  it('should call countrySelectionChange()',()=>{
-    component.countrySelectionChange(imageValue, index);
-    expect(component).toBeTruthy();
-  })
+  // it('should call countrySelectionChange()',()=>{
+  //   component.countrySelectionChange(imageValue, index);
+  //   expect(component).toBeTruthy();
+  // })
 
   it('should call setSelectedAddress()',()=>{
     component.setSelectedAddress(selectedAddress, index);

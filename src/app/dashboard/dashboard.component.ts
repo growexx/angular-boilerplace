@@ -3,6 +3,8 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
 import * as _ from 'lodash';
 import { MatDialog } from '@angular/material/dialog';
 import { btn } from '../core/interface/button';
+import { TaskService } from '../task/task.service';
+import { taskDetailsType } from '../task/task-modal';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,10 +17,13 @@ export class DashboardComponent implements OnInit {
   btnHandelClick:any = [];
   btnClicked:EventEmitter<any> = new EventEmitter<any>();
   btnData: btn = {type:'small',btnClass:'btn-small btn-primary', btnText:'Open Modal', eventName: this.btnClicked,returnObj:['id']};
+  taskDetails !: taskDetailsType;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private taskService: TaskService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllTasks()
+  }
 
   openModal(data?:any) {
 
@@ -47,5 +52,11 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+
+  getAllTasks() {
+    this.taskService.getAllTodos().subscribe((res: any) => {
+      this.taskDetails = res
+    })
+  }
 
 }

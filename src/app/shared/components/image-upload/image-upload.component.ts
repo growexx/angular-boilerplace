@@ -15,7 +15,7 @@ export class ImageUploadComponent implements OnInit {
     @Input() imgFile: any;
     @ViewChild('fileInput') fileInput: ElementRef | any;
     @Output() imageChange: EventEmitter<any> = new EventEmitter();
-
+    image: any;
     constructor() { }
 
     ngOnInit(): void {
@@ -24,6 +24,7 @@ export class ImageUploadComponent implements OnInit {
     fileChangeEvent(fileInput: any): any {
         this.imageError = '';
         fileInput = fileInput;
+        console.log(fileInput, 'FILEINPUT')
         if (fileInput.target.files && fileInput.target.files[0]) {
             // Size Filter Bytes
             const max_size = 20971520;
@@ -44,9 +45,10 @@ export class ImageUploadComponent implements OnInit {
             }
             const reader = new FileReader();
             reader.onload = (e: any) => {
-                const image = new Image();  
-                image.src = e.target.result;
-                image.onload = (rs: any): any => {
+                console.log(e)
+                this.image = new Image();
+                this.image.src = e.target.result;
+                this.image.onload = (rs: any): any => {
                     // const img_height = (rs.currentTarget as HTMLElement)?.offsetHeight;
                     // const img_width = (rs.currentTarget as HTMLElement)?.offsetWidth;
 
@@ -59,15 +61,16 @@ export class ImageUploadComponent implements OnInit {
                     //         'px';
                     //     return false;
                     // } else {
-                        const imgBase64Path = e.target.result;
-                        this.cardImageBase64 = imgBase64Path;
-                        fileInput = this.cardImageBase64;
-                        this.imgFile = fileInput;
-                        this.isImageSaved = true;
-                        // this.previewImagePath = imgBase64Path;
-                        this.imageChange.emit({
-                            data: this.imgFile
-                        });
+                    const imgBase64Path = e.target.result;
+                    console.log(imgBase64Path)
+                    this.cardImageBase64 = imgBase64Path;
+                    fileInput = this.cardImageBase64;
+                    this.imgFile = fileInput;
+                    this.isImageSaved = true;
+                    // this.previewImagePath = imgBase64Path;
+                    this.imageChange.emit({
+                        data: this.imgFile
+                    });
                     // }
                 };
             };

@@ -15,12 +15,14 @@ export class GoogleAddressComponent implements OnInit {
 
 
   googleApiForm!: FormGroup;
-  @Output() countrySelectionChanged: EventEmitter<any> = new EventEmitter<any>();
+  // @Output() countrySelectionChanged: EventEmitter<any> = new EventEmitter<any>();
   @Output() selectedAddress: EventEmitter<any> = new EventEmitter<any>();
   private reqObject = { url: '', query: '', placeid: '' };
   public countryEnum = countryEnum;
   @Input() addressTypeDisabled: boolean = false;
   @Input() cCode!: string ;
+  autoComplete: any;
+  google: any;
 
   constructor(public googleService: GoogleapiService, public asyncService: AsyncService) {
     this.googleApiForm = new FormGroup({
@@ -39,28 +41,30 @@ export class GoogleAddressComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.getResetValue()
+    // this.getResetValue()
   }
-  getResetValue() {
-    this.googleService.resetValue.subscribe((res) => {
-      if (res === true) {
-        this.googleApiForm.controls['searchField']?.reset();
-      }
-    })
-  }
+  // getResetValue() {
+  //   this.googleService.resetValue.subscribe((res) => {
+  //     if (res === true) {
+  //       this.googleApiForm.controls['searchField']?.reset();
+  //     }
+  //   })
+  // }
 
   changeCountryType() {
     this.googleApiForm.controls['countryCode']?.setValue(this.googleApiForm.controls['countryCode'].value);
     this.googleApiForm.controls['searchField']?.setValue(null);
-    this.countrySelectionChanged.emit(this.googleApiForm.controls['countryCode'].value)
+    // this.countrySelectionChanged.emit(this.googleApiForm.controls['countryCode'].value)
   }
 
   findAddress() {
     this.reqObject.query = this.googleApiForm.controls['searchField']?.value;
     const autoComplete = new google.maps.places.Autocomplete(<HTMLInputElement>document.getElementById('searchbox'));
+    console.log(autoComplete, 'AUTOCOMPLETE')
     autoComplete.setOptions({ types: ['geocode'] });
     autoComplete.setComponentRestrictions({ 'country': ['ca', 'us'] });
     const ac = autoComplete;
+    this.autoComplete = ac;
     const ref = this;
     autoComplete.addListener('place_changed', function () {
       const place = ac.getPlace();

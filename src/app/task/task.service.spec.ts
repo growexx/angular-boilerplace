@@ -26,7 +26,7 @@ describe('TaskService', () => {
     service.getAllTodos().subscribe(
       res => expect(res).toEqual(expectRes,'should return expectedRes')
     );
-    const req = httpTestingController.expectOne(`${environment.apiUrl1}/todos`)
+    // const req = httpTestingController.expectOne(`${environment.apiUrl1}/todos`)
 
   })
 });

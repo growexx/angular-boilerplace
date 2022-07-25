@@ -42,25 +42,7 @@
                 }
             }
 
-            .status {
-                width: 40%;
-
-                .status-completed {
-                    background-color: #C9F7F5;
-                    color: #1BC5BD;
-                }
-
-                .status-pending {
-                    color: #FFA800;
-                    background-color: #FFF4DE;
-                }
-
-                .status-pills {
-                    border-radius: 5px;
-                    font-weight: 500;
-                    padding: 10px;
-                }
-            }
+          
         }
     }
 }

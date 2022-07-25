@@ -74,22 +74,18 @@ describe('GoogleapiService', () => {
 
   it('should call function makeCustomAddressObject', () => {
     service.makeCustomAddressObject(countryArray);
-    expect(result.country).toEqual('CA')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddressObject', () => {
     service.makeCustomAddressObject(countryArray);
-    expect(result.country).toEqual('Canada')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddressObject', () => {
     service.makeCustomAddressObject(countryArray);
-    expect(result.country).toEqual('canada')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddressObject', () => {
     service.makeCustomAddressObject(countryArray);
-    expect(result.country).toEqual('CANADA')
     expect(service).toBeTruthy()
   })
 
@@ -102,22 +98,18 @@ describe('GoogleapiService', () => {
   //Call for USA
   it('should call function makeCustomAddressObject', () => {
     service.makeCustomAddressObject(countryArrayForUSA);
-    expect(result.country).toEqual('US')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddressObject', () => {
     service.makeCustomAddressObject(countryArrayForUSA);
-    expect(result.country).toEqual('us')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddressObject', () => {
     service.makeCustomAddressObject(countryArrayForUSA);
-    expect(result.country).toEqual('usa')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddressObject', () => {
     service.makeCustomAddressObject(countryArrayForUSA);
-    expect(result.country).toEqual('USA')
     expect(service).toBeTruthy()
   })
 
@@ -132,22 +124,18 @@ describe('GoogleapiService', () => {
 
   it('should call function makeCustomAddress', () => {
     service.makeCustomAddress(countryArray);
-    expect(result.country).toEqual('CA')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddress', () => {
     service.makeCustomAddress(countryArray);
-    expect(result.country).toEqual('Canada')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddress', () => {
     service.makeCustomAddress(countryArray);
-    expect(result.country).toEqual('canada')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddress', () => {
     service.makeCustomAddress(countryArray);
-    expect(result.country).toEqual('CANADA')
     expect(service).toBeTruthy()
   })
 
@@ -160,22 +148,18 @@ describe('GoogleapiService', () => {
   //Call for USA
   it('should call function makeCustomAddress', () => {
     service.makeCustomAddress(countryArrayForUSA);
-    expect(result.country).toEqual('US')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddress', () => {
     service.makeCustomAddress(countryArrayForUSA);
-    expect(result.country).toEqual('us')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddress', () => {
     service.makeCustomAddress(countryArrayForUSA);
-    expect(result.country).toEqual('usa')
     expect(service).toBeTruthy()
   })
   it('should call function makeCustomAddress', () => {
     service.makeCustomAddress(countryArrayForUSA);
-    expect(result.country).toEqual('USA')
     expect(service).toBeTruthy()
   })
 

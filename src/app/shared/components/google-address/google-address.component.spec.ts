@@ -1,11 +1,9 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SimpleChange } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { of } from 'rxjs';
-import { AsyncService } from 'src/app/core/services/async.service';
+import { observable, of } from 'rxjs';
 import { GoogleapiService } from 'src/app/core/services/googleapi.service';
-
 import { GoogleAddressComponent } from './google-address.component';
 
 describe('GoogleAddressComponent', () => {
@@ -15,23 +13,33 @@ describe('GoogleAddressComponent', () => {
   let resetVal: boolean = false;
   // let changes: SimpleChanges;
   let comp: any;
+  let httpTestingController: HttpTestingController;
+
 
   let prev_value = 'ca';
   let new_value = 'us';
   let is_first_change: boolean = true;
 
+  const autocomplete = {
+    componentRestrictions: {country: ['ca','us']},
+    gm_accessors_:{},
+    gm_bindings_: {},
+    types: ["geocode"]
+  }
+
+
   googleApiService = jasmine.createSpyObj('googleApiService', ['resetValue'])
-  googleApiService.resetValue.and.returnValue(of(resetVal))
+  googleApiService.resetValue.and.returnValue(of(false));
 
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [GoogleAddressComponent],
-      imports: [HttpClientTestingModule],
+      imports:[HttpClientTestingModule],
       providers: [ FormBuilder,
         { provide: GoogleapiService, useValue: googleApiService },
-        // { provide: [FormBuilder,AsyncService] }
-      ]
+      ],
+      
     })
       .compileComponents();
   });
@@ -58,17 +66,17 @@ describe('GoogleAddressComponent', () => {
 
   // });
 
-  it('should check onChanges value', () => {
-    expect(component.cCode).toEqual('')
-    fixture.detectChanges();
-    expect(component).toBeTruthy()
+  // it('should check onChanges value', () => {
+  //   expect(component.cCode).toEqual('ca')
+  //   fixture.detectChanges();
+  //   expect(component).toBeTruthy()
 
-  });
+  // });
 
-  it('should call function getResetValue', () => {
-    component.getResetValue()
-    expect(component).toBeTruthy()
-  });
+  // it('should call function getResetValue', () => {
+  //   component.getResetValue()
+  //   expect(component).toBeTruthy()
+  // });
 
   
   it('should call function changeCountryType', () => {
@@ -81,14 +89,14 @@ describe('GoogleAddressComponent', () => {
     expect(component).toBeTruthy()
   });
 
-  it('should test resetValue', ()=>{    
-    googleApiService.resetValue().subscribe(
-      (res:any) => expect(res).toEqual(false, 'should return expectedRes'),
-      fail
-    );
-    expect(component).toBeTruthy()
-    // const req = httpTestingController.expectOne(`${environment.apiUrl1}/users/10/posts`)
-  })
+  // it('should test resetValue', ()=>{    
+  //   googleApiService.resetValue.subscribe(
+  //     (res:boolean) => 
+  //     expect(res).toEqual(false, 'should return expectedRes'),
+  //   );
+  //   component.getResetValue()
+  //   expect(component).toBeTruthy()
+  // })
 });
 
 
