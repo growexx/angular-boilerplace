@@ -1,0 +1,16 @@
+@for $i from 0 through 100 {
+    .width-#{$i} {
+        width: round(percentage($i/100));
+    }
+}
+@media (min-width: '320px') and (max-width: '575px') {
+    @for $i from 0 through 100 {
+        .width-sm-#{$i} {
+            width: round(percentage($i/100)) !important;
+        }
+    }
+}
+
+.width-500px{
+    width: 500px;
+}

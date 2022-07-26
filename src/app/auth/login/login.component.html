@@ -1,7 +1,6 @@
 <div class="d-flex flex-column flex-lg-row flex-column-fluid root-container">
   <div
-    class="d-flex flex-column flex-lg-row-auto w-xl-600px positon-xl-relative login-container"
-    style="background-color: #f2c98a"
+    class="d-flex flex-column flex-lg-row-auto width-sm-100 width-50 positon-xl-relative bg-accent color-accent-t50 sidebar-container"
   >
     <app-authsidebar></app-authsidebar>
   </div>
@@ -10,7 +9,7 @@
   >
     <div class="d-flex flex-column flex-lg-row-fluid">
       <div class="d-flex flex-center flex-column flex-column-fluid">
-        <div class="w-lg-500px pg-p-8 mx-auto">
+        <div class="width-500px width-sm-100 pg-p-2 mx-auto">
           <form
             [formGroup]="loginForm"
             class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework"
@@ -18,6 +17,9 @@
             action="#"
           >
             <div class="text-center pg-mb-4">
+                <a class="pg-mb-2">
+                  <img alt="Logo" src="assets/growexx-logo-without-text.png" class="width-20 width-sm-15 site-logo" />
+                </a>
               <h1 class="text-dark pg-mb-1 form-title">Sign In to Growexx</h1>
               <div class="text-gray-400 fw-bold pg-fs-2">
                 New Here?

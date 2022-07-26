@@ -1,0 +1,112 @@
+@import '/src/assets/styles/variables/colors';
+
+/* ====== Accent COLOR START ====== */
+.color-accent { color: $colors-base-accent; }
+.color-accent-t75 { color: $colors-base-accent-t-75; }
+.color-accent-t50 { color: $colors-base-accent-t-50; }
+.color-accent-t25 { color: $colors-base-accent-t-25; }
+.color-accent-t10 { color: $colors-base-accent-t-10; }
+/* ====== Accent COLOR END ====== */
+
+/* ====== Primary COLOR START ====== */
+.color-primary { color: $colors-base-primary; }
+.color-primary-t75 { color: $colors-base-primary-t-75; }
+.color-primary-t50 { color: $colors-base-primary-t-50; }
+.color-primary-t25 { color: $colors-base-primary-t-25; }
+.color-primary-t10 { color: $colors-base-primary-t-10; }
+/* ====== Primary COLOR END ====== */
+
+/* ====== Secondary COLOR START ====== */
+.color-secondary { color: $colors-base-secondary; }
+.color-secondary-t75 { color: $colors-base-secondary-t-75; }
+.color-secondary-t50 { color: $colors-base-secondary-t-50; }
+.color-secondary-t25 { color: $colors-base-secondary-t-25; }
+.color-secondary-t10 { color: $colors-base-secondary-t-10; }
+/* ====== Secondary COLOR END ====== */
+
+/* ====== Neutral Black COLOR START ====== */
+.color-neutral-black { color: $colors-neutral-black; }
+.color-neutral-black-t75 { color: $colors-neutral-black-t-75; }
+.color-neutral-black-t50 { color: $colors-neutral-black-t-50; }
+.color-neutral-black-t25 { color: $colors-neutral-black-t-25; }
+.color-neutral-black-t10 { color: $colors-neutral-black-t-10; }
+.color-neutral-black-v-high { color: $colors-neutral-black-v-high; }
+.color-neutral-black-v-medium { color: $colors-neutral-black-v-medium; }
+.color-neutral-black-v-low { color: $colors-neutral-black-v-low; }
+/* ====== Neutral Black COLOR END ====== */
+
+/* ====== Neutral White COLOR START ====== */
+.color-neutral-white { color: $colors-neutral-white; }
+.color-neutral-white-t75 { color: $colors-neutral-white-t-75; }
+.color-neutral-white-t50 { color: $colors-neutral-white-t-50; }
+.color-neutral-white-t25 { color: $colors-neutral-white-t-25; }
+.color-neutral-white-t10 { color: $colors-neutral-white-t-10; }
+/* ====== Neutral White COLOR END ====== */
+
+/* ====== Neutral Dark COLOR START ====== */
+.color-neutral-dark { color: $colors-neutral-dark; }
+.color-neutral-dark-t75 { color: $colors-neutral-dark-t-75; }
+.color-neutral-dark-t50 { color: $colors-neutral-dark-t-50; }
+.color-neutral-dark-t25 { color: $colors-neutral-dark-t-25; }
+.color-neutral-dark-t10 { color: $colors-neutral-dark-t-10; }
+.color-neutral-dark-v-high { color: $colors-neutral-dark-v-high; }
+.color-neutral-dark-v-medium { color: $colors-neutral-dark-v-medium; }
+.color-neutral-dark-v-low { color: $colors-neutral-dark-v-low; }
+/* ====== Neutral Dark COLOR END ====== */
+
+
+/* ====== Success COLOR START ====== */
+.color-success { color: $colors-base-success; }
+.color-success-t75 { color: $colors-base-success-t-75; }
+.color-success-t50 { color: $colors-base-success-t-50; }
+.color-success-t25 { color: $colors-base-success-t-25; }
+.color-success-t10 { color: $colors-base-success-t-10; }
+.color-success-v-high { color: $colors-base-success-v-high; }
+.color-success-v-high-t54 { color: $colors-base-success-v-high-t-54; }
+.color-success-v-medium { color: $colors-base-success-v-medium; }
+.color-success-v-low { color: $colors-base-success-v-low; }
+/* ====== Success COLOR END ====== */
+
+/* ====== Warning COLOR START ====== */
+.color-warning { color: $colors-base-warning; }
+.color-warning-t75 { color: $colors-base-warning-t-75; }
+.color-warning-t50 { color: $colors-base-warning-t-50; }
+.color-warning-t25 { color: $colors-base-warning-t-25; }
+.color-warning-t10 { color: $colors-base-warning-t-10; }
+.color-warning-v-high { color: $colors-base-warning-v-high; }
+.color-warning-v-medium { color: $colors-base-warning-v-medium; }
+.color-warning-v-low { color: $colors-base-warning-v-low; }
+.color-warning-border { color: $colors-base-warning-border; }
+.color-warning-shadow { color: $colors-base-warning-shadow; }
+/* ====== Warning COLOR END ====== */
+
+/* ====== Error COLOR START ====== */
+.color-error { color: $colors-base-error; }
+.color-error-t75 { color: $colors-base-error-t-75; }
+.color-error-t50 { color: $colors-base-error-t-50; }
+.color-error-t25 { color: $colors-base-error-t-25; }
+.color-error-t10 { color: $colors-base-error-t-10; }
+.color-error-v-high { color: $colors-base-error-v-high; }
+.color-error-v-medium { color: $colors-base-error-v-medium; }
+.color-error-v-low { color: $colors-base-error-v-low; }
+/* ====== Error COLOR END ====== */
+
+/* Background Color */
+.bg-neutral-white { background-color: $colors-neutral-white; }
+.bg-base-primary { background-color: $colors-base-primary; }
+.bg-neutral-dark { background-color: $colors-neutral-dark; }
+.bg-neutral-black { background-color: $colors-neutral-black; }
+.bg-main { background-color: $colors-neutral-white; }
+.bg-light { background-color: $colors-background-light; }
+.bg-neutral-white-t10 { background-color: $colors-neutral-white-t-10; }
+.bg-cms-setting { background-color: $colors-cms-setting-bg;}
+.bg-primary { background-color: $colors-base-primary;}
+.bg-secondary { background-color: $colors-base-secondary;}
+.bg-accent { background-color: $colors-base-accent;}
+
+/* Input Validation */
+.color-input-validation-success { color: $colors-input-validation-success;}
+.color-typography-font { color: $colors-tooltip-font; }
+.color-cms-edit-option { color: $colors-cms-edit-option; }
+.color-pop-up-text { color: $colors-pop-up-text;}
+

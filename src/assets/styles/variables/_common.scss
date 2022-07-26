@@ -1,0 +1,53 @@
+/* ====================
+// 1. Display Properties
+=======================*/
+
+$d-flex: flex;
+$d-block: block;
+$d-inline-block: inline-block;
+$d-inline:inline;
+$d-none: none;
+
+/* ====================
+// 2. Font Size
+=======================*/
+
+$font-10: 10px;
+$font-12: 12px;
+$font-14: 14px;
+$font-16: 16px;
+$font-18: 18px;
+$font-20: 20px;
+
+/* ====================
+// 3. Flex Properties
+=======================*/
+
+$align-items-center: center;
+$align-items-start: flex-start;
+$align-items-end: flex-end;
+
+
+$justify-content-center: center;
+$justify-content-start: flex-start;
+$justify-content-end: flex-end;
+$justify-content-space-between: space-between;
+$justify-content-space-around: space-around;
+
+$flex-wrap: wrap;
+
+
+/* ====================
+// 4. Positions
+=======================*/
+
+$position-relative: relative;
+$position-absolute: absolute;
+
+/* ====================
+// 5. Font Weight
+=======================*/
+$font-weight-light: 300;
+$font-weight-normal: 400 !important;
+$font-weight-bold: 500 !important; 
+$font-weight-semibold: 600 !important;

@@ -1,0 +1,41 @@
+/**=== Index==========
+//  1.Variables
+//  2.Global
+//  3.Components
+//  4.Shared
+//
+======================*/
+
+
+/* =============
+// 1. Variables
+================*/
+@import './variables/colors';
+@import './variables/common';
+
+/* =============
+// 2. Global 
+================*/
+
+@import './global/common';
+@import './functions';
+@import './global/buttons';
+@import './global/material';
+@import './global/font-weight';
+@import './global/colors';
+@import './global/width';
+@import './global/height';
+
+/* =============
+// 3. Components
+================*/
+@import './components/auth/auth';
+@import './components/add-users';
+
+
+/* =============
+// 4.Shared
+================*/
+@import './shared/sidebar/sidebar';
+@import './shared/header/header';
+@import './shared/modal/modal';

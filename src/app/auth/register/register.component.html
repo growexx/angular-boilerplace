@@ -1,8 +1,5 @@
 <div class="d-flex flex-column flex-lg-row flex-column-fluid root-container">
-  <div
-    class="d-flex flex-column flex-lg-row-auto w-xl-600px positon-xl-relative"
-    style="background-color: #f2c98a"
-  >
+  <div class="d-flex flex-column flex-lg-row-auto width-50 positon-xl-relative bg-accent color-accent-t50 sidebar-container">
     <app-authsidebar></app-authsidebar>
   </div>
   <div
@@ -155,15 +152,23 @@
                   >Date of birth</label
                 >
               </div>
-              <app-datepicker [datepickerConfig]="datepickerConfig" (outputData)="getDateOfBirth($event)"></app-datepicker>
+              <app-datepicker
+                [datepickerConfig]="datepickerConfig"
+                (outputData)="getDateOfBirth($event)"
+              ></app-datepicker>
             </div>
 
             <div class="fv-row pg-mb-4 fv-plugins-icon-container">
               <div class="d-flex flex-stack">
-                <label class="form-label fw-bolder text-dark pg-mb-0">Department</label
+                <label class="form-label fw-bolder text-dark pg-mb-0"
+                  >Department</label
                 >
               </div>
-              <app-multiselect-dropdown [dropdownSettings]="dropdownSettings" [dropdownData]="departments" (outputData)="getDepartments($event)"></app-multiselect-dropdown>
+              <app-multiselect-dropdown
+                [dropdownSettings]="dropdownSettings"
+                [dropdownData]="departments"
+                (outputData)="getDepartments($event)"
+              ></app-multiselect-dropdown>
             </div>
 
             <div class="fv-row pg-mb-4 fv-plugins-icon-container">
@@ -283,7 +288,7 @@
             </div>
             <div class="text-center">
               <app-button
-              [buttonsArray]="submitButton"
+                [buttonsArray]="submitButton"
                 (submitFormEvent)="onRegister()"
               ></app-button>
             </div>

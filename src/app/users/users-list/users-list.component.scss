@@ -1,5 +1,7 @@
+// @import '/src/assets/styles/variables/colors';
 // User List Scss Style
 .table-filter-header {
+  background-color: $colors-base-accent;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,7 +15,7 @@
   .filter_menu.show {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: $colors-base-accent;
     z-index: 105;
     position: fixed;
     width: 325px;
@@ -51,6 +53,7 @@
 @media (max-width: 1180px) {
   .table-filter-header {
     display: flex;
+    background-color: $colors-base-accent;
     flex-direction: column;
     .card-toolbar-filter {
       display: flex;
@@ -108,7 +111,7 @@
           cursor: pointer;
           border-radius: 0.25rem;
           &:hover {
-            color: #0095e8;
+            color: $colors-base-accent;
           }
         }
       }

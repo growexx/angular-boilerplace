@@ -1,0 +1,9 @@
+@for $i from 0 through 100 {
+    .height-#{$i} {
+        height: round(percentage($i/100));
+    }
+}
+
+.height-500px{
+    height: 500px;
+}
