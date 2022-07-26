@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { addTaskType } from '../task-modal';
 import { TaskService } from '../task.service';
@@ -20,7 +20,7 @@ export class AddTaskComponent implements OnInit {
   @ViewChild('failedSwal')
   public readonly failedSwal!: SwalComponent;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.addTaskDetails()
@@ -40,7 +40,7 @@ export class AddTaskComponent implements OnInit {
     this.taskService.addTodos(todoForm).subscribe({
       next: (data: any) => {
         this.addTask = data
-        this.successSwal.fire()
+        this.successSwal.fire();
       },
       error: (error: any) => {
         this.failedSwal.fire()
@@ -50,6 +50,10 @@ export class AddTaskComponent implements OnInit {
 
   clearTodo() {
     this.taskFormGroup.reset()
+  }
+
+  cancelTodo(){
+    this.router.navigate(['/admin/task/view'], {relativeTo: this.route})
   }
 
 }

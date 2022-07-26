@@ -18,11 +18,13 @@
             <div class="d-flex align-items-end justify-content-end">
                 <button class="btn-small btn-primary mr-10" (click)="submitTodo()">Submit</button>
                 <button class="btn-small btn-secondary mr-10" (click)="clearTodo()">Reset</button>
+                <button class="btn-small btn-secondary mr-10" (click)="cancelTodo()">Cancel</button>
+
             </div>
             <div class="text-center">
                 <swal #successSwal title="" text="Task added successfully!" icon="success">
                 </swal>
-                <swal #failedSwal title="" text="Wrong Credentials!" icon="error">
+                <swal #failedSwal title="" text="Unable to add task!" icon="error">
                 </swal>
             </div>
         </form>

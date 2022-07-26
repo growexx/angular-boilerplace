@@ -5,7 +5,7 @@
                 <div class="table-wrapper add-user-panel">
                     <div class="table-header">
                         <div class="tabel-header-panel">
-                            <button class="btn-small btn-primary">Create</button>
+                            <button class="btn-small btn-primary" (click)="createTodo()">Create</button>
                         </div>
                     </div>
                     <div class="table-content">
@@ -16,9 +16,25 @@
                             <div class="todo">
                                 <div><span>{{task['todo']}}</span></div>
                             </div>
-                            <div class="status"><span
+                            <div class="status">
+                                <!--.status-pending-->
+                                <span
                                     class="status status-pills status-{{(task?.completed === true )? 'completed' : 'pending'}}">{{(task?.completed
                                     === true )? 'Completed' : 'Pending'}}</span>
+                            </div>
+                            <div>
+                                <div class="center">
+                                    <div class="mr-10"><img src="assets/images/svg-icons/edit-icon.svg" alt="edit">
+                                    </div>
+                                    <div class="mr-10"><img src="assets/images/svg-icons/delete-icon.svg" alt="delete"
+                                            (click)="deleteTodo(task?.id)"></div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <swal #successSwal title="" text="Task Deleted successfully!" icon="success">
+                                </swal>
+                                <swal #failedSwal title="" text="Unable to delete task!" icon="error">
+                                </swal>
                             </div>
                         </div>
                     </div>

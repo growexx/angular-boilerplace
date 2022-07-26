@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { taskDetailsType } from '../task-modal';
 import { TaskService } from '../task.service';
 
@@ -10,7 +12,13 @@ import { TaskService } from '../task.service';
 export class ViewTaskComponent implements OnInit {
 
   taskDetails !: taskDetailsType;
-  constructor(private taskService: TaskService) { }
+  @ViewChild('successSwal')
+  public readonly successSwal!: SwalComponent;
+
+  @ViewChild('failedSwal')
+  public readonly failedSwal!: SwalComponent;
+
+  constructor(private taskService: TaskService, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getAllTasks()
@@ -23,4 +31,18 @@ export class ViewTaskComponent implements OnInit {
     })
   }
 
+  createTodo(){
+    this.router.navigate(['/admin/task/add'], {relativeTo: this.route})
+  }
+
+  deleteTodo(id:any){
+    console.log(id)
+    this.taskService.deleteTodos(id).subscribe({
+      next:(data:any)=>{
+        console.log(data)
+        this.successSwal.fire();
+        this.getAllTasks()
+      }
+    })
+  }
 }

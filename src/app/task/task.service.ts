@@ -9,7 +9,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl: string = environment.apiUrl1;
+  private apiUrl: string = environment.apiUrl1; 
   private url: string = 'todos/';
 
   getAllTodos(){
@@ -20,5 +20,10 @@ export class TaskService {
   addTodos(payload:any){
     const url = this.apiUrl + this.url + 'add';
     return this.http.post(url,payload);
+  }
+
+  deleteTodos(id:number){
+    const url = this.apiUrl + this.url + id;
+    return this.http.delete(url)
   }
 }
