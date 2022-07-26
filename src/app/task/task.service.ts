@@ -26,4 +26,12 @@ export class TaskService {
     const url = this.apiUrl + this.url + id;
     return this.http.delete(url)
   }
+  updateTodo(id:number,payload:any){
+    const url = this.apiUrl + this.url + id;
+    return this.http.put(url, payload)
+  }
+  getToDoById(id:number){
+    const url = this.apiUrl + this.url + id;
+    return this.http.get(url)
+  }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
-import { addTaskType } from '../task-modal';
+import { addTaskType, getSingleTodoType, updateTaskType } from '../task-modal';
 import { TaskService } from '../task.service';
 
 @Component({
@@ -19,11 +19,24 @@ export class AddTaskComponent implements OnInit {
 
   @ViewChild('failedSwal')
   public readonly failedSwal!: SwalComponent;
-
+  updateTodo!: updateTaskType;
+  id!:number;
+  getSingleTodo: getSingleTodoType[] | any;
+  isCreateMode:boolean = false;
   constructor(private taskService: TaskService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.addTaskDetails()
+    this.addTaskDetails();
+    this.route.params.subscribe((params:Params)=>{
+      if(params['id']){
+        this.id = params['id'];
+        this.getToDoById(params['id']);
+        this.isCreateMode = true
+      }
+      else{
+        this.isCreateMode = false;
+      }
+    })
   }
 
 
@@ -54,6 +67,31 @@ export class AddTaskComponent implements OnInit {
 
   cancelTodo(){
     this.router.navigate(['/admin/task/view'], {relativeTo: this.route})
+  }
+
+  editTodo(id: any) {
+    const data = this.taskFormGroup.getRawValue();
+    id = this.id;
+    console.log(id, data)
+    this.taskService.updateTodo(id, data).subscribe({
+      next: (data: any) => {
+        // this.getSingleTodo = data;
+        this.successSwal.fire()
+      },
+      error: (error:any)=>{
+        this.failedSwal.fire()
+      }
+    })
+  }
+
+  getToDoById(id:number){
+    this.taskService.getToDoById(id).subscribe({
+      next:(data):any =>{
+        console.log(data)
+        this.getSingleTodo = data;
+        this.taskFormGroup.patchValue(this.getSingleTodo)
+      }
+    })
   }
 
 }

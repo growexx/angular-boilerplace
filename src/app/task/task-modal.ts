@@ -23,3 +23,18 @@ export interface addTask {
 }
 
 export type addTaskType = addTask;
+
+export interface updateTask {
+    completed: boolean
+}
+export type updateTaskType = updateTask;
+
+
+export interface getSingleTodo {
+    "id": number,
+    "todo": string,
+    "completed": boolean,
+    "userId": number
+}
+
+export type getSingleTodoType = getSingleTodo;

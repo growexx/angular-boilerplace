@@ -5,24 +5,26 @@
                 <div>
                     <span class="font-14 font-500">Task</span>
                 </div>
-                <textarea name="task" cols="30" rows="10" formControlName="todo"></textarea>
+                <textarea name="task" cols="30" rows="10" formControlName="todo" required></textarea>
             </div>
             <div class="mbl-20">
                 <div><span class="font-14 font-500">Status</span></div>
-                <select name="status" id="" formControlName="completed">
+                <select name="status" id="" formControlName="completed" required>
                     <option value="select">Select</option>
                     <option value="completed">Completed</option>
                     <option value="pending">Pending</option>
                 </select>
             </div>
             <div class="d-flex align-items-end justify-content-end">
-                <button class="btn-small btn-primary mr-10" (click)="submitTodo()">Submit</button>
+                <button class="btn-small btn-primary mr-10" (click)="submitTodo()" *ngIf="!isCreateMode">Submit</button>
+                <button class="btn-small btn-primary mr-10" (click)="editTodo(id)" *ngIf="isCreateMode">Update</button>
                 <button class="btn-small btn-secondary mr-10" (click)="clearTodo()">Reset</button>
                 <button class="btn-small btn-secondary mr-10" (click)="cancelTodo()">Cancel</button>
-
             </div>
             <div class="text-center">
-                <swal #successSwal title="" text="Task added successfully!" icon="success">
+                <swal #successSwal title="" text="Task added successfully!" icon="success" *ngIf="!isCreateMode">
+                </swal>
+                <swal #successSwal title="" text="Task updated successfully!" icon="success" *ngIf="isCreateMode">
                 </swal>
                 <swal #failedSwal title="" text="Unable to add task!" icon="error">
                 </swal>
