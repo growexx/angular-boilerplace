@@ -20,20 +20,20 @@ export class AddTaskComponent implements OnInit {
   @ViewChild('failedSwal')
   public readonly failedSwal!: SwalComponent;
   updateTodo!: updateTaskType;
-  id!:number;
+  id!: number;
   getSingleTodo: getSingleTodoType[] | any;
-  isCreateMode:boolean = false;
-  constructor(private taskService: TaskService,private router: Router, private route: ActivatedRoute) { }
+  isCreateMode: boolean = false;
+  constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.addTaskDetails();
-    this.route.params.subscribe((params:Params)=>{
-      if(params['id']){
+    this.route.params.subscribe((params: Params) => {
+      if (params['id']) {
         this.id = params['id'];
         this.getToDoById(params['id']);
         this.isCreateMode = true
       }
-      else{
+      else {
         this.isCreateMode = false;
       }
     })
@@ -50,14 +50,9 @@ export class AddTaskComponent implements OnInit {
 
   submitTodo() {
     const todoForm = this.taskFormGroup.value;
-    this.taskService.addTodos(todoForm).subscribe({
-      next: (data: any) => {
-        this.addTask = data
-        this.successSwal.fire();
-      },
-      error: (error: any) => {
-        this.failedSwal.fire()
-      }
+    this.taskService.addTodos(todoForm).subscribe((res: any) => {
+      this.addTask = res
+      this.successSwal.fire();
     })
   }
 
@@ -65,33 +60,25 @@ export class AddTaskComponent implements OnInit {
     this.taskFormGroup.reset()
   }
 
-  cancelTodo(){
-    this.router.navigate(['/admin/task/view'], {relativeTo: this.route})
+  cancelTodo() {
+    this.router.navigate(['/admin/task/view'], { relativeTo: this.route })
   }
 
   editTodo(id: any) {
     const data = this.taskFormGroup.getRawValue();
     id = this.id;
-    console.log(id, data)
-    this.taskService.updateTodo(id, data).subscribe({
-      next: (data: any) => {
-        // this.getSingleTodo = data;
-        this.successSwal.fire()
-      },
-      error: (error:any)=>{
-        this.failedSwal.fire()
-      }
+    this.taskService.updateTodo(id, data).subscribe((res: any) => {
+      this.successSwal.fire()
     })
+
   }
 
-  getToDoById(id:number){
-    this.taskService.getToDoById(id).subscribe({
-      next:(data):any =>{
-        console.log(data)
-        this.getSingleTodo = data;
-        this.taskFormGroup.patchValue(this.getSingleTodo)
-      }
+  getToDoById(id: number) {
+    this.taskService.getToDoById(id).subscribe((res: any) => {
+      this.getSingleTodo = res;
+      this.taskFormGroup.patchValue(this.getSingleTodo)
     })
+
   }
 
 }
