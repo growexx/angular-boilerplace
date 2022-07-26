@@ -14,3 +14,12 @@ export interface taskDetails {
 }
 
 export type taskDetailsType = taskDetails
+
+
+export interface addTask {
+    todo: string,
+    completed: boolean,
+    userId: number,
+}
+
+export type addTaskType = addTask;

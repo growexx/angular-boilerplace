@@ -1,0 +1,30 @@
+<div class="add-user-panel">
+    <div class="add-user-wrapper">
+        <form [formGroup]="taskFormGroup">
+            <div class="mbl-20">
+                <div>
+                    <span class="font-14 font-500">Task</span>
+                </div>
+                <textarea name="task" cols="30" rows="10" formControlName="todo"></textarea>
+            </div>
+            <div class="mbl-20">
+                <div><span class="font-14 font-500">Status</span></div>
+                <select name="status" id="" formControlName="completed">
+                    <option value="select">Select</option>
+                    <option value="completed">Completed</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+            <div class="d-flex align-items-end justify-content-end">
+                <button class="btn-small btn-primary mr-10" (click)="submitTodo()">Submit</button>
+                <button class="btn-small btn-secondary mr-10" (click)="clearTodo()">Reset</button>
+            </div>
+            <div class="text-center">
+                <swal #successSwal title="" text="Task added successfully!" icon="success">
+                </swal>
+                <swal #failedSwal title="" text="Wrong Credentials!" icon="error">
+                </swal>
+            </div>
+        </form>
+    </div>
+</div>

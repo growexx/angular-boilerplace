@@ -14,6 +14,11 @@ export class TaskService {
 
   getAllTodos(){
     const url = this.apiUrl + this.url ;
-    return this.http.get(url)
+    return this.http.get(url);
+  }
+
+  addTodos(payload:any){
+    const url = this.apiUrl + this.url + 'add';
+    return this.http.post(url,payload);
   }
 }
