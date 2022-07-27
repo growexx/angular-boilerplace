@@ -19,11 +19,14 @@ export class ViewTaskComponent implements OnInit {
   @ViewChild('failedSwal')
   public readonly failedSwal!: SwalComponent;
 
+
+
+
   constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute, private root: RootService) { }
 
   ngOnInit(): void {
     this.getAllTasks()
-   
+
   }
 
   getAllTasks() {
@@ -38,17 +41,13 @@ export class ViewTaskComponent implements OnInit {
   }
 
   deleteTodo(id: any) {
-    console.log(id)
-    this.taskService.deleteTodos(id).subscribe({
-      next: (data: any) => {
-        console.log(data)
-        this.successSwal.fire();
-        this.getAllTasks()
-      }
+    this.taskService.deleteTodos(id).subscribe((res: any) => {
+      // this.successSwal.fire();
+      this.getAllTasks()
     })
   }
 
-  routeToEdit(id:number){
+  routeToEdit(id: number) {
     this.router.navigate([this.root.editTask(this.taskDetails['todos'][id]?.id)])
   }
 

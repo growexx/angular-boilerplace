@@ -11,7 +11,7 @@ describe('ViewTaskComponent', () => {
   let fixture: ComponentFixture<ViewTaskComponent>;
   let taskService: any;
 
-  taskService = jasmine.createSpyObj('TaskService', ['getAllTodos']);
+  taskService = jasmine.createSpyObj('TaskService', ['getAllTodos','deleteTodos']);
   const task = {
     "todos": [
       {
@@ -27,8 +27,17 @@ describe('ViewTaskComponent', () => {
     "limit": 30
   }
 
-  taskService.getAllTodos.and.returnValue(of(task))
+  const delTodo = {
+    "id": 1,
+    "todo": "Do something nice for someone I care about",
+    "completed": true,
+    "userId": 26,
+    "isDeleted": true,
+    "deletedOn": "2022-07-27T06:44:31.974Z"
+  }
 
+  taskService.getAllTodos.and.returnValue(of(task));
+  taskService.deleteTodos.and.returnValue(of(delTodo));
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -53,6 +62,20 @@ describe('ViewTaskComponent', () => {
 
   it('should call getAllTasks', () => {
     component.getAllTasks()
+    expect(component).toBeTruthy();
+  })
+  it('should call createTodo', () => {
+    component.createTodo()
+    expect(component).toBeTruthy();
+  })
+  it('should call deleteTodo', () => {
+    const id = 1;
+    component.deleteTodo(id)
+    expect(component).toBeTruthy();
+  });
+  it('should call routeToEdit', () => {
+    const id = 1;
+    component.routeToEdit(id)
     expect(component).toBeTruthy();
   })
 });
