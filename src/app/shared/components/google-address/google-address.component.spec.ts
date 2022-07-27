@@ -54,31 +54,7 @@ describe('GoogleAddressComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should check onChanges value', () => {
-  //   component.ngOnChanges({
-  //     prop1: new SimpleChange(prev_value, new_value, is_first_change),
-  //   });
-    
-  //   // expect(component.cCode).toBe(prev_value)
-  //   // component.googleApiForm.controls['countryCo  de'].setValue('us')
-  //   fixture.detectChanges();
-  //   expect(component).toBeTruthy()
 
-  // });
-
-  // it('should check onChanges value', () => {
-  //   expect(component.cCode).toEqual('ca')
-  //   fixture.detectChanges();
-  //   expect(component).toBeTruthy()
-
-  // });
-
-  // it('should call function getResetValue', () => {
-  //   component.getResetValue()
-  //   expect(component).toBeTruthy()
-  // });
-
-  
   it('should call function changeCountryType', () => {
     component.changeCountryType()
     expect(component).toBeTruthy()
@@ -89,14 +65,6 @@ describe('GoogleAddressComponent', () => {
     expect(component).toBeTruthy()
   });
 
-  // it('should test resetValue', ()=>{    
-  //   googleApiService.resetValue.subscribe(
-  //     (res:boolean) => 
-  //     expect(res).toEqual(false, 'should return expectedRes'),
-  //   );
-  //   component.getResetValue()
-  //   expect(component).toBeTruthy()
-  // })
 });
 
 

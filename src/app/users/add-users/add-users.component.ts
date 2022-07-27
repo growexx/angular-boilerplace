@@ -43,7 +43,6 @@ export class AddUsersComponent implements OnInit {
     this.firstFormGroup = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
-      // name: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.email, Validators.required])
     });
@@ -94,7 +93,6 @@ export class AddUsersComponent implements OnInit {
     this.userVal.image = this.userVal.image;
     this.userVal.firstName = this.firstFormGroup.value['firstName'];
     this.userVal.lastName = this.firstFormGroup.value['lastName'];
-    // this.userVal.name = this.firstFormGroup.value['name'];
     this.userVal.phone = this.firstFormGroup.value['phone'];
     this.userVal.address.address = this.secondFormGroup.value['addressLine1'];
     this.userVal.address.city = this.secondFormGroup.value['city'];
@@ -107,14 +105,6 @@ export class AddUsersComponent implements OnInit {
       }
     })
   }
-
-  // countrySelectionChange(event: any, index: number) {
-  //   console.log(event)
-  //   const addressControl = (<FormArray>this.secondFormGroup.controls['customerAddressDTO']) as FormArray;
-  //   addressControl.at(index).get('country')?.setValue(event);
-  //   // const resetArray = ["addressLine2", "addressLine2", "city", "state", "postalCode"]
-  //   // resetArray.forEach((data) => { addressControl.at(index).get(data)?.reset })
-  // }
 
   setSelectedAddress(address: any, index: number) {
     this.secondFormGroup.controls['addressLine1']?.setValue((address['street_number'] + ',' + address['route']) ? address['street_number'] + ',' + address['route'] : '')
