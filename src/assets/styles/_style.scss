@@ -1,11 +1,9 @@
 /**=== Index==========
 //  1. Global
 //  2.Variables
-//  3.Components
-//  4.Shared
+//  3.Shared
 //
 ======================*/
-
 
 /* =============
 // 1. Global 
@@ -23,16 +21,8 @@
 @import './variables/colors';
 @import './variables/common';
 
-
 /* =============
-// 3. Components
-================*/
-// @import './components/auth/auth';
-// @import './components/add-users';
-
-
-/* =============
-// 4.Shared
+// 3.Shared
 ================*/
 @import './shared/sidebar/sidebar';
 @import './shared/header/header';

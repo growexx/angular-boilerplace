@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-import { countryEnum } from 'src/app/core/constants/constant';
+import { AppConstant } from 'src/app/core/constants/app.constant';
 import { AsyncService } from 'src/app/core/services/async.service';
 import { UserService } from '../user.service';
 import { createUser } from '../usermodal';
@@ -17,10 +17,10 @@ export class AddUsersComponent implements OnInit {
   private userFormGroup: FormArray | any;
   public userModal: createUser | any;
   isLinear: boolean = false;
-  imagePath:string ='hello';
+  imagePath: string = 'hello';
   userVal: createUser = {
-    image:'data:/image/jpeg;base64 jdkajska',
-    firstName: 'Nirvi', lastName: 'Shah', phone: '87694657834',email:'abc@growexx.com,',
+    image: 'data:/image/jpeg;base64 jdkajska',
+    firstName: 'Nirvi', lastName: 'Shah', phone: '87694657834', email: 'abc@growexx.com,',
     address: {
       address: 'ddf',
       city: 'toronto',
@@ -32,8 +32,8 @@ export class AddUsersComponent implements OnInit {
   firstFormVal: any;
   secondFormVal: any;
   public isaddressTypeDisabled: boolean = false;
-  countryEnum = countryEnum;
-  constructor(private formBuilder: FormBuilder, private userService: UserService, public asyncService: AsyncService) { }
+  countryEnum = AppConstant.countryEnum;
+  constructor(private formBuilder: FormBuilder, private userService: UserService, public asyncService: AsyncService, public appConstant: AppConstant) { }
 
   ngOnInit(): void {
     this.getDetails()
@@ -84,7 +84,7 @@ export class AddUsersComponent implements OnInit {
 
   getAllControls() {
     const firstName = this.firstFormGroup.value['firstName']
-      }
+  }
 
 
 
@@ -115,8 +115,8 @@ export class AddUsersComponent implements OnInit {
     this.secondFormGroup.controls['country'].setValue((address['country']) ? address['country'] : '')
   }
 
-  
-  changeImage(event:any){
+
+  changeImage(event: any) {
     this.userVal.image = event;
   }
 

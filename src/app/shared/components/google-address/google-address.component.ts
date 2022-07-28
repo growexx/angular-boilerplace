@@ -3,7 +3,7 @@ import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@ang
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { GoogleapiService } from 'src/app/core/services/googleapi.service';
-import { countryEnum } from 'src/app/core/constants/constant';
+import { AppConstant } from 'src/app/core/constants/app.constant';
 import { AsyncService } from 'src/app/core/services/async.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class GoogleAddressComponent implements OnInit {
   // @Output() countrySelectionChanged: EventEmitter<any> = new EventEmitter<any>();
   @Output() selectedAddress: EventEmitter<any> = new EventEmitter<any>();
   private reqObject = { url: '', query: '', placeid: '' };
-  public countryEnum = countryEnum;
+  public countryEnum = AppConstant.countryEnum;
   @Input() addressTypeDisabled: boolean = false;
   @Input() cCode!: string ;
   autoComplete: any;
