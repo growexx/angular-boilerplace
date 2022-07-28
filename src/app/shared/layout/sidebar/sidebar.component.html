@@ -1,8 +1,7 @@
 <div class="d-flex flex-column flex-lg-row-auto positon-xl-relative sidebar"
-    style="background-color: #1e1e2d" ngClass="{{!isOpen ? 'w-200': 'w-80'}}">
+    ngClass="{{!isOpen ? 'w-200': 'w-80'}}">
 
-    <div class="d-flex flex-row text-light p-5 mb-5 justify-content-between align-items-center"
-        style="background-color: #1a1a27;">
+    <div class="d-flex flex-row text-light p-5 mb-5 justify-content-between align-items-center drop">
         <div class="center" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">
             <img src="assets/growexx-logo-without-text.png" alt="" class="w-25">
             <span class="fs-xl-2 ps-5 pt-5 fw-bolder">Growexx</span>
@@ -17,7 +16,7 @@
 
     <div class="d-flex flex-row text-light">
         <ngb-accordion [closeOthers]="true"  class="w-100 panel-accordion"
-            style="background-color: #1a1a27;" ngClass="{{!isOpen ? 'none' : 'center'}}">
+            ngClass="{{!isOpen ? 'none' : 'center'}}">
             <ngb-panel id="static-1">
                 <ng-template ngbPanelTitle>
                     <div ngClass="{{!isOpen ? 'd-flex' : 'center'}}">

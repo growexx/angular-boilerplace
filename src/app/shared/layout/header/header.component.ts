@@ -25,11 +25,8 @@ export class HeaderComponent implements OnInit {
   }
 
   openSlider() {
-    this.isSlider = true
+    this.isSlider = !this.isSlider;
   }
 
-  closeSlider() {
-    this.isSlider = false;
-  }
 
 }

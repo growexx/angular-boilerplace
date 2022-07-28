@@ -1,10 +1,16 @@
 // Auth Sidebar component's scss
-.authSidebarBg{
+.authSidebarBg {
     background-color: #f2c98a;
-    .fw-bolder{
+
+    .fw-bolder {
         color: #986923
     }
-    .fw-bold{
+
+    .fw-bold {
         color: #986923
+    }
+
+    .bgi-size-contain {
+        background-image: url('../../../../assets/13.png')
     }
 }

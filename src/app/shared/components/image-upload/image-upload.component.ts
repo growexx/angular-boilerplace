@@ -16,6 +16,7 @@ export class ImageUploadComponent implements OnInit {
     @ViewChild('fileInput') fileInput: ElementRef | any;
     @Output() imageChange: EventEmitter<any> = new EventEmitter();
     image: any;
+    fileName:any;
     constructor() { }
 
     ngOnInit(): void {
@@ -24,6 +25,8 @@ export class ImageUploadComponent implements OnInit {
     fileChangeEvent(fileInput: any): any {
         this.imageError = '';
         fileInput = fileInput;
+        console.log(fileInput)
+        this.fileName = fileInput.target.files[0].name
         if (fileInput.target.files && fileInput.target.files[0]) {
             // Size Filter Bytes
             const maxSize = 20971520;

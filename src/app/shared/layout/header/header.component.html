@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="icon-panel"><a (click)="openSlider()"><img src="assets/images/svg-icons/barchart.svg"
+                <div class="icon-panel"><a (click)="isSlider = !isSlider"><img src="assets/images/svg-icons/barchart.svg"
                             alt="chart"></a>
                     <div class="slider" *ngIf="isSlider" ngClass="{{isSlider ? 'transform-none': ''}}">
                         <div class="slider-wrapper">
@@ -159,7 +159,7 @@
                                 <div>
                                     <span class="slider-item">Activity Log</span>
                                 </div>
-                                <div><a (click)="closeSlider()"><img src="assets/images/svg-icons/cancel.svg"
+                                <div><a (click)="isSlider = !isSlider"><img src="assets/images/svg-icons/cancel.svg"
                                             alt="cancel"></a></div>
                             </div>
                             <div class="slider-content">
