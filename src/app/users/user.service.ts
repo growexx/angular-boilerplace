@@ -27,7 +27,6 @@ export class UserService {
 
   //View User's tasks
   getUserTask(id:number) {
-    //https://dummyjson.com/users/5/posts
     const url = this.apiUrl + this.url + id + '/posts';
     return this.http.get(url);
 

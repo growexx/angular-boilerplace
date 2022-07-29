@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, flush, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 import { UserService } from '../user.service';
@@ -80,11 +80,6 @@ describe('AddUsersComponent', () => {
     component.addUser();
     expect(component).toBeTruthy();
   })
-
-  // it('should call countrySelectionChange()',()=>{
-  //   component.countrySelectionChange(imageValue, index);
-  //   expect(component).toBeTruthy();
-  // })
 
   it('should call setSelectedAddress()',()=>{
     component.setSelectedAddress(selectedAddress, index);

@@ -33,7 +33,7 @@ export class AddUsersComponent implements OnInit {
   secondFormVal: any;
   public isaddressTypeDisabled: boolean = false;
   countryEnum = AppConstant.countryEnum;
-  constructor(private formBuilder: FormBuilder, private userService: UserService, public asyncService: AsyncService, public appConstant: AppConstant) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, public asyncService: AsyncService) { }
 
   ngOnInit(): void {
     this.getDetails()

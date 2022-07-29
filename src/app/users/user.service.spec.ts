@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { UserService } from './user.service';
-import { environment } from 'src/environments/environment';
 
 describe('UserService', () => {
   let service: UserService;
@@ -37,6 +36,5 @@ describe('UserService', () => {
       res => expect(res).toEqual(expectedRes, 'should return expectedRes'),
       fail
     );
-    // const req = httpTestingController.expectOne(`${environment.apiUrl1}/users/10/posts`)
   })
 });

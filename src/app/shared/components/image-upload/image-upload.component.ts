@@ -1,5 +1,4 @@
-import { outputAst } from '@angular/compiler';
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import * as _ from 'lodash';
 import { AppConstant } from 'src/app/core/constants/app.constant';
 @Component({
@@ -17,10 +16,9 @@ export class ImageUploadComponent implements OnInit {
     @Output() imageChange: EventEmitter<any> = new EventEmitter();
     image: any;
     fileName: any;
+    appConstant: AppConstant = new AppConstant;
 
-
-    constructor(public appConstant: AppConstant) { }
-
+    constructor() { }
     ngOnInit(): void {
     }
 
@@ -32,6 +30,8 @@ export class ImageUploadComponent implements OnInit {
         if (fileInput.target.files && fileInput.target.files[0]) {
             // Size Filter Bytes
 
+            const maxSize = 20971520;
+            const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
             if (fileInput.target.files[0].size > this.appConstant.maxSize) {
                 this.imageError =
                     'Maximum size allowed is ' + this.appConstant.maxSize / 1000 + 'Mb';
@@ -39,8 +39,8 @@ export class ImageUploadComponent implements OnInit {
                 return false;
             }
 
-            if (!_.includes(this.appConstant.allowedTypes, fileInput.target.files[0].type)) {
-                this.appConstant.imageError;
+            if (!_.includes(allowedTypes, fileInput.target.files[0].type)) {
+                this.imageError;
                 return false;
             }
             const reader = new FileReader();
