@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">11.76% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>2/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">7.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>1/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -116,7 +116,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -124,27 +124,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
@@ -158,35 +158,35 @@ import { ThemePalette } from '@angular/material/core';
 export class CheckboxComponent implements OnInit  {
   
  
-  @Output() onChecked: EventEmitter&lt;any&gt; = new EventEmitter&lt;boolean&gt;();
+  @Output() <span class="cstat-no" title="statement not covered" >onChecked: EventEmitter&lt;any&gt; = new EventEmitter&lt;boolean&gt;();</span>
   @Input() checkboxes:any;
   eliminatedValue:any;
   removedElement?:number;
   name? :string;
 checkboxArray:any;
 &nbsp;
-ngOnInit(){
-  this.checkboxArray=[];
+<span class="fstat-no" title="function not covered" >ngOnInit(</span>){
+<span class="cstat-no" title="statement not covered" >  this.checkboxArray=[];</span>
   
-  for(let i=0; i&lt;this.checkboxes.length;i++){
-  if( this.checkboxes[i].checked===true){
-    this.checkboxArray.push(this.checkboxes[i].name);
+<span class="cstat-no" title="statement not covered" >  for(let i=<span class="cstat-no" title="statement not covered" >0;</span> i&lt;this.checkboxes.length;i++){</span>
+<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if( this.checkboxes[i].checked===true){</span>
+<span class="cstat-no" title="statement not covered" >    this.checkboxArray.push(this.checkboxes[i].name);</span>
     }
   }
-  this.onChecked.emit(this.checkboxArray)
+<span class="cstat-no" title="statement not covered" >  this.onChecked.emit(this.checkboxArray)</span>
 }
-  changeValue($event:any){
-      if($event.checked===true){
- this.checkboxArray.push($event.source.name)
+<span class="fstat-no" title="function not covered" >  changeValue(</span>$event:any){
+<span class="cstat-no" title="statement not covered" >      if($event.checked===true){</span>
+<span class="cstat-no" title="statement not covered" > this.checkboxArray.push($event.source.name)</span>
       }else{
-        for(let i =0; i&lt;this.checkboxArray.length;i++){
-          if(this.checkboxArray[i]===$event.source.name){
-            this.eliminatedValue=this.checkboxArray.splice(i,1);
-            $event.source.name = this.eliminatedValue[0];
+<span class="cstat-no" title="statement not covered" >        for(let i =<span class="cstat-no" title="statement not covered" >0;</span> i&lt;this.checkboxArray.length;i++){</span>
+<span class="cstat-no" title="statement not covered" >          <span class="missing-if-branch" title="if path not taken" >I</span>if(this.checkboxArray[i]===$event.source.name){</span>
+<span class="cstat-no" title="statement not covered" >            this.eliminatedValue=this.checkboxArray.splice(i,1);</span>
+<span class="cstat-no" title="statement not covered" >            $event.source.name = this.eliminatedValue[0];</span>
           }
         }
       }
-       this.onChecked.emit(this.checkboxArray)
+<span class="cstat-no" title="statement not covered" >       this.onChecked.emit(this.checkboxArray)</span>
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -196,7 +196,7 @@ ngOnInit(){
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Jul 24 2022 16:53:11 GMT+0530 (India Standard Time)
+                at Mon Aug 01 2022 16:34:07 GMT+0530 (India Standard Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

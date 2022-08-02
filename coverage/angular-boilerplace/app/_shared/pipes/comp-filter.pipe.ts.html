@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>2/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/8</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">11.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>1/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -96,20 +96,20 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -120,21 +120,21 @@
 })
 export class CompFilterPipe implements PipeTransform {
   list :any;
-  transform(items: any[], searchText: string): any[] {
-    console.log(items)
-    if (items<span class="branch-0 cbranch-no" title="branch not covered" >?.l</span>ength===0) {
-      console.log(items)
-      return [];
-    }
-    if (!searchText) {
-      return items;
-    }
-    searchText = searchText.toLocaleLowerCase();
+<span class="fstat-no" title="function not covered" >  transform(</span>items: any[], searchText: string): any[] {
     
-      this.list= items.filter(it =&gt; {
-      return it.firstName.toLocaleLowerCase().includes(searchText) || it.company.department.toLocaleLowerCase().includes(searchText);
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (items?.length===0) {</span>
+      
+<span class="cstat-no" title="statement not covered" >      return [];</span>
+    }
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!searchText) {</span>
+<span class="cstat-no" title="statement not covered" >      return items;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    searchText = searchText.toLocaleLowerCase();</span>
+    
+<span class="cstat-no" title="statement not covered" >      this.list= items.filter(<span class="fstat-no" title="function not covered" >it </span>=&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return it.firstName.toLocaleLowerCase().includes(searchText) || it.company.department.toLocaleLowerCase().includes(searchText);</span>
     });
-  return this.list;
+<span class="cstat-no" title="statement not covered" >  return this.list;</span>
   }
 }
 &nbsp;
@@ -145,7 +145,7 @@ export class CompFilterPipe implements PipeTransform {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Jul 24 2022 16:53:11 GMT+0530 (India Standard Time)
+                at Mon Aug 01 2022 16:34:07 GMT+0530 (India Standard Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

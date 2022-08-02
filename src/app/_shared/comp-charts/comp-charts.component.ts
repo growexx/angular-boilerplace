@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Data, Options } from './comp-charts';
 
 
 @Component({
@@ -8,18 +8,36 @@ import { ButtonComponent } from '../button/button.component';
   styleUrls: ['./comp-charts.component.scss']
 })
 export class CompChartsComponent {
-  
   @Output() changeData: EventEmitter<any> = new EventEmitter<number>();
-
-  @Input() myChart: any;
   @Input() title: any;
-  @Input() btnData:any;
-  @Input() subTitle: any;
-  @Input() showFilterIcon!: boolean;
-  @Input() showButtons!: boolean;
-  @Input() 
-  id: any;
-  
+  @Input() btnData?:any;
+  @Input()buttonClass!:string;
+  @Input() subTitle: any;  
+  id:any;
+  @Input() options!:Options;
+  @Input() data!:Data;
+  countries:any;
+  selectedCountry:any;
+  checkboxes:any;
+  switches:any;
+  constructor(){
+    
+  this.checkboxes = [
+    {id:1,name:'Author', label: 'Author' , disabled: false , checked:false , labelPosition:'after',required: true, color:'primary'},
+    {id:2,name:'Customer', label: 'Customer', disabled: false, checked:true, labelPosition:'after',required: true, color:'primary'},
+     
+  ];
+  this.switches=[
+    {id:1,
+      name:'Enabled',
+      label:'Enabled',
+      required:true,labelPosition:"after",
+    disabled:false,
+    checked:true,
+    color:'primary'},
+    
+      ]
+  }
  
   task1() {
     this.id = 1;
@@ -36,6 +54,16 @@ export class CompChartsComponent {
     this.changeData.emit(3)
   }
 
- 
+  onChecked($event:any){
+
+  }
+  onSelectSwitch($event:any){
+
+  }
+
+  reset(){
+
+  }
+  apply(){}
 
 }

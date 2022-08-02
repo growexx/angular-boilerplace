@@ -1,0 +1,49 @@
+.card-body .py-5 {
+    padding: 0 !important
+}
+
+.fourGridIconClass {
+    background-color: #C9F7F5;
+    z-index: -2;
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.userIconClass {
+    background-color: #E1F0FE;
+    z-index: -2;
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.svg-icon .svg-icon-primary .svg-icon-2x {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-toolbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .card-stretch .card-flush .shadow-sm .col-lg-6 {
+    height: 200px;
+    width: 300px
+}
+
+.card-header {
+    height: 50px;
+}
+
+.mainDiv {
+    background-color: #EFF2F5;
+}

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">11.76% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>2/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">7.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>1/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -120,39 +120,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
@@ -166,39 +166,39 @@
 })
 export class SwitchComponent implements OnInit {
   @Input() switches: any;
-  @Output() slide: EventEmitter&lt;any&gt; = new EventEmitter&lt;any&gt;();
+  @Output() <span class="cstat-no" title="statement not covered" >slide: EventEmitter&lt;any&gt; = new EventEmitter&lt;any&gt;();</span>
   name?:string;
   switchArray:any;
   eliminatedValue:any;
 &nbsp;
-  ngOnInit() {
+<span class="fstat-no" title="function not covered" >  ngOnInit(</span>) {
   
-    this.switchArray=[];
+<span class="cstat-no" title="statement not covered" >    this.switchArray=[];</span>
    
-    for(let i=0; i&lt;this.switches.length;i++){
-    if( this.switches[i].checked===true){
-      this.switchArray.push(this.switches[i].name);
+<span class="cstat-no" title="statement not covered" >    for(let i=<span class="cstat-no" title="statement not covered" >0;</span> i&lt;this.switches.length;i++){</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if( this.switches[i].checked===true){</span>
+<span class="cstat-no" title="statement not covered" >      this.switchArray.push(this.switches[i].name);</span>
       }
      
     }
    
-    this.slide.emit(this.switchArray)
+<span class="cstat-no" title="statement not covered" >    this.slide.emit(this.switchArray)</span>
   }
 &nbsp;
 &nbsp;
-  onSelect($event:any){
+<span class="fstat-no" title="function not covered" >  onSelect(</span>$event:any){
     
-if($event.checked===true){
-  this.switchArray.push($event.source.name)
+<span class="cstat-no" title="statement not covered" >if($event.checked===true){</span>
+<span class="cstat-no" title="statement not covered" >  this.switchArray.push($event.source.name)</span>
        }else{
-         for(let i =0; i&lt;this.switchArray.length;i++){
-           if(this.switchArray[i]===$event.source.name){
-             this.eliminatedValue=this.switchArray.splice(i,1);
-             $event.source.name = this.eliminatedValue[0];
+<span class="cstat-no" title="statement not covered" >         for(let i =<span class="cstat-no" title="statement not covered" >0;</span> i&lt;this.switchArray.length;i++){</span>
+<span class="cstat-no" title="statement not covered" >           <span class="missing-if-branch" title="if path not taken" >I</span>if(this.switchArray[i]===$event.source.name){</span>
+<span class="cstat-no" title="statement not covered" >             this.eliminatedValue=this.switchArray.splice(i,1);</span>
+<span class="cstat-no" title="statement not covered" >             $event.source.name = this.eliminatedValue[0];</span>
            }
          }
        }
-        this.slide.emit(this.switchArray)
+<span class="cstat-no" title="statement not covered" >        this.slide.emit(this.switchArray)</span>
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -208,7 +208,7 @@ if($event.checked===true){
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Jul 24 2022 16:53:11 GMT+0530 (India Standard Time)
+                at Mon Aug 01 2022 16:34:07 GMT+0530 (India Standard Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

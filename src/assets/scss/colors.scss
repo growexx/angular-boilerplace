@@ -30,21 +30,55 @@ $bs-info: #7239EA;
 $bs-warning: #FFC700;
 $bs-danger: #F1416C;
 $bs-dark: #181C32;
-$bs-white-rgb: 255, 255, 255;
-$bs-light-rgb: 245, 248, 250;
-$bs-primary-rgb: 0, 158, 247;
-$bs-secondary-rgb: 228, 230, 239;
-$bs-success-rgb: 80, 205, 137;
-$bs-info-rgb: 114, 57, 234;
-$bs-warning-rgb: 255, 199, 0;
-$bs-danger-rgb: 241, 65, 108;
-$bs-dark-rgb: 24, 28, 50;
-$bs-white-rgb: 255, 255, 255;
-$bs-black-rgb: 0, 0, 0;
-$bs-body-color-rgb: 24, 28, 50;
-$bs-body-bg-rgb: 255, 255, 255;
-$bs-font-sans-serif: Poppins, Helvetica, "sans-serif";
-$bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$bs-white-rgb: 255,
+255,
+255;
+$bs-light-rgb: 245,
+248,
+250;
+$bs-primary-rgb: 0,
+158,
+247;
+$bs-secondary-rgb: 228,
+230,
+239;
+$bs-success-rgb: 80,
+205,
+137;
+$bs-info-rgb: 114,
+57,
+234;
+$bs-warning-rgb: 255,
+199,
+0;
+$bs-danger-rgb: 241,
+65,
+108;
+$bs-dark-rgb: 24,
+28,
+50;
+$bs-white-rgb: 255,
+255,
+255;
+$bs-black-rgb: 0,
+0,
+0;
+$bs-body-color-rgb: 24,
+28,
+50;
+$bs-body-bg-rgb: 255,
+255,
+255;
+$bs-font-sans-serif: Poppins,
+Helvetica,
+"sans-serif";
+$bs-font-monospace: SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+"Liberation Mono",
+"Courier New",
+monospace;
 $bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 $bs-body-font-family: var($bs-font-sans-serif);
 $bs-body-font-size: 1rem;
@@ -52,3 +86,138 @@ $bs-body-font-weight: 400;
 $bs-body-line-height: 1.5;
 $bs-body-color: #181C32;
 $bs-body-bg: #ffffff;
+$colors-base-accent: rgb(84, 173, 198);
+$colors-base-accent-t-75: rgba(84, 173, 198, 0.75);
+$colors-base-accent-t-50: rgba(84, 173, 198, 0.5);
+$colors-base-accent-t-25: rgba(84, 173, 198, 0.25);
+$colors-base-accent-t-10: rgba(84, 173, 198, 0.1);
+$colors-base-accent-t-02: rgba(84, 173, 198, 0.02);
+// Accent Color
+$colors-base-primary: rgb(80, 48, 110);
+$colors-base-primary-t-75: rgba(80, 48, 110, 0.75);
+$colors-base-primary-t-50: rgba(80, 48, 110, 0.5);
+$colors-base-primary-t-25: rgba(80, 48, 110, 0.25);
+$colors-base-primary-t-10: rgba(80, 48, 110, 0.1);
+$colors-base-primary-t-02: rgba(80, 48, 110, 0.02);
+// Secondary Color
+$colors-base-secondary: rgb(80, 150, 69);
+$colors-base-secondary-t-75: rgba(80, 150, 69, 0.75);
+$colors-base-secondary-t-50: rgba(80, 150, 69, 0.5);
+$colors-base-secondary-t-25: rgba(80, 150, 69, 0.25);
+$colors-base-secondary-t-10: rgba(80, 150, 69, 0.1);
+$colors-base-secondary-t-02: rgba(80, 150, 69, 0.02);
+// Success
+$colors-base-success: rgb(174, 221, 119);
+$colors-base-success-t-75: rgba(174, 221, 119, 0.75);
+$colors-base-success-t-50: rgba(174, 221, 119, 0.5);
+$colors-base-success-t-25: rgba(174, 221, 119, 0.25);
+$colors-base-success-t-10: rgba(174, 221, 119, 0.1);
+$colors-base-success-v-high: rgb(124, 188, 49);
+$colors-base-success-v-high-t-54: rgba(124, 188, 49, 0.54);
+$colors-base-success-v-medium: rgb(166, 219, 104);
+$colors-base-success-v-low: rgb(202, 235, 164);
+$colors-success-body-text: rgb(98, 136, 53); // Hex Code #628835
+$colors-success-body-status: rgb(86, 168, 0); // Hex Code #56a800
+// Warning
+$colors-base-warning: rgb(245, 235, 110);
+$colors-base-warning-t-75: rgba(245, 235, 110, 0.75);
+$colors-base-warning-t-50: rgba(245, 235, 110, 0.5);
+$colors-base-warning-t-25: rgba(245, 235, 110, 0.25);
+$colors-base-warning-t-10: rgba(245, 235, 110, 0.1);
+$colors-base-warning-v-high: rgb(243, 229, 48);
+$colors-base-warning-v-medium: rgb(248, 238, 115);
+$colors-base-warning-v-low: rgb(241, 236, 173);
+$colors-base-warning-border: rgb(228, 218, 83);
+$colors-base-warning-shadow: rgb(225, 216, 104);
+// Error
+$colors-base-error: rgb(197, 35, 53);
+$colors-base-error-t-75: rgba(197, 35, 53, 0.75);
+$colors-base-error-t-50: rgba(197, 35, 53, 0.5);
+$colors-base-error-t-25: rgba(197, 35, 53, 0.25);
+$colors-base-error-t-10: rgba(197, 35, 53, 0.1);
+$colors-base-error-v-high: #D11328;
+$colors-base-error-v-medium: rgb(237, 72, 90);
+$colors-base-error-v-low: rgb(255, 133, 146);
+$colors-error: rgb(224, 32, 32); // #e02020
+// Netural black color
+$colors-neutral-black: rgb(35, 35, 35);
+$colors-neutral-black-t-75: rgba(35, 35, 35, 0.75);
+$colors-neutral-black-t-50: rgba(35, 35, 35, 0.5);
+$colors-neutral-black-t-25: rgba(35, 35, 35, 0.25);
+$colors-neutral-black-t-10: rgba(35, 35, 35, 0.1);
+$colors-neutral-black-v-high: rgb(0, 0, 0);
+$colors-neutral-black-v-high-00: rgba(0, 0, 0, 0);
+$colors-neutral-black-v-high-01: rgba(0, 0, 0, 0.01);
+$colors-neutral-black-v-high-07: rgba(0, 0, 0, 0.07);
+$colors-neutral-black-v-high-08: rgba(0, 0, 0, 0.08);
+$colors-neutral-black-v-high-10: rgba(0, 0, 0, 0.1);
+$colors-neutral-black-v-high-21: rgba(0, 0, 0, 0.21);
+$colors-neutral-black-v-high-25: rgba(0, 0, 0, 0.25);
+$colors-neutral-black-v-high-27: rgba(0, 0, 0, 0.27);
+$colors-neutral-black-v-high-50: rgba(0, 0, 0, 0.5);
+$colors-neutral-black-v-high-85: rgba(0, 0, 0, 0.85);
+$colors-neutral-black-v-medium: rgb(5, 2, 2);
+$colors-neutral-black-v-low: rgb(89, 89, 89);
+// Netural white color
+$colors-neutral-white: rgb(255, 255, 255);
+$colors-neutral-white-t-75: rgba(255, 255, 255, 0.75);
+$colors-neutral-white-t-50: rgba(255, 255, 255, 0.5);
+$colors-neutral-white-t-25: rgba(255, 255, 255, 0.25);
+$colors-neutral-white-t-10: rgba(255, 255, 255, 0.1);
+// Netural dark color
+$colors-neutral-dark: rgb(74, 74, 74);
+$colors-neutral-dark-t-75: rgba(74, 74, 74, 0.75);
+$colors-neutral-dark-t-50: rgba(74, 74, 74, 0.5);
+$colors-neutral-dark-t-25: rgba(74, 74, 74, 0.25);
+$colors-neutral-dark-t-10: rgba(74, 74, 74, 0.1);
+$colors-neutral-dark-t-15: rgba(74, 74, 74, 0.15);
+$colors-neutral-dark-v-high: rgb(53, 53, 53);
+$colors-neutral-dark-v-medium: rgb(120, 120, 120);
+$colors-neutral-dark-v-low: rgb(234, 234, 234);
+$colors-neutral-light: rgb(203, 203, 203);
+$colors-neutral-light-t-75: rgba(203, 203, 203, 0.75);
+$colors-neutral-light-t-50: rgba(203, 203, 203, 0.5);
+$colors-neutral-light-t-25: rgba(203, 203, 203, 0.25);
+$colors-neutral-light-t-10: rgba(203, 203, 203, 0.1);
+$colors-neutral-light-v-high: rgb(152, 152, 152);
+$colors-neutral-light-v-medium: rgb(189, 189, 189);
+$colors-neutral-light-v-low: rgb(241, 241, 241);
+// Extra
+$colors-background-light: rgb(250, 250, 250);
+$colors-neutral-dark-gray: rgb(57, 57, 57);
+$color-input-text: rgb(146, 146, 146); // Hex code: #929292
+$color-input-border-gray: rgb(140, 140, 140); // Hex code: #8c8c8c
+$color-input-border-gray-light: rgb(151, 151, 151); // Hex code: #8c8c8c
+$color-input-border-blue: rgb(93, 143, 231); //  Hex code: #5e8ee7
+$color-dropdown-border-gray: rgb(203, 203, 203);
+$color-dropdown-border-gray-t-25: rgba(203, 203, 203, 0.25);
+$colors-dropdown-option-border: rgb(127, 127, 127);
+$color-dropdown-hover: rgb(0, 88, 233); //  Hex code: #0058E9
+$colors-disabled: rgb(176, 176, 176);
+$colors-neutral-gray-light-5: rgba(216, 216, 216, 0.5);
+$colors-neutral-gray-border: rgb(216, 216, 216);
+$colors-button-shadow: rgba(135, 0, 0, 0.15);
+$color-gray-border: rgb(189, 189, 189);
+$colors-input-validation-success: rgb(131, 169, 86);
+$colors-input-border-gray: rgba(140, 140, 140, 0.2);
+$colors-input-disabled: rgb(108, 108, 108);
+$colors-input-disabled-background: rgb(233, 233, 233);
+$colors-input-disabled-placeholder: rgb(158, 158, 158);
+$colors-input-required-asterisk: rgb(222, 28, 28);
+$colors-tooltip-font: rgb(105, 105, 105);
+$colors-input-border-gray-light: rgba(151, 151, 151, 0.2);
+$colors-input-error-background: rgba(224, 32, 32, 0.05);
+$colors-page-background: rgba(192, 172, 172, 0.07);
+$colors-page-shadow: rgba(139, 14, 4, 0.06);
+$colors-background-white: rgb(251, 249, 249);
+$colors-cms-setting-bg: rgb(238, 238, 238); // Hex #EEEEEE
+$colors-cms-edit-option: rgb(145, 21, 0);
+$colors-tooltip-text: rgb(128, 128, 128);
+$colors-dropdown-button-option-border: rgba(140, 140, 140, 0.2);
+$colors-editor-toolbar: rgb(251, 249, 249);
+$colors-editor-placeholder: rgb(146, 146, 146);
+$colors-pop-up-text: rgb(39, 39, 39);
+$color-status-shipped: rgb(232, 170, 0); //#e8aa00
+$colors-heading-text: rgb(44, 44, 44);
+$colors-input-label-text: rgb(84, 84, 84);
+$color-selected-date-range: rgb(0, 122, 212);

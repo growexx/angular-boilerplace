@@ -34,7 +34,14 @@ import {MatRadioModule} from '@angular/material/radio';
 import { TextAreaComponent } from './_shared/text-area/text-area.component';
 import { SwitchComponent } from './_shared/switch/switch.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { ChartsDataService } from './charts-data.service';
+// import { ChartsDataService } from './charts-data.service';
+import { TimelineComponent } from './_shared/timeline/timeline.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './_shared/widgets/dialog/dialog.component';
+import { UniquePipe } from './_shared/pipes/unique.pipe';
+import {MatTableModule} from '@angular/material/table';
+import { LineChartComponent } from './_shared/line-chart/line-chart.component';
+import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,22 +61,29 @@ import { ChartsDataService } from './charts-data.service';
     RadioButtonComponent,
     TextAreaComponent,
     SwitchComponent,
+    TimelineComponent,
+    DialogComponent,
+    UniquePipe,
+    LineChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ChartModule,
     MatInputModule,
     MatTabsModule,
+    DropdownModule,
     FormsModule,
     TableModule,
     MatRadioModule,
     MatCheckboxModule,
     MatSlideToggleModule,
-    BrowserAnimationsModule,
+    MatDialogModule,
+    MatTableModule,
     SweetAlert2Module.forRoot(),
     NgCircleProgressModule.forRoot({
       "radius": 60,

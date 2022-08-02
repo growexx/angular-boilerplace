@@ -1,32 +1,46 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+// @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat.core();
+// @include mat.core();
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$angular-boilerplace-primary: mat.define-palette(mat.$indigo-palette);
-$angular-boilerplace-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// $angular-boilerplace-primary: mat.define-palette(mat.$indigo-palette);
+// $angular-boilerplace-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 // The warn palette is optional (defaults to red).
-$angular-boilerplace-warn: mat.define-palette(mat.$red-palette);
+// $angular-boilerplace-warn: mat.define-palette(mat.$red-palette);
+// $colors-base-accent: rgb(84, 173, 198);
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$angular-boilerplace-theme: mat.define-light-theme(( color: ( primary: $angular-boilerplace-primary, accent: $angular-boilerplace-accent, warn: $angular-boilerplace-warn, )));
+// $angular-boilerplace-theme: mat.define-light-theme(( color: ( primary: $angular-boilerplace-primary, accent: $angular-boilerplace-accent, warn: $angular-boilerplace-warn, )));
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($angular-boilerplace-theme);
+// @include mat.all-component-themes($angular-boilerplace-theme);
 // /* You can add global styles to this file, and also import other style files */
 // /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 @import "./assets/scss/colors.scss";
 @import "./node_modules/8-point-grid/scss/8-point-grid.scss";
 @import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
+@import "src/assets/scss/colors.scss";
 //? Theme style
+// $colors-base-accent: rgb(84, 173, 198);
+// $colors-base-accent-t-75: rgba(84, 173, 198, 0.75);
+// $colors-base-accent-t-50: rgba(84, 173, 198, 0.5);
+// $colors-base-accent-t-25: rgba(84, 173, 198, 0.25);
+// $colors-base-accent-t-10: rgba(84, 173, 198, 0.1);
+// $colors-base-accent-t-02: rgba(84, 173, 198, 0.02);
+// $colors-palette:( $colors-base-accent-t-75: rgba(84, 173, 198, 0.75);
+// $colors-base-accent-t-50: rgba(84, 173, 198, 0.5);
+// $colors-base-accent-t-25: rgba(84, 173, 198, 0.25);
+// $colors-base-accent-t-10: rgba(84, 173, 198, 0.1);
+// $colors-base-accent-t-02: rgba(84, 173, 198, 0.02);
+// );
 *,
 *::before,
 *::after {
@@ -48227,10 +48241,12 @@ body {
 .mat-checkbox-inner-container {
     background-color: #E4E6EF;
     border-radius: 4px !important;
+    width: 24px !important;
+    height: 24px !important
 }
 
 .mat-checkbox-frame {
-    border-radius: 4px !important;
+    border-radius: 12px !important;
     border-width: 1px !important;
     border-color: #E4E6EF !important;
 }
@@ -48259,6 +48275,7 @@ body {
     width: 40px;
     border-radius: 92px;
     background-color: #E4E6EF;
+    box-shadow: 1px 1px 4px #7E8299;
 }
 
 .mat-slide-toggle-thumb {
@@ -48267,6 +48284,7 @@ body {
     border-radius: 50%;
     margin-top: 4px;
     margin-right: 33px;
+    box-shadow: 2px 2px 4px #7E8299;
 }
 
 .mat-slide-toggle-thumb:after {
@@ -48281,3 +48299,21 @@ body {
     width: 24px !important;
     height: 32px !important;
 }
+
+.dropdown-toggle::after {
+    display: none !important
+}
+
+.card .card-body.cardBody {
+    padding: 0 !important
+}
+
+.card-stretch.card-flush.shadow-sm {
+    padding-bottom: 0;
+    border: 0 !important;
+}
+
+
+/* Importing Bootstrap SCSS file. */
+
+@import '~bootstrap/scss/bootstrap';

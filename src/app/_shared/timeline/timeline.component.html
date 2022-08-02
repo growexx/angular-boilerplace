@@ -1,0 +1,94 @@
+<!-- <p>timeline works!</p>
+<div class="card card-stretch card-flush shadow-sm">
+    <div class=" timeline ">
+        <div *ngFor="let item of value " class="timeline-event ">
+            <div class="timeline-content-date ">
+
+                <span class="timeline-date ">
+                {{item.date}}</span>
+            </div>
+            <div class="timeline-point-track-container ">
+                <div class="timeline-point " [ngStyle]="item?.status==='Done' ? { 'borderColor': '#50CD89'} : { 'borderColor': '#dc3545'} "></div>
+                <div class=" timeline-track "></div>
+            </div>
+            <div class="timeline-content ">
+                <span [ngStyle]="item?.status==='Done' ? { 'color': 'black'} : { 'color': '#B5B5C3'} ">{{item.content}}</span>
+
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="divChart">
+    <div class="card card-stretch card-flush shadow-sm col-lg-6">
+        <div class="card-header">
+            <div>
+                <h3 class="card-title">{{title}}</h3>
+                <h5 class="card-subtitle">{{subtitle}}</h5>
+            </div>
+            <div class="card-toolbar">
+
+
+                <!-- <div ngbDropdown class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
+                      Action
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <a ngbDropdownItem href="#">Action</a>
+                        <a ngbDropdownItem href="#">Another action</a>
+                        <a ngbDropdownItem href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a ngbDropdownItem href="#">Separated link</a>
+                    </div>
+                </div> -->
+                <div class="col">
+                    <div ngbDropdown class="d-inline-block">
+                        <button type="button" class="btn1" id="dropdownBasic1" ngbDropdownToggle><span class=" svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/General/Other2.svg--><svg class="meatball" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24"/>
+                                <circle class="dots" fill="#B4B4C2" cx="5" cy="12" r="2"/>
+                                <circle class="dots" fill="#B4B4C2" cx="12" cy="12" r="2"/>
+                                <circle class="dots" fill="#B4B4C2" cx="19" cy="12" r="2"/>
+                            </g>
+                        </svg><!--end::Svg Icon--></span></button>
+                        <div class="dropdownMenu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <h3 class="dropdown-header">Choose Label</h3>
+                            <div class="dropdown-divider"></div>
+                            <div *ngFor="let s of events | unique">
+                                <!-- <div>{{s.completed | json}}</div> -->
+
+
+                                <button *ngIf="s.completed" ngbDropdownItem><div class="completed-banner" ><span class="completed-label">Completed</span></div></button>
+                                <button *ngIf="!s.completed" ngbDropdownItem><div class="pending-banner" ><span class="pending-label">Pending</span></div></button>
+
+
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a ngbDropdownItem href="#" class="btn btn-text btn-hover-light-success font-weight-bold mr-2">Add item</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card-body py-5">
+            <div class=" timeline ">
+                <div *ngFor="let item of events " class="timeline-event ">
+                    <div class="timeline-content-date ">
+
+                        <span class="timeline-date ">
+                    {{item.userId}}</span>
+                    </div>
+                    <div class="timeline-point-track-container ">
+                        <div class="timeline-point " [ngStyle]="item.completed===true ? { 'borderColor': 'rgba(84, 173, 198, 0.75)'} : { 'borderColor': '#dc3545'} "></div>
+                        <div class=" timeline-track "></div>
+                    </div>
+                    <div class="timeline-content ">
+                        <span [ngStyle]="item.completed===true ? { 'color': '#B5B5C3'}:{ 'color': 'black'} ">{{item.todo}}</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

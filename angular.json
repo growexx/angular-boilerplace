@@ -34,16 +34,18 @@
                             "src/assets"
                         ],
                         "styles": [
-
+                            { "input": "src/my-theme.scss" },
                             "src/styles.scss",
-                            "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+
                             "./node_modules/primeicons/primeicons.css",
                             "./node_modules/primeng/resources/themes/bootstrap4-light-blue/theme.css",
-                            "./node_modules/primeng/resources/primeng.min.css"
+                            "./node_modules/primeng/resources/primeng.min.css",
+                            "./node_modules/bootstrap/dist/css/bootstrap.min.css"
 
                         ],
                         "scripts": [
-                            "./node_modules/chart.js/dist/chart.js"
+                            "./node_modules/chart.js/dist/chart.js",
+                            "./node_modules/bootstrap/dist/js/bootstrap.js"
                         ]
                     },
                     "configurations": {

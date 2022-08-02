@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">14.28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/14</span>
+                <span class='fraction'>2/14</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">8.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/12</span>
+                <span class='fraction'>1/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -148,44 +148,44 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -216,44 +216,44 @@ export class LoginComponent implements OnInit {
   @ViewChild('failedSwal')
   public readonly failedSwal!: SwalComponent;
 &nbsp;
-  loginForm = new FormGroup({
+<span class="cstat-no" title="statement not covered" >  loginForm = new FormGroup({</span>
     email: new FormControl('eve.holt@reqres.in', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
     password: new FormControl('cityslicka', [Validators.required, Validators.pattern(/^(?=.*[a-z])[A-Za-z\d@$!%*?&amp;]{8,}$/)]),
     // password: new FormControl('cityslicka', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&amp;])[A-Za-z\d@$!%*?&amp;]{8,}$/)]),
   });
 &nbsp;
-  submitButton: any = {
+<span class="cstat-no" title="statement not covered" >  submitButton: any = {</span>
     "text": "Sign In",
     "id": "signin",
     "type": "submit",
     "btnClasses": "btn btn-lg btn-primary w-100 mb-5"
   }
 &nbsp;
-  constructor(private authService: AuthService, private router: Router) { }
+<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" >a</span>uthService: AuthService,</span> private <span class="cstat-no" title="statement not covered" >router: Router)</span> { }
 &nbsp;
-  ngOnInit(): void { }
+<span class="fstat-no" title="function not covered" >  ngOnInit(</span>): void { }
 &nbsp;
-  onLogin() {
+<span class="fstat-no" title="function not covered" >  onLogin(</span>) {
 &nbsp;
-    this.submitButton = {
+<span class="cstat-no" title="statement not covered" >    this.submitButton = {</span>
       text: "Please Wait...",
       type: "submit",
       btnClasses: "btn btn-lg btn-primary w-100 mb-5",
       iconClasses: 'fa fa-spinner fa-spin',
       iconPlace: 'after'
     };
-    this.authService.login(this.loginForm.value)
+<span class="cstat-no" title="statement not covered" >    this.authService.login(this.loginForm.value)</span>
       .subscribe({
-        next: data =&gt; {
-          this.submitButton = {
+        next: <span class="fstat-no" title="function not covered" >data </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >          this.submitButton = {</span>
             "text": "Sign In",
             "id": "signin",
             "type": "submit",
             "btnClasses": "btn btn-lg btn-primary w-100 mb-5"
           };
-          this.successSwal.fire();
-          localStorage.setItem('token', data.token);
-          this.router.navigate(['/dashboard']);
+<span class="cstat-no" title="statement not covered" >          this.successSwal.fire();</span>
+<span class="cstat-no" title="statement not covered" >          localStorage.setItem('token', data.token);</span>
+<span class="cstat-no" title="statement not covered" >          this.router.navigate(['/dashboard']);</span>
         },
         error: <span class="fstat-no" title="function not covered" >error </span>=&gt; {
 <span class="cstat-no" title="statement not covered" >          this.submitButton = {</span>
@@ -274,7 +274,7 @@ export class LoginComponent implements OnInit {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Jul 24 2022 16:53:11 GMT+0530 (India Standard Time)
+                at Mon Aug 01 2022 16:34:07 GMT+0530 (India Standard Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>
