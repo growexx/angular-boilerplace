@@ -1,100 +1,100 @@
 .modal-panel {
-    width: 500px;
-    max-width: 500px;
-    display: $d-block !important;
+  width: 500px;
+  max-width: 500px;
+  display: $d-block !important;
 
-    // .modal-content {
-        // @media(max-width: breakpoint(screen-md-max)) {
-        //     width: 100%;
-        // }
+  // .modal-content {
+  // @media(max-width: breakpoint(screen-md-max)) {
+  //     width: 100%;
+  // }
 
-        .modal-header {
-            padding: 20px 36px;
-            display: $d-flex;
-            align-items: $align-items-center;
-            justify-content: $justify-content-space-between;
-            border-bottom: 1px solid #EFF2F5;
-            background-color: $bs-white;
+  .modal-header {
+    padding: 20px 36px;
+    display: $d-flex;
+    align-items: $align-items-center;
+    justify-content: $justify-content-space-between;
+    border-bottom: 1px solid #eff2f5;
+    background-color: $bs-white;
 
-            @media(max-width: breakpoint(screen-md-max)) {
-                width: 100%;
+    @media (max-width: breakpoint(screen-md-max)) {
+      width: 100%;
+    }
+
+    .modal-item {
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 500;
+    }
+  }
+
+  .modal-body {
+    padding: 32px 36px;
+    height: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    @media (max-width: breakpoint(screen-xs-min)) {
+      max-height: 450px;
+    }
+
+    @media (max-width: breakpoint(screen-sm-max)) {
+      max-height: 763px;
+    }
+
+    .content-panel {
+      border: none;
+      padding: 0;
+      margin: 0;
+
+      .content-items-panel {
+        max-height: 100%;
+
+        .content-items {
+          margin-bottom: 10px;
+          .icon img {
+            border-radius: 50%;
+            margin-right: 20px;
+            width: 35px;
+            height: 35px;
+          }
+
+          .content-item {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 600;
+
+            &:hover {
+              color: $bs-primary;
             }
+          }
 
-            .modal-item {
-                font-size: 16px;
-                line-height: 20px;
-                font-weight: 500;
-            }
+          .content-subitem {
+            color: $bs-gray-700;
+            font-size: 12px;
+            line-height: 16px;
+          }
         }
+      }
+    }
+  }
 
-        .modal-body {
-            padding: 32px 36px;
-            height: 100%;
-            max-height: 300px;
-            overflow-y: auto;
-            overflow-x: hidden;
+  .modal-footer {
+    padding: 20px 36px;
+    border-bottom: 1px solid #eff2f5;
+    display: $d-flex;
+    align-items: $align-items-center;
+    justify-content: $justify-content-center;
+    background-color: $bs-white;
 
-            @media(max-width: breakpoint(screen-xs-min)) {
-                max-height: 450px;
-            }
+    @media (max-width: breakpoint(screen-md-max)) {
+      width: 100%;
+    }
 
-            @media(max-width: breakpoint(screen-sm-max)) {
-                max-height: 763px;
-            }
-
-            .content-panel {
-                border: none;
-                padding: 0;
-                margin: 0;
-
-                .content-items-panel {
-                    max-height: 100%;
-
-                    .content-items {
-                        margin-bottom: 10px;
-                        .icon img {
-                            border-radius: 50%;
-                            margin-right: 20px;
-                            width: 35px;
-                            height: 35px;
-                        }
-
-                        .content-item {
-                            font-size: 16px;
-                            line-height: 20px;
-                            font-weight: 600;
-
-                            &:hover {
-                                color: $bs-primary;
-                            }
-                        }
-
-                        .content-subitem {
-                            color: $bs-gray-700;
-                            font-size: 12px;
-                            line-height: 16px;
-                        }
-                    }
-                }
-            }
-        }
-
-        .modal-footer {
-            padding: 20px 36px;
-            border-bottom: 1px solid #EFF2F5;
-            display: $d-flex;
-            align-items: $align-items-center;
-            justify-content: $justify-content-center;
-            background-color: $bs-white;
-
-            @media(max-width: breakpoint(screen-md-max)) {
-                width: 100%;
-            }
-
-            span {
-                color: $bs-primary;
-                font-size: $font-14;
-            }
-        }
-    // }
+    span {
+      color: $bs-primary;
+      font-size: $font-14;
+    }
+  }
+  // }
 }

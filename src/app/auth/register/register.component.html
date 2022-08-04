@@ -1,152 +1,153 @@
-<div class="d-flex flex-column flex-lg-row flex-column-fluid root-container">
-  <div class="d-flex flex-column flex-lg-row-auto width-50 positon-xl-relative bg-accent color-accent-t50 sidebar-container">
-    <app-authsidebar></app-authsidebar>
-  </div>
-  <div
-    class="d-flex flex-column flex-lg-row-fluid justify-content-center align-items-center"
-  >
-    <div class="d-flex flex-column flex-lg-row-fluid">
-      <div class="d-flex flex-center flex-column flex-column-fluid">
-        <div class="w-lg-500px pg-p-8 pg-mx-auto">
-          <div class="text-center pg-mb-6">
-            <h1 class="text-dark pg-mb-1">Create an Account</h1>
-            <div class="text-gray-400 fw-bold pg-fs-2">
-              Already have an account?
-              <a routerLink="/" class="link-primary fw-bolder">Sign in here</a>
+<div class="height-100 d-flex flex-center flex-column flex-column-fluid">
+  <div class="d-flex flex-center flex-column flex-column-fluid">
+    <div class="width-500px width-sm-100 pg-p-3 pg-mx-auto">
+      <div class="text-center pg-mb-6">
+        <a class="pg-mb-2">
+          <img
+            alt="Logo"
+            src="assets/growexx-logo-without-text.png"
+            class="width-20 width-sm-25 pg-mb-2 site-logo"
+          />
+        </a>
+        <p class="text-dark pg-mb-1 form-title">Create an Account</p>
+        <div class="text-gray-400 fw-bold form-links">
+          Already have an account?
+          <a routerLink="/" class="link-primary fw-bolder">Sign in here</a>
+        </div>
+      </div>
+      <form
+        [formGroup]="registerForm"
+        class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework"
+        id="sign_in_form"
+        action="#"
+      >
+        <div class="row fv-row pg-mb-4 fv-plugins-icon-container">
+          <!--begin::Col-->
+          <div class="col-xl-6 col-sm-6">
+            <label for="firstName" class="form-label fw-bolder text-dark"
+              >First Name</label
+            >
+            <input
+              id="firstName"
+              type="text"
+              class="form-control form-control-lg form-control-solid"
+              formControlName="firstName"
+              autocomplete="off"
+              required
+            />
+            <div
+              *ngIf="
+                registerForm.get('firstName')?.invalid &&
+                registerForm.get('firstName')?.errors
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="registerForm.get('firstName')?.hasError('required')"
+              >
+                This field is required.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="registerForm.get('firstName')?.hasError('pattern')"
+              >
+                Please enter valid First Name!
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="registerForm.get('firstName')?.hasError('minlength')"
+              >
+                The minimum length for this field is
+                {{registerForm.get('firstName')?.errors?.['minlength'].requiredLength}}
+                characters.
+              </small>
             </div>
           </div>
-          <form
-            [formGroup]="registerForm"
-            class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework"
-            id="sign_in_form"
-            action="#"
-          >
-            <div class="row fv-row pg-mb-4 fv-plugins-icon-container">
-              <!--begin::Col-->
-              <div class="col-xl-6">
-                <label for="firstName" class="form-label fw-bolder text-dark"
-                  >First Name</label
-                >
-                <input
-                  id="firstName"
-                  type="text"
-                  class="form-control form-control-lg form-control-solid"
-                  formControlName="firstName"
-                  autocomplete="off"
-                  required
-                />
-                <div
-                  *ngIf="
-                    registerForm.get('firstName')?.invalid &&
-                    registerForm.get('firstName')?.errors
-                  "
-                >
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('firstName')?.hasError('required')"
-                  >
-                    This field is required.
-                  </small>
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('firstName')?.hasError('pattern')"
-                  >
-                    Please enter valid First Name!
-                  </small>
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('firstName')?.hasError('minlength')"
-                  >
-                    The minimum length for this field is
-                    {{registerForm.get('firstName')?.errors?.['minlength'].requiredLength}}
-                    characters.
-                  </small>
-                </div>
-              </div>
-              <!--end::Col-->
-              <!--begin::Col-->
-              <div class="col-xl-6">
-                <label for="lastName" class="form-label fw-bolder text-dark"
-                  >Last Name</label
-                >
-                <input
-                  id="lastName"
-                  type="text"
-                  class="form-control form-control-lg form-control-solid"
-                  formControlName="lastName"
-                  autocomplete="off"
-                  required
-                />
-                <div
-                  *ngIf="
-                    registerForm.get('lastName')?.invalid &&
-                    registerForm.get('lastName')?.errors
-                  "
-                >
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('lastName')?.hasError('required')"
-                  >
-                    This field is required.
-                  </small>
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('lastName')?.hasError('pattern')"
-                  >
-                    Please enter valid Last Name!
-                  </small>
-                  <small
-                    class="text-danger"
-                    *ngIf="registerForm.get('lastName')?.hasError('minlength')"
-                  >
-                    The minimum length for this field is
-                    {{registerForm.get('lastName')?.errors?.['minlength'].requiredLength}}
-                    characters.
-                  </small>
-                </div>
-              </div>
-              <!--end::Col-->
-            </div>
-            <div class="fv-row pg-mb-4 fv-plugins-icon-container">
-              <label for="email" class="form-label fw-bolder text-dark">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                class="form-control form-control-lg form-control-solid"
-                formControlName="email"
-                required
-              />
-              <div
-                *ngIf="
-                  registerForm.get('email')?.invalid &&
-                  registerForm.get('email')?.errors
-                "
+          <!--end::Col-->
+          <!--begin::Col-->
+          <div class="col-xl-6 col-sm-6">
+            <label for="lastName" class="form-label fw-bolder text-dark"
+              >Last Name</label
+            >
+            <input
+              id="lastName"
+              type="text"
+              class="form-control form-control-lg form-control-solid"
+              formControlName="lastName"
+              autocomplete="off"
+              required
+            />
+            <div
+              *ngIf="
+                registerForm.get('lastName')?.invalid &&
+                registerForm.get('lastName')?.errors
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="registerForm.get('lastName')?.hasError('required')"
               >
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm.get('email')?.hasError('required')"
-                >
-                  This field is required.
-                </small>
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm.get('email')?.hasError('pattern')"
-                >
-                  Please enter valid email address!
-                </small>
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm.get('email')?.hasError('minlength')"
-                >
-                  The minimum length for this field is
-                  {{registerForm.get('email')?.errors?.['minlength'].requiredLength}}
-                  characters.
-                </small>
-              </div>
+                This field is required.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="registerForm.get('lastName')?.hasError('pattern')"
+              >
+                Please enter valid Last Name!
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="registerForm.get('lastName')?.hasError('minlength')"
+              >
+                The minimum length for this field is
+                {{registerForm.get('lastName')?.errors?.['minlength'].requiredLength}}
+                characters.
+              </small>
             </div>
-            <div class="fv-row pg-mb-4 fv-plugins-icon-container">
+          </div>
+          <!--end::Col-->
+        </div>
+        <div class="fv-row pg-mb-4 fv-plugins-icon-container">
+          <label for="email" class="form-label fw-bolder text-dark">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            class="form-control form-control-lg form-control-solid"
+            formControlName="email"
+            required
+          />
+          <div
+            *ngIf="
+              registerForm.get('email')?.invalid &&
+              registerForm.get('email')?.errors
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="registerForm.get('email')?.hasError('required')"
+            >
+              This field is required.
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="registerForm.get('email')?.hasError('pattern')"
+            >
+              Please enter valid email address!
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="registerForm.get('email')?.hasError('minlength')"
+            >
+              The minimum length for this field is
+              {{registerForm.get('email')?.errors?.['minlength'].requiredLength}}
+              characters.
+            </small>
+          </div>
+        </div>
+        <div class="row fv-row pg-mb-4 fv-plugins-icon-container">
+          <div class="col-xl-6 col-sm-6">
               <div class="d-flex flex-stack">
                 <label class="form-label fw-bolder text-dark pg-mb-0"
                   >Date of birth</label
@@ -157,8 +158,7 @@
                 (outputData)="getDateOfBirth($event)"
               ></app-datepicker>
             </div>
-
-            <div class="fv-row pg-mb-4 fv-plugins-icon-container">
+          <div class="col-xl-6 col-sm-6">
               <div class="d-flex flex-stack">
                 <label class="form-label fw-bolder text-dark pg-mb-0"
                   >Department</label
@@ -170,131 +170,119 @@
                 (outputData)="getDepartments($event)"
               ></app-multiselect-dropdown>
             </div>
-
-            <div class="fv-row pg-mb-4 fv-plugins-icon-container">
-              <div class="d-flex flex-stack pg-mb-0">
-                <label class="form-label fw-bolder text-dark pg-mb-0"
-                  >Password</label
-                >
-              </div>
-              <input
-                id="password"
-                type="password"
-                class="form-control form-control-lg form-control-solid"
-                formControlName="password"
-                required
-              />
-              <app-password-strength-bar
-                id="password-strength-bar"
-                [passwordToCheck]="registerForm.value.password"
-              ></app-password-strength-bar>
-              <div class="text-muted">
-                Use 8 or more characters with a mix of letters, numbers &
-                symbols.
-              </div>
-              <div
-                *ngIf="
-                  registerForm.get('password')?.invalid &&
-                  registerForm.get('password')?.errors
-                "
-              >
-                <small
-                  class="text-danger"
-                  *ngIf="registerForm.get('password')?.hasError('required')"
-                >
-                  This field is required.
-                </small>
-              </div>
-            </div>
-            <div class="fv-row pg-mb-4 fv-plugins-icon-container">
-              <div class="d-flex flex-stack pg-mb-0">
-                <label class="form-label fw-bolder text-dark pg-mb-0"
-                  >Confirm Password</label
-                >
-              </div>
-              <input
-                id="confirmpassword"
-                type="password"
-                class="form-control form-control-lg form-control-solid"
-                formControlName="confirmpassword"
-                required
-              />
-              <div
-                *ngIf="
-                  registerForm.get('confirmpassword')?.invalid &&
-                  registerForm.get('confirmpassword')?.errors
-                "
-              >
-                <small
-                  class="text-danger"
-                  *ngIf="
-                    registerForm.get('confirmpassword')?.hasError('required')
-                  "
-                >
-                  This field is required.
-                </small>
-                <small
-                  class="text-danger"
-                  *ngIf="
-                    registerForm.get('confirmpassword')?.hasError('pattern')
-                  "
-                >
-                  Please enter valid Confirm Password!
-                </small>
-              </div>
-              <small
-                class="text-danger"
-                *ngIf="registerForm?.errors?.['misMatch']"
-              >
-                Confirm password should be same
-              </small>
-            </div>
-            <div
-              class="fv-row pg-mb-4 fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid"
+          </div>
+        <div class="fv-row pg-mb-4 fv-plugins-icon-container">
+          <div class="d-flex flex-stack pg-mb-0">
+            <label class="form-label fw-bolder text-dark pg-mb-0"
+              >Password</label
             >
-              <label
-                class="form-check form-check-custom form-check-solid form-check-inline"
-              >
-                <input
-                  id="termsAndConditions"
-                  type="checkbox"
-                  class="form-check-input"
-                  formControlName="termsAndConditions"
-                  required
-                />
-                <span class="form-check-label fw-bold text-gray-700"
-                  >I Agree
-                  <a href="#" class="pg-ms-1 link-primary"
-                    >Terms and conditions</a
-                  >.
-                </span>
-              </label>
-              <div
-                *ngIf="
-                  registerForm.get('termsAndConditions')?.invalid &&
-                  registerForm.get('termsAndConditions')?.errors
-                "
-              >
-                <small
-                  class="text-danger"
-                  *ngIf="
-                    registerForm.get('termsAndConditions')?.hasError('required')
-                  "
-                >
-                  Please Accept Terms And Conditions!
-                </small>
-              </div>
-              <div class="fv-plugins-message-container invalid-feedback"></div>
-            </div>
-            <div class="text-center">
-              <app-button
-                [buttonsArray]="submitButton"
-                (submitFormEvent)="onRegister()"
-              ></app-button>
-            </div>
-          </form>
+          </div>
+          <input
+            id="password"
+            type="password"
+            class="form-control form-control-lg form-control-solid"
+            formControlName="password"
+            required
+          />
+          <app-password-strength-bar
+            id="password-strength-bar"
+            [passwordToCheck]="registerForm.value.password"
+          ></app-password-strength-bar>
+          <div class="text-muted">
+            Use 8 or more characters with a mix of letters, numbers & symbols.
+          </div>
+          <div
+            *ngIf="
+              registerForm.get('password')?.invalid &&
+              registerForm.get('password')?.errors
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="registerForm.get('password')?.hasError('required')"
+            >
+              This field is required.
+            </small>
+          </div>
         </div>
-      </div>
+        <div class="fv-row pg-mb-4 fv-plugins-icon-container">
+          <div class="d-flex flex-stack pg-mb-0">
+            <label class="form-label fw-bolder text-dark pg-mb-0"
+              >Confirm Password</label
+            >
+          </div>
+          <input
+            id="confirmpassword"
+            type="password"
+            class="form-control form-control-lg form-control-solid"
+            formControlName="confirmpassword"
+            required
+          />
+          <div
+            *ngIf="
+              registerForm.get('confirmpassword')?.invalid &&
+              registerForm.get('confirmpassword')?.errors
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="registerForm.get('confirmpassword')?.hasError('required')"
+            >
+              This field is required.
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="registerForm.get('confirmpassword')?.hasError('pattern')"
+            >
+              Please enter valid Confirm Password!
+            </small>
+          </div>
+          <small class="text-danger" *ngIf="registerForm?.errors?.['misMatch']">
+            Confirm password should be same
+          </small>
+        </div>
+        <div
+          class="fv-row pg-mb-4 fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid"
+        >
+          <label
+            class="form-check form-check-custom form-check-solid form-check-inline"
+          >
+            <input
+              id="termsAndConditions"
+              type="checkbox"
+              class="form-check-input"
+              formControlName="termsAndConditions"
+              required
+            />
+            <span class="form-check-label fw-bold text-gray-700"
+              >I Agree
+              <a href="#" class="pg-ms-1 link-primary">Terms and conditions</a>.
+            </span>
+          </label>
+          <div
+            *ngIf="
+              registerForm.get('termsAndConditions')?.invalid &&
+              registerForm.get('termsAndConditions')?.errors
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="
+                registerForm.get('termsAndConditions')?.hasError('required')
+              "
+            >
+              Please Accept Terms And Conditions!
+            </small>
+          </div>
+          <div class="fv-plugins-message-container invalid-feedback"></div>
+        </div>
+        <div class="text-center">
+          <app-button
+            [buttonsArray]="submitButton"
+            (submitFormEvent)="onRegister()"
+          ></app-button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

@@ -4,8 +4,8 @@ import { ElementRef, HostListener, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CommonService {
-
   public isSideBar: boolean = true;
+  public isSideBarCollapsed: boolean = true;
   public showActionDropdown: boolean = false;
   public showFilterDropdown: boolean = false;
   public showDropdown: boolean = false;
@@ -18,6 +18,7 @@ export class CommonService {
 
   showSidebar() {
     this.isSideBar = !this.isSideBar;
+    console.log(this.isSideBar);
   }
 
   toggleActionDropdown(id: number) {
@@ -28,7 +29,13 @@ export class CommonService {
       this.index = id;
     }
   }
-  // toggleFilterDropdown() {
-  //   this.showFilterDropdown = !this.showFilterDropdown;
-  // }
+  toggleSidebar() {
+    if(this.isSideBar){
+      this.isSideBarCollapsed = !this.isSideBarCollapsed;
+    }
+  }
+  collapsedSidebar() {
+    this.isSideBar = !this.isSideBar;
+    this.isSideBarCollapsed = !this.isSideBarCollapsed;
+  }
 }

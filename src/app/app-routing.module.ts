@@ -6,19 +6,24 @@ import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './core/guard/auth/auth.guard';
 import { GuestGuard } from './core/guard/guest/guest.guard';
+import { AuthComponent } from './auth/auth/auth.component';
 
 const routes: Routes = [{
   path: '',
-  component: LoginComponent,
+  component: AuthComponent,
   canActivate: [GuestGuard],
-}, {
-  path: 'sign-up',
-  component: RegisterComponent,
-  canActivate: [GuestGuard],
-}, {
-  path: 'password-reset',
-  component: ResetpasswordComponent,
-  canActivate: [GuestGuard],
+  loadChildren: () => import('./auth/auth.module').then(auth => auth.AuthModule),
+  // path: '',
+  // component: LoginComponent,
+  // canActivate: [GuestGuard],
+// }, {
+//   path: 'sign-up',
+//   component: RegisterComponent,
+//   canActivate: [GuestGuard],
+// }, {
+//   path: 'password-reset',
+//   component: ResetpasswordComponent,
+//   canActivate: [GuestGuard],
 }, {
   path: 'dashboard',
   component: DashboardComponent,

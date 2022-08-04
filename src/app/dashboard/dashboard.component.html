@@ -1,14 +1,12 @@
-<div class="d-flex flex-row body-container">
-  <div class="sidebar-container d-lg-block" [class.d-none]="commonService.isSideBar">
+<div class="body-container">
+  <div class="sidebar-container d-lg-block"  [class.collapse]="commonService.isSideBarCollapsed">
     <app-sidebar></app-sidebar>
   </div>
-  <div class="d-flex flex-column right-content">
-    <div>
-      <app-header></app-header>
-      <app-toolbar></app-toolbar>
-    </div>
+  <div class="right-content" [class.collapsed]="commonService.isSideBarCollapsed">
+    <app-header></app-header>
     <div class="content-container">
       <div class="container pg-mt-5">
+        <app-toolbar></app-toolbar>
         <div class="card">
           <router-outlet></router-outlet>
         </div>

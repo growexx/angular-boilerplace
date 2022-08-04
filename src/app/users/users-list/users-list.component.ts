@@ -61,7 +61,7 @@ export class UsersListComponent implements OnInit {
 
     this.toast = Swal.mixin({
       toast: true,
-      position: 'bottom-end',
+      position: 'top-end',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true
@@ -73,6 +73,18 @@ export class UsersListComponent implements OnInit {
   }
 
   onSearchFilter(){
+    this.usersService.searchUser(this.commonService.searchFilter).subscribe({
+      next: (data: any) => {
+        this.usersService.usersData = data.users;
+      },
+      error: (error: any) => {
+        this.errorToast(error);
+      }
+    });
+  }
+
+  onClearAllSearchFilter(){
+    this.commonService.searchFilter = '';
     this.usersService.searchUser(this.commonService.searchFilter).subscribe({
       next: (data: any) => {
         this.usersService.usersData = data.users;

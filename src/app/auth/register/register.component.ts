@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     enableSearchFilter: true,
     classes: "form-control form-control-lg form-control-solid",
     maxHeight: '300px',
-    // maxBadgeLimit: 4,
+    maxBadgeLimit: 1,
   };
 
   registerForm = new FormGroup({
@@ -170,7 +170,7 @@ export class RegisterComponent implements OnInit {
           };
           this.toast = Swal.mixin({
             toast: true,
-            position: 'bottom-end',
+            position: 'top-end',
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true
@@ -211,7 +211,7 @@ export class RegisterComponent implements OnInit {
     }
     this.toast = Swal.mixin({
       toast: true,
-      position: 'bottom-end',
+      position: 'top-end',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true

@@ -13,16 +13,22 @@ export class UsersService {
   gender: Array<string> = [];
   usersConfig = [{
     label: 'Name',
+    class: 'user-name',
   }, {
     label: 'Role',
+    class: 'user-role',
   }, {
     label: 'Contact Number',
+    class: 'user-contact-number',
   }, {
     label: 'Department',
+    class: 'user-department',
   }, {
     label: 'Birthdate',
+    class: 'user-birthdate',
   }, {
     label: 'Actions',
+    class: 'user-actions',
   }];
   constructor(private http: HttpClient) { }
 

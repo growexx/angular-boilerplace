@@ -1,1 +1,13 @@
+@import "/src/assets/styles/style";
 // Register component's scss
+.form-title{
+    font-size: 1.5rem;
+}
+.form-links{
+  font-size: 15px;
+}
+@media (min-width: breakpoint(screen-xs-min)) and (max-width: breakpoint(screen-xs-max)) {
+  .content-container {
+    padding: 10px;
+  }
+}

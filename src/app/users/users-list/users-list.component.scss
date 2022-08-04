@@ -1,10 +1,34 @@
-// @import '/src/assets/styles/variables/colors';
+@import '/src/assets/styles/variables/colors';
+@import '/src/assets/styles/style';
 // User List Scss Style
 .table-filter-header {
-  background-color: $colors-base-accent;
+  border-radius: 25px;
+  background-color: $colors-neutral-white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  .search-box{
+    .search-icon{
+      position: absolute;
+      left: 16px;
+      color: #A1A5B7;
+      font-size: 16px;
+    }
+    .search-box-input{
+      background-color: #EFF2F5;
+      padding-left: 40px;
+      padding-right: 40px;
+      border-width: 0px;
+      width: 300px;
+    }
+    .clear-all-search-icon{
+      position: absolute;
+      right: 16px;
+      color: #A1A5B7;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
   .card-toolbar-filter {
     display: flex;
     justify-content: flex-end;
@@ -15,7 +39,7 @@
   .filter_menu.show {
     display: flex;
     flex-direction: column;
-    background-color: $colors-base-accent;
+    background-color: $colors-neutral-white;
     z-index: 105;
     position: fixed;
     width: 325px;
@@ -47,20 +71,6 @@
           height: auto;
         }
       }
-    }
-  }
-}
-@media (max-width: 1180px) {
-  .table-filter-header {
-    display: flex;
-    background-color: $colors-base-accent;
-    flex-direction: column;
-    .card-toolbar-filter {
-      display: flex;
-      justify-content: flex-start;
-    }
-    .search-box {
-      margin-bottom: 10px;
     }
   }
 }
@@ -111,7 +121,7 @@
           cursor: pointer;
           border-radius: 0.25rem;
           &:hover {
-            color: $colors-base-accent;
+            color: $colors-neutral-white;
           }
         }
       }
@@ -178,5 +188,25 @@
   background-color: lightgray;
   &:hover {
     background-color: darkgray;
+  }
+}
+
+@media (max-width: 1180px) {
+  .table-filter-header {
+    display: flex;
+    background-color: $colors-neutral-white;
+    flex-direction: row;
+    .card-toolbar-filter {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .search-box {
+      margin-bottom: 10px;
+    }
+  }
+}
+@media screen and (max-width: breakpoint(screen-sm-min)) {
+  .table-filter-header {
+    flex-direction: column;
   }
 }

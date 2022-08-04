@@ -1,37 +1,19 @@
+@import "/src/assets/styles/variables/colors";
+@import "/src/assets/styles/style";
 // Dashboard component's scss
-.body-container{
-    background-color: #f5f8fa;
-    max-height: 100vh;
-    .sidebar{
-        width: 100%;
-    }
-    .sidebar-container{
-        min-width: 15%;
-        height: 100vh;
-        position: sticky;
-    }
-    .right-content{
-        display: flex;
-        flex: 1;
-    }
-    .content-container{
-        overflow-y:scroll;
-    }
-}
-
-@media (min-width:320px) and (max-width:998px) {
-    .body-container{
-        .sidebar-container{
-            min-width: 65%;
-            z-index: 4;
-            position: absolute;
-        }
-    }   
-}
-@media (max-width:767px){
-    .body-container{
-        .content-container{
-            width: 100vw;
-        }
-    }
-}
+// @media screen and (max-width: breakpoint(screen-sm-min)) {
+//   .body-container {
+//     .sidebar-container:not(.collapse) {
+//       z-index: 11;
+//       + .overlay {
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         background-color: rgba(0, 0, 0, 0.5);
+//         z-index: 10;
+//       }
+//     }
+//   }
+// }

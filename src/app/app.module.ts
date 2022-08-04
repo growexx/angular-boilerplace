@@ -27,12 +27,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    AuthsidebarComponent,
-    ButtonComponent,
-    RegisterComponent,
-    PasswordStrengthBarComponent,
-    ResetpasswordComponent,
     DashboardComponent,
     SidebarComponent,
     HeaderComponent,

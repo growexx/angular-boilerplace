@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         };
         this.toast = Swal.mixin({
           toast: true,
-          position: 'bottom-end',
+          position: 'top-end',
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true
@@ -94,7 +94,7 @@ export class LoginComponent implements OnInit {
 
     this.toast = Swal.mixin({
       toast: true,
-      position: 'bottom-end',
+      position: 'top-end',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true

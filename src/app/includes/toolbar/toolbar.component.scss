@@ -1,28 +1,43 @@
+
+@import '/src/assets/styles/style';
 // Toolbar Component's Scss
-.toolbar-container{
+.toolbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  // border-top: 1px solid #eff2f5;`
+  // box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+  // background-color: #ffffff;
+  margin-top: 64px;
+  .toolbar-breadcrumb {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-top: 1px solid #EFF2F5;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
-    background-color: #ffffff;
-    position: sticky;
-    .toolbar-breadcrumb{
-        display: flex;
-        align-items: center;
+    flex-direction: column;
+    // align-items: center;
+    .toolbar-title {
+      font-size: 16px;
     }
-    .toolbar-options{
-        display: flex;
-        align-items: center;
+  }
+  .toolbar-options {
+    display: flex;
+    align-items: center;
+  }
+}
+@media (max-width: breakpoint(screen-md-min)){
+    .toolbar-container{
+        width: 100%;
+        // flex-direction: column-reverse;
+        .toolbar-breadcrumb{
+            margin-top: 10px;
+            .toolbar-title {
+                font-size: 12px;
+                line-height: 15px;
+              }
+        }
     }
 }
 
-@media (max-width: 768px){
-    .toolbar-container{
-        width: 100%;
-        flex-direction: column-reverse;
-        .toolbar-breadcrumb{
-            margin-top: 10px;
-        }
-    }
+@media (max-width: breakpoint(screen-sm-min)){
+  .toolbar-container{
+      flex-direction: column-reverse;
+  }
 }

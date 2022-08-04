@@ -63,6 +63,11 @@ $colors-base-accent-t-50: rgba(84, 173, 198, 0.5);
 $colors-base-accent-t-25: rgba(84, 173, 198, 0.25);
 $colors-base-accent-t-10: rgba(84, 173, 198, 0.1);
 $colors-base-accent-t-02: rgba(84, 173, 198, 0.02);
+$colors-base-accent-v-high: rgb(64, 206, 268);
+$colors-base-accent-v-high-t-54: rgba(64, 206, 268,0.54);
+$colors-base-accent-v-medium: rgb(76, 171, 213);
+$colors-base-accent-v-low: rgb(112, 187, 243);
+
 
 // Accent Color
 $colors-base-primary: rgb(80,48,110);
@@ -71,6 +76,10 @@ $colors-base-primary-t-50: rgba(80,48,110, 0.5);
 $colors-base-primary-t-25: rgba(80,48,110, 0.25);
 $colors-base-primary-t-10: rgba(80,48,110, 0.1);
 $colors-base-primary-t-02: rgba(80,48,110, 0.02);
+$colors-base-primary-v-high: rgb(100, 78, 180); //+20,+30,+70
+$colors-base-primary-v-high-t-54: rgba(100, 78, 180, 0.54);
+$colors-base-primary-v-medium: rgb(72,46,125); // -8,-2,+15
+$colors-base-primary-v-low: rgb(108,62,155); // +28, +14, +45
 
 // Secondary Color
 $colors-base-secondary: rgb(80, 150, 69);
@@ -88,7 +97,7 @@ $colors-base-success-t-25: rgba(174, 221, 119, 0.25);
 $colors-base-success-t-10: rgba(174, 221, 119, 0.1);
 $colors-base-success-v-high: rgb(124, 188, 49);
 $colors-base-success-v-high-t-54: rgba(124, 188, 49, 0.54);
-$colors-base-success-v-medium: rgb(166, 219, 104);
+$colors-base-success-v-medium: rgb(166, 219, 104); 
 $colors-base-success-v-low: rgb(202, 235, 164);
 $colors-success-body-text: rgb(98, 136, 53); // Hex Code #628835
 $colors-success-body-status: rgb(86, 168, 0); // Hex Code #56a800

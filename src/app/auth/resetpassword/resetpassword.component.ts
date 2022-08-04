@@ -46,7 +46,7 @@ export class ResetpasswordComponent implements OnInit {
 
     this.toast = Swal.mixin({
       toast: true,
-      position: 'bottom-end',
+      position: 'top-end',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true

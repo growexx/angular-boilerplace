@@ -18,6 +18,16 @@
         margin-left: 80px;
     }
 }
-.sidebar-container{
-    background: url('../../../auth-bg.png') repeat;
+.root-container{
+    .sidebar-container{
+        background: url('../../../auth-bg.png') repeat;
+    }
+}
+@media (max-width: breakpoint(screen-md-max)) {
+    .root-container{
+        .content-container{
+            right: 0;
+            left: 0;
+        }
+    }
 }

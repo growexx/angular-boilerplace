@@ -1,10 +1,10 @@
-<div class="header-container">
+<div class="header-container height-64px">
   <div class="menu">
-    <nav class="navbar navbar-light pg-mr-2 d-lg-none">
+    <nav class="navbar navbar-light pg-mr-2 display-none">
       <button
         class="navbar-toggler header-hamburger pg-ml-2"
         type="button"
-        (click)="commonService.showSidebar()"
+        (click)="commonService.collapsedSidebar()"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -12,7 +12,7 @@
     <img
       src="assets/growexx-logo-without-text.png"
       alt=""
-      class="pg-w-6 pg-ml-1 header-logo d-lg-none"
+      class="pg-w-6 pg-ml-1 header-logo display-none"
     />
     <ul class="menu-list menu-title-gray-700">
       <li class="menu-list-item menu-item">

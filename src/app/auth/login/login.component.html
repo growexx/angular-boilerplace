@@ -1,140 +1,129 @@
-<div class="d-flex flex-column flex-lg-row flex-column-fluid root-container">
-  <div
-    class="d-flex flex-column flex-lg-row-auto width-sm-100 width-50 positon-xl-relative bg-accent color-accent-t50 sidebar-container"
-  >
-    <app-authsidebar></app-authsidebar>
-  </div>
-  <div
-    class="d-flex flex-column flex-lg-row-fluid justify-content-center align-items-center"
-  >
-    <div class="d-flex flex-column flex-lg-row-fluid">
-      <div class="d-flex flex-center flex-column flex-column-fluid">
-        <div class="width-500px width-sm-100 pg-p-2 mx-auto">
-          <form
-            [formGroup]="loginForm"
-            class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework"
-            id="sign_in_form"
-            action="#"
+  <div class="height-100 d-flex flex-center flex-column flex-column-fluid">
+    <div class="width-500px width-sm-100 width-xs-100 pg-p-3 mx-auto">
+      <div class="text-center pg-mb-4">
+        <a class="pg-mb-2">
+          <img
+            alt="Logo"
+            src="assets/growexx-logo-without-text.png"
+            class="width-20 width-sm-25 pg-mb-2 site-logo"
+          />
+        </a>
+        <p class="text-dark pg-mb-1 form-title">Sign In to Growexx</p>
+        <div class="text-gray-400 fw-bold form-links">
+          New Here?
+          <a routerLink="/sign-up" class="link-primary fw-bolder"
+            >Create an Account</a
           >
-            <div class="text-center pg-mb-4">
-                <a class="pg-mb-2">
-                  <img alt="Logo" src="assets/growexx-logo-without-text.png" class="width-20 width-sm-15 site-logo" />
-                </a>
-              <h1 class="text-dark pg-mb-1 form-title">Sign In to Growexx</h1>
-              <div class="text-gray-400 fw-bold pg-fs-2">
-                New Here?
-                <a routerLink="/sign-up" class="link-primary fw-bolder"
-                  >Create an Account</a
-                >
-              </div>
-            </div>
-            <div class="fv-row pg-mb-4 fv-plugins-icon-container">
-              <label for="email" class="form-label fw-bolder text-dark">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                [class.is-invalid]="
-                  loginForm.get('email')?.touched &&
-                  loginForm.get('email')?.invalid
-                "
-                [class.is-valid]="
-                  loginForm.get('email')?.touched &&
-                  !loginForm.get('email')?.invalid
-                "
-                class="form-control form-control-lg form-control-solid"
-                formControlName="email"
-                autocomplete="off"
-                required
-              />
-              <div
-                *ngIf="
-                  loginForm.get('email')?.invalid &&
-                  loginForm.get('email')?.errors &&
-                  (loginForm.get('email')?.dirty ||
-                    loginForm.get('email')?.touched)
-                "
-              >
-                <small
-                  class="text-danger"
-                  *ngIf="loginForm.get('email')?.hasError('required')"
-                >
-                  This field is required.
-                </small>
-                <small
-                  class="text-danger"
-                  *ngIf="loginForm.get('email')?.hasError('pattern')"
-                >
-                  Please enter valid email address!
-                </small>
-                <small
-                  class="text-danger"
-                  *ngIf="loginForm.get('email')?.hasError('minlength')"
-                >
-                  The minimum length for this field is
-                  {{loginForm.get('email')?.errors?.['minlength'].requiredLength}}
-                  characters.
-                </small>
-              </div>
-            </div>
-            <div class="fv-row pg-mb-4 fv-plugins-icon-container">
-              <div class="d-flex flex-stack">
-                <label class="form-label fw-bolder text-dark pg-mb-0"
-                  >Password</label
-                >
-                <a routerLink="/password-reset" class="link-primary fw-bolder"
-                  >Forgot Password ?</a
-                >
-              </div>
-              <input
-                id="password"
-                type="password"
-                [class.is-invalid]="
-                  loginForm.get('password')?.touched &&
-                  loginForm.get('password')?.invalid
-                "
-                [class.is-valid]="
-                  loginForm.get('password')?.touched &&
-                  !loginForm.get('password')?.invalid
-                "
-                class="form-control form-control-lg form-control-solid"
-                formControlName="password"
-                autocomplete="off"
-                required
-              />
-              <div
-                *ngIf="
-                  loginForm.get('password')?.invalid &&
-                  loginForm.get('password')?.errors &&
-                  (loginForm.get('password')?.dirty ||
-                    loginForm.get('password')?.touched)
-                "
-              >
-                <small
-                  class="text-danger"
-                  *ngIf="loginForm.get('password')?.hasError('required')"
-                >
-                  This field is required.
-                </small>
-                <small
-                  class="text-danger"
-                  *ngIf="loginForm.get('password')?.hasError('pattern')"
-                >
-                  Please enter valid password!
-                </small>
-              </div>
-            </div>
-            <div class="text-center">
-              <app-button
-                [buttonsArray]="submitButton"
-                (submitFormEvent)="onLogin()"
-              >
-              </app-button>
-            </div>
-          </form>
         </div>
       </div>
+      <form
+        [formGroup]="loginForm"
+        class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework"
+        id="sign_in_form"
+        action="#"
+      >
+        <div class="fv-row pg-mb-4 fv-plugins-icon-container">
+          <label for="email" class="form-label fw-bolder text-dark">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            [class.is-invalid]="
+              loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+            "
+            [class.is-valid]="
+              loginForm.get('email')?.touched &&
+              !loginForm.get('email')?.invalid
+            "
+            class="form-control form-control-lg form-control-solid"
+            formControlName="email"
+            autocomplete="off"
+            required
+          />
+          <div
+            *ngIf="
+              loginForm.get('email')?.invalid &&
+              loginForm.get('email')?.errors &&
+              (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="loginForm.get('email')?.hasError('required')"
+            >
+              This field is required.
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="loginForm.get('email')?.hasError('pattern')"
+            >
+              Please enter valid email address!
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="loginForm.get('email')?.hasError('minlength')"
+            >
+              The minimum length for this field is
+              {{loginForm.get('email')?.errors?.['minlength'].requiredLength}}
+              characters.
+            </small>
+          </div>
+        </div>
+        <div class="fv-row pg-mb-4 fv-plugins-icon-container">
+          <div class="d-flex flex-stack">
+            <label class="form-label fw-bolder text-dark pg-mb-0"
+              >Password</label
+            >
+            <a routerLink="/password-reset" class="link-primary fw-bolder"
+              >Forgot Password ?</a
+            >
+          </div>
+          <input
+            id="password"
+            type="password"
+            [class.is-invalid]="
+              loginForm.get('password')?.touched &&
+              loginForm.get('password')?.invalid
+            "
+            [class.is-valid]="
+              loginForm.get('password')?.touched &&
+              !loginForm.get('password')?.invalid
+            "
+            class="form-control form-control-lg form-control-solid"
+            formControlName="password"
+            autocomplete="off"
+            required
+          />
+          <div
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.errors &&
+              (loginForm.get('password')?.dirty ||
+                loginForm.get('password')?.touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="loginForm.get('password')?.hasError('required')"
+            >
+              This field is required.
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="loginForm.get('password')?.hasError('pattern')"
+            >
+              Please enter valid password!
+            </small>
+          </div>
+        </div>
+        <div class="text-center">
+          <app-button
+            [buttonsArray]="submitButton"
+            (submitFormEvent)="onLogin()"
+          >
+          </app-button>
+        </div>
+      </form>
     </div>
   </div>
-</div>

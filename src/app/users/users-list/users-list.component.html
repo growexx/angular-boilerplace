@@ -1,8 +1,9 @@
 <div class="border-0 pg-p-2 table-filter-header">
     <div class="search-box">
         <div class="d-flex align-items-center position-relative my-1">
-            <em class="fa fa-magnifying-glass text-gray-500 pg-fs-2 position-absolute ms-6"></em>
-            <input type="text" id="searchFilter" class="form-control bg-gray-200 border-0 w-250px ps-14" [(ngModel)]="commonService.searchFilter" (keyup)="onSearchFilter()" name="searchFilter" placeholder="Search By Name">
+            <em class="fa fa-magnifying-glass search-icon"></em>
+            <input type="text" id="searchFilter" class="form-control search-box-input" [(ngModel)]="commonService.searchFilter" (keyup)="onSearchFilter()" name="searchFilter" placeholder="Search By Name">
+            <em class="fa fa-xmark clear-all-search-icon" (click)="onClearAllSearchFilter()" *ngIf="commonService.searchFilter"></em>
         </div>
     </div>
     <div class="card-toolbar">
@@ -10,10 +11,6 @@
             <a type="button" class="btn btn-light-primary me-3" id="filterDropdown" mat-raised-button (click)="openDialog()">
                 <em class="fa-solid fa-filter"></em>
                 Filter
-            </a>
-            <a type="button" class="btn btn-light-primary me-3">
-                <em class="fa-solid fa-arrow-up-from-dotted-line"></em>
-                Export
             </a>
             <a type="button" class="btn btn-primary">
                 <em class="fa-solid fa-plus"></em>

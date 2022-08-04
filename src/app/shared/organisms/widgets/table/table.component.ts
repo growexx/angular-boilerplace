@@ -13,7 +13,7 @@ export class TableComponent implements OnInit {
   @Input() tableConfig: any;
   @Input() tableData: Array<any> = [];
   page: number = 1;
-  itemsPerPage: number = 5;
+  itemsPerPage: number = 8;
   checkedList: any;
   error_message:any = ''
   toast:any;
@@ -72,7 +72,7 @@ export class TableComponent implements OnInit {
             user.forEach(f => this.tableData.splice(this.tableData.findIndex(e => e.id === id), 1));
             this.toast = Swal.mixin({
               toast: true,
-              position: 'bottom-end',
+              position: 'top-end',
               showConfirmButton: false,
               timer: 3000,
               timerProgressBar: true
@@ -109,7 +109,7 @@ export class TableComponent implements OnInit {
     
     this.toast = Swal.mixin({
       toast: true,
-      position: 'bottom-end',
+      position: 'top-end',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true
