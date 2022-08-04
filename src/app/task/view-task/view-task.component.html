@@ -1,0 +1,45 @@
+<div class="add-user-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="table-wrapper add-user-panel">
+                    <div class="table-header">
+                        <div class="tabel-header-panel">
+                            <button class="btn-small btn-primary" (click)="createTodo()">Create</button>
+                        </div>
+                    </div>
+                    <div class="table-content">
+                        <div class="table-content-panel" *ngFor="let task of taskDetails?.todos;let i = index">
+                            <div class="checkbox">
+                                <input type="checkbox">
+                            </div>
+                            <div class="todo">
+                                <div><span>{{task['todo']}}</span></div>
+                            </div>
+                            <div class="status">
+                                <!--.status-pending-->
+                                <span
+                                    class="status status-pills status-{{(task?.completed === true )? 'completed' : 'pending'}}">{{(task?.completed
+                                    === true )? 'Completed' : 'Pending'}}</span>
+                            </div>
+                            <div>
+                                <div class="center">
+                                    <div class="mr-10"><img src="assets/images/svg-icons/edit-icon.svg" alt="edit" (click)="routeToEdit(i)">
+                                    </div>
+                                    <div class="mr-10"><img src="assets/images/svg-icons/delete-icon.svg" alt="delete"
+                                            (click)="deleteTodo(task?.id)"></div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <swal #successSwal title="" text="Task Deleted successfully!" icon="success">
+                                </swal>
+                                <swal #failedSwal title="" text="Unable to delete task!" icon="error">
+                                </swal>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
