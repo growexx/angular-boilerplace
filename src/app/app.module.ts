@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -39,7 +38,7 @@ import { SharedModule } from './shared/shared.module';
     DashboardModule,
     BrowserAnimationsModule
   ],
-  exports: [],
+  exports: [SharedModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
