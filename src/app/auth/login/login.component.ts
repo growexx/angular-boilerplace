@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
           title: "You have successfully logged in!",
         });
         localStorage.setItem('token', data.token);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/admin']);
       },
       error: (error: any) => {
         this.errorToast(error);

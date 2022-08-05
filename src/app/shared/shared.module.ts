@@ -10,9 +10,19 @@ import { DialogComponent } from './organisms/widgets/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MultiselectDropdownComponent } from './components/multiselect-dropdown/multiselect-dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ButtonComponent } from './components/button/button.component';
+import { ButtonsComponent } from './components/buttons/buttons.component';
+import { GoogleAddressComponent } from './components/google-address/google-address.component';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { ToolbarComponent } from './layout/toolbar/toolbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +32,15 @@ import { MultiselectDropdownComponent } from './components/multiselect-dropdown/
     DialogComponent,
     DatepickerComponent,
     MultiselectDropdownComponent,
+    ButtonComponent,
+    ModalComponent,
+    ButtonsComponent,
+    GoogleAddressComponent,
+    ImageUploadComponent,
+    ToolbarComponent,
+    FooterComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +51,8 @@ import { MultiselectDropdownComponent } from './components/multiselect-dropdown/
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgbModule,
   ],
   exports: [
     FilterPipe,
@@ -41,6 +61,16 @@ import { MultiselectDropdownComponent } from './components/multiselect-dropdown/
     DialogComponent,
     DatepickerComponent,
     MultiselectDropdownComponent,
+    ButtonComponent,
+    ModalComponent,
+    ButtonsComponent,
+    GoogleAddressComponent,
+    ImageUploadComponent,
+    ToolbarComponent,
+    FooterComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
 })
+
 export class SharedModule { }

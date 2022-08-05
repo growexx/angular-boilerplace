@@ -5,7 +5,6 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { AuthsidebarComponent } from 'src/app/includes/authsidebar/authsidebar.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,7 +12,7 @@ import { environment } from 'src/environments/environment';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import Swal from 'sweetalert2';
 import { throwError } from 'rxjs';
-import { UsersService } from 'src/app/users/users.service';
+import { AuthsidebarComponent } from 'src/app/shared/layout/authsidebar/authsidebar.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

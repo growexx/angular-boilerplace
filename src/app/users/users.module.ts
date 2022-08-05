@@ -3,25 +3,39 @@ import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
-import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu'; 
 import { MatSelectModule } from '@angular/material/select';
+import { AddUsersComponent } from './add-users/add-users.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { SharedModule } from '../shared/shared.module';
 
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 @NgModule({
   declarations: [
     UsersListComponent,
+    AddUsersComponent,
+    ViewProfileComponent,
   ],
   imports: [
     UsersRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    SharedModule,
     MatDialogModule,
     MatMenuModule,
     MatSelectModule,
+    MatStepperModule,
+    FormsModule,
+    MatInputModule,
+    SharedModule,
+    NgxMaskModule.forRoot(maskConfig),
   ],
 })
+
 export class UsersModule { }

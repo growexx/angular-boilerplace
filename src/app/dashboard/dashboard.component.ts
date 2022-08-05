@@ -1,5 +1,12 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+
 import { CommonService } from 'src/app/core/services/common/common.service';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import * as _ from 'lodash';
+import { MatDialog } from '@angular/material/dialog';
+import { btn } from '../core/interface/button';
+import { TaskService } from '../task/task.service';
+import { taskDetailsType } from '../task/task-modal';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,39 +15,48 @@ import { CommonService } from 'src/app/core/services/common/common.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public commonService: CommonService) { }
-
-  // @HostListener('click', ['$event.target']) toggleDropdown(el: HTMLElement) {
-  //   if (this.isButton(el)) {
-  //     if (this.commonService.showFilterDropdown === true) {
-  //       this.commonService.showFilterDropdown = !this.commonService.showFilterDropdown;
-  //     }
-  //     if (this.commonService.showActionDropdown === true) {
-  //       this.commonService.showActionDropdown = !this.commonService.showActionDropdown;
-  //     }
-  //   }
-  // }
-
-  // isButton(el: HTMLElement, level = 3) {
-  //   for (let btn: HTMLElement | undefined | null = el; level > 0; level--) {
-  //     if (btn?.id === 'filterDropdown' ||
-  //       btn?.id === 'actionDropdown' ||
-  //       btn?.id === 'role_menu_dropdown' ||
-  //       btn?.id === 'two_step_verification_menu_dropdown') {
-  //       return false;
-  //     }
-  //     btn = btn?.parentElement;
-  //   }
-  //   return true;
-  // }
-
-  // @HostListener('window:keydown.escape', ['$event'])
-  // handleKeyEscape(event: KeyboardEvent) {
-  //   this.commonService.showActionDropdown = false;
-  //   this.commonService.showFilterDropdown = false;
-  //   this.commonService.index = 0;
-  // }
+  constructor(private dialog: MatDialog, private taskService: TaskService,public commonService: CommonService) { }
+  isOpen: boolean = false;
+  btnHandelClick:any = [];
+  btnClicked:EventEmitter<any> = new EventEmitter<any>();
+  btnData: btn = {type:'small',btnClass:'btn-small btn-primary', btnText:'Open Modal', eventName: this.btnClicked,returnObj:['id']};
+  taskDetails !: taskDetailsType;
   ngOnInit(): void {
+    this.getAllTasks()
+  }
+
+  openModal(data?:any) {
+
+    let actions = [];
+    const successModelActions = [
+      {
+        label: 'View all activities >>',
+        type: 'NORMAL',
+        isDisable: false
+      }
+    ]
+
+    actions = _.cloneDeep(successModelActions);
+    const modalType = 'userList';
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: {
+        type: 'userList',
+        modalImg: 'assets/images/avtaar.jpg',
+        modalTitle: 'User List',
+        modalText1: 'BoomApp by Keenthemes',
+        modalText2: '#45789',
+        modalText3: '$23,000',
+        modalText4: 'Sales',
+        modalActions: actions
+      }
+    })
+  }
+
+
+  getAllTasks() {
+    this.taskService.getAllTodos().subscribe((res: any) => {
+      this.taskDetails = res
+    })
   }
 
 }

@@ -1,19 +1,23 @@
-@import "/src/assets/styles/variables/colors";
-@import "/src/assets/styles/style";
 // Dashboard component's scss
-// @media screen and (max-width: breakpoint(screen-sm-min)) {
-//   .body-container {
-//     .sidebar-container:not(.collapse) {
-//       z-index: 11;
-//       + .overlay {
-//         position: fixed;
-//         top: 0;
-//         left: 0;
-//         right: 0;
-//         bottom: 0;
-//         background-color: rgba(0, 0, 0, 0.5);
-//         z-index: 10;
-//       }
-//     }
-//   }
-// }
+@import '../../assets/styles/variables/colors';
+
+.task-wrapper {
+    background-color: $bs-white;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+
+    .task-header {
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .task-content {
+        .task-title {
+            font-size: 14px;
+            line-height: 18px;
+            margin-bottom: 5px;
+        }
+    }
+}

@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   localApiUrl: 'http://localhost:3000/',
   apiUrl: 'https://dummyjson.com/',
-  // apiUrl: 'https://reqres.in/api/',
+  apiUrl1: 'https://dummyjson.com/'
 };
 
 /*

@@ -152,7 +152,7 @@
             .btn-filter {
                 &:hover {
                     content: '';
-                    // background-image: 'assets/images/svg-icons/filter-black.svg';
+                    background-image: 'assets/images/svg-icons/filter-black.svg';
                     width: 24px;
                     height: 24px;
                 }
@@ -232,7 +232,7 @@
 
                 &:hover {
                     &:before {
-                        // background: url('../../../../assets/images/svg-icons/filter-white.svg') no-repeat;
+                        background: url('../../../../assets/images/svg-icons/filter-white.svg') no-repeat;
 
                     }
                 }
@@ -240,7 +240,7 @@
                 &::before {
                     content: '';
                     position: absolute;
-                    // background: url('../../../../assets/images/svg-icons/filter-black.svg') no-repeat;
+                    background: url('../../../../assets/images/svg-icons/filter-black.svg') no-repeat;
                     width: 24px;
                     height: 24px;
                     left: 4px;

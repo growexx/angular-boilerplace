@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { AuthsidebarComponent } from 'src/app/includes/authsidebar/authsidebar.component';
+import { SwalComponent, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AuthsidebarComponent } from 'src/app/shared/layout/authsidebar/authsidebar.component';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { ResetpasswordComponent } from './resetpassword.component';
 

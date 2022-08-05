@@ -1,0 +1,46 @@
+<div class="header-container height-64px">
+  <div class="menu">
+    <nav class="navbar navbar-light pg-mr-2 display-none">
+      <button
+        class="navbar-toggler header-hamburger pg-ml-2"
+        type="button"
+        (click)="commonService.collapsedSidebar()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <img
+      src="assets/growexx-logo-without-text.png"
+      alt=""
+      class="pg-w-6 pg-ml-1 header-logo display-none"
+    />
+    <ul class="menu-list menu-title-gray-700">
+      <li class="menu-list-item menu-item">
+        <a href="#" class="menu-list-item-anchor menu-link"><span class="menu-title">Dashboards</span></a>
+      </li>
+      <li class="menu-list-item menu-item">
+        <a href="#" class="menu-list-item-anchor menu-link"><span class="menu-title">Crafted</span></a>
+      </li>
+      <li class="menu-list-item menu-item">
+        <a href="#" class="menu-list-item-anchor menu-link"><span class="menu-title">Apps</span></a>
+      </li>
+      <li class="menu-list-item menu-item">
+        <a href="#" class="menu-list-item-anchor menu-link"><span class="menu-title">Layouts</span></a>
+      </li>
+      <li class="menu-list-item menu-item">
+        <a href="#" class="menu-list-item-anchor menu-link"><span class="menu-title">Resources</span></a>
+      </li>
+      <li class="menu-list-item menu-item">
+        <a href="#" class="menu-list-item-anchor menu-link"><span class="menu-title">Mega Menu</span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="icon">
+    <ul class="d-flex flex-row icon-list">
+      <li class="icon-list-item pg-mr-1 pg-fs-1.5 btn btn-active-light btn-active-color-primary">
+        <em class="fa fa-power-off pg-mr-1 pg-fs-2 text-gray-700"></em>
+        <a (click)="logout()" class="icon-list-item-anchor text-gray-700">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>
