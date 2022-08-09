@@ -6,7 +6,7 @@ import { ViewTaskComponent } from './view-task/view-task.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'view',
     pathMatch: 'full'
   }, 
   {
