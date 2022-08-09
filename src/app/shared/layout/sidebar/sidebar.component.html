@@ -1,85 +1,50 @@
 <div class="app-sidebar-container">
-    <div class="btn-collapse background-neutral-white" (click)="commonService.collapsedSidebar()">
-        <em class="fa color-neutral-dark" [class]="commonService.isSideBarCollapsed ? 'fa-angles-right' : 'fa-angles-left'"></em>
+    <div class="btn-collapse background-neutral-white navbar-close-icon-bg" (click)="commonService.collapsedSidebar()">
+        <em class="fa color-neutral-dark navbar-close-icon" [class]="commonService.isSideBarCollapsed ? 'fa-angles-right' : 'fa-angles-left'"></em>
     </div>
     <div [class]="commonService.isSideBar ? 'sidebar-collapse' : 'static-sidebar'">
         <div class="sidebar-header height-64px background-primary-t10">
             <img src="assets/growexx-logo-without-text.png" alt="" class="sidebar-logo"> 
             <span class="fs-xl-3 pg-pl-1 pg-pt-2 fw-bolder logo-title">Growexx</span>
         </div>
-        <ngb-accordion [closeOthers]="true" class="width-100 background-primary-t10">
-            <ngb-panel id="static-1">
-                <ng-template ngbPanelTitle>
-                    <em class="fa fa-grip"></em>
-                    <span class="pg-ml-2 menu-title">Dashboards</span>
-                </ng-template>
-                <ng-template ngbPanelContent class="submenu-items">
-                    <div class="menu-item">
-                        <a class="menu-link active" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="submenu-title">Multipurpose</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="submenu-title">eCommerce</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="submenu-title">Projects</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="submenu-title">Online Courses</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="submenu-title">Marketing</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="submenu-title">Bidding</span>
-                        </a>
-                    </div>
-                </ng-template>
-            </ngb-panel>
-            <ngb-panel id="static-2">
-                <ng-template ngbPanelTitle>
+        <div class="accordion" id="accordionMenu">
+            <div class="accordion-item">
+                <div class="accordion-header" id="dashboard">
+                  <span routerLink="/" type="button" class="accordion-button only-link collapsed">
+                      <em class="fa fa-grip"></em>
+                      <span class="pg-ml-2 menu-title">Dashboard</span>
+                  </span>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header" id="usersManagement">
+                <button type="button" class="accordion-button collapsed" data-toggle="collapse" data-target="#users" aria-expanded="false" aria-controls="users">
                     <em class="fas fa-users"></em>
-                    <span class="pg-ml-2 menu-title">Users</span>
-                </ng-template>
-                <ng-template ngbPanelContent class="submenu-items">
+                    <span class="pg-ml-2 menu-title">Users Management</span>
+                </button>
+              </div>
+              <div id="users" class="collapse" aria-labelledby="usersManagement" data-parent="#accordionMenu">
+                <div class="accordion-body">
                     <div class="menu-item">
-                        <a class="menu-link active" href="#">
+                        <a routerLink="/admin/users/list" class="menu-link">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
-                            <span class="submenu-title">Users List</span>
+                            <span class="submenu-title">User Lists</span>
                         </a>
                     </div>
-                </ng-template>
-            </ngb-panel>
-        </ngb-accordion>
+                    <div class="menu-item">
+                        <a routerLink="/admin/users/add" class="menu-link">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="submenu-title">Add User</span>
+                        </a>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
     </div>
 </div>

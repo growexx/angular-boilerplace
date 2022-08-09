@@ -9,14 +9,12 @@ const routes: Routes = [
     redirectTo:'dashboard',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'users',
-  //   component: UsersListComponent,
-  //   loadChildren: () => import('./../users/users.module').then(users => users.UsersModule),
-  // },
   {
     path: '',
     component: DashboardComponent,
+    data: {
+      title: 'Dashboard',
+    },
   }
 ];
 

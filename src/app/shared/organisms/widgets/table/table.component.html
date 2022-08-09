@@ -37,6 +37,9 @@
                         <a id="actionDropdown" (click)="commonService.toggleActionDropdown(data.id)" class="btn btn-light btn-active-light-primary btn-sm">Action <em class="fa-solid fa-angle-down"></em></a>
                         <div class="action_menu pg-py-1" [class.show]="commonService.showActionDropdown && commonService.index == data.id">
                             <div class="action-menu-item pg-px-1">
+                                <a routerLink="/admin/users/view/{{data.id}}" class="action-menu-link text-gray-600 text-hover-primary pg-px-1">View</a>
+                            </div>
+                            <div class="action-menu-item pg-px-1">
                                 <a routerLink="/" class="action-menu-link text-gray-600 text-hover-primary pg-px-1">Edit</a>
                             </div>
                             <div class="action-menu-item pg-px-1">

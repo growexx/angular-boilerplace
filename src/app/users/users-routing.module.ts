@@ -13,18 +13,30 @@ const routes: Routes = [
   {
     path: 'list',
     component: UsersListComponent,
+    data: {
+      title: 'List Users'
+    },
   },
   {
     path:'add',
-    component:AddUsersComponent
+    component:AddUsersComponent,
+    data: {
+      title: 'Add User'
+    },
   },
   {
     path:'view',
-    component:ViewProfileComponent
+    component:ViewProfileComponent,
+    data: {
+      title: 'View User'
+    },
   },
   {
     path:'view/:id',
-    component:ViewProfileComponent
+    component:ViewProfileComponent,
+    data: {
+      title: 'View User'
+    },
   }
 ];
 

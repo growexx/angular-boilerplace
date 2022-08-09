@@ -18,7 +18,6 @@ export class CommonService {
 
   showSidebar() {
     this.isSideBar = !this.isSideBar;
-    console.log(this.isSideBar);
   }
 
   toggleActionDropdown(id: number) {
