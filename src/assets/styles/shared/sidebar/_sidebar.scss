@@ -13,46 +13,11 @@
   transition: all ease;
 }
 
-// .sidebar-panel:hover + .right-wrapper{
-//     margin-left: 250px;
-//     @media (max-width: breakpoint(screen-md-max)) {
-//         margin-left: 80px!important;
-//     }
-// }
-
 .sidebar {
   position: fixed;
   top: 0;
   bottom: 0;
   width: 250px;
-  // &:hover {
-  //     width: 80px !important;
-  //     transition: all 0.3s ease;
-
-  //     .accordion {
-  //         display: flex;
-  //         align-items: center;
-  //         justify-content: center;
-  //     }
-
-  //     .menu-title,
-  //     .item,
-  //     .fw-bolder {
-  //         display: none !important;
-  //     }
-
-  //     .fas {
-  //         display: block !important;
-  //     }
-
-  //     .bullet {
-  //         &.bullet-dot {
-  //             display: none !important;
-  //         }
-  //     }
-
-  // }
-
   @media (max-width: breakpoint(screen-lg-max)) {
     width: 250px !important;
   }
@@ -85,12 +50,6 @@
 }
 
 // Dashboard's sidebar
-
-
-// .accordion {
-//   padding: 10px;
-// }
-
 .accordion-button:not(.collapsed) {
   color: #ffffff !important;
   font-size: 13px;
@@ -158,7 +117,6 @@
 }
 .accordion-body:hover .menu-item:hover {
   background-color: #009ef7;
-  //   background-color: $colors-base-accent-v-low;
 }
 .accordion-body:hover .menu-item:hover .menu-bullet .bullet {
   background-color: $colors-neutral-white;

@@ -32,7 +32,6 @@ const routes: Routes = [{
       }
       },
   ],
-  // loadChildren: () => import('./dashboard/dashboard.module').then(users => users.DashboardModule),
 }, {
   path: '**',
   redirectTo: ''

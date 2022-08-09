@@ -2,12 +2,6 @@
     width: 500px;
     max-width: 500px;
     display: $d-block !important;
-  
-    // .modal-content {
-    // @media(max-width: breakpoint(screen-md-max)) {
-    //     width: 100%;
-    // }
-  
     .modal-header {
       padding: 20px 36px;
       display: $d-flex;
@@ -96,6 +90,5 @@
         font-size: $font-14;
       }
     }
-    // }
   }
   

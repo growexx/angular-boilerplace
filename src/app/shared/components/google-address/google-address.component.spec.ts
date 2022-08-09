@@ -11,7 +11,6 @@ describe('GoogleAddressComponent', () => {
   let fixture: ComponentFixture<GoogleAddressComponent>;
   let googleApiService: any;
   let resetVal: boolean = false;
-  // let changes: SimpleChanges;
   let comp: any;
   let httpTestingController: HttpTestingController;
 
