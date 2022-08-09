@@ -1,116 +1,50 @@
-<div class="d-flex flex-column flex-lg-row-auto positon-xl-relative sidebar"
-    ngClass="{{!isOpen ? 'w-200': 'w-80'}}">
-
-    <div class="d-flex flex-row text-light p-5 mb-5 justify-content-between align-items-center drop">
-        <div class="center" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">
-            <img src="assets/growexx-logo-without-text.png" alt="" class="w-25">
-            <span class="fs-xl-2 ps-5 pt-5 fw-bolder">Growexx</span>
+<div class="app-sidebar-container">
+    <div class="btn-collapse background-neutral-white navbar-close-icon-bg" (click)="commonService.collapsedSidebar()">
+        <em class="fa color-neutral-dark navbar-close-icon" [class]="commonService.isSideBarCollapsed ? 'fa-angles-right' : 'fa-angles-left'"></em>
+    </div>
+    <div [class]="commonService.isSideBar ? 'sidebar-collapse' : 'static-sidebar'">
+        <div class="sidebar-header height-64px background-primary-t10">
+            <img src="assets/growexx-logo-without-text.png" alt="" class="sidebar-logo"> 
+            <span class="fs-xl-3 pg-pl-1 pg-pt-2 fw-bolder logo-title">Growexx</span>
         </div>
-        <div>
-            <a (click)="toggleSidebar()">
-                <img src="assets/images/arrow.png" alt="arrow" width="24" height="24"
-                    ngClass="{{!isOpen ? 'rotate-0' : 'rotate-180'}}">
-            </a>
+        <div class="accordion" id="accordionMenu">
+            <div class="accordion-item">
+                <div class="accordion-header" id="dashboard">
+                  <span routerLink="/" type="button" class="accordion-button only-link collapsed">
+                      <em class="fa fa-grip"></em>
+                      <span class="pg-ml-2 menu-title">Dashboard</span>
+                  </span>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header" id="usersManagement">
+                <button type="button" class="accordion-button collapsed" data-toggle="collapse" data-target="#users" aria-expanded="false" aria-controls="users">
+                    <em class="fas fa-users"></em>
+                    <span class="pg-ml-2 menu-title">Users Management</span>
+                </button>
+              </div>
+              <div id="users" class="collapse" aria-labelledby="usersManagement" data-parent="#accordionMenu">
+                <div class="accordion-body">
+                    <div class="menu-item">
+                        <a routerLink="/admin/users/list" class="menu-link">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="submenu-title">User Lists</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a routerLink="/admin/users/add" class="menu-link">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="submenu-title">Add User</span>
+                        </a>
+                    </div>
+                </div>
+              </div>
+            </div>
         </div>
     </div>
-
-    <div class="d-flex flex-row text-light">
-        <ngb-accordion [closeOthers]="true"  class="w-100 panel-accordion"
-            ngClass="{{!isOpen ? 'none' : 'center'}}">
-            <ngb-panel id="static-1">
-                <ng-template ngbPanelTitle>
-                    <div ngClass="{{!isOpen ? 'd-flex' : 'center'}}">
-                        <em class="fas fa-th-large me-3"></em>
-                        <span class="item" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Dashboards</span>
-                    </div>
-                </ng-template>
-                <ng-template ngbPanelContent>
-                    <div class="menu-item">
-                        <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link active" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
-                                <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
-                            </span>
-                            <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Multipurpose</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
-                                <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
-                            </span>
-                            <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">eCommerce</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
-                                <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
-                            </span>
-                            <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Projects</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
-                                <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
-                            </span>
-                            <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Online
-                                Courses</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
-                                <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
-                            </span>
-                            <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Marketing</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a ngClass="{{!isOpen ? '': 'center'}}" class="menu-link" href="#resetPasswordSwal">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}"></span>
-                                <em class="fas fa-th-large me-3" ngClass="{{!isOpen ? 'd-none': 'd-block'}}"></em>
-                            </span>
-                            <span class="menu-title" ngClass="{{!isOpen ? 'd-block' : 'd-none'}}">Bidding</span>
-                        </a>
-                    </div>
-                </ng-template>
-            </ngb-panel>
-            <ngb-panel id="static-2">
-                <ng-template ngbPanelTitle>
-                    <div ngClass="{{!isUser ? 'd-flex' : 'center'}}">
-                        <em class="fas fa-th-large me-3"></em>
-                        <span class="item" ngClass="{{!isUser ? 'd-block' : 'd-none'}}">User</span>
-                    </div>
-                </ng-template>
-                <ng-template ngbPanelContent>
-                    <div class="menu-item">
-                        <a ngClass="{{!isUser ? '': 'center'}}" class="menu-link active" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot" ngClass="{{!isUser ? 'd-block' : 'd-none'}}"></span>
-                                <em class="fas fa-th-large me-3" ngClass="{{!isUser ? 'd-none': 'd-block'}}"></em>
-                            </span>
-                            <span class="menu-title" ngClass="{{!isUser ? 'd-block' : 'd-none'}}">Add User</span>
-                        </a>
-                    </div> 
-                    <div class="menu-item">
-                        <a ngClass="{{!isUser ? '': 'center'}}" class="menu-link active" href="#">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot" ngClass="{{!isUser ? 'd-block' : 'd-none'}}"></span>
-                                <em class="fas fa-th-large me-3" ngClass="{{!isUser ? 'd-none': 'd-block'}}"></em>
-                            </span>
-                            <span class="menu-title" ngClass="{{!isUser ? 'd-block' : 'd-none'}}">View User</span>
-                        </a>
-                    </div>                    
-                </ng-template>
-            </ngb-panel>
-        </ngb-accordion>
-    </div>
-
 </div>

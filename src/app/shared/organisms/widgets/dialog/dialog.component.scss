@@ -1,0 +1,20 @@
+.filter_menu {
+  .filter_body {
+    padding: 1rem 1.5rem;
+    .role_menu,
+    .gender_menu {
+      .role_menu_dropdown,
+      .gender_menu_dropdown {
+        width: 100%;
+        transition: color 0.2s ease, background-color 0.2s ease;
+        box-sizing: border-box;
+        margin: 0;
+        align-items: center;
+        height: auto;
+        .mat-form-field-wrapper {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

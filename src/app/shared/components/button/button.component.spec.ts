@@ -8,9 +8,9 @@ describe('ButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonComponent ]
+      declarations: [ButtonComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -22,8 +22,13 @@ describe('ButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   it('raises the submitFormEvent event when clicked', () => {
-    component.submitFormEvent.subscribe((res) => expect(res).toBeTruthy);
+    component.submitFormEvent.subscribe({
+      next: (res: any) => { expect(res).toBeTruthy },
+      error: (error: any) => { expect(error).toBeFalsy }
+    });
     component.submitForm();
+    expect(component.submitFormEvent.emit).toBeTruthy();
   });
 });

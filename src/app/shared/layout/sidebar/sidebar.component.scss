@@ -1,4 +1,41 @@
-//Sidebar component scss.
-.panel-accordion, .sidebar,.drop{
-    background-color: #1a1a27;
+@import "/src/assets/styles/variables/colors";
+// Sidebar component's scss
+.static-sidebar {
+  .sidebar-header {
+    display: flex;
+    flex-direction: row;
+    color: $colors-neutral-white;
+    padding: 10px 20px 20px 20px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-bottom: 1px dashed $colors-neutral-white;
+    .sidebar-logo {
+      width: 45px;
+      height: auto;
+    }
+  }
+}
+.sidebar-collapse {
+  .sidebar-header {
+    display: flex;
+    flex-direction: row;
+    color: $colors-neutral-white;
+    padding: 10px 20px 20px 20px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-bottom: 1px dashed $colors-neutral-white;
+  }
+}
+.btn-collapse {
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 2%;
+  right: -7px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  cursor: pointer;
 }

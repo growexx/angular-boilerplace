@@ -26,7 +26,6 @@ describe('UserService', () => {
       res => expect(res).toEqual(expectedRes, 'should return expectedRes'),
       fail
     );
-    // const req = httpTestingController.expectOne(`${environment.apiUrl1}/users/10`)
   })
 
   it('should test getUserTask', ()=>{

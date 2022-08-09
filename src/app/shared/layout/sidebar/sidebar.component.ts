@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/core/services/common/common.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,18 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  isOpen: boolean = false;
-  isUser: boolean = false;
-
-
-  constructor() { }
+  constructor(public commonService: CommonService) { }
 
   ngOnInit(): void {
-  }
-
-  toggleSidebar() {
-    this.isOpen = !this.isOpen;
-    this.isUser = !this.isUser;   
   }
 
 }

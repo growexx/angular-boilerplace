@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-resetpassword',
@@ -9,9 +9,8 @@ import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
   styleUrls: ['./resetpassword.component.scss']
 })
 export class ResetpasswordComponent implements OnInit {
-  @ViewChild('resetPasswordSwal')
-  public readonly resetPasswordSwal!: SwalComponent;
   
+  toast:any;
   resetPasswordForm = new FormGroup({
     email: new FormControl('pruthvi.dhamecha@gmail.com', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
   });
@@ -32,7 +31,8 @@ export class ResetpasswordComponent implements OnInit {
 
   constructor(private router:Router) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   onResetPassword() {
     this.submitButton = { 
@@ -42,12 +42,25 @@ export class ResetpasswordComponent implements OnInit {
       iconClasses: 'fa fa-spinner fa-spin',
       iconPlace: 'after' 
     };
-    this.resetPasswordSwal.fire();
+
+
+    this.toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true
+    })
+    this.toast.fire({
+      icon: 'success',
+      title: "Password reset link is send to your email.",
+    });
     this.submitButton = {
       "text": "Submit",
       "id": "resetpassword",
       "type": "submit",
       "btnClasses": "btn btn-lg btn-primary me-4"
     };
+    this.router.navigate(['/']);
   }
 }

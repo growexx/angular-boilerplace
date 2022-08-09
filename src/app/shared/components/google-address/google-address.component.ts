@@ -15,7 +15,6 @@ export class GoogleAddressComponent implements OnInit {
 
 
   googleApiForm!: FormGroup;
-  // @Output() countrySelectionChanged: EventEmitter<any> = new EventEmitter<any>();
   @Output() selectedAddress: EventEmitter<any> = new EventEmitter<any>();
   private reqObject = { url: '', query: '', placeid: '' };
   public countryEnum = AppConstant.countryEnum;
@@ -31,30 +30,11 @@ export class GoogleAddressComponent implements OnInit {
     })
   }
 
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   if (changes['cCode'] && changes['cCode']['currentValue']) {
-  //     this.cCode = changes['cCode']['currentValue'];
-  //     console.log(changes)
-
-  //     this.googleApiForm.controls['countryCode']?.setValue(this.cCode)
-  //   }
-  // }
-
   ngOnInit(): void {
-    // this.getResetValue()
   }
-  // getResetValue() {
-  //   this.googleService.resetValue.subscribe((res) => {
-  //     if (res === true) {
-  //       this.googleApiForm.controls['searchField']?.reset();
-  //     }
-  //   })
-  // }
-
   changeCountryType() {
     this.googleApiForm.controls['countryCode']?.setValue(this.googleApiForm.controls['countryCode'].value);
     this.googleApiForm.controls['searchField']?.setValue(null);
-    // this.countrySelectionChanged.emit(this.googleApiForm.controls['countryCode'].value)
   }
 
   findAddress() {
@@ -72,7 +52,4 @@ export class GoogleAddressComponent implements OnInit {
       ref.selectedAddress.emit(response)
     })
   }
-
 }
-
-

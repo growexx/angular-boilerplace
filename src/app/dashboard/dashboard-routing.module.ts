@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UsersListComponent } from '../users/users-list/users-list.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
@@ -9,8 +10,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path:'',
-    component:DashboardComponent   
+    path: '',
+    component: DashboardComponent,
+    data: {
+      title: 'Dashboard',
+    },
   }
 ];
 

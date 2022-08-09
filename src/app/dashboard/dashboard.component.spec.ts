@@ -1,13 +1,20 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NgbAccordion, NgbPanel, NgbPanelToggle } from '@ng-bootstrap/ng-bootstrap';
+import { AppComponent } from '../app.component';
+import { DashboardComponent } from './dashboard.component';
+import { FooterComponent } from '../shared/layout/footer/footer.component';
+import { HeaderComponent } from '../shared/layout/header/header.component';
+import { SidebarComponent } from '../shared/layout/sidebar/sidebar.component';
+import { ToolbarComponent } from '../shared/layout/toolbar/toolbar.component';
+import { of } from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbAccordion, NgbPanel, NgbPanelToggle } from '@ng-bootstrap/ng-bootstrap';
-import { of } from 'rxjs';
 import { TaskService } from '../task/task.service';
 
-import { DashboardComponent } from './dashboard.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -35,8 +42,8 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, FormsModule, MatDialogModule, BrowserAnimationsModule, HttpClientTestingModule],
-      declarations: [DashboardComponent, NgbAccordion, NgbPanel, NgbPanelToggle],
+      imports: [ReactiveFormsModule, FormsModule, RouterModule, RouterTestingModule, MatDialogModule, BrowserAnimationsModule, HttpClientTestingModule],
+      declarations: [ DashboardComponent, NgbAccordion,NgbPanel, NgbPanelToggle, AppComponent, SidebarComponent, HeaderComponent, ToolbarComponent, FooterComponent ],
       providers: [
         { provide: TaskService, useValue: taskService }
       ]
