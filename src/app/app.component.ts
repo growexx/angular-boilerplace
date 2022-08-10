@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import { CompFilterPipe } from './_shared/pipes/comp-filter.pipe';
-import { DummyDataService } from './dummy-data.service';
+import { CompFilterPipe } from './core/pipes/comp-filter.pipe';
+import { DummyDataService } from './core/services/dummy-data.service';
 
 @Component({
   selector: 'app-root',

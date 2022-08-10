@@ -1,11 +1,11 @@
-import { ChartsDataService } from './charts-data.service';
+// import { ChartsDataService } from './charts-data.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { CompFilterPipe } from './_shared/pipes/comp-filter.pipe';
+import { CompFilterPipe } from './core/pipes/comp-filter.pipe';
 import { HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import { of } from 'rxjs';
-import { DummyDataService } from './dummy-data.service';
+import { DummyDataService } from './core/services/dummy-data.service';
 
 
 
@@ -13,13 +13,13 @@ describe('AppComponent', () => {
  let app : AppComponent;
 
  
- let serviceSpy:ChartsDataService;
+//  let serviceSpy:ChartsDataService;
  let pipeSpy:any;
  let httpTestingController: HttpTestingController;
  let dummyDataSpy:DummyDataService;
   beforeEach(async () => {
     
-    serviceSpy = jasmine.createSpyObj('ChartsDataService',['getWeeklyData','getYearlyData','getMonthlyData','getChart'])
+    // serviceSpy = jasmine.createSpyObj('ChartsDataService',['getWeeklyData','getYearlyData','getMonthlyData','getChart'])
     dummyDataSpy = jasmine.createSpyObj('DummyDataService',['getAllTodos','getAllUsers'])
     pipeSpy= jasmine.createSpyObj('CompFilterPipe',['transform']);
     await TestBed.configureTestingModule({
@@ -35,7 +35,7 @@ describe('AppComponent', () => {
       ],
       providers:[AppComponent,
         {provide: CompFilterPipe,useValue:pipeSpy},
-        {provide: ChartsDataService, useValue:serviceSpy},
+        // {provide: ChartsDataService, useValue:serviceSpy},
       ]
     }).compileComponents();
     
@@ -249,27 +249,27 @@ httpTestingController = TestBed.inject(HttpTestingController);
 //   });
 
 
-it('updateData function', () => {
-  const fixture = TestBed.createComponent(AppComponent);
-  app = fixture.componentInstance;
-  let testService = TestBed.inject(ChartsDataService);
-  let chartId: any;
- let $event = 1;
-  if($event === 1){
-    chartId = testService.getYearlyData();
-  }
-  expect(app.updateData($event)).toEqual(chartId );
-   $event = 2;
-  if($event === 2){
-    chartId = testService.getMonthlyData();
-  }
-  expect(app.updateData($event)).toEqual(chartId );
-   $event = 3;
-  if($event === 3){
-    chartId = testService.getWeeklyData();
-  }
-  expect(app.updateData($event)).toEqual(chartId );
-});
+// it('updateData function', () => {
+//   const fixture = TestBed.createComponent(AppComponent);
+//   app = fixture.componentInstance;
+//   let testService = TestBed.inject(ChartsDataService);
+//   let chartId: any;
+//  let $event = 1;
+//   if($event === 1){
+//     chartId = testService.getYearlyData();
+//   }
+//   expect(app.updateData($event)).toEqual(chartId );
+//    $event = 2;
+//   if($event === 2){
+//     chartId = testService.getMonthlyData();
+//   }
+//   expect(app.updateData($event)).toEqual(chartId );
+//    $event = 3;
+//   if($event === 3){
+//     chartId = testService.getWeeklyData();
+//   }
+//   expect(app.updateData($event)).toEqual(chartId );
+// });
 
 
 // it('getDummyData function', () => {

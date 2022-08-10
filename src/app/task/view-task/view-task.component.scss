@@ -1,0 +1,49 @@
+@import '../../../assets/styles/variables/common';
+@import '../../../assets/styles/variables/colors';
+
+.table-wrapper {
+    width: 100%;
+
+    .table-header {
+        padding: 20px;
+        width: 100%;
+        display: $d-flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .table-content {
+
+        padding: 0px 40px 40px;
+        width: 100%;
+
+        .table-content-panel {
+            display: $d-flex;
+            align-items: $align-items-center;
+            justify-content: $justify-content-center;
+            margin-bottom: 30px;
+
+            .checkbox {
+                input[type="checkbox"] {
+                    width: 18px;
+                    height: 18px;
+                    background-color: $bs-checkbox-bg;
+                    border-radius: 5px;
+                    margin-right: 20px;
+                    border: none;
+                    outline: none;
+                }
+            }
+
+            .todo {
+                width: 50%;
+
+                span {
+                    font-weight: 500;
+                }
+            }
+
+          
+        }
+    }
+}

@@ -4,10 +4,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SwalComponent, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { AuthsidebarComponent } from 'src/app/includes/authsidebar/authsidebar.component';
+import { AuthsidebarComponent } from 'src/app/shared/layout/authsidebar/authsidebar.component';
 import { ConfirmPasswordValidator } from 'src/app/validators/confirm-password/ConfirmPasswordValidator';
-import { ButtonComponent } from 'src/app/_shared/button/button.component';
-import { PasswordStrengthBarComponent } from 'src/app/_shared/password-strength-bar/password-strength-bar.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { PasswordStrengthBarComponent } from 'src/app/shared/components/password-strength-bar/password-strength-bar.component';
 import { AuthService } from '../auth.service';
 import { RegisterComponent } from './register.component';
 

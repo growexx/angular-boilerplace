@@ -1,29 +1,53 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CompChartsComponent } from './_shared/comp-charts/comp-charts.component';
-const routes: Routes = [{
-  path: '',
-  component: LoginComponent
-}, {
-  path: 'sign-up',
-  component: RegisterComponent
-}, {
-  path: 'password-reset',
-  component: ResetpasswordComponent
-}, {
-  path: 'dashboard',
-  component: DashboardComponent
-}, {
-  path: 'charts',
-  component: CompChartsComponent
-},{
-  path: '**',
-  redirectTo: ''
-}, 
+import { AuthComponent } from './auth/auth/auth.component';
+import { MainComponent } from './main/main.component';
+import { CommentsComponent } from './shared/components/comments/comments.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'auth',
+    pathMatch: 'full'
+  },
+  {
+    path: 'auth',
+    component: AuthComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+      },      
+    ]
+  },
+
+  {
+    path: 'admin',
+    component: MainComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+      },
+      {
+        path: 'task',
+        loadChildren: () => import('./task/task.module').then(m => m.TaskModule)
+      }
+    ]
+  },
+
+  {
+    path:'comments',
+    component: CommentsComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({
