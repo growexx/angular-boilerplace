@@ -1957,4 +1957,21 @@ describe('UsersListComponent', () => {
     fixture.componentInstance.onSearchFilter();
     expect(Swal.isVisible()).toBeTruthy();
   }));
+
+  it('should called onClearAllSearchFilter() and return users', (async () => {
+    fixture.componentInstance.onClearAllSearchFilter();
+    const req = httpTestingController.expectOne(`${environment.apiUrl}users/search?q=`);
+    expect(req.request.method).toEqual('GET');
+    req.flush(expectedResponse);
+    expect(Swal.isVisible()).toBeTruthy();
+  }));
+
+  it('should called onClearAllSearchFilter() and return failed error', (async () => {
+    let searchString = '';
+    commonService.searchFilter = searchString;
+    loginSpyOn = spyOn(usersService,'searchUser')
+    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
+    fixture.componentInstance.onClearAllSearchFilter();
+    expect(Swal.isVisible()).toBeTruthy();
+  }));
 });

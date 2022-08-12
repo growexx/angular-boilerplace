@@ -1,20 +1,10 @@
 <div class="toolbar-container pg-py-1">
     <div class="toolbar-breadcrumb">
-        <h2 class="toolbar-title fw-bolder mb-0">Users List</h2>
-        <!-- <span class="pg-h-3 border-gray-300 border-start pg-mx-2"></span> -->
+        <h2 class="toolbar-title fw-bolder mb-0">{{breadcrumbs.at(-1).label}}</h2>
         <ul class="breadcrumb breadcrumb-separatorless fw-bold pg-fs-1.5 pg-my-1">
-            <li class="breadcrumb-item text-muted">
-                <a routerLink="" class="text-muted text-hover-primary">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-                <span class="bullet bg-gray-300 pg-w-5px h-2px"></span>
-            </li>
-            <li class="breadcrumb-item text-muted">User Management</li>
-            <li class="breadcrumb-item">
-                <span class="bullet bg-gray-300 w-5px h-2px"></span>
-            </li>
-            <li class="breadcrumb-item text-muted">
-                <a routerLink="" class="text-muted text-hover-primary">List</a>
+            <li class="breadcrumb-item text-muted" *ngFor="let item of breadcrumbs;let i=index">
+                <a [routerLink]="item.url" class="text-hover-primary" [class.text-muted]="i !== (breadcrumbs.length-1)" [textContent]="item.label"></a>
+                <span class="bullet bg-gray-300 pg-w-5px h-2px pg-mx-1" *ngIf="i != (breadcrumbs.length-1)"></span>
             </li>
         </ul>
     </div>

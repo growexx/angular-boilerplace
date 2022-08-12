@@ -16,7 +16,6 @@
           font-weight: 600;
           font-size: 13px;
           line-height: 19px;
-          overflow-wrap: break-word;
           &:nth-child(1) {
             padding: 10px 20px;
           }
@@ -46,7 +45,7 @@
           font-size: 14px;
           font-weight: 600;
           line-height: 20px;
-          overflow-wrap: break-word;
+          position: relative;
           &:nth-child(1) {
             padding: 10px 20px;
           }
@@ -63,13 +62,16 @@
           }
           .action_menu {
             display: none;
+            position: absolute;
           }
           .action_menu.show {
             display: flex;
             flex-direction: column;
             background-color: #fff;
             z-index: 105;
-            position: fixed;
+            // position: fixed;
+            position: absolute;
+            right: 0;
             width: 125px;
             font-weight: 500;
             font-size: 12px;

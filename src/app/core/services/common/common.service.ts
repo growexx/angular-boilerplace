@@ -13,6 +13,10 @@ export class CommonService {
   public checkAllCheckboxes: boolean = false;
   public searchFilter: string = '';
   public checkboxes: string[] = [];
+  public filterForm:any = {
+    role:"",
+    gender: ""
+  };
 
   constructor() { }
 

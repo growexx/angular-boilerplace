@@ -84,6 +84,10 @@ export class UsersListComponent implements OnInit {
 
   onClearAllSearchFilter(){
     this.commonService.searchFilter = '';
+    this.commonService.filterForm = {
+      role: "",
+      gender: ""
+    }
     this.usersService.searchUser(this.commonService.searchFilter).subscribe({
       next: (data: any) => {
         this.usersService.usersData = data.users;

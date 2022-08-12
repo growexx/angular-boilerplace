@@ -61,16 +61,16 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should open modal', () => {
-    const button = el.querySelector('button');
-    button?.dispatchEvent(new Event('click'));
-    component.openModal();
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
-  });
+  // it('should open modal', () => {
+  //   const button = el.querySelector('button');
+  //   button?.dispatchEvent(new Event('click'));
+  //   component.openModal();
+  //   fixture.detectChanges();
+  //   expect(component).toBeTruthy();
+  // });
 
-  it('should call getAllTasks', () => {
-    component.getAllTasks()
-    expect(component).toBeTruthy();
-  })
+  // it('should call getAllTasks', () => {
+  //   component.getAllTasks()
+  //   expect(component).toBeTruthy();
+  // })
 });

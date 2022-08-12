@@ -23,7 +23,7 @@ export class AddTaskComponent implements OnInit {
   id!: number;
   getSingleTodo: getSingleTodoType[] | any;
   isCreateMode: boolean = false;
-  constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private taskService: TaskService, public router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.addTaskDetails();
@@ -38,7 +38,6 @@ export class AddTaskComponent implements OnInit {
       }
     })
   }
-
 
   addTaskDetails() {
     this.taskFormGroup = new FormGroup({

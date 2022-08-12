@@ -30,7 +30,7 @@ describe('LoginComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes([
         {
-          path: 'dashboard',
+          path: 'admin',
           component: DashboardComponent,
         }
       ]), HttpClientTestingModule, ReactiveFormsModule, FormsModule, SweetAlert2Module.forRoot()],

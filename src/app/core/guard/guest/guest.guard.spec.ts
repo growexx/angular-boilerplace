@@ -28,7 +28,7 @@ describe('GuestGuard', () => {
   it('should not be able to activate when logged out', () => {
     localStorage.setItem('token', 'asdfghjkkl');
     expect(guard.canActivate()).toBe(false);
-    expect(routerSpy.navigate).toHaveBeenCalledWith(['/dashboard']);
+    expect(routerSpy.navigate).toHaveBeenCalledWith(['/admin']);
   });
   
   it('should be able to activate when logged in', () => {

@@ -17,74 +17,81 @@ export interface FilterDialogData {
 })
 export class DialogComponent implements OnInit {
 
-  error_message:any = '';
-  toast:any;
+  error_message: any = '';
+  toast: any;
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FilterDialogData,
     public usersService: UsersService,
     public commonService: CommonService,
   ) { }
-
   filterForm = new FormGroup({
-    role: new FormControl('Select option', [Validators.required]),
-    gender: new FormControl('Select option', [Validators.required]),
+    role: new FormControl(this.commonService.filterForm.role, [Validators.required]),
+    gender: new FormControl(this.commonService.filterForm.gender, [Validators.required]),
   });
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   onSubmitFilter() {
-    if (this.filterForm.value.role === "Select option" && this.filterForm.value.gender === "Select option") {
+    if (this.filterForm.value.role == "" && this.filterForm.value.gender == "") {
       this.usersService.getAllUsers().subscribe({
         next: (data: any) => {
           this.usersService.usersData = data.users;
           this.usersService.usersData.filter((ele: any) => {
             (this.usersService.roles.indexOf(ele.company.department) === -1) ? this.usersService.roles.push(ele.company.department) : '';
           });
-          this.usersService.usersData.filter((ele: any) => {
-            (this.usersService.gender.indexOf(ele.gender) === -1) ? this.usersService.gender.push(ele.gender) : '';
-          });
+          this.usersService.usersData = this.usersService.usersData.filter((ele: any) => (ele.gender === this.filterForm.value.gender.toLowerCase()));
         },
         error: (error: any) => {
           this.errorToast(error);
         }
       });
     } else {
-      this.usersService.filterUser('company.department', this.filterForm.value.role)
-      .subscribe({
-        next: (data: any) => {
-          this.usersService.usersData = data.users;
-          this.usersService.usersData = this.usersService.usersData.filter((ele: any) => (ele.gender === this.filterForm.value.gender.toLowerCase()));
-        },
-        error: (error: any) => {
-          this.errorToast(error);
-        }
-      })
-
-    }
-    this.dialogRef.close();
-  }
-
-  onResetFilter() {
-    this.filterForm.reset();
-    this.usersService.getAllUsers().subscribe({
-      next: (data: any) => {
-        this.usersService.usersData = data.users;
-        this.usersService.usersData.filter((ele: any) => {
-          (this.usersService.roles.indexOf(ele.company.department) === -1) ? this.usersService.roles.push(ele.company.department) : '';
-        });
-        this.usersService.usersData.filter((ele: any) => {
-          (this.usersService.gender.indexOf(ele.gender) === -1) ? this.usersService.gender.push(ele.gender) : '';
-        });
-      },
-      error: (error: any) => {
-        this.errorToast(error);
+      this.commonService.filterForm = {
+        role: this.filterForm.value.role,
+        gender: this.filterForm.value.gender
       }
-    });
-    this.dialogRef.close();
+      this.usersService.filterUser('company.department', this.filterForm.value.role)
+        .subscribe({
+          next: (data: any) => {
+            this.usersService.usersData = data.users;
+            if(this.filterForm.value.gender !== "Select option"){
+              this.usersService.usersData = this.usersService.usersData.filter((ele: any) => (ele.gender === this.filterForm.value.gender.toLowerCase()));
+            }
+          },
+          error: (error: any) => {
+            this.errorToast(error);
+          }
+        })
+        
+      }
+      this.dialogRef.close();
   }
 
-  errorToast(error:any){
+  // onResetFilter() {
+  //   this.filterForm.reset();
+  //   this.usersService.getAllUsers().subscribe({
+  //     next: (data: any) => {
+  //       this.usersService.usersData = data.users;
+  //       this.usersService.usersData.filter((ele: any) => {
+  //         (this.usersService.roles.indexOf(ele.company.department) === -1) ? this.usersService.roles.push(ele.company.department) : '';
+  //       });
+  //       this.usersService.usersData = this.usersService.usersData.filter((ele: any) => (ele.gender === this.filterForm.value.gender.toLowerCase()));
+  //     },
+  //     error: (error: any) => {
+  //       this.errorToast(error);
+  //     }
+  //   });
+  //   console.log(this.commonService.filterForm);
+  //   // this.dialogRef.close();
+  // }
+
+  onClearFilter() {
+    this.filterForm.reset();
+  }
+
+  errorToast(error: any) {
     if (!error.error.message) {
       if (error.status === 400) {
         this.error_message = 'Bad Request';

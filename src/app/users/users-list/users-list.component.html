@@ -3,7 +3,9 @@
         <div class="d-flex align-items-center position-relative my-1">
             <em class="fa fa-magnifying-glass search-icon"></em>
             <input type="text" id="searchFilter" class="form-control search-box-input" [(ngModel)]="commonService.searchFilter" (keyup)="onSearchFilter()" name="searchFilter" placeholder="Search By Name">
-            <em class="fa fa-xmark clear-all-search-icon" (click)="onClearAllSearchFilter()" *ngIf="commonService.searchFilter"></em>
+            <a type="button" (click)="onClearAllSearchFilter()" class="btn btn-light-primary pg-ml-1" id="reset" *ngIf="commonService.searchFilter || commonService.filterForm.role">
+                <em class="fa fa-undo"></em>
+            </a>
         </div>
     </div>
     <div class="card-toolbar">

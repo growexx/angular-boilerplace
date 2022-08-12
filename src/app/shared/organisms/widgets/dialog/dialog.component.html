@@ -7,7 +7,7 @@
     <form [formGroup]="filterForm" (ngSubmit)="onSubmitFilter()">
         <div class="role_menu pg-py-1">
           <label class="form-label pg-fs-6">Roles:</label>
-          <mat-form-field appearance="fill"  name="role_menu_dropdown" id="role_menu_dropdown" class="role_menu_dropdown fw-bolder">
+          <mat-form-field appearance="outline"  name="role_menu_dropdown" id="role_menu_dropdown" class="role_menu_dropdown fw-bolder">
             <mat-label>Select an option</mat-label>
             <mat-select formControlName="role">
               <mat-option *ngFor="let role of data.roles" value="{{role}}">{{role}}</mat-option>
@@ -16,7 +16,7 @@
         </div>
         <div class="gender_menu pg-py-1">
           <label class="form-label pg-fs-6">Gender:</label>
-          <mat-form-field appearance="fill" name="gender_menu_dropdown" id="gender_menu_dropdown" class="gender_menu_dropdown fw-bolder">
+          <mat-form-field appearance="outline" name="gender_menu_dropdown" id="gender_menu_dropdown" class="gender_menu_dropdown fw-bolder">
             <mat-label>Select an option</mat-label>
             <mat-select formControlName="gender">
               <mat-option *ngFor="let status of data.gender" value="{{status}}">{{status}}</mat-option>
@@ -24,8 +24,8 @@
           </mat-form-field>
         </div>
         <div class="d-flex justify-content-end" mat-dialog-actions>
-          <button mat-button (click)="onResetFilter()" type="reset" class="btn btn-light btn-active-light-primary fw-bold pg-mr-2 pg-px-6">Reset</button>
-          <button mat-button type="submit" class="btn btn-primary fw-bold pg-px-6">Apply</button>
+          <button mat-button (click)="onClearFilter()" type="reset" class="btn btn-light btn-active-light-primary fw-bold pg-mr-2 pg-px-6">Reset</button>
+          <button mat-button type="submit" [disabled]="filterForm.invalid" class="btn btn-primary fw-bold pg-px-6">Apply</button>
       </div>      
     </form>
   </div>

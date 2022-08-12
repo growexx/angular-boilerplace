@@ -31,4 +31,21 @@ describe('CommonService', () => {
     expect(service.showActionDropdown).toBeFalsy();
     expect(service.index).toBe(1);
   });
+
+  it('should be toggleSidebar() function works as expected', () => {
+    service.isSideBar = true;
+    service.isSideBarCollapsed = true;
+    service.toggleSidebar()
+    expect(service.isSideBarCollapsed).toBeFalsy();
+    service.toggleSidebar()
+    expect(service.isSideBarCollapsed).toBeTruthy();
+  });
+
+  it('should be collapsedSidebar() function works as expected', () => {
+    service.isSideBar = true;
+    service.isSideBarCollapsed = true;
+    service.collapsedSidebar()
+    expect(service.isSideBar).toBeFalsy();
+    expect(service.isSideBarCollapsed).toBeFalsy();
+  });
 });

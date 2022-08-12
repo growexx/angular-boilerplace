@@ -34,6 +34,40 @@
                     <td class="user-department">{{data.company.department}}</td>
                     <td class="user-birthdate">{{data.birthDate | date}}</td>
                     <td class="user-actions">
+                        <!-- <mat-form-field appearance="outline" name="role_menu_dropdown" id="role_menu_dropdown" class="role_menu_dropdown fw-bolder">
+                            <mat-label>Action</mat-label>
+                            <mat-select>
+                              <mat-option routerLink="/admin/users/view/{{data.id}}" value="View">View</mat-option>
+                              <mat-option routerLink="/" value="Edit">Edit</mat-option>
+                              <mat-option (click)="OnDelete(data.id)" value="Delete">Delete</mat-option>
+                            </mat-select>
+                          </mat-form-field> -->
+                        <!-- <div class="accordion" id="accordionMenu">               
+                            <div class="accordion-header" id="actions">
+                                <button type="button" class="btn btn-light btn-active-light-primary btn-sm collapsed" data-toggle="collapse" data-target="#actionItems" aria-expanded="false" aria-controls="actionItems">
+                                    <span class="pg-ml-2 menu-title">Actions</span>
+                                </button>
+                            </div>
+                            <div id="actionItems" class="collapse" aria-labelledby="actions" data-parent="#accordionMenu">
+                                <div class="accordion-body">
+                                    <div class="action-menu-item pg-px-1">
+                                        <a routerLink="/admin/users/view/{{data.id}}" class="action-menu-link text-gray-600 text-hover-primary pg-px-1">
+                                            <span class="submenu-title">View</span>
+                                        </a>
+                                    </div>
+                                    <div class="action-menu-item pg-px-1">
+                                        <a routerLink="/" class="action-menu-link text-gray-600 text-hover-primary pg-px-1">
+                                            <span class="submenu-title">Edit</span>
+                                        </a>
+                                    </div>
+                                    <div class="action-menu-item pg-px-1">
+                                        <a (click)="OnDelete(data.id)" class="action-menu-link text-gray-600 text-hover-primary pg-px-1">
+                                            <span class="submenu-title">Delete</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
                         <a id="actionDropdown" (click)="commonService.toggleActionDropdown(data.id)" class="btn btn-light btn-active-light-primary btn-sm">Action <em class="fa-solid fa-angle-down"></em></a>
                         <div class="action_menu pg-py-1" [class.show]="commonService.showActionDropdown && commonService.index == data.id">
                             <div class="action-menu-item pg-px-1">

@@ -1897,8 +1897,8 @@ describe('DialogComponent', () => {
   });
 
   it('should called onSubmitFilter() and filter array of users while role and gender are set to null', fakeAsync(async () => {
-    component.filterForm.controls['role'].setValue("Select option");
-    component.filterForm.controls['gender'].setValue("Select option");
+    component.filterForm.controls['role'].setValue("");
+    component.filterForm.controls['gender'].setValue("");
     
     const req1 = httpTestingController.expectOne(`${environment.apiUrl}users`);
     expect(req1.request.method).toEqual('GET');
@@ -1941,29 +1941,29 @@ describe('DialogComponent', () => {
     flush();
   }));
 
-  it('should called onResetFilter() and reset filter array of users', fakeAsync(async () => {
-    component.filterForm.controls['role'].setValue(null);
-    component.filterForm.controls['gender'].setValue(null);
-    expect(component.filterForm.invalid).toBeTruthy();
+  // it('should called onResetFilter() and reset filter array of users', fakeAsync(async () => {
+  //   component.filterForm.controls['role'].setValue(null);
+  //   component.filterForm.controls['gender'].setValue(null);
+  //   expect(component.filterForm.invalid).toBeTruthy();
 
-    const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
-    expect(req.request.method).toEqual('GET');
-    req.flush(expectedResponse);
-    userListfixture.detectChanges();
+  //   const req = httpTestingController.expectOne(`${environment.apiUrl}users`);
+  //   expect(req.request.method).toEqual('GET');
+  //   req.flush(expectedResponse);
+  //   userListfixture.detectChanges();
 
-    let spy = spyOn(component.dialogRef, 'close').and.callThrough();
+  //   let spy = spyOn(component.dialogRef, 'close').and.callThrough();
 
-    usersService.roles = [];
-    component.onResetFilter();
-    fixture.detectChanges();
+  //   usersService.roles = [];
+  //   component.onResetFilter();
+  //   fixture.detectChanges();
 
-    expect(spy).toHaveBeenCalled();
+  //   expect(spy).toHaveBeenCalled();
 
-    const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
-    expect(req2.request.method).toEqual('GET');
-    req2.flush(expectedResponse);
-    flush();
-  }));
+  //   const req2 = httpTestingController.expectOne(`${environment.apiUrl}users`);
+  //   expect(req2.request.method).toEqual('GET');
+  //   req2.flush(expectedResponse);
+  //   flush();
+  // }));
 
   it('should called onSubmitFilter() and return failed', fakeAsync(() => {
     loginSpyOn = spyOn(usersService,'getAllUsers')
@@ -1999,37 +1999,14 @@ describe('DialogComponent', () => {
     flush(100);
   }));
 
-  it('should called onResetFilter() and return failed', fakeAsync(() => {
-    loginSpyOn = spyOn(usersService,'getAllUsers')
-    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
-    component.onResetFilter();
-    expect(Swal.isVisible()).toBeTruthy();
-    
-    expectedErrorResponse.status = 401;
-    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
-    component.onResetFilter();
-    expect(Swal.isVisible()).toBeTruthy();
-
-    expectedErrorResponse.status = 403;
-    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
-    component.onResetFilter();
-    expect(Swal.isVisible()).toBeTruthy();
-
-    expectedErrorResponse.status = 404;
-    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
-    component.onResetFilter();
-    expect(Swal.isVisible()).toBeTruthy();
-
-    expectedErrorResponse.status = 502;
-    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
-    component.onResetFilter();
-    expect(Swal.isVisible()).toBeTruthy();
-
-    expectedErrorResponse.error.message = "Invalid credentials";    
-    loginSpyOn.and.returnValue(throwError(expectedErrorResponse));
-    component.onResetFilter();
-    expect(Swal.isVisible()).toBeTruthy();
+  it('should called onClearFilter() and filter array of users are return user', ( () => {
+    userListfixture.detectChanges();
     fixture.detectChanges();
-    flush(100);
+
+    component.filterForm.controls['role'].setValue('Marketing');
+    component.filterForm.controls['gender'].setValue('male');
+    component.onClearFilter();
+    expect(component.filterForm.invalid).toBeTruthy();
+
   }));
 });

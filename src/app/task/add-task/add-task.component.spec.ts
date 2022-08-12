@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
+import Swal from 'sweetalert2';
 import { TaskService } from '../task.service';
 
 import { AddTaskComponent } from './add-task.component';
@@ -31,6 +32,7 @@ describe('AddTaskComponent', () => {
   }
 
   let taskService: any;
+  let swal2: any;
 
 
   taskService = jasmine.createSpyObj('TaskService', ['addTodos', 'updateTodo', 'getToDoById']);
@@ -45,7 +47,8 @@ describe('AddTaskComponent', () => {
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [
         { provide: ActivatedRoute, useValue: { params: of({ id: '1' }) } },
-        { provide: TaskService, useValue: taskService }
+        { provide: TaskService, useValue: taskService },
+        { provide: Swal }
       ]
     })
       .compileComponents();
@@ -54,6 +57,7 @@ describe('AddTaskComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddTaskComponent);
     component = fixture.componentInstance;
+    swal2 = fixture.debugElement.injector.get(Swal);
     fixture.detectChanges();
   });
 
@@ -62,7 +66,8 @@ describe('AddTaskComponent', () => {
   });
 
   it('should call submitTodo', () => {
-    component.submitTodo()
+    component.submitTodo();
+    Swal.clickConfirm();
     expect(component).toBeTruthy();
   });
 
@@ -73,6 +78,7 @@ describe('AddTaskComponent', () => {
 
   it('should call cancelTodo', () => {
     component.cancelTodo()
+    spyOn(component.router, 'navigate');
     expect(component).toBeTruthy();
   });
 
@@ -87,6 +93,4 @@ describe('AddTaskComponent', () => {
     component.getToDoById(id)
     expect(component).toBeTruthy();
   });
-
-
 });

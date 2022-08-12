@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
   }, { validators: ConfirmPasswordValidator() });
 
   submitButton: any = {
-    "text": "Sing Up",
+    "text": "Sign Up",
     "id": "signup",
     "type": "submit",
     "btnClasses": "btn btn-lg btn-primary"
