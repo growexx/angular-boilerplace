@@ -2,6 +2,16 @@
     background-color: #eff2f5;
 }
 
+.card .card-custom {
+    width: 50%;
+}
+
+.maincard {
+    background-color: #eff2f5;
+    width: 50%;
+    box-shadow: 4px 4px 8px #eff2f5;
+}
+
 .card-subtitle {
     color: #b5b5c3;
     padding-top: none;
@@ -12,5 +22,45 @@
 }
 
 .maincard {
+    margin: 10px
+}
+
+.tab-content {
+    font-size: 20px;
+    color: #5E6278;
+    padding: 30px;
+    background-color: #eff2f5;
+    margin: 10px 0 10px 0;
+    border-radius: 4px;
+    display: flex;
+}
+
+.editBtn {
+    border: none;
+    background-color: #ffffff;
+    padding: 4px;
+    margin: 4px;
+    border-radius: 4px;
+}
+
+.content {
+    width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.content-body {
+    width: fit-content;
+}
+
+.addBtn {
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    color: #009EF7;
+}
+
+.plusBtn {
     margin: 10px
 }

@@ -1,1 +1,27 @@
-<p>dialog works!</p>
+<!-- <form [formGroup]="commentForm"> -->
+<!-- <app-text-area [textArea]="textArea"  (input)="textAreaValue($event)"></app-text-area> -->
+<div *ngIf="data.type=='edit'">
+    <mat-form-field class="example-full-width" color="accent" appearance="fill">
+        <mat-label>{{data.label}}</mat-label>
+        <textarea [(ngModel)]="data.text" matInput placeholder="{{data.placeholder}}"></textarea>
+    </mat-form-field>
+    <div mat-dialog-actions>
+
+        <button mat-raised-button [mat-dialog-close]="data.text">Ok</button>
+        <button mat-raised-button (click)="onCancel()">Cancel</button>
+    </div>
+</div>
+
+<div *ngIf="data.type=='add'">
+    <mat-form-field class="example-full-width" color="accent" appearance="fill">
+        <mat-label>{{data.label}}</mat-label>
+        <textarea [(ngModel)]="data.text" matInput placeholder="{{data.placeholder}}"></textarea>
+    </mat-form-field>
+    <div mat-dialog-actions>
+
+        <button mat-raised-button [mat-dialog-close]="data.text">Ok</button>
+        <button mat-raised-button (click)="onCancel()">Cancel</button>
+    </div>
+</div>
+
+<!-- </form> -->

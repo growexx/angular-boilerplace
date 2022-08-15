@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from './components/button/button.component';
-import { PasswordStrengthBarComponent } from './components/password-strength-bar/password-strength-bar.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AuthsidebarComponent } from './layout/authsidebar/authsidebar.component';
-import { ModalComponent } from './components/modal/modal.component';
+
+// import { TableComponent } from './organisms/widgets/table/table.component';
+// import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { RouterModule } from '@angular/router';
+// import { NgxPaginationModule } from 'ngx-pagination';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DialogComponent } from './components/widgets/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+// import { DatepickerComponent } from './components/datepicker/datepicker.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { MultiselectDropdownComponent } from './components/multiselect-dropdown/multiselect-dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ButtonComponent } from './components/button/button.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { GoogleAddressComponent } from './components/google-address/google-address.component';
-import {MatSelectModule} from '@angular/material/select';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { CircleProgressBarComponent } from './components/circle-progress-bar/circle-progress-bar.component';
 import { CompChartsComponent } from './components/comp-charts/comp-charts.component';
@@ -33,23 +39,33 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {DropdownModule} from 'primeng/dropdown';
 import { UniquePipe } from '../core/pipes/unique.pipe';
 import { CommentsComponent } from './components/comments/comments.component';
+import { PasswordStrengthBarComponent } from './components/password-strength-bar/password-strength-bar.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { AuthsidebarComponent } from './layout/authsidebar/authsidebar.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+
+
 @NgModule({
   declarations: [
+    // FilterPipe,
+    // TableComponent,
+    // DropdownComponent,
+    DialogComponent,
+    // DatepickerComponent,
+    // MultiselectDropdownComponent,
     ButtonComponent,
-    PasswordStrengthBarComponent,
-    HeaderComponent,
-    SidebarComponent,
-    FooterComponent,
-    AuthsidebarComponent,
     ModalComponent,
     ButtonsComponent,
     GoogleAddressComponent,
     ImageUploadComponent,
+    PasswordStrengthBarComponent,
     CheckboxComponent,
     CircleProgressBarComponent,
     CompChartsComponent,
@@ -61,11 +77,15 @@ import { CommentsComponent } from './components/comments/comments.component';
     TextAreaComponent,
     TimelineComponent,
     UniquePipe,
-    CommentsComponent
+    CommentsComponent,
+    AuthsidebarComponent,
+    FooterComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
-    NgbModule,
+    RouterModule,
     MatDialogModule,
     MatSelectModule,
     ChartModule,
@@ -78,6 +98,7 @@ import { CommentsComponent } from './components/comments/comments.component';
     MatSlideToggleModule,
     MatDialogModule,
     MatTableModule,
+    MatButtonModule,
     FormsModule,
     DropdownModule,
     NgCircleProgressModule.forRoot({
@@ -93,25 +114,31 @@ import { CommentsComponent } from './components/comments/comments.component';
 "showTitle" : false,
 "showSubtitle": false,
 "showUnits" : false,
-
 "animationDuration": 4000,
-
 "showBackground": false,
 "startFromZero": false,
 "lazy": true
-
     }),
+    FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgbModule,
   ],
-  exports:[
+  exports: [
+    // FilterPipe,
+    // TableComponent,
+    // DropdownComponent,
+    DialogComponent,
+    // DatepickerComponent,
+    // MultiselectDropdownComponent,
     ButtonComponent,
-    PasswordStrengthBarComponent,
-    SidebarComponent,
-    AuthsidebarComponent,
-    HeaderComponent,
     ModalComponent,
     ButtonsComponent,
+    AuthsidebarComponent,
     GoogleAddressComponent,
     ImageUploadComponent,
+    PasswordStrengthBarComponent,
     CheckboxComponent,
     CircleProgressBarComponent,
     CompChartsComponent,
@@ -121,9 +148,17 @@ import { CommentsComponent } from './components/comments/comments.component';
     SwitchComponent,
     TabsComponent,
     TextAreaComponent,
-    TimelineComponent
-    
+    HeaderComponent,
+    TimelineComponent,
+    SidebarComponent
   ],
-  providers: [ UniquePipe],
+  providers: [ UniquePipe,
+
+    // ToolbarComponent,
+    FooterComponent,
+    HeaderComponent,
+    SidebarComponent
+  ],
 })
+
 export class SharedModule { }
