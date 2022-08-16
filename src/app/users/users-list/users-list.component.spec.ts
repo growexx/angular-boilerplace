@@ -1963,7 +1963,6 @@ describe('UsersListComponent', () => {
     const req = httpTestingController.expectOne(`${environment.apiUrl}users/search?q=`);
     expect(req.request.method).toEqual('GET');
     req.flush(expectedResponse);
-    expect(Swal.isVisible()).toBeTruthy();
   }));
 
   it('should called onClearAllSearchFilter() and return failed error', (async () => {

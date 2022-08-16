@@ -8,6 +8,11 @@ import * as _ from 'lodash';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  progressConfig = {
+    innerWidth: 72,
+    innerClass: 'bg-light',
+  }
+  
   constructor(public commonService: CommonService) { }
   ngOnInit(): void {
   }
