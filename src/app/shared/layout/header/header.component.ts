@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonService } from 'src/app/core/services/common/common.service';
 
 @Component({
   selector: 'app-header',
@@ -7,26 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  isOpen: boolean = false;
-  isShow: boolean = false;
-  isSlider: boolean = false;
 
-  constructor() { }
+  constructor(public commonService:CommonService, private readonly router: Router) { }
 
   ngOnInit(): void {
   }
 
-  openProfilePanel() {
-    this.isOpen = !this.isOpen;
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
-
-  openSearchPanel() {
-    this.isShow = !this.isShow;
-  }
-
-  openSlider() {
-    this.isSlider = !this.isSlider;
-  }
-
-
 }

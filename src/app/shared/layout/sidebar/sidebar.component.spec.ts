@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SidebarComponent } from './sidebar.component';
 
@@ -8,9 +10,10 @@ describe('SidebarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SidebarComponent ]
+      declarations: [SidebarComponent],
+      imports: [NgbModule],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -22,9 +25,4 @@ describe('SidebarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should call toggle sidebar function', ()=>{
-    component.toggleSidebar();
-    expect(component).toBeTruthy();
-  })
 });

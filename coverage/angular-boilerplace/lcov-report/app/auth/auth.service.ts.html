@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/10</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/8</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -85,13 +85,7 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -102,21 +96,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
@@ -130,21 +118,15 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 &nbsp;
-<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" >r</span>outer: Router,</span> private <span class="cstat-no" title="statement not covered" >http: HttpClient)</span> { }
-<span class="cstat-no" title="statement not covered" >  users: any = [];</span>
-<span class="cstat-no" title="statement not covered" >  token:any = '';</span>
+  constructor(private router: Router, private http: HttpClient) { }
+  users: any = [];
+  token:any = '';
   
-<span class="fstat-no" title="function not covered" >  login(</span>user:any): Observable&lt;any&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.http.post&lt;any&gt;(`${environment.apiUrl}login`, user);</span>
+  login(user:any): Observable&lt;any&gt; {
+    return this.http.post&lt;any&gt;(`${environment.apiUrl}auth/login`, user);
   }
-<span class="fstat-no" title="function not covered" >  register(</span>user:any): Observable&lt;any&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.http.post&lt;any&gt;(`${environment.apiUrl}register`, user);</span>
-  }
-<span class="fstat-no" title="function not covered" >  getAllUsers(</span>): Observable&lt;any&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.http.get&lt;any&gt;(`${environment.apiUrl}users`);</span>
-  }
-<span class="fstat-no" title="function not covered" >  getUser(</span>userId:any): Observable&lt;any&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.http.get&lt;any&gt;(`${environment.apiUrl}user/${userId}`);</span>
+  register(user:any): Observable&lt;any&gt; {
+    return this.http.post&lt;any&gt;(`${environment.apiUrl}users/add`, user);
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -154,7 +136,7 @@ export class AuthService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Aug 01 2022 16:34:07 GMT+0530 (India Standard Time)
+                at 2022-08-21T16:37:13.598Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

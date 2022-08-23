@@ -4,9 +4,12 @@
 
 export const environment = {
   production: false,
-  localApiUrl: 'http://localhost:3000/api/',
+
+  localApiUrl: 'http://localhost:3000/',
   apiUrl: 'https://reqres.in/api/',
   apiUrl1:'https://dummyjson.com/'
+
+
 };
 
 /*

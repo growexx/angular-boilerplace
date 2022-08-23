@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../widgets/dialog/dialog.component';
+import { DialogTextboxComponent } from '../widgets/dialog-textbox/dialog-textbox.component';
 import { Events } from './timeline.modal';
 
 @Component({
@@ -20,7 +20,7 @@ taskStatus:any;
  
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(DialogTextboxComponent, {
       width: '325px',
     //   data: { roles: this.usersService.roles, gender: this.usersService.gender },
     });

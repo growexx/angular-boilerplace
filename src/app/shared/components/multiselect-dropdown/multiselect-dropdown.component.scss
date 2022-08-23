@@ -1,0 +1,111 @@
+// multiselect dropdown styles
+.multiselect-dropdown {
+  display: flex;
+  flex-direction: column;
+  .multiselect-dropdown-contianer {
+    position: relative;
+    .selected-list {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-items: center;
+      /* line-height: 1.25; */
+      /* border-radius: 3px; */
+      /* font-size: 0.85rem; */
+      padding: 5px 10px;
+      cursor: pointer;
+      /* min-height: 38px; */
+      /* background: #fff; */
+      /* border: 1px solid #ccc; */
+      position: relative;
+      .dropdown-icon {
+        position: absolute;
+        right: 8px;
+        margin-left: 20px;
+        transform: translate(-50%, -50%);
+      }
+      .selected-badge-more {
+        position: absolute;
+        right: 25px;
+        margin-left: 20px;
+        transform: translate(-50%, -50%);
+      }
+      .deselect-all-icon {
+        position: absolute;
+        right: 30px;
+        margin-left: 20px;
+        transform: translate(-50%, -50%);
+      }
+      .selected-item {
+        background-color: #0079fe;
+        color: white;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px 10px;
+        margin: 3px 3px 3px 0px;
+        font-size: 0.85rem;
+        .selected-label {
+          margin-right: 10px;
+        }
+        .selected-remove-icon {
+          font-size: 15px;
+          color: white;
+        }
+      }
+    }
+    .dropdown-items-list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      .dropdown-container {
+        overflow: auto;
+        background: #ffffff;
+        margin-top: 5px;
+        border-radius: 5px;
+        padding: 8px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+        .dropdown-items {
+          display: flex;
+          flex-direction: column;
+          padding-left: 0;
+          .dropdown-item-selectall {
+            border-bottom: 0.5px solid #d3d3d3;
+            cursor: pointer;
+            list-style-type: none;
+            padding: 5px;
+            &:hover {
+              color: #0079fe;
+            }
+          }
+          .search-filter-container {
+            padding: 5px 0px;
+            list-style-type: none;
+          }
+          .dropdown-item {
+            padding: 10px;
+            margin-bottom: 2px;
+            .dropdown-checkbox {
+              position: relative;
+              padding-left: 2em;
+              vertical-align: middle;
+              -webkit-user-select: none;
+              user-select: none;
+              cursor: pointer;
+              margin-right: 10px;
+              font-weight: 300;
+              height: 16px;
+              width: 16px;
+            }
+            &.active {
+              background-color: #e9f4ff;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

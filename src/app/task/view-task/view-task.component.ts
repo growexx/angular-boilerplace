@@ -42,7 +42,6 @@ export class ViewTaskComponent implements OnInit {
 
   deleteTodo(id: any) {
     this.taskService.deleteTodos(id).subscribe((res: any) => {
-      // this.successSwal.fire();
       this.getAllTasks()
     })
   }

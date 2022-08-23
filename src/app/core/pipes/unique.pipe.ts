@@ -10,7 +10,7 @@ export class UniquePipe implements PipeTransform {
   result:any;
 initialObjArray:any;
   transform(value:any[]): any[] {
-
+console.log(value)
 this.result =  []
 value?.forEach(item => {
   let count = this.result.filter((x: { completed: any; }) => x.completed == item.completed).length
@@ -19,6 +19,7 @@ value?.forEach(item => {
     this.result.push(item)
   }
 })
+console.log(this.result)
 return this.result;
   }
 

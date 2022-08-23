@@ -23,7 +23,16 @@ displayedColumns: string[] = ['id', 'name', 'role', 'email','phone'];
   textArea = 
   {label:'Description', placeholder: "Enter description" };
 
+  tooltipConfig={
+    buttonText:"Action",
+    showDelay:100,
+  hideDelay :100000,
+  message:"this is edit button",
+  position:"right",
+  tooltipDisabled:false,
+  tooltipClass:"none",
 
+  }
 
   switches=[
     {id:1,
@@ -369,7 +378,8 @@ getUserList(){
 //to get todo list for timeline
 getTodo(){
   this.dummyDataService.getAllTodos().subscribe({
-    next:(data:any)=>{(this.events=data.todos)
+    next:(data:any)=>{this.events=data.todos;
+      console.log(this.events)
     },
     
    })

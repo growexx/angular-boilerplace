@@ -86,6 +86,9 @@ $bs-body-font-weight: 400;
 $bs-body-line-height: 1.5;
 $bs-body-color: #181C32;
 $bs-body-bg: #ffffff;
+$bs-checkbox-bg: #EBEDF3; // need to change after talking with nirvi 
+//new Scss stylesheet
+// Primary Color
 $colors-base-accent: rgb(84, 173, 198);
 $colors-base-accent-t-75: rgba(84, 173, 198, 0.75);
 $colors-base-accent-t-50: rgba(84, 173, 198, 0.5);
@@ -99,6 +102,21 @@ $colors-base-primary-t-50: rgba(80, 48, 110, 0.5);
 $colors-base-primary-t-25: rgba(80, 48, 110, 0.25);
 $colors-base-primary-t-10: rgba(80, 48, 110, 0.1);
 $colors-base-primary-t-02: rgba(80, 48, 110, 0.02);
+$colors-base-accent-v-high: rgb(64, 206, 268);
+$colors-base-accent-v-high-t-54: rgba(64, 206, 268, 0.54);
+$colors-base-accent-v-medium: rgb(76, 171, 213);
+$colors-base-accent-v-low: rgb(112, 187, 243);
+// Accent Color
+$colors-base-primary: rgb(80, 48, 110);
+$colors-base-primary-t-75: rgba(80, 48, 110, 0.75);
+$colors-base-primary-t-50: rgba(80, 48, 110, 0.5);
+$colors-base-primary-t-25: rgba(80, 48, 110, 0.25);
+$colors-base-primary-t-10: rgba(80, 48, 110, 0.1);
+$colors-base-primary-t-02: rgba(80, 48, 110, 0.02);
+$colors-base-primary-v-high: rgb(100, 78, 180);
+$colors-base-primary-v-high-t-54: rgba(100, 78, 180, 0.54);
+$colors-base-primary-v-medium: rgb(72, 46, 125);
+$colors-base-primary-v-low: rgb(108, 62, 155);
 // Secondary Color
 $colors-base-secondary: rgb(80, 150, 69);
 $colors-base-secondary-t-75: rgba(80, 150, 69, 0.75);
@@ -114,6 +132,10 @@ $colors-base-success-t-25: rgba(174, 221, 119, 0.25);
 $colors-base-success-t-10: rgba(174, 221, 119, 0.1);
 $colors-base-success-v-high: rgb(124, 188, 49);
 $colors-base-success-v-high-t-54: rgba(124, 188, 49, 0.54);
+$colors-base-success-v-medium: rgb(166, 219, 104);
+$colors-base-success-v-low: rgb(202, 235, 164);
+$colors-success-body-text: rgb(98, 136, 53); // Hex Code #628835
+$colors-success-body-status: rgb(86, 168, 0); // Hex Code #56a800
 $colors-base-success-v-medium: rgb(166, 219, 104);
 $colors-base-success-v-low: rgb(202, 235, 164);
 $colors-success-body-text: rgb(98, 136, 53); // Hex Code #628835
@@ -136,6 +158,10 @@ $colors-base-error-t-50: rgba(197, 35, 53, 0.5);
 $colors-base-error-t-25: rgba(197, 35, 53, 0.25);
 $colors-base-error-t-10: rgba(197, 35, 53, 0.1);
 $colors-base-error-v-high: #D11328;
+$colors-base-error-v-medium: rgb(237, 72, 90);
+$colors-base-error-v-low: rgb(255, 133, 146);
+$colors-error: rgb(224, 32, 32); // #e02020
+$colors-base-error-v-high: rgb(209, 19, 40);
 $colors-base-error-v-medium: rgb(237, 72, 90);
 $colors-base-error-v-low: rgb(255, 133, 146);
 $colors-error: rgb(224, 32, 32); // #e02020

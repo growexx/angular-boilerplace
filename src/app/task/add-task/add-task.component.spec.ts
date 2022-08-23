@@ -19,7 +19,7 @@ describe('AddTaskComponent', () => {
   const updateRes = {
     "id": "1",
     "todo": "Do something nice for someone I care about",
-    "completed": false, // complete status was changed
+    "completed": false,
     "userId": 26
   }
 

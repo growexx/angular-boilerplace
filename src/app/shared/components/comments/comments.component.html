@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card-body">
-            <div *ngFor="let comment of allComments" class="tab-content">
+            <div *ngFor="let comment of allComments | paginate: { itemsPerPage: 4, currentPage: page }" class="tab-content">
                 <div class="content">
                     <div class="content-body">{{comment.body}}</div>
                 </div>
@@ -37,5 +37,6 @@
             </div>
 
         </div>
+        <pagination-controls (pageChange)="page = $event" class="pagination"></pagination-controls>
     </div>
 </div>

@@ -1,0 +1,107 @@
+<div class="multiselect-dropdown" (clickOutside)="clickOutside($event)">
+  <div class="multiselect-dropdown-contianer">
+    <div
+      class="selected-list {{ dropdownSettings.classes }}"
+      (click)="toggleDropdown()"
+    >
+      <div *ngIf="selectedItems.length === 0">
+        {{ dropdownSettings.placeholder }}
+      </div>
+      <div>
+        <em
+          class="fa-solid dropdown-icon"
+          [class]="
+            showDropdown ? 'fa-chevron-up' : 'fa-chevron-down'">
+        </em>
+
+      <span *ngIf="selectedItems.length > dropdownSettings.maxBadgeLimit" class="selected-badge-more">
+        {{ selectedItems.length - dropdownSettings.maxBadgeLimit + '+' }}
+      </span>
+      </div>
+      <div
+      *ngFor="let item of selectedItems; let i = index"
+      >
+      <div
+      class="selected-item selected-badge"
+      *ngIf="i < dropdownSettings.maxBadgeLimit"
+        >
+          <span class="selected-label">
+            <img
+              *ngIf="item.image"
+              src="{{ item.image }}"
+              class="pg-w-2 pg-h-2"
+              alt="{{ item.itemName }}"
+            />
+            {{ item.itemName }}
+          </span>
+          <em
+            class="fa-solid fa-xmark selected-remove-icon"
+            (click)="OnItemDeSelect(item.id)"
+          ></em>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown-items-list">
+      <div
+        class="dropdown-container"
+        *ngIf="showDropdown"
+        [style.maxHeight]="dropdownSettings.maxHeight"
+      >
+        <ul class="dropdown-items">
+          <li
+            class="dropdown-item-selectall"
+            (click)="onSelectAll()"
+            *ngIf="!isSelectAll; else unselectAll"
+          >
+            {{ dropdownSettings.selectAllText }}
+          </li>
+          <ng-template #unselectAll>
+            <li class="dropdown-item-selectall" (click)="onDeSelectAll()">
+              {{ dropdownSettings.unSelectAllText }}
+            </li>
+          </ng-template>
+          <li
+            class="search-filter-container"
+            *ngIf="dropdownSettings.enableSearchFilter"
+          >
+            <input
+              type="text"
+              name="searchFilter"
+              class="form-control"
+              [(ngModel)]="searchFilter"
+              id="searchFilter"
+              placeholder="Search"
+            />
+          </li>
+          <li
+            class="dropdown-item"
+            *ngFor="
+              let item of dropdownData | filter: searchFilter:'department';
+              let i = index
+            "
+            (click)="onItemSelect(item.id)"
+            [class]="item.isSelected ? 'active' : ''"
+          >
+            <input
+              type="checkbox"
+              name="customDropdown"
+              id="customDropdown{{ item.id }}"
+              [checked]="item.isSelected"
+              class="dropdown-checkbox"
+            />
+            <span
+              ><img
+                *ngIf="item.image"
+                src="{{ item.image }}"
+                class="pg-w-4 pg-h-4"
+                alt="{{ item.itemName }}"
+              />
+              {{ item.itemName }}</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

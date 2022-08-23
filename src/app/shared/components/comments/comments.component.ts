@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DummyDataService } from 'src/app/core/services/dummy-data.service';
-import { DialogComponent } from '../widgets/dialog/dialog.component';
+import { DialogTextboxComponent } from '../widgets/dialog-textbox/dialog-textbox.component';
 import { MatDialog } from '@angular/material/dialog';
 
 
@@ -17,6 +17,7 @@ export interface DialogData{
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
+  page:number=1;
   allComments: any;
   response:any;
   comment:any;
@@ -41,7 +42,7 @@ export class CommentsComponent implements OnInit {
 
 
   deleteSelectedComment($event:any){
-    debugger
+    
 console.log($event)
 this.comment= $event;
 this.index = this.allComments.indexOf($event)
@@ -60,7 +61,7 @@ console.log($event);
 this.comment = $event;
 editText = $event.body; 
 
-const dialogRef = this.dialog.open(DialogComponent, {
+const dialogRef = this.dialog.open(DialogTextboxComponent, {
   width: '325px',
   data: {type:'edit', label:this.label,text:editText,placeholder:this.placeholder },
   disableClose:true
@@ -81,7 +82,7 @@ dialogRef.afterClosed().subscribe(result=>{
 
   clickAdd(){
     let addText;
-    const dialogRef = this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(DialogTextboxComponent, {
       width: '325px',
       data: { type:'add', label:this.label,text:addText,placeholder:this.placeholder},
       disableClose:true

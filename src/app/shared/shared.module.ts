@@ -1,24 +1,28 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-// import { TableComponent } from './organisms/widgets/table/table.component';
-// import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { RouterModule } from '@angular/router';
+import { FilterPipe } from './pipes/filter.pipe';
+import { TableComponent } from './organisms/widgets/table/table.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+
 // import { NgxPaginationModule } from 'ngx-pagination';
-import { ReactiveFormsModule } from '@angular/forms';
-import { DialogComponent } from './components/widgets/dialog/dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
+
+import { DialogComponent } from './organisms/widgets/dialog/dialog.component';
+import { DialogTextboxComponent } from './components/widgets/dialog-textbox/dialog-textbox.component';
 import { MatSelectModule } from '@angular/material/select';
-// import { DatepickerComponent } from './components/datepicker/datepicker.component';
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-// import { MultiselectDropdownComponent } from './components/multiselect-dropdown/multiselect-dropdown.component';
+import { MultiselectDropdownComponent } from './components/multiselect-dropdown/multiselect-dropdown.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ButtonComponent } from './components/button/button.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { GoogleAddressComponent } from './components/google-address/google-address.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+
 
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { CircleProgressBarComponent } from './components/circle-progress-bar/circle-progress-bar.component';
@@ -50,16 +54,21 @@ import { AuthsidebarComponent } from './layout/authsidebar/authsidebar.component
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
-
-
+import { ToolbarComponent } from './layout/toolbar/toolbar.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [
-    // FilterPipe,
-    // TableComponent,
-    // DropdownComponent,
+    FilterPipe,
+    DialogTextboxComponent,
     DialogComponent,
-    // DatepickerComponent,
-    // MultiselectDropdownComponent,
+    DatepickerComponent,
+    MultiselectDropdownComponent,
+    TableComponent,
+    DropdownComponent,
+    ToolbarComponent,
     ButtonComponent,
     ModalComponent,
     ButtonsComponent,
@@ -81,26 +90,22 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     AuthsidebarComponent,
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    TooltipComponent
   ],
-  imports: [
+  imports:[
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     RouterModule,
     MatDialogModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTooltipModule,
+    NgbModule,
     ChartModule,
     MatTabsModule,
-    MatIconModule,
-    TableModule,
-    MatCheckboxModule,
-    MatInputModule,
-    MatRadioModule,
-    MatSlideToggleModule,
-    MatDialogModule,
-    MatTableModule,
-    MatButtonModule,
-    FormsModule,
-    DropdownModule,
     NgCircleProgressModule.forRoot({
       "radius": 60,
 "space": -10,
@@ -119,19 +124,25 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 "startFromZero": false,
 "lazy": true
     }),
-    FormsModule,
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    NgbModule,
+    MatIconModule,
+    TableModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+    MatTableModule,
+    DropdownModule,
+    NgxPaginationModule
   ],
+
   exports: [
-    // FilterPipe,
-    // TableComponent,
-    // DropdownComponent,
+    FilterPipe,
+    TableComponent,
+    DropdownComponent,
     DialogComponent,
-    // DatepickerComponent,
-    // MultiselectDropdownComponent,
+    DatepickerComponent,
+    MultiselectDropdownComponent,
     ButtonComponent,
     ModalComponent,
     ButtonsComponent,
@@ -148,9 +159,12 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     SwitchComponent,
     TabsComponent,
     TextAreaComponent,
+    FooterComponent,
+    ToolbarComponent,
     HeaderComponent,
     TimelineComponent,
-    SidebarComponent
+    SidebarComponent,
+    TooltipComponent
   ],
   providers: [ UniquePipe,
 

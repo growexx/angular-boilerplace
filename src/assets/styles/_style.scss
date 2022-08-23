@@ -1,12 +1,20 @@
 /**=== Index==========
-//  1. Global
-//  2.Variables
-//  3.Shared
+//  1.Variables
+//  2.Global
+//  3.Components
+//  4.Shared
 //
 ======================*/
 
+
 /* =============
-// 1. Global 
+// 1. Variables
+================*/
+@import './variables/colors';
+@import './variables/common';
+
+/* =============
+// 2. Global 
 ================*/
 
 @import './global/common';
@@ -14,15 +22,19 @@
 @import './global/buttons';
 @import './global/material';
 @import './global/font-weight';
+@import './global/colors';
+@import './global/width';
+@import './global/height';
 
 /* =============
-// 2. Variables
+// 3. Components
 ================*/
-@import './variables/colors';
-@import './variables/common';
+@import './components/auth/auth';
+@import './components/add-users';
+
 
 /* =============
-// 3.Shared
+// 4.Shared
 ================*/
 @import './shared/sidebar/sidebar';
 @import './shared/header/header';

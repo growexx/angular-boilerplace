@@ -1,4 +1,4 @@
-<!-- <div>
+<div>
 
     <app-tabs [animationDuration]="animationDuration" [background]="background" [color]="color" [tabs]="tabs"></app-tabs>
 
@@ -80,5 +80,6 @@
             <app-comp-charts [buttonClass]="buttonClass" [btnData]="btnData" [title]="cardTitle" [subTitle]="subTitle" (changeData)="updateData($event)" [options]="barChartOptions" [data]="initData"></app-comp-charts>
         </div>
     </div>
-</div> -->
+</div>
 <router-outlet></router-outlet>
+<app-tooltip [tooltipConfig]="tooltipConfig"></app-tooltip>

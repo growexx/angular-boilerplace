@@ -1,6 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { inject, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
@@ -44,7 +45,7 @@ describe('AuthService', () => {
       fail
     );
     const expectedResponse = { token: 'QpwL5tke4Pnpja7X4' };
-    const req = httpTestingController.expectOne('https://reqres.in/api/login');
+    const req = httpTestingController.expectOne(`${environment.apiUrl}auth/login`);
     expect(req.request.method).toEqual('POST');
     req.flush(expectedResponse);
   });
@@ -58,22 +59,139 @@ describe('AuthService', () => {
       fail
     );;
     const expectedResponse = { "error": "Missing password" };
-    const req = httpTestingController.expectOne('https://reqres.in/api/login');
+    const req = httpTestingController.expectOne(`${environment.apiUrl}auth/login`);
     expect(req.request.method).toEqual('POST');
     req.flush(expectedResponse);
   });
 
   it('should be called register() with success response', () => {
     let user = {
-      email: 'eve.holt@reqres.in',
-      password: 'pistol'
+      "id": 1,
+      "firstName": "Pruthvi",
+      "lastName": "Dhamecha",
+      "maidenName": "Smitham",
+      "age": 50,
+      "gender": "male",
+      "email": "pruthvi@gmail.com",
+      "phone": "+63 791 675 8914",
+      "username": "pruthvidhamecha",
+      "password": "12345678",
+      "birthDate": "31-03-1999",
+      "image": "https://robohash.org/hicveldicta.png?size=50x50&set=set1",
+      "bloodGroup": "A−",
+      "height": 189,
+      "weight": 75.4,
+      "eyeColor": "Green",
+      "hair": {
+        "color": "Black",
+        "type": "Strands"
+      },
+      "domain": "slashdot.org",
+      "ip": "117.29.86.254",
+      "address": {
+        "address": "1745 T Street Southeast",
+        "city": "Washington",
+        "coordinates": {
+          "lat": 38.867033,
+          "lng": -76.979235
+        },
+        "postalCode": "20020",
+        "state": "DC"
+      },
+      "macAddress": "13:69:BA:56:A3:74",
+      "university": "Capitol University",
+      "bank": {
+        "cardExpire": "06/22",
+        "cardNumber": "50380955204220685",
+        "cardType": "maestro",
+        "currency": "Peso",
+        "iban": "NO17 0695 2754 967"
+      },
+      "company": {
+        "address": {
+          "address": "629 Debbie Drive",
+          "city": "Nashville",
+          "coordinates": {
+            "lat": 36.208114,
+            "lng": -86.58621199999999
+          },
+          "postalCode": "37076",
+          "state": "TN"
+        },
+        "department": "IT",
+        "name": "Blanda-O'Keefe",
+        "title": "Help Desk Operator"
+      },
+      "ein": "20-9487066",
+      "ssn": "661-64-2976",
+      "userAgent": "Mozilla/5.0 ..."
     };
     authService.register(user).subscribe(
       response => expect(response).toEqual(expectedResponse, 'should return expected response'),
       fail
     );
-    const expectedResponse = { "id": 4, "token": "QpwL5tke4Pnpja7X4" };
-    const req = httpTestingController.expectOne('https://reqres.in/api/register');
+    const expectedResponse = {
+      "id": 101,
+      "firstName": "Pruthvi",
+      "lastName": "Dhamecha",
+      "maidenName": "Smitham",
+      "age": 50,
+      "gender": "male",
+      "email": "pruthvi@gmail.com",
+      "phone": "+63 791 675 8914",
+      "username": "pruthvidhamecha",
+      "password": "12345678",
+      "birthDate": "31-03-1999",
+      "image": "https://robohash.org/hicveldicta.png?size=50x50&set=set1",
+      "bloodGroup": "",
+      "height": null,
+      "weight": null,
+      "eyeColor": "",
+      "hair": {
+        "color": "",
+        "type": ""
+      },
+      "domain": "",
+      "ip": "",
+      "address": {
+        "address": "",
+        "city": "",
+        "coordinates": {
+          "lat": null,
+          "lng": null
+        },
+        "postalCode": "",
+        "state": ""
+      },
+      "macAddress": "",
+      "university": "",
+      "bank": {
+        "cardExpire": "",
+        "cardNumber": "",
+        "cardType": "",
+        "currency": "",
+        "iban": ""
+      },
+      "company": {
+        "address": {
+          "address": "",
+          "city": "",
+          "coordinates": {
+            "lat": null,
+            "lng": null
+          },
+          "postalCode": "",
+          "state": ""
+        },
+        "department": "",
+        "name": "",
+        "title": ""
+      },
+      "ein": "",
+      "ssn": "",
+      "userAgent": ""
+    };
+    const req = httpTestingController.expectOne(`${environment.apiUrl}users/add`);
     expect(req.request.method).toEqual('POST');
     req.flush(expectedResponse);
   });
@@ -85,61 +203,10 @@ describe('AuthService', () => {
     authService.register(currentUser).subscribe(
       response => expect(response).toEqual(expectedResponse, 'should return expected response'),
       fail
-    );;
-    const expectedResponse = { "error": "Missing password" };
-    const req = httpTestingController.expectOne('https://reqres.in/api/register');
-    expect(req.request.method).toEqual('POST');
-    req.flush(expectedResponse);
-  });
-
-  it('should be called getAllUsers() with success response', () => {
-    let user = {
-      email: 'eve.holt@reqres.in',
-      password: 'pistol'
-    };
-    authService.getAllUsers().subscribe(
-      response => expect(response).toEqual(expectedResponse, 'should return expected response'),
-      fail
     );
-    const expectedResponse = { "page": 1, "per_page": 6, "total": 12, "total_pages": 2, "data": [{ "id": 1, "email": "george.bluth@reqres.in", "first_name": "George", "last_name": "Bluth", "avatar": "https://reqres.in/img/faces/1-image.jpg" }, { "id": 2, "email": "janet.weaver@reqres.in", "first_name": "Janet", "last_name": "Weaver", "avatar": "https://reqres.in/img/faces/2-image.jpg" }, { "id": 3, "email": "emma.wong@reqres.in", "first_name": "Emma", "last_name": "Wong", "avatar": "https://reqres.in/img/faces/3-image.jpg" }, { "id": 4, "email": "eve.holt@reqres.in", "first_name": "Eve", "last_name": "Holt", "avatar": "https://reqres.in/img/faces/4-image.jpg" }, { "id": 5, "email": "charles.morris@reqres.in", "first_name": "Charles", "last_name": "Morris", "avatar": "https://reqres.in/img/faces/5-image.jpg" }, { "id": 6, "email": "tracey.ramos@reqres.in", "first_name": "Tracey", "last_name": "Ramos", "avatar": "https://reqres.in/img/faces/6-image.jpg" }], "support": { "url": "https://reqres.in/#support-heading", "text": "To keep ReqRes free, contributions towards server costs are appreciated!" } };
-    const req = httpTestingController.expectOne('https://reqres.in/api/users');
-    expect(req.request.method).toEqual('GET');
-    req.flush(expectedResponse);
-  });
-
-  it('should be called getUser() with success response', () => {
-    const user_id = 2;
-    authService.getUser(user_id).subscribe(
-      response => expect(response).toEqual(expectedResponse, 'should return expected response'),
-      fail
-    );;
-    const expectedResponse = {
-      "data": {
-        "id": 2,
-        "email": "janet.weaver@reqres.in",
-        "first_name": "Janet",
-        "last_name": "Weaver",
-        "avatar": "https://reqres.in/img/faces/2-image.jpg"
-      },
-      "support": {
-        "url": "https://reqres.in/#support-heading",
-        "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
-      }
-    };
-    const req = httpTestingController.expectOne('https://reqres.in/api/user/' + user_id);
-    expect(req.request.method).toEqual('GET');
-    req.flush(expectedResponse);
-  });
-
-  it('should be called getUser() with error response', () => {
-    const user_id = 23;
-    authService.getUser(user_id).subscribe(
-      response => expect(response).toEqual(expectedResponse, 'should return expected response'),
-      fail
-    );;
-    const expectedResponse = {};
-    const req = httpTestingController.expectOne('https://reqres.in/api/user/' + user_id);
-    expect(req.request.method).toEqual('GET');
+    const expectedResponse = { "error": "Missing password" };
+    const req = httpTestingController.expectOne(`${environment.apiUrl}users/add`);
+    expect(req.request.method).toEqual('POST');
     req.flush(expectedResponse);
   });
 });

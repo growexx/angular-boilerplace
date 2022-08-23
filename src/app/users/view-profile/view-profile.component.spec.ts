@@ -79,7 +79,7 @@ describe('ViewProfileComponent', () => {
         "id": 17,
         "title": "She was in a hurry.",
         "body": "She was in a hurry. /*... more data */  ",
-        "userId": 5, // user id is 5
+        "userId": 5, 
         "tags": [
           "french",
           "magical",

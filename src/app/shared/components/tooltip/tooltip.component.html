@@ -1,0 +1,6 @@
+<div class="mainDiv">
+    <button #tooltip="matTooltip" mat-raised-button [matTooltip]="tooltipConfig.message" aria-label="Button that displays a tooltip when focused or hovered over" [matTooltipPosition]="tooltipConfig.position" [matTooltipShowDelay]="tooltipConfig.showDelay"
+        [matTooltipHideDelay]="tooltipConfig.hideDelay" [matTooltipDisabled]="tooltipConfig.tooltipDisabled" (click)="tooltip.show()" [matTooltipClass]="tooltipConfig.tooltipClass">
+  {{tooltipConfig.buttonText}}
+</button>
+</div>

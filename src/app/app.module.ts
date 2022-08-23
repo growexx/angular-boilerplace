@@ -4,41 +4,60 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { SweetAlert2LoaderService, SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { SharedModule } from './shared/shared.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MainComponent } from './main/main.component';
+
 import { CompFilterPipe } from './core/pipes/comp-filter.pipe';
 import {MatTableModule} from '@angular/material/table';
 import { UniquePipe } from './core/pipes/unique.pipe';
+import { AuthModule } from './auth/auth.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+  
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
     DashboardModule,
+    AuthModule,
     MatTableModule,
     SweetAlert2Module.forRoot(),
     BrowserAnimationsModule,
    
   ],
   exports:[
-    SharedModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    // SweetAlert2Module.forRoot(),
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    
   ],
-  providers: [CompFilterPipe, UniquePipe],
+  providers: [CompFilterPipe, UniquePipe, DashboardModule,
+    BrowserAnimationsModule],
+      
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
