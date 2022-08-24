@@ -35,16 +35,19 @@ export class UsersService {
   getAllUsers(): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}users`);
   }
-  getUser(userId:any): Observable<any> {
+  getUser(userId: any): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}users/${userId}`);
   }
-  deleteUser(userId:any): Observable<any> {
+  deleteUser(userId: any): Observable<any> {
     return this.http.delete<any>(`${environment.apiUrl}users/${userId}`);
   }
-  filterUser(key:any, value:any): Observable<any> {
+  filterUser(key: any, value: any): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}users/filter?key=${key}&value=${value}`);
   }
-  searchUser(value:any): Observable<any> {
+  searchUser(value: any): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}users/search?q=${value}`);
+  }
+  limitAndSkipUser(limit: any, skip: any = 0, select: any = ''): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}users?limit=${limit}&skip=${skip}&select=${select}`);
   }
 }

@@ -24,6 +24,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     HeaderComponent,
     SidebarComponent,
     ProgressBarComponent,
+    ChartsComponent,
   ],
   imports: [
     CommonModule,

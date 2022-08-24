@@ -21,3 +21,11 @@
         }
     }
 }
+.view-more{
+    &:hover{
+        color: $colors-base-primary-v-high;
+        cursor: pointer;
+    }
+    color: #000;
+    font-weight: bold;
+}

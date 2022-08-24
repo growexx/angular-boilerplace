@@ -2,29 +2,58 @@
     <h1 class="m-0">Dashboard</h1>
 
     <div class="row pg-p-3 text-light">
-      <div class="col-4 bg-dark card pg-px-3 pg-py-4">
-        <div class="row">
+      <div class="col-6">
+        <div class="pg-px-3 pg-py-4 bg-dark card">
           <div class="col">
-            <h1 class="text-light font-weight-bolder m-0">69</h1>
-            <h4 class="text-light">Active Projects</h4>
+            <h1 class="text-light font-weight-bolder m-0">{{ users.count }}</h1>
+            <h4 class="text-light">Active Users</h4>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col m-0">
+              <h4 class="m-0 p-0 text-light">
+                {{ users.skip }} Skips
+              </h4>
+            </div>
+            <div class="col">
+              <h4 class="m-0 p-0 text-right text-light">
+                {{ users.config.innerWidth }}
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <app-progress-bar [progressConfig]="users.config"></app-progress-bar>
+            </div>
           </div>
         </div>
-        <br>
-        <div class="row">
-          <div class="col m-0">
-            <h4 class="m-0 p-0 text-light">
-              43 Pending
-            </h4>
+      </div>
+      <div class="card col-6">
+        <div class="pg-p-3 row">
+          <div class="col-6 pg-mt-4">
+            <h1 class="font-weight-bolder m-0">{{ totalSum }}</h1>
+            <h4>Total Employees</h4>
+            <br>
+            <p class="view-more m-0" (click)="commonService.toggleViewMoreEmployeesWidget()">View More</p>
           </div>
-          <div class="col">
-            <h4 class="m-0 p-0 text-right text-light">
-              72%
-            </h4>
+          <div class="col-6">
+            <canvas id="myChart" width="100" height="100"></canvas>
           </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <app-progress-bar [progressConfig]="progressConfig"></app-progress-bar>
+          <div class="col-12 row" *ngIf="commonService.viewMoreEmployeesWidget">
+            <div class="col-6 row pg-mt-2" *ngFor="let department of departments">
+              <div class="col-8 m-0">
+                <h4 class="m-0 p-0">
+                  {{department.title}}
+                </h4>
+              </div>
+              <div class="col-4">
+                <h4 class="m-0 p-0 text-right">
+                  {{department.count}}
+                </h4>
+              </div>
+              <app-progress-bar [progressConfig]="department.config"></app-progress-bar>
+            </div>
+
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ export class CommonService {
   public checkAllCheckboxes: boolean = false;
   public searchFilter: string = '';
   public checkboxes: string[] = [];
+  public viewMoreEmployeesWidget = false;
   public filterForm:any = {
     role:"",
     gender: ""
@@ -40,5 +41,9 @@ export class CommonService {
   collapsedSidebar() {
     this.isSideBar = !this.isSideBar;
     this.isSideBarCollapsed = !this.isSideBarCollapsed;
+  }
+
+  toggleViewMoreEmployeesWidget(){
+    this.viewMoreEmployeesWidget = !this.viewMoreEmployeesWidget;
   }
 }
