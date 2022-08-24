@@ -32,13 +32,13 @@ import { SharedModule } from './shared/shared.module';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    SharedModule
+    SharedModule,
+    DashboardModule,
   ],
   providers: [
-    DashboardModule,
     BrowserAnimationsModule
   ],
   exports: [SharedModule],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

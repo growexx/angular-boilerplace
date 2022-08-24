@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -13,7 +14,7 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
-      imports: [RouterTestingModule.withRoutes([])],
+      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([])],
       providers: [
         { provide: Router, useValue: routerSpy }
       ]
@@ -31,6 +32,19 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call themeChangeHAndler', () => {
+    const themeSelect = {
+      "backgroundColor": "#fff",
+      "buttonColor": "#ffc107",
+      "headingColor": "#673ab7",
+      "label": "Deep Purple & Amber",
+      "value": "deeppurple-amber",
+      "isDefault": true
+    }
+    component.themeChangeHandler(themeSelect)
+    expect(component).toBeTruthy();
+  })
 
   it('should called logout() and rediredct to login page', () => {
     localStorage.setItem('token', 'true');

@@ -14,7 +14,7 @@ import { TaskService } from '../task/task.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private dialog: MatDialog, private taskService: TaskService,public commonService: CommonService) { }
+  constructor(private dialog: MatDialog, public taskService: TaskService,public commonService: CommonService) { }
   isOpen: boolean = false;
   btnHandelClick:any = [];
   btnClicked:EventEmitter<any> = new EventEmitter<any>();

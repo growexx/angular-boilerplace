@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { of } from 'rxjs';
 import { TaskService } from '../task.service';
 
@@ -30,8 +31,9 @@ describe('AddTaskComponent', () => {
     "userId": 26
   }
 
-  let taskService: any;
 
+  let taskService: any;
+  let createMode = true;
 
   taskService = jasmine.createSpyObj('TaskService', ['addTodos', 'updateTodo', 'getToDoById']);
   taskService.addTodos.and.returnValue(of(addRes))
@@ -42,7 +44,7 @@ describe('AddTaskComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AddTaskComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule, SweetAlert2Module.forRoot()],
       providers: [
         { provide: ActivatedRoute, useValue: { params: of({ id: '1' }) } },
         { provide: TaskService, useValue: taskService }
@@ -60,6 +62,19 @@ describe('AddTaskComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call ngOnInit', () => {
+    expect(component.isCreateMode).toBe(createMode)
+    component.ngOnInit();
+    expect(component).toBeTruthy();
+  });
+
+  it('should call ngOnInit when createMode is false', () => {
+    component.isCreateMode= false
+    component.ngOnInit();
+    expect(component).toBeTruthy();
+  });
+
 
   it('should call submitTodo', () => {
     component.submitTodo()

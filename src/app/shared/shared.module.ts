@@ -23,6 +23,25 @@ import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { ThemeButtonComponent } from './layout/theme-button/theme-button.component';
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+// import timeGridPlugin from '@fullcalendar/timegrid';
+// import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  // timeGridPlugin,
+  // listPlugin,
+  interactionPlugin
+])
 
 @NgModule({
   declarations: [
@@ -40,7 +59,9 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     ToolbarComponent,
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ThemeButtonComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,
@@ -53,6 +74,11 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
+    FullCalendarModule
   ],
   exports: [
     FilterPipe,
@@ -69,7 +95,8 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     ToolbarComponent,
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    CalendarComponent
   ],
 })
 

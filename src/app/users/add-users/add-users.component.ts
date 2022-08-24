@@ -98,9 +98,9 @@ export class AddUsersComponent implements OnInit {
     this.userVal.address.city = this.secondFormGroup.value['city'];
     this.userVal.address.state = this.secondFormGroup.value['state'];
     this.userVal.address.country = this.secondFormGroup.value['country'];
-
     this.userService.createUser(this.userVal).subscribe({
       next: (res) => {
+        console.log(res)
         const data = _.cloneDeep(res);
       }
     })

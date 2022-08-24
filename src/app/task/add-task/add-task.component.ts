@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import Swal from 'sweetalert2';
 import { addTaskType, getSingleTodoType, updateTaskType } from '../task-modal';
 import { TaskService } from '../task.service';
 
@@ -14,24 +15,21 @@ export class AddTaskComponent implements OnInit {
 
   addTask!: addTaskType;
   taskFormGroup!: FormGroup;
-  @ViewChild('successSwal')
-  public readonly successSwal!: SwalComponent;
+  toast: any;
 
-  @ViewChild('failedSwal')
-  public readonly failedSwal!: SwalComponent;
   updateTodo!: updateTaskType;
   id!: number;
   getSingleTodo: getSingleTodoType[] | any;
   isCreateMode: boolean = false;
   constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.addTaskDetails();
     this.route.params.subscribe((params: Params) => {
       if (params['id']) {
         this.id = params['id'];
         this.getToDoById(params['id']);
-        this.isCreateMode = true
+        this.isCreateMode = true;
       }
       else {
         this.isCreateMode = false;
@@ -52,7 +50,18 @@ export class AddTaskComponent implements OnInit {
     const todoForm = this.taskFormGroup.value;
     this.taskService.addTodos(todoForm).subscribe((res: any) => {
       this.addTask = res
-      this.successSwal.fire();
+      this.toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true
+        });
+
+        this.toast.fire({
+          icon: 'success',
+          title: "You have successfully logged in!",
+        });
     })
   }
 
@@ -68,7 +77,18 @@ export class AddTaskComponent implements OnInit {
     const data = this.taskFormGroup.getRawValue();
     id = this.id;
     this.taskService.updateTodo(id, data).subscribe((res: any) => {
-      this.successSwal.fire()
+      this.toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
+      });
+
+      this.toast.fire({
+        icon: 'success',
+        title: "You have successfully logged in!",
+      });
     })
 
   }

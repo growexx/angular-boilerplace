@@ -19,6 +19,15 @@ describe('UserService', () => {
     expect(service).toBeTruthy();
   });
 
+  it('should test createUser', ()=>{
+    const expectedReq = {data:{}}
+    const id = 10;
+    service.createUser(expectedReq).subscribe(
+      res => expect(res).toEqual(expectedReq, 'should return expectedRes'),
+      fail
+    );
+  })
+
   it('should test viewUser', ()=>{
     const expectedRes = {data:{}}
     const id = 10;

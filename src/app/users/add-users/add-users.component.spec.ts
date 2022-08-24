@@ -36,12 +36,10 @@ describe('AddUsersComponent', () => {
     'street_number': "230",
     'sublocality_level_1': "Manhattan",
   }
-  userService = jasmine.createSpyObj('component', ['createUser'])
 
+  userService = jasmine.createSpyObj('component', ['createUser'])
   userService.createUser.and.returnValue((of(userVal)))
   
-
-
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
