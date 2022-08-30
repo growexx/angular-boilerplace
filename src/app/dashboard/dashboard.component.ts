@@ -1,6 +1,6 @@
 
 import { CommonService } from 'src/app/core/services/common/common.service';
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 @Component({
   selector: 'app-dashboard',

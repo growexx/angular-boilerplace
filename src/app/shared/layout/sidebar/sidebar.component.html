@@ -1,49 +1,73 @@
 <div class="app-sidebar-container">
     <div class="btn-collapse background-neutral-white navbar-close-icon-bg" (click)="commonService.collapsedSidebar()">
-        <em class="fa color-neutral-dark navbar-close-icon" [class]="commonService.isSideBarCollapsed ? 'fa-angles-right' : 'fa-angles-left'"></em>
+        <em class="fa color-neutral-dark navbar-close-icon"
+            [class]="commonService.isSideBarCollapsed ? 'fa-angles-right' : 'fa-angles-left'"></em>
     </div>
     <div [class]="commonService.isSideBar ? 'sidebar-collapse' : 'static-sidebar'">
         <div class="sidebar-header height-64px background-primary-t10">
-            <img src="assets/growexx-logo-without-text.png" alt="" class="sidebar-logo"> 
+            <img src="assets/growexx-logo-without-text.png" alt="" class="sidebar-logo">
             <span class="fs-xl-3 pg-pl-1 pg-pt-2 fw-bolder logo-title">Growexx</span>
         </div>
         <div class="accordion" id="accordionMenu">
             <div class="accordion-item">
                 <div class="accordion-header" id="dashboard">
-                  <span routerLink="/" type="button" class="accordion-button only-link collapsed">
-                      <em class="fa fa-grip"></em>
-                      <span class="pg-ml-2 menu-title">Dashboard</span>
-                  </span>
+                    <span routerLink="/" type="button" class="accordion-button only-link collapsed">
+                        <em class="fa fa-grip"></em>
+                        <span class="pg-ml-2 menu-title">Dashboard</span>
+                    </span>
                 </div>
             </div>
 
             <div class="accordion-item">
-              <div class="accordion-header" id="usersManagement">
-                <button type="button" class="accordion-button collapsed" data-toggle="collapse" data-target="#users" aria-expanded="false" aria-controls="users">
-                    <em class="fas fa-users"></em>
-                    <span class="pg-ml-2 menu-title">Users Management</span>
-                </button>
-              </div>
-              <div id="users" class="collapse" aria-labelledby="usersManagement" data-parent="#accordionMenu">
-                <div class="accordion-body">
-                    <div class="menu-item">
-                        <a routerLink="/admin/users/list" class="menu-link">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="submenu-title">User Lists</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a routerLink="/admin/users/add" class="menu-link">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="submenu-title">Add User</span>
-                        </a>
+                <div class="accordion-header" id="usersManagement">
+                    <button type="button" class="accordion-button collapsed" data-toggle="collapse" data-target="#users"
+                        aria-expanded="false" aria-controls="users">
+                        <em class="fas fa-users"></em>
+                        <span class="pg-ml-2 menu-title">Users Management</span>
+                    </button>
+                </div>
+                <div id="users" class="collapse" aria-labelledby="usersManagement" data-parent="#accordionMenu">
+                    <div class="accordion-body">
+                        <div class="menu-item">
+                            <a routerLink="/admin/users/list" class="menu-link">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="submenu-title">User Lists</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a routerLink="/admin/users/add" class="menu-link">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="submenu-title">Add User</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-              </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" id="widgets">
+                    <button type="button" class="accordion-button collapsed" data-toggle="collapse"
+                        data-target="#widgets" aria-expanded="false" aria-controls="widgets">
+                        <em class="fas fa-users"></em>
+                        <span class="pg-ml-2 menu-title">Widgets</span>
+                    </button>
+                </div>
+                <div id="widgets" class="collapse" aria-labelledby="widgets" data-parent="#accordionMenu">
+                    <div class="accordion-body">
+                        <div class="menu-item">
+                            <a routerLink="/admin/widgets/calendar" class="menu-link">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="submenu-title">Calendar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- <div *ngFor="let option of options;" (click)="changeTheme(option.value)">

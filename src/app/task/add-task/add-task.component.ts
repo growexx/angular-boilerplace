@@ -21,17 +21,17 @@ export class AddTaskComponent implements OnInit {
   id!: number;
   getSingleTodo: getSingleTodoType[] | any;
   isCreateMode: boolean = false;
-  constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private taskService: TaskService, private router: Router, public route: ActivatedRoute) { }
 
   ngOnInit() {
     this.addTaskDetails();
     this.route.params.subscribe((params: Params) => {
+      console.log(params)
       if (params['id']) {
         this.id = params['id'];
         this.getToDoById(params['id']);
         this.isCreateMode = true;
-      }
-      else {
+      }else {
         this.isCreateMode = false;
       }
     })

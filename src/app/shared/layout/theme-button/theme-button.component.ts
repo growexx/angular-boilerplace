@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Option } from 'src/app/core/interface/option.model';
 import { ThemesService } from 'src/app/core/services/themes.service';
 

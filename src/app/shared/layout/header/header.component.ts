@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   options$: Observable<any> = this.themeService.getThemeOptions();
   selectedTheme!: Option;
   options: Array<Option> = options;
-  private readonly stylesBasePath = `node_modules/@angular/material/prebuilt-themes/`;
+  private  stylesBasePath = `node_modules/@angular/material/prebuilt-themes/`;
 
 
   constructor(public commonService: CommonService, 
