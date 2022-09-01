@@ -2,9 +2,8 @@
 import { CommonService } from 'src/app/core/services/common/common.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as _ from 'lodash';
-import { registerables, Chart } from 'chart.js';
 import { UsersService } from '../users/users.service';
-Chart.register(...registerables);
+import { result } from 'lodash';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,7 +13,7 @@ export class DashboardComponent implements OnInit {
   users = {
     count: 69,
     skip: 10,
-    config:{
+    config: {
       innerWidth: 72,
       innerClass: 'bg-light',
     }
@@ -22,10 +21,9 @@ export class DashboardComponent implements OnInit {
 
   departments = [{
     title: "Red",
-    count: 20,
+    count: 15,
     config: {
       innerWidth: 50,
-      // innerClass: 'bg-success',
       outerClass: 'background-neutral-light-v-low',
       color: 'rgba(255, 99, 132, 1)',
     }
@@ -35,7 +33,6 @@ export class DashboardComponent implements OnInit {
     count: 19,
     config: {
       innerWidth: 40,
-      // innerClass: 'bg-warning',
       outerClass: 'background-neutral-light-v-low',
       color: 'rgba(54, 162, 235, 1)',
     }
@@ -44,7 +41,6 @@ export class DashboardComponent implements OnInit {
     count: 3,
     config: {
       innerWidth: 50,
-      // innerClass: 'bg-success',
       outerClass: 'background-neutral-light-v-low',
       color: 'rgba(255, 206, 86, 1)',
     }
@@ -54,7 +50,6 @@ export class DashboardComponent implements OnInit {
     count: 5,
     config: {
       innerWidth: 40,
-      // innerClass: 'bg-warning',
       outerClass: 'background-neutral-light-v-low',
       color: 'rgba(75, 192, 192, 1)',
     }
@@ -63,7 +58,6 @@ export class DashboardComponent implements OnInit {
     count: 2,
     config: {
       innerWidth: 50,
-      // innerClass: 'bg-success',
       outerClass: 'background-neutral-light-v-low',
       color: 'rgba(153, 102, 255, 1)',
     }
@@ -73,25 +67,44 @@ export class DashboardComponent implements OnInit {
     count: 3,
     config: {
       innerWidth: 40,
-      // innerClass: 'bg-warning',
       outerClass: 'background-neutral-light-v-low',
       color: 'rgba(255, 159, 64, 1)',
     }
   }]
-
-  myChart: any;
-  ctx: any;
-  totalSum:any;
+  totalSum: any;
+  chartConfig: any;
 
   constructor(public commonService: CommonService, public usersService: UsersService) { }
   ngOnInit(): void {
 
-    this.usersService.limitAndSkipUser(5,10,'firstName,age').subscribe((res: any) => {
+    this.usersService.limitAndSkipUser(5, 10, 'company').subscribe((res: any) => {
+      res.users.forEach((ele:any) => {
+        if(!this.departments.some((user:any) => user.title === ele.company.department)){
+          let department = {
+            title: ele.company.department,
+            count: 1,
+            config: {
+              innerWidth: 0,
+              outerClass: 'background-neutral-light-v-low',
+              color: 'rgba(25, 59, 100, 1)',
+            }
+          }
+          // this.departments.push(department);
+        } else {
+          this.departments.map((department:any) => { 
+            if(department.title === ele.company.department){
+              
+            } 
+          });
+        }
+      }).bind(this);
+      
       this.users.count = res.total;
       this.users.skip = res.skip;
       this.users.config.innerWidth = Math.round(((res.total - res.skip) / res.total) * 100)
     });
-
+    console.log(this.departments);
+    
     let chartData = this.departments.map((department: any) => { return department.count; });
     let chartLables = this.departments.map((department: any) => { return department.title; });
     let chartColors = this.departments.map((department: any) => { return department.config.color; });
@@ -100,9 +113,7 @@ export class DashboardComponent implements OnInit {
       department.config.innerWidth = Math.round((department.count / this.totalSum) * 100);
     });
 
-    this.ctx = document.getElementById('myChart');
-
-    this.myChart = new Chart(this.ctx, {
+    this.chartConfig = {
       type: 'doughnut',
       data: {
         labels: chartLables,
@@ -132,11 +143,10 @@ export class DashboardComponent implements OnInit {
         aspectRatio: 2,
         plugins: {
           legend: {
-            display:false
+            display: false
           }
         },
       },
-    });
-
+    };
   }
 }

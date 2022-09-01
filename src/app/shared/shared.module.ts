@@ -74,7 +74,8 @@ import { ChartsComponent } from './components/charts/charts.component';
     FooterComponent,
     HeaderComponent,
     SidebarComponent, 
-    ProgressBarComponent
+    ProgressBarComponent,
+    ChartsComponent
   ],
 })
 
