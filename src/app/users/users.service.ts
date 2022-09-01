@@ -47,4 +47,7 @@ export class UsersService {
   searchUser(value:any): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}users/search?q=${value}`);
   }
+  limitAndSkipUser(limit: any, skip: any = 0, select: any = ''): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}users?limit=${limit}&skip=${skip}&select=${select}`);
+  }
 }

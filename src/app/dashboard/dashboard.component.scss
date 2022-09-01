@@ -2,10 +2,11 @@
 @import '../../assets/styles/variables/colors';
 
 .task-wrapper {
-    background-color: $bs-white;
+    background-color: #f5f8fa;
     border-radius: 5px;
     padding: 20px;
     margin-top: 20px;
+    border-radius: 5px;
 
     .task-header {
         font-weight: 500;
@@ -14,6 +15,22 @@
     }
 
     .task-content {
+        .pipe {
+            width: 4px;
+            height: auto;
+            align-self: stretch;
+
+            &.pipe-completed {
+                background-color: #1BC5BD;
+            }
+            &.pipe-pending {
+                background-color: #FFA800;
+            }
+        }
+        .ml-20{
+            margin-left: 20px;
+        }
+
         .task-title {
             font-size: 14px;
             line-height: 18px;

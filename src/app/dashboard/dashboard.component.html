@@ -1,3 +1,81 @@
-  <div class="pg-p-2">
-    <h1 class="m-0">Dashboard</h1>
+<div class="pg-p-2">
+  <h1 class="m-0">Dashboard</h1>
+
+  <div class="row pg-p-3 text-light">
+    <div class="col-6">
+      <div class="pg-px-3 pg-py-4 bg-dark card">
+        <div class="col">
+          <h1 class="text-light font-weight-bolder m-0">{{ users.count }}</h1>
+          <h4 class="text-light">Active Users</h4>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col m-0">
+            <h4 class="m-0 p-0 text-light">
+              {{ users.skip }} Skips
+            </h4>
+          </div>
+          <div class="col">
+            <h4 class="m-0 p-0 text-right text-light">
+              {{ users.config.innerWidth }}
+            </h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <app-progress-bar [progressConfig]="users.config"></app-progress-bar>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-6">
+      <div class="pg-p-3 row">
+        <div class="col-6 pg-mt-4">
+          <h1 class="font-weight-bolder m-0">{{ totalSum }}</h1>
+          <h4>Total Employees</h4>
+          <br>
+          <p class="view-more m-0" (click)="commonService.toggleViewMoreEmployeesWidget()">View More</p>
+        </div>
+        <div class="col-6 pg-mt-2">
+          <app-charts [ChartConfig]="chartConfig"></app-charts>
+        </div>
+        <div class="col-12 row" *ngIf="commonService.viewMoreEmployeesWidget">
+          <div class="col-6 row pg-mt-2" *ngFor="let department of departments">
+            <div class="col-8 m-0">
+              <h4 class="m-0 p-0">
+                {{department.title}}
+              </h4>
+            </div>
+            <div class="col-4">
+              <h4 class="m-0 p-0 text-right">
+                {{department.count}}
+              </h4>
+            </div>
+            <app-progress-bar [progressConfig]="department.config"></app-progress-bar>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="task-wrapper">
+      <div class="task-header mb-10">
+        <span>Task Overview</span>
+      </div>
+      <div class="task-content mbl-20 d-flex align-items-center" *ngFor="let task of taskDetails?.todos | slice: 0:5;let i = index">
+        <span class="pipe pipe-{{(task?.completed === true )? 'completed' : 'pending'}}"></span>
+        <div class="mbl-10 ml-20">
+          <span class="task-title">{{task['todo']}}</span>
+          <div class="status w-100 mt-5"><span
+              class="task-status status-{{(task?.completed === true )? 'completed' : 'pending'}} status-pills">{{(task?.completed
+              === true )? 'Completed' : 'Pending'}}</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

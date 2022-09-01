@@ -35,6 +35,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 // import timeGridPlugin from '@fullcalendar/timegrid';
 // import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -61,7 +63,9 @@ FullCalendarModule.registerPlugins([
     HeaderComponent,
     SidebarComponent,
     ThemeButtonComponent,
-    CalendarComponent
+    CalendarComponent,
+    ProgressBarComponent,
+    ChartsComponent
   ],
   imports: [
     CommonModule,
@@ -96,7 +100,9 @@ FullCalendarModule.registerPlugins([
     FooterComponent,
     HeaderComponent,
     SidebarComponent,
-    CalendarComponent
+    CalendarComponent,
+    ProgressBarComponent,
+    ChartsComponent
   ],
 })
 
