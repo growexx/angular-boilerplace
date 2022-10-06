@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="card col-6">
+    <div class="card chart-card col-6">
       <div class="pg-p-3 row">
         <div class="col-6 pg-mt-4">
           <h1 class="font-weight-bolder m-0">{{ totalSum }}</h1>
@@ -66,16 +66,33 @@
       <div class="task-header mb-10">
         <span>Task Overview</span>
       </div>
-      <div class="task-content mbl-20 d-flex align-items-center" *ngFor="let task of taskDetails?.todos | slice: 0:5;let i = index">
+      <div class="task-content mbl-20 d-flex align-items-center"
+        *ngFor="let task of taskDetails?.todos | slice: 0:5;let i = index">
         <span class="pipe pipe-{{(task?.completed === true )? 'completed' : 'pending'}}"></span>
-        <div class="mbl-10 ml-20">
-          <span class="task-title">{{task['todo']}}</span>
-          <div class="status w-100 mt-5"><span
-              class="task-status status-{{(task?.completed === true )? 'completed' : 'pending'}} status-pills">{{(task?.completed
+        <div class="mbl-10 ml-20 row">
+          <div class="col-sm-6"> <span class="task-title">{{task['todo']}}</span></div>
+          <div class="status mt-5 col-sm-6"><span
+              class="flex-end task-status status-{{(task?.completed === true )? 'completed' : 'pending'}} status-pills">{{(task?.completed
               === true )? 'Completed' : 'Pending'}}</span></div>
         </div>
-
       </div>
     </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="task-wrapper">
+      <div class="task-header">
+        <span>Widgets</span>
+      </div>
+      <div class="mb-10 mt-10">
+        <div class="mb-10"><span class="task-subheader">Accordion</span></div>
+        <app-accordion [accordion]="accordionDetails"></app-accordion>
+      </div>
+
+      <div>
+        <div><span class="task-subheader">Progress Bar</span></div>
+        <progress-bars [progressValue]="loadProgress"></progress-bars>
+      </div>
+    </div>
+
   </div>
 </div>

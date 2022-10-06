@@ -6,6 +6,7 @@ import { UsersService } from '../users/users.service';
 import { result } from 'lodash';
 import { TaskService } from '../task/task.service';
 import { taskDetailsType } from '../task/task-modal';
+import { accordionType } from '../core/interface/accordion';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,7 +14,7 @@ import { taskDetailsType } from '../task/task-modal';
 })
 export class DashboardComponent implements OnInit {
   taskDetails !: taskDetailsType;
-
+  loadProgress = 77;
   users = {
     count: 69,
     skip: 10,
@@ -75,6 +76,20 @@ export class DashboardComponent implements OnInit {
       color: 'rgba(255, 159, 64, 1)',
     }
   }]
+
+ public accordionDetails: accordionType[] = [
+    {
+      title: 'Accordion Item #1',
+      description: "This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.",
+      active: true
+    },
+    {
+      title: 'Accordion Item #2',
+      description: "This is the second item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.",
+      active: false
+    }
+  ]
+
   totalSum: any;
   chartConfig: any;
 
@@ -109,7 +124,6 @@ export class DashboardComponent implements OnInit {
       this.users.skip = res.skip;
       this.users.config.innerWidth = Math.round(((res.total - res.skip) / res.total) * 100)
     });
-    console.log(this.departments);
 
     let chartData = this.departments.map((department: any) => { return department.count; });
     let chartLables = this.departments.map((department: any) => { return department.title; });
