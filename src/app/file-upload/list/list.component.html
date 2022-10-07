@@ -1,0 +1,20 @@
+<!-- <app-table [tableConfig]="fileService.fileConfig" [tableFileName]="fileName"></app-table> -->
+
+<div>
+    <div class="table-container">
+        <table class="table grid-table" aria-describedby="resuable table">
+            <thead>
+                <tr>
+                    <th scope="col" [class]="heading.class" *ngFor="let heading of tableConfig" [textContent]="heading.label"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="user-name">{{fileObj?.FileName}}</td>
+                    <td class="user-role">{{fileObj?.FileSize}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <pagination-controls (pageChange)="page = $event" class="pagination"></pagination-controls> -->
+</div>
