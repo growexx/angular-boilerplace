@@ -1,0 +1,4 @@
+<div class="pd-30">
+    <gw-file-upload [config]="gwConfig" (ApiResponse)="docUpload($event)"></gw-file-upload>
+    <app-list [fileData]="fileId" [fileName]="fileName" [tableConfig]="fileService.fileConfig" [fileObj]="fileDataObj"></app-list>
+</div>
