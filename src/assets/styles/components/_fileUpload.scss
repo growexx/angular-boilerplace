@@ -1,0 +1,10 @@
+
+.gw-file-upload-wrapper, .gw-file-upload-panel{
+    position: $position-relative !important;
+}
+.gw-file-upload-wrapper{
+    background-color: $bs-white !important;
+    .body-container{
+        display: $d-block;
+    }
+}
