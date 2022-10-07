@@ -23,7 +23,6 @@ import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { ThemeButtonComponent } from './layout/theme-button/theme-button.component';
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
@@ -32,16 +31,15 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
-// import timeGridPlugin from '@fullcalendar/timegrid';
-// import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { ChartsComponent } from './components/charts/charts.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { AccordionComponent } from './components/accordion/accordion.component';
+import { ProgressBarsComponent } from './components/progress-bars/progress-bars.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
-  // timeGridPlugin,
-  // listPlugin,
   interactionPlugin
 ])
 
@@ -65,7 +63,9 @@ FullCalendarModule.registerPlugins([
     ThemeButtonComponent,
     CalendarComponent,
     ProgressBarComponent,
-    ChartsComponent
+    ChartsComponent,
+    AccordionComponent,
+    ProgressBarsComponent
   ],
   imports: [
     CommonModule,
@@ -82,7 +82,10 @@ FullCalendarModule.registerPlugins([
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatGridListModule,
   ],
   exports: [
     FilterPipe,
@@ -102,7 +105,10 @@ FullCalendarModule.registerPlugins([
     SidebarComponent,
     CalendarComponent,
     ProgressBarComponent,
-    ChartsComponent
+    ChartsComponent,
+    MatToolbarModule,
+    AccordionComponent,
+    ProgressBarsComponent
   ],
 })
 

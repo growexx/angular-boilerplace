@@ -38,7 +38,15 @@ const routes: Routes = [{
     {
       path:'widgets',
       loadChildren: () => import('./widgets/widgets.module').then(m=>m.WidgetsModule)
-    }
+    },
+    {
+      path: 'chat',
+      loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)     
+    },
+    {
+      path: 'fileupload',
+      loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule)     
+    },
   ],
 }, {
   path: '**',
