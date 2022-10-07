@@ -31,4 +31,17 @@ describe('CommonService', () => {
     expect(service.showActionDropdown).toBeFalsy();
     expect(service.index).toBe(1);
   });
+  it('should be toggleSidebar() function works as expected', () => {
+    service.toggleSidebar();
+    expect(service.isSideBar).toBeTruthy();
+  });
+  it('should be collapsedSidebar() function works as expected', () => {
+    service.collapsedSidebar();
+    expect(service.isSideBar).toBeFalsy();
+    expect(service.isSideBarCollapsed).toBeFalsy();
+  });
+  it('should be toggleViewMoreEmployeesWidget() function works as expected', () => {
+    service.toggleViewMoreEmployeesWidget();
+    expect(service.viewMoreEmployeesWidget).toBeTruthy();
+  });
 });
