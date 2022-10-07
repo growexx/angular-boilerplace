@@ -1,19 +1,32 @@
 // /* You can add global styles to this file, and also import other style files */
 
 // /* Importing Bootstrap SCSS file. */
-@use '@angular/material' as mat;
+// @use '@angular/material' as mat;
 @import "~bootstrap/scss/bootstrap";
 @import "./assets/styles/variables/colors";
 @import "./node_modules/8-point-grid/scss/8-point-grid.scss";
 @import './assets/styles/style';
+@import './app/shared/layout/header/header.component.scss';
 
-@include mat.core();
-$my-theme-primary: mat.define-palette(mat.$light-blue-palette, 300, A100);
-$my-theme-secondary: mat.define-palette(mat.$green-palette, 800, A400);
-$my-theme-accent: mat.define-palette(mat.$cyan-palette, 500);
-$my-theme-warn: mat.define-palette(mat.$red-palette);
-$my-theme: mat.define-light-theme(( color: ( primary: $my-theme-primary, secondary:$my-theme-secondary, accent: $my-theme-accent, warn: $my-theme-warn, )));
-@include mat.all-component-themes($my-theme);
+@mixin material-custom-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  @include nav-bar-theme($theme);
+}
+
+@include mat-core();
+
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+
+$theme: mat-light-theme($primary, $accent);
+@include angular-material-theme($theme);
+@include material-custom-theme($theme);
+
 
 //? Theme style
 hr {
@@ -46028,4 +46041,3 @@ body {
  min-height: 100vh !important; 
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

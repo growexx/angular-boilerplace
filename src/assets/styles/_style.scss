@@ -12,6 +12,7 @@
 ================*/
 @import './variables/colors';
 @import './variables/common';
+@import './variables/theme';
 
 /* =============
 // 2. Global 
@@ -31,7 +32,7 @@
 ================*/
 @import './components/auth/auth';
 @import './components/add-users';
-
+@import './components/fileUpload';
 
 /* =============
 // 4.Shared

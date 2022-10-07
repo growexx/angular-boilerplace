@@ -12,11 +12,11 @@ export class ThemesService {
 
   constructor(private http: HttpClient, private styleManager: StyleManagerService) { }
 
-  getThemeOptions(): Observable<Array<Option>> {
-    return this.http.get<Array<Option>>('assets/styles/options/options.json');
-  }
+  // getThemeOptions(): Observable<Array<Option>> {
+  //   return this.http.get<Array<Option>>('assets/styles/options/options.json');
+  // }
 
-  setTheme(themeToSet: any) {
-    this.styleManager.setStyle(`node_modules/@angular/material/prebuilt-themes/${themeToSet}.css`);
-  }
+  // setTheme(themeToSet: any) {
+  //   this.styleManager.setStyle(`node_modules/@angular/material/prebuilt-themes/${themeToSet}.css`);
+  // }
 }

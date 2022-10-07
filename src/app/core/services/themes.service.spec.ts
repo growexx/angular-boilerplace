@@ -18,9 +18,9 @@ describe('ThemesService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be setTheme', () => {
-    const themeSet = 'theme';
-    service.setTheme(themeSet)
-    expect(service).toBeTruthy();
-  });
+  // it('should be setTheme', () => {
+  //   const themeSet = 'theme';
+  //   service.setTheme(themeSet)
+  //   expect(service).toBeTruthy();
+  // });
 });

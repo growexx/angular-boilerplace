@@ -42,7 +42,7 @@ describe('HeaderComponent', () => {
       "value": "deeppurple-amber",
       "isDefault": true
     }
-    component.themeChangeHandler(themeSelect)
+    // component.themeChangeHandler(themeSelect)
     expect(component).toBeTruthy();
   })
 

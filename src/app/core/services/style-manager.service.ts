@@ -6,23 +6,25 @@ import { Injectable } from '@angular/core';
 export class StyleManagerService {
 
   constructor() { }
+
+
   /**
    * Set the stylesheet with the specified key.
    */
-   setStyle(href: string) {
-    getLinkElementForKey('theme').setAttribute("href", href);
+  setStyle(key: string, href: string) {
+    getLinkElementForKey(key).setAttribute('href', href);
   }
 
   /**
    * Remove the stylesheet with the specified key.
    */
   removeStyle(key: string) {
-    console.log(key)
     const existingLinkElement = getExistingLinkElementByKey(key);
     if (existingLinkElement) {
       document.head.removeChild(existingLinkElement);
     }
   }
+
 }
 
 function getLinkElementForKey(key: string) {
@@ -30,21 +32,18 @@ function getLinkElementForKey(key: string) {
 }
 
 function getExistingLinkElementByKey(key: string) {
-  return document.head.querySelector(
-    `link[rel="stylesheet"].${getClassNameForKey(key)}`
-  );
- 
+  return document.head.querySelector(`link[rel="stylesheet"].${getClassNameForKey(key)}`);
 }
 
 function createLinkElementWithKey(key: string) {
-  const linkEl = document.createElement("link");
-  // linkEl.setAttribute("rel", "stylesheet");
+  const linkEl = document.createElement('link');
+  linkEl.setAttribute('rel', 'stylesheet');
+  linkEl.setAttribute('type', 'text/css');
   linkEl.classList.add(getClassNameForKey(key));
   document.head.appendChild(linkEl);
   return linkEl;
 }
 
 function getClassNameForKey(key: string) {
-  return `app-${key}`;
+  return `style-manager-${key}`;
 }
-

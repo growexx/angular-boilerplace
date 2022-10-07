@@ -1,4 +1,4 @@
-<div class="app-sidebar-container">
+<div class="app-sidebar-container" id="sidebar">
     <div class="btn-collapse background-neutral-white navbar-close-icon-bg" (click)="commonService.collapsedSidebar()">
         <em class="fa color-neutral-dark navbar-close-icon"
             [class]="commonService.isSideBarCollapsed ? 'fa-angles-right' : 'fa-angles-left'"></em>
@@ -52,7 +52,7 @@
                 <div class="accordion-header" id="widgets">
                     <button type="button" class="accordion-button collapsed" data-toggle="collapse"
                         data-target="#widgets" aria-expanded="false" aria-controls="widgets">
-                        <em class="fas fa-users"></em>
+                        <em class="fa-solid fa-chart-simple"></em>
                         <span class="pg-ml-2 menu-title">Widgets</span>
                     </button>
                 </div>
@@ -60,19 +60,23 @@
                     <div class="accordion-body">
                         <div class="menu-item">
                             <a routerLink="/admin/widgets/calendar" class="menu-link">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="submenu-title">Calendar</span>
+                                <em class="fa-solid fa-calendar-days"></em>
+                                <span class="submenu-title pg-ml-2">Calendar</span>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- <div *ngFor="let option of options;" (click)="changeTheme(option.value)">
-                <span>{{option.label}}</span>
-            </div> -->
+            <div class="accordion-item">
+                <div class="accordion-header" id="chat">
+                    <span routerLink="/admin/chat" type="button" class="accordion-button only-link collapsed">
+                        <em class="fa-regular fa-comments"></em>
+                        <span class="pg-ml-2 menu-title">Chat</span>
+                    </span>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
