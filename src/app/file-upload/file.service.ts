@@ -10,7 +10,6 @@ export class FileService {
 
   fileData: any;
   public fileid!: string;
-
   private apiUrl: string = 'https://v2.convertapi.com/d/';
 
   public fileConfig = [{

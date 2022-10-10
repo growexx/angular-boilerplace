@@ -31,7 +31,6 @@ export class FileuploadComponent implements OnInit {
 
   docUpload(event:any, data?:any){
     this.fileDataObj = event.body;
-    console.log(this.fileDataObj)
     this.fileId = event.body.FileId;
     this.fileName = event.body.FileName
     this.viewFiles(this.fileId)
@@ -40,7 +39,6 @@ export class FileuploadComponent implements OnInit {
   
   viewFiles(id:any){
     this.fileService.viewFiles(id).subscribe((res:any)=>{
-      console.log(res)
     })
   }
 }

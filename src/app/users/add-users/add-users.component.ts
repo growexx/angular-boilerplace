@@ -89,7 +89,6 @@ export class AddUsersComponent implements OnInit {
 
 
   addUser() {
-    console.log(this.imagePath)
     this.userVal.image = this.userVal.image;
     this.userVal.firstName = this.firstFormGroup.value['firstName'];
     this.userVal.lastName = this.firstFormGroup.value['lastName'];
@@ -100,7 +99,6 @@ export class AddUsersComponent implements OnInit {
     this.userVal.address.country = this.secondFormGroup.value['country'];
     this.userService.createUser(this.userVal).subscribe({
       next: (res) => {
-        console.log(res)
         const data = _.cloneDeep(res);
       }
     })

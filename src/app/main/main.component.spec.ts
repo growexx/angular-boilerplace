@@ -2,7 +2,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
+import { FilterPipe } from '../shared/pipes/filter.pipe';
 import { TaskService } from '../task/task.service';
 
 import { MainComponent } from './main.component';
@@ -42,8 +44,8 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MainComponent],
-      imports: [MatDialogModule, HttpClientTestingModule, BrowserAnimationsModule],
+      declarations: [MainComponent,FilterPipe],
+      imports: [MatDialogModule, HttpClientTestingModule, BrowserAnimationsModule, RouterTestingModule],
       providers: [{ provide: TaskService, useValue: taskService }]
     })
       .compileComponents();

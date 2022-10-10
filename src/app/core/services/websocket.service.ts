@@ -26,7 +26,6 @@ export class WebsocketService {
       this.messages = <Subject<Message>>this.connect(this.CHAT_URL).pipe(
           map(
               (response: MessageEvent): Message => {
-                  console.log(response.data);
                   let data = JSON.parse(response.data)
                   return data;
               }
@@ -37,7 +36,6 @@ export class WebsocketService {
   public connect(url:any): AnonymousSubject<MessageEvent> {
       if (!this.subject) {
           this.subject = this.create(url);
-          console.log("Successfully connected: " + url);
       }
       return this.subject;
   }
@@ -54,7 +52,6 @@ export class WebsocketService {
           error: null,
           complete: null,
           next: (data: Object) => {
-              console.log('Message sent to websocket: ', data);
               if (ws.readyState === WebSocket.OPEN) {
                   ws.send(JSON.stringify(data));
               }

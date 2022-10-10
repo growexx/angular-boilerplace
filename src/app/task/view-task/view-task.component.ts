@@ -32,7 +32,6 @@ export class ViewTaskComponent implements OnInit {
   getAllTasks() {
     this.taskService.getAllTodos().subscribe((res: any) => {
       this.taskDetails = res
-      console.log(this.taskDetails)
     })
   }
 

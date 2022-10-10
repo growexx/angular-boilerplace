@@ -8,6 +8,7 @@ import { ModalComponent } from '../shared/components/modal/modal.component';
 import { taskDetailsType } from '../task/task-modal';
 import { TaskService } from '../task/task.service';
 import { filter } from 'rxjs/operators';
+import { AsyncService } from '../core/services/async.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -23,8 +24,10 @@ export class MainComponent implements OnInit {
   currentRoute: any;
   headerTitle!: string;
   title!: string;
+  nosideBar!:boolean;
+  noHeaderBar!:boolean;
 
-  constructor(private dialog: MatDialog, public taskService: TaskService, public commonService: CommonService,
+  constructor(private dialog: MatDialog, public taskService: TaskService, public commonService: CommonService, public asyncService: AsyncService,
     private router: Router, private route: ActivatedRoute) {
       this.currentRoutes();
   }
@@ -71,24 +74,19 @@ export class MainComponent implements OnInit {
 
   getCurrentRouteTitle() {
     this.router.events.pipe(filter((events: any) => events instanceof ActivationStart)).subscribe((events: any) => {
-      console.log(events)
       this.headerTitle = events.snapshot.data['title'];
       this.title = this.headerTitle;
-      console.log(this.title)
     })
   }
 
   currentRoutes() {
     this.router.events.pipe(filter((events: any) => events instanceof ActivationStart)).subscribe((events: any) => {
-      console.log(events)
       this.headerTitle = events.snapshot.data['title'];
       this.title = this.headerTitle;
-      console.log(this.title)
     })
 
     this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd)).subscribe((event: any) => {
       this.currentRoute = event.url;
-      console.log(this.currentRoute)
       switch (this.currentRoute) {
         case this.currentRoute:
           if (this.currentRoute === event.url) {
@@ -102,4 +100,17 @@ export class MainComponent implements OnInit {
       }
     });
   }
-}
+
+  nosideBars(){
+    this.asyncService.noaside$.subscribe((res:any)=>{
+      this.nosideBar = res;
+    })
+  }
+
+  noHeaders(){
+    this.asyncService.noheader$.subscribe((res:any)=>{
+      this.noHeaderBar = res;
+    })
+  }
+
+ }

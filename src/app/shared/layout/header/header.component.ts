@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Option } from 'src/app/core/interface/option.model';
@@ -13,6 +14,7 @@ import * as  options from '../../../../assets/styles/options/options.json';
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit {
+
 
   themes: CustomTheme[] = [
     {
@@ -42,7 +44,6 @@ export class HeaderComponent implements OnInit {
     },
   ];
 
-  // options$: Observable<any> = this.themeService.getThemeOptions();
   selectedTheme!: Option;
   options: Array<Option> = options;
   currentTheme: any;
@@ -72,6 +73,8 @@ export class HeaderComponent implements OnInit {
     }
 
   }
+
+
 
   logout() {
     localStorage.removeItem('token');

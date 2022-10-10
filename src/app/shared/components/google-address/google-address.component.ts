@@ -40,7 +40,6 @@ export class GoogleAddressComponent implements OnInit {
   findAddress() {
     this.reqObject.query = this.googleApiForm.controls['searchField']?.value;
     const autoComplete = new google.maps.places.Autocomplete(<HTMLInputElement>document.getElementById('searchbox'));
-    console.log(autoComplete, 'AUTOCOMPLETE')
     autoComplete.setOptions({ types: ['geocode'] });
     autoComplete.setComponentRestrictions({ 'country': ['ca', 'us'] });
     const ac = autoComplete;

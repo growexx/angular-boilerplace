@@ -20,12 +20,6 @@ export class ListComponent implements OnInit {
   }
 
   ngOnChanges(){
-    console.log(this.fileObj)
   }
-  // getFilesDetails(id:any){
-  //   this.fileService.viewFiles(id).subscribe((res:any)=>{
-  //     console.log(res)
-  //   })
-  // }
 
 }

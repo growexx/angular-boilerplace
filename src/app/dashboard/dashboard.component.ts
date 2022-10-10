@@ -118,7 +118,7 @@ export class DashboardComponent implements OnInit {
             }
           });
         }
-      }).bind(this);
+      });
 
       this.users.count = res.total;
       this.users.skip = res.skip;

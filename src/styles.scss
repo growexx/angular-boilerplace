@@ -4,7 +4,7 @@
 // @use '@angular/material' as mat;
 @import "~bootstrap/scss/bootstrap";
 @import "./assets/styles/variables/colors";
-@import "./node_modules/8-point-grid/scss/8-point-grid.scss";
+@import "../node_modules/8-point-grid/scss/8-point-grid.scss";
 @import './assets/styles/style';
 @import './app/shared/layout/header/header.component.scss';
 

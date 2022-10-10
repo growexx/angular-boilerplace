@@ -18,9 +18,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.WebsocketService.messages.subscribe((msg: any) => {
-      console.log(msg)
       this.received.push(msg);
-      console.log("Response from websocket: " + msg);
     });
   }
 

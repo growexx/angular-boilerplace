@@ -25,7 +25,6 @@ export class ImageUploadComponent implements OnInit {
     fileChangeEvent(fileInput: any): any {
         this.imageError = '';
         fileInput = fileInput;
-        console.log(fileInput)
         this.fileName = fileInput.target.files[0].name
         if (fileInput.target.files && fileInput.target.files[0]) {
             // Size Filter Bytes

@@ -8,6 +8,8 @@ import { country } from '../interface/modal';
 export class AsyncService {
   COUNTRIES: country[] = ['CA', 'USA']
   FILEDATA!: string;
+  NOASIDE:boolean = true;
+  NOHEADER:boolean = true;
 
   constructor() { }
 
@@ -16,5 +18,11 @@ export class AsyncService {
 
   private files = new BehaviorSubject<any>(this.FILEDATA);
   public files$ = this.files.asObservable();
+
+  private noaside = new BehaviorSubject<any>(this.NOASIDE)
+  public noaside$ = this.noaside.asObservable();
+
+  private noheader = new BehaviorSubject<any>(this.NOHEADER)
+  public noheader$ = this.noheader.asObservable();
 
 }

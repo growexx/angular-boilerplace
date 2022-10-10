@@ -42,8 +42,8 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, FormsModule, RouterModule, RouterTestingModule, MatDialogModule, BrowserAnimationsModule, HttpClientTestingModule],
-      declarations: [ DashboardComponent, NgbAccordion,NgbPanel, NgbPanelToggle, AppComponent, SidebarComponent, HeaderComponent, ToolbarComponent, FooterComponent ],
+      imports: [ReactiveFormsModule, FormsModule, RouterModule, RouterTestingModule, MatDialogModule, BrowserAnimationsModule, HttpClientTestingModule, RouterTestingModule],
+      declarations: [DashboardComponent, NgbAccordion, NgbPanel, NgbPanelToggle, AppComponent, SidebarComponent, HeaderComponent, ToolbarComponent, FooterComponent],
       providers: [
         { provide: TaskService, useValue: taskService }
       ]

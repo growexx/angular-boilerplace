@@ -42,4 +42,7 @@ export class CommonService {
   toggleViewMoreEmployeesWidget(){
     this.viewMoreEmployeesWidget = !this.viewMoreEmployeesWidget;
   }
+
+
+
 }

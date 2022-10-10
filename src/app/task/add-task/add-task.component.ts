@@ -26,7 +26,6 @@ export class AddTaskComponent implements OnInit {
   ngOnInit() {
     this.addTaskDetails();
     this.route.params.subscribe((params: Params) => {
-      console.log(params)
       if (params['id']) {
         this.id = params['id'];
         this.getToDoById(params['id']);
