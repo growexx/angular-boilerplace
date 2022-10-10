@@ -1,6 +1,6 @@
 <div class="body-container">
   <div class="sidebar-container d-lg-block" [class.collapse]="commonService.isSideBarCollapsed" *ngIf="!nosideBar">
-    <app-sidebar (noaside)="nosideBars()" (noheader)="noHeaders()" ></app-sidebar>
+    <app-sidebar (noaside)="nosideBars()" (noheader)="noHeaders()"></app-sidebar>
   </div>
   <div
     class="right-content mat-drawer-container {{commonService.isSideBarCollapsed || !nosideBar ? 'collapsed mlr-0' : ''}}">
