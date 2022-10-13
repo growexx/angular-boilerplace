@@ -23,7 +23,7 @@ export class AccordionComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
-  open(index: number) {
+  open(index?:any) {
     this.accordion?.filter((acc: any, i: any) => i !== index && acc.active).forEach((acc: any) => acc.active = !acc.active);
     this.accordion[index].active = !this.accordion[index].active;
   }

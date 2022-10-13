@@ -21,7 +21,7 @@ describe('AccordionComponent', () => {
       active: false
     }
   ]
-  openSpy = jasmine.createSpyObj('component',['open']);
+  openSpy = jasmine.createSpyObj('AccordionComponent',['open']);
   openSpy.open.and.returnValue(of(index))
 
   beforeEach(async () => {
