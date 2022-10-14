@@ -1,0 +1,13 @@
+<div class="card-wrapper">
+    <div class="card-layout">
+        <div class="card-header">
+            <div><span>{{cardDetails?.title}}</span></div>
+            <div><i class="fa-solid fa-cube mr-10" *ngIf="(cardDetails?.type).includes('withIcon') "></i>
+                <span *ngIf="(cardDetails?.type).includes('withIconText') ">Settings</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p>{{cardDetails?.content}}</p>
+        </div>
+    </div>
+</div>

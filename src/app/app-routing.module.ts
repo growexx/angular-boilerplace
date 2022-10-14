@@ -47,6 +47,10 @@ const routes: Routes = [{
       path: 'fileupload',
       loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule)     
     },
+    {
+      path:'card',
+      loadChildren: () => import('./cards/cards.module').then(m=>m.CardsModule)
+    }
   ],
 }, {
   path: '**',
