@@ -132,6 +132,10 @@
 }
 
 .body-container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+
   .right-content {
     width: 100%;
     margin-left: 300px;
@@ -150,9 +154,6 @@
     }
   }
 
-  display: flex;
-  flex-direction: row;
-  position: relative;
 
   .display-none {
     display: none;
@@ -163,6 +164,11 @@
     min-width: 300px;
     background-color: #1e1e2d;
     position: fixed;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    bottom: 0;
   }
 
   .sidebar-container.collapse {
@@ -198,9 +204,9 @@
         width: 100%;
         margin-left: 300px;
 
-        .header-container {
-          width: calc(100% - 300px);
-        }
+        // .header-container {
+        //   width: calc(100% - 300px);
+        // }
       }
 
       .sidebar-logo {

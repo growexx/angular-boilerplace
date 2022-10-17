@@ -44874,8 +44874,8 @@ div:hover::-webkit-scrollbar-thumb {
   }
 }
 .scroll {
-  overflow: scroll;
-  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 @media (max-width: 991.98px) {
   .scroll {
@@ -45727,8 +45727,6 @@ body a:focus {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   color: #181C32;
 }
 

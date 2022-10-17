@@ -38,6 +38,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { ProgressBarsComponent } from './components/progress-bars/progress-bars.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { SkeletonComponent } from './components/skeleton/skeleton.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -68,6 +69,7 @@ FullCalendarModule.registerPlugins([
     AccordionComponent,
     ProgressBarsComponent,
     CardsComponent,
+    SkeletonComponent,
   ],
   imports: [
     CommonModule,
@@ -111,7 +113,8 @@ FullCalendarModule.registerPlugins([
     MatToolbarModule,
     AccordionComponent,
     ProgressBarsComponent,
-    CardsComponent
+    CardsComponent,
+    SkeletonComponent
   ],
 })
 
