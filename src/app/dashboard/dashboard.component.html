@@ -60,42 +60,44 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="task-wrapper">
-      <div class="task-header mb-10">
-        <span>Task Overview</span>
-      </div>
-      <div class="task-content mbl-20 d-flex align-items-center"
-        *ngFor="let task of taskDetails?.todos | slice: 0:5;let i = index">
-        <span class="pipe pipe-{{(task?.completed === true )? 'completed' : 'pending'}}"></span>
-        <div class="mbl-10 ml-20 row">
-          <div class="col-sm-6"> <span class="task-title">{{task['todo']}}</span></div>
-          <div class="status mt-5 col-sm-6"><span
-              class="flex-end task-status status-{{(task?.completed === true )? 'completed' : 'pending'}} status-pills">{{(task?.completed
-              === true )? 'Completed' : 'Pending'}}</span></div>
+<div *ngFor="let class of cols;">
+  <div class="row">
+    <div class="{{(class?.label === 'col-6') ? class?.htmlClass : '' }}">
+      <div class="task-wrapper">
+        <div class="task-header mb-10">
+          <span>Task Overview</span>
+        </div>
+        <div class="task-content mbl-20 d-flex align-items-center"
+          *ngFor="let task of taskDetails?.todos | slice: 0:5;let i = index">
+          <span class="pipe pipe-{{(task?.completed === true )? 'completed' : 'pending'}}"></span>
+          <div class="mbl-10 ml-20 row">
+            <div class="col-sm-6"> <span class="task-title">{{task['todo']}}</span></div>
+            <div class="status mt-5 col-sm-6"><span
+                class="flex-end task-status status-{{(task?.completed === true )? 'completed' : 'pending'}} status-pills">{{(task?.completed
+                === true )? 'Completed' : 'Pending'}}</span></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="task-wrapper">
-      <div class="task-header">
-        <span>Widgets</span>
-      </div>
-      <div class="mb-10 mt-10">
-        <div class="mb-10"><span class="task-subheader">Accordion</span></div>
-        <app-accordion [accordion]="accordionDetails"></app-accordion>
-      </div>
+    <div class="col-sm-6">
+      <div class="task-wrapper">
+        <div class="task-header">
+          <span>Widgets</span>
+        </div>
+        <div class="mb-10 mt-10">
+          <div class="mb-10"><span class="task-subheader">Accordion</span></div>
+          <app-accordion [accordion]="accordionDetails"></app-accordion>
+        </div>
 
-      <div>
-        <div><span class="task-subheader">Progress Bar</span></div>
-        <progress-bars [progressValue]="loadProgress"></progress-bars>
-      </div>
+        <div>
+          <div><span class="task-subheader">Progress Bar</span></div>
+          <progress-bars [progressValue]="loadProgress"></progress-bars>
+        </div>
 
+
+      </div>
 
     </div>
-
   </div>
 </div>
 

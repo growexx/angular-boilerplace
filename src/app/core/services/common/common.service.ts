@@ -14,6 +14,23 @@ export class CommonService {
   public searchFilter: string = '';
   public checkboxes: string[] = [];
   public viewMoreEmployeesWidget = false;
+  public cols = [
+    {
+      label: 'col-3',
+      htmlClass: 'col-sm-3'
+    },
+    {
+      label: 'col-4',
+      htmlClass: 'col-sm-4'
+    },
+    {
+      label: 'col-6',
+      htmlClass: 'col-sm-6'
+    },
+    {
+      label: 'col-12',
+      htmlClass: 'col-sm-12'
+    }];
 
   constructor() { }
 
@@ -30,7 +47,7 @@ export class CommonService {
     }
   }
   toggleSidebar() {
-    if(this.isSideBar){
+    if (this.isSideBar) {
       this.isSideBarCollapsed = !this.isSideBarCollapsed;
     }
   }
@@ -39,9 +56,10 @@ export class CommonService {
     this.isSideBarCollapsed = !this.isSideBarCollapsed;
   }
 
-  toggleViewMoreEmployeesWidget(){
+  toggleViewMoreEmployeesWidget() {
     this.viewMoreEmployeesWidget = !this.viewMoreEmployeesWidget;
   }
+
 
 
 

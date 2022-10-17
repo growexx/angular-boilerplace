@@ -92,6 +92,7 @@ export class DashboardComponent implements OnInit {
 
   totalSum: any;
   chartConfig: any;
+  cols: any;
 
   constructor(public commonService: CommonService, public usersService: UsersService, private taskService: TaskService) { }
   ngOnInit(): void {
@@ -168,6 +169,9 @@ export class DashboardComponent implements OnInit {
         },
       },
     };
+
+    this.cols = this.commonService.cols;
+    console.log(this.cols)
   }
 
 
