@@ -2,7 +2,7 @@
     <div class="card-layout">
         <div class="card-header">
             <div><span>{{cardDetails?.title}}</span></div>
-            <div><i class="fa-solid fa-cube mr-10" *ngIf="(cardDetails?.type).includes('withIcon') "></i>
+            <div><i class="{{cardDetails?.icon}} mr-10" *ngIf="(cardDetails?.type).includes('withIcon') "></i>
                 <span *ngIf="(cardDetails?.type).includes('withIconText') ">Settings</span>
             </div>
         </div>
