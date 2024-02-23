@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import Swal from 'sweetalert2';
@@ -12,9 +12,9 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
   error_message: any = ''
   toast: any;
-  loginForm = new FormGroup({
-    email: new FormControl('kminchelle', [Validators.required]),
-    password: new FormControl('0lelplR', [Validators.required, Validators.pattern(/^(?=.*[a-z])[A-Za-z\d@$!%*?&]{8,}$/)]),
+  loginForm = new UntypedFormGroup({
+    email: new UntypedFormControl('kminchelle', [Validators.required]),
+    password: new UntypedFormControl('0lelplR', [Validators.required, Validators.pattern(/^(?=.*[a-z])[A-Za-z\d@$!%*?&]{8,}$/)]),
   });
 
   submitButton: any = {

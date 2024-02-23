@@ -1,5 +1,5 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonService } from 'src/app/core/services/common/common.service';
 import { UsersService } from 'src/app/users/users.service';
@@ -26,9 +26,9 @@ export class DialogComponent implements OnInit {
     public commonService: CommonService,
   ) { }
 
-  filterForm = new FormGroup({
-    role: new FormControl('Select option', [Validators.required]),
-    gender: new FormControl('Select option', [Validators.required]),
+  filterForm = new UntypedFormGroup({
+    role: new UntypedFormControl('Select option', [Validators.required]),
+    gender: new UntypedFormControl('Select option', [Validators.required]),
   });
 
   ngOnInit(): void { }
