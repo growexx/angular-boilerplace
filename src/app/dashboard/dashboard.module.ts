@@ -9,7 +9,7 @@ import { HeaderComponent } from '../shared/layout/header/header.component';
 import { FooterComponent } from '../shared/layout/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { ToolbarComponent } from '../shared/layout/toolbar/toolbar.component';
-import { NgbAccordion, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
