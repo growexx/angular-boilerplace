@@ -1,17 +1,17 @@
-@import '/src/assets/styles/style';
-// Auth Sidebar component's scss
-.sidebar-screen-bg{
-    background-image: url('../../../../assets/auth-screens.png');
-    background-size: contain;
-    background-position-x: center;
-    background-position-y: bottom;
-    background-repeat: no-repeat;
-    margin-bottom: 30px;
-    min-height: 450px;
-}
+// @import '../../../../assets/styles/style';
+// // Auth Sidebar component's scss
+// .sidebar-screen-bg{
+//     background-image: url('../../../../assets/auth-screens.png');
+//     background-size: contain;
+//     background-position-x: center;
+//     background-position-y: bottom;
+//     background-repeat: no-repeat;
+//     margin-bottom: 30px;
+//     min-height: 450px;
+// }
 
-@media (min-width: '320px') and (max-width: '575px') {
-    .sidebar-screen-bg{
-        min-height: 200px;
-    }   
-}
+// @media (min-width: '320px') and (max-width: '575px') {
+//     .sidebar-screen-bg{
+//         min-height: 200px;
+//     }   
+// }

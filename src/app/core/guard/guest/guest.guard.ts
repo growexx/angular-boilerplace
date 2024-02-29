@@ -10,7 +10,7 @@ export class GuestGuard implements CanActivate {
     private readonly router: Router,
   ){}
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      let token = localStorage.getItem('token');
+      let token = window.localStorage.getItem('token');
       if(token === null) {
         return true;
       } else {

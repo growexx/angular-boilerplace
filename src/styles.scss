@@ -2,10 +2,11 @@
 
 // /* Importing Bootstrap SCSS file. */
 @use '@angular/material' as mat;
-@import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/bootstrap";
 @import "./assets/styles/variables/colors";
-@import "./node_modules/8-point-grid/scss/8-point-grid.scss";
+// @import "./node_modules/8-point-grid/scss/8-point-grid.scss";
 @import './assets/styles/style';
+
 
 @include mat.core();
 $my-theme-primary: mat.define-palette(mat.$light-blue-palette, 300, A100);

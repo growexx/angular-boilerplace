@@ -26,13 +26,13 @@ describe('GuestGuard', () => {
   });
 
   it('should not be able to activate when logged out', () => {
-    localStorage.setItem('token', 'asdfghjkkl');
+    window.localStorage.setItem('token', 'asdfghjkkl');
     expect(guard.canActivate()).toBe(false);
     expect(routerSpy.navigate).toHaveBeenCalledWith(['/dashboard']);
   });
   
   it('should be able to activate when logged in', () => {
-    localStorage.removeItem('token');
+    window.localStorage.removeItem('token');
     expect(guard.canActivate()).toBe(true);
   });
 });

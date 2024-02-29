@@ -1,8 +1,8 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CommonService } from 'src/app/core/services/common/common.service';
-import { UsersService } from 'src/app/users/users.service';
+import { CommonService } from '../../../../core/services/common/common.service';
+import { UsersService } from '../../../../users/users.service';
 import Swal from 'sweetalert2';
 
 export interface FilterDialogData {

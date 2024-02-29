@@ -10,6 +10,7 @@ import { FooterComponent } from '../shared/layout/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { ToolbarComponent } from '../shared/layout/toolbar/toolbar.component';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     MatDialogModule,
     NgbAccordionModule,
+    NgChartsModule
   ],
   exports: [
     DashboardComponent,

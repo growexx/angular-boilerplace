@@ -1,12 +1,14 @@
+
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import * as moment from 'moment';
-import { ConfirmPasswordValidator } from 'src/app/core/validators/confirm-password/ConfirmPasswordValidator';
-import { PasswordValidator } from 'src/app/core/validators/password/PasswordValidator';
-import { UsersService } from 'src/app/users/users.service';
+import moment from 'moment';
 import Swal from 'sweetalert2';
 import { AuthService } from '../auth.service';
+import { UsersService } from '../../users/users.service';
+import { ConfirmPasswordValidator } from '../../core/validators/confirm-password/ConfirmPasswordValidator';
+import { PasswordValidator } from '../../core/validators/password/PasswordValidator';
 
 
 @Component({

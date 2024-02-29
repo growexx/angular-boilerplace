@@ -1,8 +1,8 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { inject, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
+import { environment } from '../../environments/environment';
 
 describe('AuthService', () => {
   let httpTestingController: HttpTestingController;

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
-import { RootService } from 'src/app/core/services/root.service';
+import { RootService } from '../../core/services/root.service';
 import { taskDetailsType } from '../task-modal';
 import { TaskService } from '../task.service';
 

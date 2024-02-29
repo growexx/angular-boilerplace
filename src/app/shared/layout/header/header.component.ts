@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CommonService } from 'src/app/core/services/common/common.service';
+import { CommonService } from '../../../core/services/common/common.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
-    localStorage.removeItem('token');
+    window.localStorage.removeItem('token');
     this.router.navigate(['/']);
   }
 }

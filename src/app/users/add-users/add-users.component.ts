@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-import { AppConstant } from 'src/app/core/constants/app.constant';
-import { AsyncService } from 'src/app/core/services/async.service';
+import { AppConstant } from '../../core/constants/app.constant';
+import { AsyncService } from '../../core/services/async.service';
 import { UserService } from '../user.service';
 import { createUser } from '../usermodal';
 @Component({
@@ -32,7 +32,8 @@ export class AddUsersComponent implements OnInit {
   firstFormVal: any;
   secondFormVal: any;
   public isaddressTypeDisabled: boolean = false;
-  countryEnum = AppConstant.countryEnum;
+  countryEnum = AppConstant
+  .countryEnum;
   constructor(private formBuilder: UntypedFormBuilder, private userService: UserService, public asyncService: AsyncService) { }
 
   ngOnInit(): void {

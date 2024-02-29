@@ -6,13 +6,13 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { environment } from 'src/environments/environment';
-import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import Swal from 'sweetalert2';
 import { throwError } from 'rxjs';
-import { AuthsidebarComponent } from 'src/app/shared/layout/authsidebar/authsidebar.component';
+import { DashboardComponent } from '../../dashboard/dashboard.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
+import { AuthsidebarComponent } from '../../shared/layout/authsidebar/authsidebar.component';
+import { environment } from '../../../environments/environment';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

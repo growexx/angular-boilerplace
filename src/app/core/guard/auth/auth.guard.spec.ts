@@ -25,13 +25,13 @@ describe('AuthGuard', () => {
   });
 
   it('should be able to activate when logged in', () => {
-    localStorage.setItem('token', 'asdfghjkkl');
+    window.localStorage.setItem('token', 'asdfghjkkl');
     guard.canActivate();
     expect(guard.canActivate()).toBe(true);
   });
   
   it('should not be able to activate when logged out', () => {
-    localStorage.setItem('token', '');
+    window.localStorage.setItem('token', '');
     guard.canActivate();
     expect(guard.canActivate()).toBe(false);
     expect (routerSpy.navigate).toHaveBeenCalledWith(['/']);

@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { UsersService } from './users.service';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -32,10 +34,14 @@ const maskConfig: Partial<IConfig> = {
     MatSelectModule,
     MatStepperModule,
     FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     SharedModule,
+    HttpClientModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
+  providers:[UsersService],
+  exports: [SharedModule]
 })
 
 export class UsersModule { }

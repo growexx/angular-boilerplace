@@ -3,8 +3,8 @@ import { SimpleChange } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UntypedFormBuilder } from '@angular/forms';
 import { observable, of } from 'rxjs';
-import { GoogleapiService } from 'src/app/core/services/googleapi.service';
 import { GoogleAddressComponent } from './google-address.component';
+import { GoogleapiService } from '../../../core/services/googleapi.service';
 
 describe('GoogleAddressComponent', () => {
   let component: GoogleAddressComponent;

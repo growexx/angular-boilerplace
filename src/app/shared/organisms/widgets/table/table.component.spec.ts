@@ -3,9 +3,9 @@ import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { throwError } from 'rxjs';
-import { FilterPipe } from 'src/app/shared/pipes/filter.pipe';
-import { UsersService } from 'src/app/users/users.service';
-import { environment } from 'src/environments/environment';
+import { FilterPipe } from '../../../pipes/filter.pipe';
+import { UsersService } from '../../../../users/users.service';
+import { environment } from '../../../../../environments/environment';
 import Swal from 'sweetalert2';
 import { TableComponent } from './table.component';
 
