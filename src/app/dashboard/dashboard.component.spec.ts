@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NgbAccordion, NgbPanel, NgbPanelToggle } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbAccordion, NgbPanel, NgbPanelToggle } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from '../app.component';
 import { DashboardComponent } from './dashboard.component';
 import { FooterComponent } from '../shared/layout/footer/footer.component';
@@ -43,7 +43,7 @@ describe('DashboardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, FormsModule, RouterModule, RouterTestingModule, MatDialogModule, BrowserAnimationsModule, HttpClientTestingModule],
-      declarations: [ DashboardComponent, NgbAccordion,NgbPanel, NgbPanelToggle, AppComponent, SidebarComponent, HeaderComponent, ToolbarComponent, FooterComponent ],
+      declarations: [ DashboardComponent, AppComponent, SidebarComponent, HeaderComponent, ToolbarComponent, FooterComponent ],
       providers: [
         { provide: TaskService, useValue: taskService }
       ]

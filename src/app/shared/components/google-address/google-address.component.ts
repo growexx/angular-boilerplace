@@ -1,10 +1,10 @@
 /// <reference types="@types/googlemaps" />
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
-import { GoogleapiService } from 'src/app/core/services/googleapi.service';
-import { AppConstant } from 'src/app/core/constants/app.constant';
-import { AsyncService } from 'src/app/core/services/async.service';
+import { AppConstant } from '../../../core/constants/app.constant';
+import { GoogleapiService } from '../../../core/services/googleapi.service';
+import { AsyncService } from '../../../core/services/async.service';
 
 @Component({
   selector: 'app-google-address',
@@ -14,7 +14,7 @@ import { AsyncService } from 'src/app/core/services/async.service';
 export class GoogleAddressComponent implements OnInit {
 
 
-  googleApiForm!: FormGroup;
+  googleApiForm!: UntypedFormGroup;
   @Output() selectedAddress: EventEmitter<any> = new EventEmitter<any>();
   private reqObject = { url: '', query: '', placeid: '' };
   public countryEnum = AppConstant.countryEnum;
@@ -24,9 +24,9 @@ export class GoogleAddressComponent implements OnInit {
   google: any;
 
   constructor(public googleService: GoogleapiService, public asyncService: AsyncService) {
-    this.googleApiForm = new FormGroup({
-      'countryCode': new FormControl(['ca', 'us'], Validators.required),
-      'searchField': new FormControl(null, Validators.required)
+    this.googleApiForm = new UntypedFormGroup({
+      'countryCode': new UntypedFormControl(['ca', 'us'], Validators.required),
+      'searchField': new UntypedFormControl(null, Validators.required)
     })
   }
 
@@ -49,6 +49,8 @@ export class GoogleAddressComponent implements OnInit {
     autoComplete.addListener('place_changed', function () {
       const place = ac.getPlace();
       const response = ref.googleService.makeCustomAddressObject(place['address_components'])
+      console.log('response===', response);
+      
       ref.selectedAddress.emit(response)
     })
   }

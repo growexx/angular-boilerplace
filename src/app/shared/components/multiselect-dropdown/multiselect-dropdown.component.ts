@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { UsersService } from 'src/app/users/users.service';
+import { UsersService } from '../../../users/users.service';
+// import { UsersService } from 'src/app/users/users.service';
 
 @Component({
   selector: 'app-multiselect-dropdown',

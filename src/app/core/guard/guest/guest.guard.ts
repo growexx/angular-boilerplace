@@ -6,17 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GuestGuard implements CanActivate {
-  constructor(
-    private readonly router: Router,
-  ){}
-  canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      let token = localStorage.getItem('token');
-      if(token === null) {
-        return true;
-      } else {
-        this.router.navigate(['/admin']);
-        return false;
-      }
+  constructor(private readonly router: Router) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    let token = localStorage.getItem('token');
+    if (token === null) {
+      return true;
+    } else {
+      return this.router.createUrlTree(['/admin']);
+    }
   }
-  
 }

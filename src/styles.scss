@@ -2,10 +2,11 @@
 
 // /* Importing Bootstrap SCSS file. */
 @use '@angular/material' as mat;
-@import "~bootstrap/scss/bootstrap";
+@import '../node_modules/bootstrap/scss/bootstrap';
 @import "./assets/styles/variables/colors";
-@import "./node_modules/8-point-grid/scss/8-point-grid.scss";
+@import "../node_modules/8-point-grid/scss/8-point-grid.scss";
 @import './assets/styles/style';
+
 
 @include mat.core();
 $my-theme-primary: mat.define-palette(mat.$light-blue-palette, 300, A100);
@@ -46029,3 +46030,13 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.sidebar-screen-bg {
+  background-image: url("./assets/auth-screens.png");
+  background-size: contain;
+  background-position-x: center;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  margin-bottom: 30px;
+  min-height: 450px;
+}

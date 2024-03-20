@@ -1,36 +1,46 @@
+@use "sass:math";
+
 @for $i from 0 through 100 {
   .width-#{$i} {
-    width: round(percentage($i/100));
+    width: round(percentage(math.div($i, 100)));
   }
 }
+
 @media (max-width: breakpoint(screen-xs-min)) {
   .width-xs-100 {
     width: 100% !important;
   }
 }
-@media (min-width: breakpoint(screen-xs-min)) and (max-width: breakpoint(screen-xs-max)) {
-  .width-xs-100 {
-    width: 100% !important;
-  }
-}
-@media (min-width: breakpoint(screen-sm-min)) and (max-width: breakpoint(screen-sm-max)) {
-  .width-sm-100 {
-    width: 100% !important;
-  }
-  .width-sm-25 {
-    width: 25% !important;
-  }
-}
-@media (min-width: breakpoint(screen-md-min)) and (max-width: breakpoint(screen-md-max)) {
-  .width-md-100 {
-    width: 100% !important;
-  }
-}
-@media (min-width: breakpoint(screen-lg-min)) and (max-width: breakpoint(screen-lg-max)) {
-  .width-lg-100 {
-    width: 100% !important;
-  }
-}
+
+
+// @media (min-width: breakpoint(screen-xs-min)) and (max-width: breakpoint(screen-xs-max)) {
+//   .width-xs-100 {
+//     width: 100% !important;
+//   }
+// }
+
+// @media (min-width: breakpoint(screen-sm-min)) and (max-width: breakpoint(screen-sm-max)) {
+//   .width-sm-100 {
+//     width: 100% !important;
+//   }
+
+//   .width-sm-25 {
+//     width: 25% !important;
+//   }
+// }
+
+// @media (min-width: breakpoint(screen-md-min)) and (max-width: breakpoint(screen-md-max)) {
+//   .width-md-100 {
+//     width: 100% !important;
+//   }
+// }
+
+// @media (min-width: breakpoint(screen-lg-min)) and (max-width: breakpoint(screen-lg-max)) {
+//   .width-lg-100 {
+//     width: 100% !important;
+//   }
+// }
+
 .width-500px {
   width: 500px;
 }

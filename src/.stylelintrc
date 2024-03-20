@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "stylelint-8-point-grid"
+  ]
+}

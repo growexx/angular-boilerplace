@@ -9,7 +9,9 @@ import { HeaderComponent } from '../shared/layout/header/header.component';
 import { FooterComponent } from '../shared/layout/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { ToolbarComponent } from '../shared/layout/toolbar/toolbar.component';
-import { NgbAccordion, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgChartsModule } from 'ng2-charts';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,8 @@ import { NgbAccordion, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     MatDialogModule,
     NgbAccordionModule,
-  ],
-  exports: [
-    DashboardComponent,
-    SidebarComponent,
-    HeaderComponent,
-    FooterComponent,
+    NgChartsModule,
+    RouterModule
   ]
 })
 export class DashboardModule { }

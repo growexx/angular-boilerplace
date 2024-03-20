@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilterPipe } from './pipes/filter.pipe';
 import { TableComponent } from './organisms/widgets/table/table.component';
@@ -23,6 +23,8 @@ import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { AuthsidebarComponent } from './layout/authsidebar/authsidebar.component';
+import { PasswordStrengthBarComponent } from './components/password-strength-bar/password-strength-bar.component';
 
 @NgModule({
   declarations: [
@@ -37,24 +39,27 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     ButtonsComponent,
     GoogleAddressComponent,
     ImageUploadComponent,
-    ToolbarComponent,
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ToolbarComponent,
+    PasswordStrengthBarComponent,
+    AuthsidebarComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     NgxPaginationModule,
     MatDialogModule,
     MatSelectModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
   ],
   exports: [
+    CommonModule,
     FilterPipe,
     TableComponent,
     DropdownComponent,
@@ -66,10 +71,15 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     ButtonsComponent,
     GoogleAddressComponent,
     ImageUploadComponent,
-    ToolbarComponent,
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ToolbarComponent,
+    PasswordStrengthBarComponent,
+    AuthsidebarComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
 })
 
