@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
           icon: 'success',
           title: "You have successfully logged in!",
         });
-        window.localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.token);
         console.log('hello login done');
         
         this.router.navigate(['/admin']);

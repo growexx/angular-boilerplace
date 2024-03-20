@@ -33,9 +33,9 @@ describe('HeaderComponent', () => {
   });
 
   it('should called logout() and rediredct to login page', () => {
-    window.localStorage.setItem('token', 'true');
+    localStorage.setItem('token', 'true');
     component.logout();
-    expect(window.localStorage.getItem('token')).toBe(null);
+    expect(localStorage.getItem('token')).toBe(null);
     expect(routerSpy.navigate).toHaveBeenCalledWith(['/']);
   });
 });

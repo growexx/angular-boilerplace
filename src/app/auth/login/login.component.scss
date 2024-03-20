@@ -1,14 +1,24 @@
-// @import "../../../assets/styles/style";
-// // login component's scss
-// .form-title{
-//     font-size: 1.5rem;
-// }
-// .form-links{
-//   font-size: 15px;
-// }
-// @media (min-width: breakpoint(screen-xs-min)) and (max-width: breakpoint(screen-xs-max)) {
-//   .content-container {
-//     height: 100vh;
-//     padding: 10px;
-//   }
-// }
+@import "../../../assets/styles/style";
+// login component's scss
+.form-title{
+    font-size: 1.5rem;
+}
+.form-links{
+  font-size: 15px;
+}
+@media (min-width: breakpoint(screen-xs-min)) and (max-width: breakpoint(screen-xs-max)) {
+  .content-container {
+    height: 100vh;
+    padding: 10px;
+  }
+}
+
+.sidebar-screen-bg {
+    background-image: url("../../../assets/auth-screens.png");
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+    min-height: 450px;
+}

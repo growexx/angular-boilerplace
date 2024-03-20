@@ -6,12 +6,26 @@ import { CommonService } from '../core/services/common/common.service';
 import { ModalComponent } from '../shared/components/modal/modal.component';
 import { taskDetailsType } from '../task/task-modal';
 import { TaskService } from '../task/task.service';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    SharedModule,
+    HttpClientModule,
+    MainComponent,
+],
+providers: [TaskService, CommonService, MatDialog, HttpClient],
   styleUrls: ['./main.component.scss']
 })
+
 export class MainComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private taskService: TaskService,public commonService: CommonService) { }

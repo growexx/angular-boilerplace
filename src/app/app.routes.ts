@@ -9,13 +9,12 @@ export const routes: Routes = [
     {
         path: '',
         component: AuthComponent,
-        // canActivate: [GuestGuard],
+        canActivate: [GuestGuard],
         loadChildren: () => import('./auth/auth.module').then(auth => auth.AuthModule),
       }, {
         path: 'admin',
-        // loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
         component: MainComponent,
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         data: {
           title: 'Dashboard',
         },
@@ -43,7 +42,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, {useHash: false})],
     exports: [RouterModule]
   })
   export class AppRoutes { }

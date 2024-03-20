@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
@@ -13,6 +13,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MainComponent } from './main/main.component';
 import { CommonModule } from '@angular/common';
 import { TaskService } from './task/task.service';
+import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -23,9 +25,8 @@ import { TaskService } from './task/task.service';
     NgbModule,
     BrowserModule,
     CommonModule,
-    // SharedModule,
-    // RouterOutlet,
-    AppRoutes,
+    SharedModule,
+    RouterModule,
     HttpClientModule,
     SweetAlert2Module.forRoot(),
     BrowserAnimationsModule,
@@ -34,10 +35,11 @@ import { TaskService } from './task/task.service';
     MatNativeDateModule,
     // AuthModule
   ],
+  // exports:[SharedModule],
   providers:[
     TaskService
   ],
-  exports: [],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

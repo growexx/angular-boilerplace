@@ -13,8 +13,10 @@ import {MatInputModule} from '@angular/material/input';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { SharedModule } from '../shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UsersService } from './users.service';
+import { UserService } from './user.service';
+import { GoogleapiService } from '../core/services/googleapi.service';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -33,14 +35,14 @@ const maskConfig: Partial<IConfig> = {
     MatMenuModule,
     MatSelectModule,
     MatStepperModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
     SharedModule,
-    HttpClientModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
-  providers:[UsersService],
+  providers:[UserService, UsersService, HttpClient, GoogleapiService],
   exports: [SharedModule]
 })
 

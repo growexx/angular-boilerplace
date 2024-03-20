@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ToolbarComponent } from '../shared/layout/toolbar/toolbar.component';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgChartsModule } from 'ng2-charts';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,8 @@ import { NgChartsModule } from 'ng2-charts';
     SharedModule,
     MatDialogModule,
     NgbAccordionModule,
-    NgChartsModule
-  ],
-  exports: [
-    DashboardComponent,
-    SidebarComponent,
-    HeaderComponent,
-    FooterComponent,
+    NgChartsModule,
+    RouterModule
   ]
 })
 export class DashboardModule { }
