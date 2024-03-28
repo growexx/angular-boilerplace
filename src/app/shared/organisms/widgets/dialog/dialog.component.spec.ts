@@ -5,10 +5,10 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { DialogComponent } from './dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UsersService } from 'src/app/users/users.service';
-import { UsersListComponent } from 'src/app/users/users-list/users-list.component';
+import { UsersService } from '../../../../users/users.service';
+import { UsersListComponent } from '../../../../users/users-list/users-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../../environments/environment';
 import { throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 

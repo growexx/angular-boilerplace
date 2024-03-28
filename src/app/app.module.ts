@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,33 +11,35 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MainComponent } from './main/main.component';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { CommonModule } from '@angular/common';
+import { TaskService } from './task/task.service';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
     MainComponent
   ],
   imports: [
     NgbModule,
     BrowserModule,
-    AppRoutingModule,
+    CommonModule,
+    SharedModule,
+    RouterModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
     BrowserAnimationsModule,
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    SharedModule
+    // AuthModule
   ],
-  providers: [
-    DashboardModule,
-    BrowserAnimationsModule
+  // exports:[SharedModule],
+  providers:[
+    TaskService
   ],
-  exports: [SharedModule],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

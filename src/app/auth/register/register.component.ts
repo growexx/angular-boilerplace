@@ -1,12 +1,14 @@
+
+
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import * as moment from 'moment';
-import { ConfirmPasswordValidator } from 'src/app/core/validators/confirm-password/ConfirmPasswordValidator';
-import { PasswordValidator } from 'src/app/core/validators/password/PasswordValidator';
-import { UsersService } from 'src/app/users/users.service';
+import moment from 'moment';
 import Swal from 'sweetalert2';
 import { AuthService } from '../auth.service';
+import { UsersService } from '../../users/users.service';
+import { ConfirmPasswordValidator } from '../../core/validators/confirm-password/ConfirmPasswordValidator';
+import { PasswordValidator } from '../../core/validators/password/PasswordValidator';
 
 
 @Component({
@@ -39,15 +41,15 @@ export class RegisterComponent implements OnInit {
     maxBadgeLimit: 1,
   };
 
-  registerForm = new FormGroup({
-    firstName: new FormControl('Pruthvi', [Validators.required, Validators.minLength(3)]),
-    lastName: new FormControl('Dhamecha', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('pruthvi.dhamecha@gmail.com', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
-    dob: new FormControl(moment(), [Validators.required]),
-    department: new FormControl('', [Validators.required]),
-    password: new FormControl('Asdf@1234', [Validators.required, PasswordValidator(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]),
-    confirmpassword: new FormControl('Asdf@1234', [Validators.required, PasswordValidator(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]),
-    termsAndConditions: new FormControl(true, [Validators.requiredTrue]),
+  registerForm = new UntypedFormGroup({
+    firstName: new UntypedFormControl('Pruthvi', [Validators.required, Validators.minLength(3)]),
+    lastName: new UntypedFormControl('Dhamecha', [Validators.required, Validators.minLength(3)]),
+    email: new UntypedFormControl('pruthvi.dhamecha@gmail.com', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
+    dob: new UntypedFormControl(moment(), [Validators.required]),
+    department: new UntypedFormControl('', [Validators.required]),
+    password: new UntypedFormControl('Asdf@1234', [Validators.required, PasswordValidator(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]),
+    confirmpassword: new UntypedFormControl('Asdf@1234', [Validators.required, PasswordValidator(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]),
+    termsAndConditions: new UntypedFormControl(true, [Validators.requiredTrue]),
   }, { validators: ConfirmPasswordValidator() });
 
   submitButton: any = {

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CommonService } from 'src/app/core/services/common/common.service';
-import { UsersService } from 'src/app/users/users.service';
+import { CommonService } from '../../../../core/services/common/common.service';
+import { UsersService } from '../../../../users/users.service';
 import Swal from 'sweetalert2';
 
 @Component({

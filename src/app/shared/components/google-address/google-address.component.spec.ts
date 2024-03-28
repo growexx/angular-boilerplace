@@ -1,10 +1,10 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SimpleChange } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { observable, of } from 'rxjs';
-import { GoogleapiService } from 'src/app/core/services/googleapi.service';
 import { GoogleAddressComponent } from './google-address.component';
+import { GoogleapiService } from '../../../core/services/googleapi.service';
 
 describe('GoogleAddressComponent', () => {
   let component: GoogleAddressComponent;
@@ -35,7 +35,7 @@ describe('GoogleAddressComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [GoogleAddressComponent],
       imports:[HttpClientTestingModule],
-      providers: [ FormBuilder,
+      providers: [ UntypedFormBuilder,
         { provide: GoogleapiService, useValue: googleApiService },
       ],
       

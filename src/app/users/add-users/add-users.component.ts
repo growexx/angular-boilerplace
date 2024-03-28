@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-import { AppConstant } from 'src/app/core/constants/app.constant';
-import { AsyncService } from 'src/app/core/services/async.service';
+import { AppConstant } from '../../core/constants/app.constant';
+import { AsyncService } from '../../core/services/async.service';
 import { UserService } from '../user.service';
 import { createUser } from '../usermodal';
 @Component({
@@ -12,9 +12,9 @@ import { createUser } from '../usermodal';
 })
 export class AddUsersComponent implements OnInit {
 
-  public firstFormGroup: FormGroup | any;
-  public secondFormGroup: FormGroup | any;
-  private userFormGroup: FormArray | any;
+  public firstFormGroup: UntypedFormGroup | any;
+  public secondFormGroup: UntypedFormGroup | any;
+  private userFormGroup: UntypedFormArray | any;
   public userModal: createUser | any;
   isLinear: boolean = false;
   imagePath: string = 'hello';
@@ -32,19 +32,20 @@ export class AddUsersComponent implements OnInit {
   firstFormVal: any;
   secondFormVal: any;
   public isaddressTypeDisabled: boolean = false;
-  countryEnum = AppConstant.countryEnum;
-  constructor(private formBuilder: FormBuilder, private userService: UserService, public asyncService: AsyncService) { }
+  countryEnum = AppConstant
+  .countryEnum;
+  constructor(private formBuilder: UntypedFormBuilder, private userService: UserService, public asyncService: AsyncService) { }
 
   ngOnInit(): void {
     this.getDetails()
   }
 
   getDetails() {
-    this.firstFormGroup = new FormGroup({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.email, Validators.required])
+    this.firstFormGroup = new UntypedFormGroup({
+      firstName: new UntypedFormControl('', [Validators.required]),
+      lastName: new UntypedFormControl('', [Validators.required]),
+      phone: new UntypedFormControl('', [Validators.required]),
+      email: new UntypedFormControl('', [Validators.email, Validators.required])
     });
     this.secondFormGroup = this.formBuilder.group({
       addressLine1: ['', Validators.required],
@@ -53,13 +54,13 @@ export class AddUsersComponent implements OnInit {
       state: ['', Validators.required],
       postalCode: ['', Validators.required],
       country: ['', Validators.required],
-      customerAddressDTO: new FormArray([])
+      customerAddressDTO: new UntypedFormArray([])
     });
   }
 
   goToStep2() {
     const firstFormVal = this.firstFormGroup.value;
-    const control = this.secondFormGroup.get("customerAddressDTO") as FormArray;
+    const control = this.secondFormGroup.get("customerAddressDTO") as UntypedFormArray;
     control.push(this.getAddressForm)
     this.getAllControls();
 
@@ -71,14 +72,14 @@ export class AddUsersComponent implements OnInit {
   }
 
   get getAddressForm() {
-    return new FormGroup({
-      id: new FormControl(null),
-      addressLine1: new FormControl(['', Validators.required]),
-      addressLine2: new FormControl(['', Validators.required]),
-      city: new FormControl(['', Validators.required]),
-      state: new FormControl(['', Validators.required]),
-      postalCode: new FormControl(['', Validators.required]),
-      country: new FormControl(['ca', Validators.required]),
+    return new UntypedFormGroup({
+      id: new UntypedFormControl(null),
+      addressLine1: new UntypedFormControl(['', Validators.required]),
+      addressLine2: new UntypedFormControl(['', Validators.required]),
+      city: new UntypedFormControl(['', Validators.required]),
+      state: new UntypedFormControl(['', Validators.required]),
+      postalCode: new UntypedFormControl(['', Validators.required]),
+      country: new UntypedFormControl(['ca', Validators.required]),
     })
   }
 

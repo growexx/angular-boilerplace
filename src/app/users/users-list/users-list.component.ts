@@ -1,7 +1,7 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../shared/organisms/widgets/dialog/dialog.component';
-import { CommonService } from 'src/app/core/services/common/common.service';
+import { CommonService } from '../../core/services/common/common.service';
 import { UsersService } from '../users.service';
 import Swal from 'sweetalert2';
 

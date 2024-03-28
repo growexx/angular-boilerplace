@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import * as _ from 'lodash';
-import { AppConstant } from 'src/app/core/constants/app.constant';
+import { AppConstant } from '../../../core/constants/app.constant';
+
 @Component({
     selector: 'app-image-upload',
     templateUrl: './image-upload.component.html',

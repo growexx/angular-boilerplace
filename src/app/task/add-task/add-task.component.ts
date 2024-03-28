@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { addTaskType, getSingleTodoType, updateTaskType } from '../task-modal';
@@ -13,7 +13,7 @@ import { TaskService } from '../task.service';
 export class AddTaskComponent implements OnInit {
 
   addTask!: addTaskType;
-  taskFormGroup!: FormGroup;
+  taskFormGroup!: UntypedFormGroup;
   @ViewChild('successSwal')
   public readonly successSwal!: SwalComponent;
 
@@ -41,10 +41,10 @@ export class AddTaskComponent implements OnInit {
 
 
   addTaskDetails() {
-    this.taskFormGroup = new FormGroup({
-      todo: new FormControl('', [Validators.required]),
-      completed: new FormControl('', [Validators.required]),
-      userId: new FormControl(1),
+    this.taskFormGroup = new UntypedFormGroup({
+      todo: new UntypedFormControl('', [Validators.required]),
+      completed: new UntypedFormControl('', [Validators.required]),
+      userId: new UntypedFormControl(1),
     })
   }
 
